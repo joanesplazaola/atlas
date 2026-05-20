@@ -40,8 +40,8 @@ function norm(v) {
 
 const levelLabel = { introductory: "Introductorio", intermediate: "Intermedio", advanced: "Avanzado" };
 const levelBadge = { introductory: "badge--intro",  intermediate: "badge--inter",  advanced: "badge--advanced" };
-
 const effortLabel = { short: "corto", medium: "medio", long: "largo" };
+const kindLabel   = { article: "artículo", chapter: "capítulo", book: "libro", pamphlet: "folleto", speech: "discurso", letter: "carta" };
 
 function buildSearchText(t) {
   return norm([
@@ -237,8 +237,16 @@ function renderDetail() {
   /* ── Overview tab ── */
   const overviewEl = detailContent.querySelector("#tab-overview");
 
+  if (theme.editorial_intent) {
+    overviewEl.innerHTML += `
+      <div class="editorial-note">
+        <div class="editorial-note__label">Nota editorial</div>
+        ${esc(theme.editorial_intent)}
+      </div>`;
+  }
+
   if (theme.entry_points?.length) {
-    overviewEl.innerHTML += `<p class="section-title">Por donde empezar</p><div class="overview-grid" id="ov-entry"></div>`;
+    overviewEl.innerHTML += `<p class="section-title">Puntos de entrada</p><div class="overview-grid" id="ov-entry"></div>`;
     const ovEntry = overviewEl.querySelector("#ov-entry");
     theme.entry_points.forEach(ep => {
       const c = document.createElement("div");
@@ -248,7 +256,7 @@ function renderDetail() {
     });
   }
 
-  overviewEl.innerHTML += `<p class="section-title" style="margin-top:24px">Autores clave</p><div class="authors-grid" id="ov-authors"></div>`;
+  overviewEl.innerHTML += `<p class="section-title">Autores clave</p><div class="authors-grid" id="ov-authors"></div>`;
   const ovAuthors = overviewEl.querySelector("#ov-authors");
   theme.key_authors.forEach(a => {
     const c = document.createElement("article");
@@ -261,7 +269,7 @@ function renderDetail() {
   });
 
   if (theme.connected_concepts?.length) {
-    overviewEl.innerHTML += `<p class="section-title" style="margin-top:24px">Conceptos relacionados</p><div class="concepts-cloud" id="ov-concepts"></div>`;
+    overviewEl.innerHTML += `<p class="section-title">Conceptos relacionados</p><div class="concepts-cloud" id="ov-concepts"></div>`;
     const ovConcepts = overviewEl.querySelector("#ov-concepts");
     theme.connected_concepts.forEach(c => ovConcepts.appendChild(conceptChip(c.label)));
   }
@@ -282,7 +290,7 @@ function renderDetail() {
        </div>
        <div class="work-card__meta">
          <span class="badge ${levelBadge[w.level] || ""}">${levelLabel[w.level] || w.level}</span>
-         <span class="badge badge--kind">${esc(w.kind)}</span>
+         <span class="badge badge--kind">${esc(kindLabel[w.kind] || w.kind)}</span>
          <span class="badge badge--effort">Lectura ${esc(effortLabel[w.estimated_effort] || w.estimated_effort)}</span>
        </div>
        <p class="work-card__reason">${esc(w.reason_to_read)}</p>

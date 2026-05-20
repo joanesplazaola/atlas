@@ -1,0 +1,27 @@
+{
+  "name": "marxists.org",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --ui"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joanesplazaola/atlas.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joanesplazaola/atlas/issues"
+  },
+  "homepage": "https://github.com/joanesplazaola/atlas#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.60.0"
+  }
+}

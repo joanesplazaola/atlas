@@ -1,0 +1,73 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate-content:
+    name: Validar fichas JSON
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Instalar jsonschema
+        run: pip install jsonschema
+
+      - name: Validar todas las fichas
+        run: |
+          python3 - <<'EOF'
+          import json, jsonschema, sys, glob
+
+          schema = json.load(open("schema/theme-entry.schema.json"))
+          files  = glob.glob("content/themes/*.json")
+          files  = [f for f in files if not f.endswith("index.json")]
+
+          errors = []
+          for path in files:
+              data = json.load(open(path))
+              try:
+                  jsonschema.validate(data, schema)
+                  print(f"  ✓ {path}")
+              except jsonschema.ValidationError as e:
+                  errors.append(f"  ✗ {path}: {e.message}")
+
+          if errors:
+              print("\nErrores de validación:")
+              for err in errors:
+                  print(err)
+              sys.exit(1)
+
+          print(f"\n{len(files)} fichas validadas correctamente.")
+          EOF
+
+  e2e-tests:
+    name: Tests Playwright
+    runs-on: ubuntu-latest
+    needs: validate-content
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Instalar Playwright browsers
+        run: npx playwright install chromium --with-deps
+
+      - name: Ejecutar tests
+        run: npx playwright test
+
+      - name: Subir resultados (si hay fallos)
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-results
+          path: test-results/
+          retention-days: 7

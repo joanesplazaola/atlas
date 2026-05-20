@@ -2,8 +2,8 @@
   "id": "vivienda",
   "slug": "vivienda",
   "title": "Vivienda",
-  "summary": "Ficha de orientacion para estudiar la cuestion de la vivienda como problema social ligado a la explotacion, la urbanizacion capitalista y la reproduccion de la clase trabajadora.",
-  "editorial_intent": "Conectar textos clasicos que ayuden a pasar de la denuncia de la miseria urbana a una lectura estructural del problema de la vivienda dentro del capitalismo.",
+  "summary": "Ficha de orientación para estudiar la cuestión de la vivienda como problema social ligado a la explotación, la urbanización capitalista y la reproducción de la clase trabajadora.",
+  "editorial_intent": "Entrada recomendada: La cuestión de la vivienda de Engels, que discute directamente propuestas reformistas de su época y sigue siendo el texto de referencia marxista sobre el tema.",
   "status": "reviewed",
   "entry_points": [
     {
@@ -82,12 +82,12 @@
   "connected_concepts": [
     {
       "id": "urbanizacion",
-      "label": "Urbanizacion",
+      "label": "Urbanización",
       "relation": "Relaciona vivienda con concentracion industrial, crecimiento desigual de la ciudad y segregacion espacial."
     },
     {
       "id": "reproduccion-de-la-fuerza-de-trabajo",
-      "label": "Reproduccion de la fuerza de trabajo",
+      "label": "Reproducción de la fuerza de trabajo",
       "relation": "Permite entender la vivienda como condicion material de vida y trabajo, no como consumo aislado."
     },
     {
@@ -97,7 +97,7 @@
     },
     {
       "id": "salud-publica",
-      "label": "Salud publica",
+      "label": "Salud pública",
       "relation": "Conecta hacinamiento y vivienda degradada con enfermedad, mortalidad y desigualdad urbana."
     }
   ],

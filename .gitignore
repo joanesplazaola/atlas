@@ -1,3 +1,11 @@
 .playwright-mcp/
 nohup.out
 *.log
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Playwright artifacts
+test-results/
+playwright-report/

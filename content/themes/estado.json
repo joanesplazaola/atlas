@@ -2,8 +2,8 @@
   "id": "estado",
   "slug": "estado",
   "title": "Estado",
-  "summary": "Ficha de orientacion para estudiar el Estado como forma historica de dominacion de clase, sus crisis y su relacion con la revolucion.",
-  "editorial_intent": "Ordenar un tema amplio a partir de textos clasicos que permitan pasar de la critica del Estado existente a los problemas de transicion y poder revolucionario.",
+  "summary": "Ficha de orientación para estudiar el Estado como forma histórica de dominación de clase, sus crisis y su relación con la revolución.",
+  "editorial_intent": "Entrada por Lenin: El Estado y la revolución es el texto más sintético y accesible. Desde ahí se puede ir hacia atrás (El origen de la familia de Engels) o hacia adelante (La guerra civil en Francia de Marx).",
   "status": "reviewed",
   "entry_points": [
     {
@@ -88,7 +88,7 @@
   "connected_concepts": [
     {
       "id": "comuna-de-paris",
-      "label": "Comuna de Paris",
+      "label": "Comuna de París",
       "relation": "Permite seguir el problema del poder obrero y la transformacion de la forma estatal."
     },
     {
@@ -103,7 +103,7 @@
     },
     {
       "id": "revolucion",
-      "label": "Revolucion",
+      "label": "Revolución",
       "relation": "Abre la pregunta por la toma del poder y la reorganizacion de la sociedad."
     }
   ],

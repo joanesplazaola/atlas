@@ -2,8 +2,8 @@
   "id": "imperialismo",
   "slug": "imperialismo",
   "title": "Imperialismo",
-  "summary": "Ficha de orientacion para estudiar el imperialismo como fase historica del capitalismo, sus formas de expansion y sus debates clasicos.",
-  "editorial_intent": "Orientar la lectura del tema sin sustituir las fuentes originales, sin generar doctrina nueva y dejando visible que esta ficha es una capa editorial de navegacion.",
+  "summary": "Ficha de orientación para estudiar el imperialismo como fase histórica del capitalismo, sus formas de expansión y sus debates clásicos.",
+  "editorial_intent": "Entrada recomendada: el folleto de Lenin, breve y directo. Desde ahí se puede ir a Bujarin para la dimensión económica global, o a Luxemburgo para el debate sobre acumulación y crisis.",
   "status": "reviewed",
   "entry_points": [
     {
@@ -103,7 +103,7 @@
     },
     {
       "id": "nacion",
-      "label": "Nacion",
+      "label": "Nación",
       "relation": "Abre la relacion entre expansion imperial, cuestion nacional y dominacion sobre pueblos oprimidos."
     }
   ],
