@@ -188,5 +188,10 @@
     "excerpt_max_words": 120,
     "attribution_required": true,
     "notes": "Esta ficha funciona como orientacion editorial. No debe republicar textos completos ni reemplazar la lectura de las obras enlazadas."
-  }
+  },
+  "related_themes": [
+    "imperialismo",
+    "partido",
+    "fascismo"
+  ]
 }

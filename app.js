@@ -5,15 +5,20 @@ const state = {
   selectedSlug: null,
   activeTab: "overview",
   query: "",
-  activeConcept: null
+  activeConcept: null,
+  activeAuthor: null,   // author filter from author index view
+  view: "temas",        // "temas" | "autores"
 };
 
+const appEl        = document.querySelector(".app");
 const themeList    = document.querySelector("#theme-grid");
 const detailEmpty  = document.querySelector("#detail-empty");
 const detailContent = document.querySelector("#detail-content");
 const stats        = document.querySelector("#stats");
 const searchInput  = document.querySelector("#search-input");
 const activeFilter = document.querySelector("#active-filter");
+const navTemas     = document.querySelector("#nav-temas");
+const navAutores   = document.querySelector("#nav-autores");
 
 /* ─── Helpers ──────────────────────────────────────────────────── */
 
@@ -68,16 +73,45 @@ function conceptChip(label) {
   return btn;
 }
 
+/* ─── Related theme chip ────────────────────────────────────────── */
+
+function relatedThemeChip(slug) {
+  const theme = state.themes.find(t => t.slug === slug);
+  if (!theme) return null;
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "chip chip--theme";
+  btn.textContent = theme.title;
+  btn.title = theme.summary;
+  btn.addEventListener("click", () => {
+    state.selectedSlug = slug;
+    state.activeTab = "overview";
+    setHash(slug);
+    renderList();
+    renderDetail();
+    switchMobileView("detail");
+  });
+  return btn;
+}
+
+/* ─── Mobile view switching ─────────────────────────────────────── */
+
+function switchMobileView(view) {
+  appEl.setAttribute("data-view", view);
+}
+
 /* ─── Filter & render pipeline ─────────────────────────────────── */
 
 function applyFilters() {
   const q  = norm(state.query.trim());
   const ac = state.activeConcept ? norm(state.activeConcept) : null;
+  const aa = state.activeAuthor  ? norm(state.activeAuthor)  : null;
 
   state.filteredThemes = state.themes.filter(t => {
     const mQ  = !q  || buildSearchText(t).includes(q);
     const mC  = !ac || t.connected_concepts.some(c => norm(c.label) === ac);
-    return mQ && mC;
+    const mA  = !aa || t.key_authors.some(a => norm(a.name) === aa);
+    return mQ && mC && mA;
   });
 
   if (!state.filteredThemes.some(t => t.slug === state.selectedSlug)) {
@@ -86,31 +120,57 @@ function applyFilters() {
 
   renderStats();
   renderFilterBar();
-  renderList();
+  if (state.view === "autores") {
+    renderAuthorList();
+  } else {
+    renderList();
+  }
   renderDetail();
 }
 
 function renderStats() {
   const works   = state.themes.reduce((n, t) => n + t.essential_works.length, 0);
-  const authors = new Set(state.themes.flatMap(t => t.key_authors.map(a => a.name))).size;
-  stats.innerHTML =
-    `<span class="stat-pill">${state.filteredThemes.length} temas</span>` +
-    `<span class="stat-pill">${works} obras</span>` +
-    `<span class="stat-pill">${authors} autores</span>`;
+  const authors = getAllAuthors().length;
+  if (state.view === "autores") {
+    stats.innerHTML =
+      `<span class="stat-pill">${authors} autores</span>` +
+      `<span class="stat-pill">${state.themes.length} temas</span>`;
+  } else {
+    stats.innerHTML =
+      `<span class="stat-pill">${state.filteredThemes.length} temas</span>` +
+      `<span class="stat-pill">${works} obras</span>` +
+      `<span class="stat-pill">${authors} autores</span>`;
+  }
 }
 
 function renderFilterBar() {
-  if (!state.activeConcept) { activeFilter.hidden = true; activeFilter.innerHTML = ""; return; }
+  const filters = [];
+  if (state.activeConcept) filters.push({ key: "concept", label: `Concepto: ${state.activeConcept}`, clear: () => { state.activeConcept = null; applyFilters(); } });
+  if (state.activeAuthor)  filters.push({ key: "author",  label: `Autor: ${state.activeAuthor}`,     clear: () => { state.activeAuthor = null;  applyFilters(); } });
+
+  if (!filters.length) { activeFilter.hidden = true; activeFilter.innerHTML = ""; return; }
   activeFilter.hidden = false;
-  activeFilter.innerHTML =
-    `<span class="filter-pill">
-       Concepto: <strong>${esc(state.activeConcept)}</strong>
-       <button type="button" id="clr-filter" aria-label="Quitar filtro">×</button>
-     </span>`;
-  activeFilter.querySelector("#clr-filter").addEventListener("click", () => {
-    state.activeConcept = null;
-    applyFilters();
+  activeFilter.innerHTML = filters.map(f =>
+    `<span class="filter-pill" data-key="${f.key}">
+       <strong>${esc(f.label)}</strong>
+       <button type="button" aria-label="Quitar filtro">×</button>
+     </span>`
+  ).join("");
+  filters.forEach(f => {
+    activeFilter.querySelector(`[data-key="${f.key}"] button`).addEventListener("click", f.clear);
   });
+}
+
+/* ─── Theme list (sidebar temas) ────────────────────────────────── */
+
+function renderSkeleton() {
+  themeList.innerHTML = Array.from({ length: 3 }, () =>
+    `<div class="theme-card theme-card--skeleton" aria-hidden="true">
+       <div class="skeleton-line skeleton-line--title"></div>
+       <div class="skeleton-line"></div>
+       <div class="skeleton-line skeleton-line--short"></div>
+     </div>`
+  ).join("");
 }
 
 function renderList() {
@@ -141,11 +201,66 @@ function renderList() {
       setHash(t.slug);
       renderList();
       renderDetail();
+      switchMobileView("detail");
     };
 
     el.addEventListener("click", e => { if (!e.target.closest(".chip")) select(); });
     el.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); select(); } });
 
+    themeList.appendChild(el);
+  });
+}
+
+/* ─── Author index (sidebar autores) ────────────────────────────── */
+
+function getAllAuthors() {
+  const seen = new Map();
+  state.themes.forEach(t => {
+    t.key_authors.forEach(a => {
+      if (!seen.has(a.id)) {
+        seen.set(a.id, { ...a, themes: [] });
+      }
+      seen.get(a.id).themes.push(t.slug);
+    });
+  });
+  return [...seen.values()].sort((a, b) => a.name.localeCompare(b.name, "es"));
+}
+
+function renderAuthorList() {
+  const authors = getAllAuthors();
+  const q = norm(state.query.trim());
+
+  const filtered = q
+    ? authors.filter(a => norm(a.name).includes(q) || norm(a.role).includes(q))
+    : authors;
+
+  if (!filtered.length) {
+    themeList.innerHTML = `<div class="empty-state">Sin resultados para esta búsqueda.</div>`;
+    return;
+  }
+
+  themeList.innerHTML = "";
+  filtered.forEach(a => {
+    const isActive = state.activeAuthor === a.name;
+    const el = document.createElement("article");
+    el.className = `author-list-card${isActive ? " author-list-card--active" : ""}`;
+    el.setAttribute("role", "button");
+    el.tabIndex = 0;
+    el.innerHTML =
+      `<div class="author-list-card__name">${esc(a.name)}</div>
+       <div class="author-list-card__count">${a.themes.length} tema${a.themes.length !== 1 ? "s" : ""}</div>`;
+
+    const select = () => {
+      state.activeAuthor = isActive ? null : a.name;
+      state.view = "temas";
+      navTemas.classList.add("topbar__nav-btn--active");
+      navAutores.classList.remove("topbar__nav-btn--active");
+      searchInput.placeholder = "Tema, autor, concepto…";
+      applyFilters();
+    };
+
+    el.addEventListener("click", select);
+    el.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); select(); } });
     themeList.appendChild(el);
   });
 }
@@ -176,6 +291,12 @@ function renderDetail() {
 
   detailContent.innerHTML = `
     <header class="detail__header">
+      <button class="detail__back" id="detail-back" aria-label="Volver a la lista">
+        <svg viewBox="0 0 16 16" fill="none" width="16" height="16" aria-hidden="true">
+          <path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Temas
+      </button>
       <div class="detail__header-top">
         <div>
           <p class="detail__eyebrow">Tema</p>
@@ -207,6 +328,11 @@ function renderDetail() {
       <div id="tab-debates"  class="tab-panel" role="tabpanel"></div>
     </div>
   `;
+
+  /* back button (mobile) */
+  detailContent.querySelector("#detail-back").addEventListener("click", () => {
+    switchMobileView("list");
+  });
 
   /* tabs nav */
   const tabsNav = detailContent.querySelector(".tabs");
@@ -272,6 +398,18 @@ function renderDetail() {
     overviewEl.innerHTML += `<p class="section-title">Conceptos relacionados</p><div class="concepts-cloud" id="ov-concepts"></div>`;
     const ovConcepts = overviewEl.querySelector("#ov-concepts");
     theme.connected_concepts.forEach(c => ovConcepts.appendChild(conceptChip(c.label)));
+  }
+
+  if (theme.related_themes?.length) {
+    const existingRelated = theme.related_themes.filter(slug => state.themes.some(t => t.slug === slug));
+    if (existingRelated.length) {
+      overviewEl.innerHTML += `<p class="section-title">Temas relacionados</p><div class="related-themes-cloud" id="ov-related"></div>`;
+      const ovRelated = overviewEl.querySelector("#ov-related");
+      existingRelated.forEach(slug => {
+        const chip = relatedThemeChip(slug);
+        if (chip) ovRelated.appendChild(chip);
+      });
+    }
   }
 
   /* ── Works tab ── */
@@ -357,6 +495,21 @@ function renderDetail() {
   });
 }
 
+/* ─── View switching ────────────────────────────────────────────── */
+
+function switchView(view) {
+  state.view = view;
+  navTemas.classList.toggle("topbar__nav-btn--active", view === "temas");
+  navAutores.classList.toggle("topbar__nav-btn--active", view === "autores");
+  searchInput.placeholder = view === "autores" ? "Buscar autor…" : "Tema, autor, concepto…";
+  renderStats();
+  if (view === "autores") {
+    renderAuthorList();
+  } else {
+    renderList();
+  }
+}
+
 /* ─── Data loading ─────────────────────────────────────────────── */
 
 async function fetchJson(path) {
@@ -366,6 +519,7 @@ async function fetchJson(path) {
 }
 
 async function init() {
+  renderSkeleton();
   try {
     const manifest = await fetchJson("content/themes/index.json");
     const themes   = await Promise.all(manifest.theme_files.map(p => fetchJson(p)));
@@ -385,13 +539,18 @@ async function init() {
 
 searchInput.addEventListener("input", e => { state.query = e.target.value; applyFilters(); });
 
+navTemas.addEventListener("click",   () => switchView("temas"));
+navAutores.addEventListener("click", () => switchView("autores"));
+
 window.addEventListener("hashchange", () => {
   const slug = getSlugFromHash();
   if (!slug || slug === state.selectedSlug) return;
   state.selectedSlug = slug;
   state.activeTab = "overview";
+  if (state.view !== "temas") switchView("temas");
   renderList();
   renderDetail();
 });
 
 init();
+

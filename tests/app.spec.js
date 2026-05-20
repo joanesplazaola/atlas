@@ -10,13 +10,13 @@ test.describe("Atlas Marxista — carga inicial", () => {
   test("el sidebar muestra temas de la biblioteca", async ({ page }) => {
     await page.goto("/");
     const cards = page.locator(".theme-card");
-    await expect(cards).toHaveCount(4);
+    await expect(cards).toHaveCount(6);
   });
 
   test("los stats muestran el número correcto de temas", async ({ page }) => {
     await page.goto("/");
     const stat = page.locator(".stat-pill").first();
-    await expect(stat).toContainText("4");
+    await expect(stat).toContainText("6");
   });
 });
 
@@ -100,6 +100,15 @@ test.describe("Atlas Marxista — búsqueda y filtros", () => {
     await expect(cards.first().locator(".theme-card__title")).toContainText(/imperialismo/i);
   });
 
+  test("la búsqueda por nombre de autor filtra los temas", async ({ page }) => {
+    await page.goto("/");
+    await page.locator("#search-input").fill("Lenin");
+    const cards = page.locator(".theme-card");
+    // Lenin aparece en múltiples fichas (imperialismo, partido, estado...)
+    const count = await cards.count();
+    expect(count).toBeGreaterThanOrEqual(2);
+  });
+
   test("una búsqueda sin resultados muestra el estado vacío", async ({ page }) => {
     await page.goto("/");
     await page.locator("#search-input").fill("xyzinexistente");
@@ -110,16 +119,14 @@ test.describe("Atlas Marxista — búsqueda y filtros", () => {
     await page.goto("/");
     await page.locator("#search-input").fill("imperialismo");
     await page.locator("#search-input").fill("");
-    await expect(page.locator(".theme-card")).toHaveCount(4);
+    await expect(page.locator(".theme-card")).toHaveCount(6);
   });
 
   test("hacer clic en un chip de concepto filtra los temas", async ({ page }) => {
     await page.goto("/");
-    // Open a theme to get concept chips visible in sidebar
     const chip = page.locator(".theme-card .chip").first();
     const conceptText = await chip.textContent();
     await chip.click();
-    // All remaining cards should contain that concept
     const filter = page.locator(".filter-pill");
     await expect(filter).toContainText(conceptText.trim());
   });
@@ -129,7 +136,7 @@ test.describe("Atlas Marxista — búsqueda y filtros", () => {
     await page.locator(".theme-card .chip").first().click();
     await page.locator(".filter-pill button").click();
     await expect(page.locator(".filter-pill")).toHaveCount(0);
-    await expect(page.locator(".theme-card")).toHaveCount(4);
+    await expect(page.locator(".theme-card")).toHaveCount(6);
   });
 });
 
@@ -142,7 +149,80 @@ test.describe("Atlas Marxista — navegación por hash", () => {
 
   test("un hash inválido muestra el estado vacío del detalle", async ({ page }) => {
     await page.goto("/#tema/tema-inexistente");
-    // Falls back to first theme (app auto-selects)
     await expect(page.locator("#detail-content")).toBeVisible();
   });
 });
+
+test.describe("Atlas Marxista — temas relacionados", () => {
+  test("la ficha de imperialismo muestra chips de temas relacionados", async ({ page }) => {
+    await page.goto("/#tema/imperialismo");
+    const chips = page.locator(".chip--theme");
+    await expect(chips.first()).toBeVisible();
+  });
+
+  test("hacer clic en un tema relacionado navega a esa ficha", async ({ page }) => {
+    await page.goto("/#tema/imperialismo");
+    const relatedChip = page.locator(".chip--theme").first();
+    const chipText = await relatedChip.textContent();
+    await relatedChip.click();
+    await expect(page.locator("#detail-title")).toContainText(chipText.trim(), { ignoreCase: true });
+  });
+});
+
+test.describe("Atlas Marxista — vista de autores", () => {
+  test("el botón Autores en el topbar cambia la vista", async ({ page }) => {
+    await page.goto("/");
+    await page.locator("#nav-autores").click();
+    await expect(page.locator(".author-list-card").first()).toBeVisible();
+  });
+
+  test("la lista de autores contiene al menos 5 autores únicos", async ({ page }) => {
+    await page.goto("/");
+    await page.locator("#nav-autores").click();
+    const authors = page.locator(".author-list-card");
+    const count = await authors.count();
+    expect(count).toBeGreaterThanOrEqual(5);
+  });
+
+  test("clic en un autor en vista Autores filtra el sidebar de temas", async ({ page }) => {
+    await page.goto("/");
+    await page.locator("#nav-autores").click();
+    await page.locator(".author-list-card").first().click();
+    // Debe volver a la vista de temas mostrando solo fichas del autor
+    const cards = page.locator(".theme-card");
+    const count = await cards.count();
+    expect(count).toBeGreaterThanOrEqual(1);
+  });
+
+  test("el botón Temas vuelve a la vista normal", async ({ page }) => {
+    await page.goto("/");
+    await page.locator("#nav-autores").click();
+    await page.locator("#nav-temas").click();
+    await expect(page.locator(".theme-card")).toHaveCount(6);
+  });
+});
+
+test.describe("Atlas Marxista — UX móvil", () => {
+  test.use({ viewport: { width: 375, height: 812 } });
+
+  test("en mobile la vista lista muestra el sidebar", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.locator(".sidebar")).toBeVisible();
+  });
+
+  test("seleccionar un tema en mobile muestra el detalle y oculta el sidebar", async ({ page }) => {
+    await page.goto("/");
+    await page.locator(".theme-card").first().click();
+    await expect(page.locator("#detail-content")).toBeVisible();
+    await expect(page.locator(".sidebar")).not.toBeVisible();
+  });
+
+  test("el botón atrás en mobile vuelve al sidebar", async ({ page }) => {
+    await page.goto("/");
+    await page.locator(".theme-card").first().click();
+    await page.locator(".detail__back").click();
+    await expect(page.locator(".sidebar")).toBeVisible();
+  });
+});
+
+

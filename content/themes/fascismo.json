@@ -1,0 +1,242 @@
+{
+  "id": "fascismo",
+  "slug": "fascismo",
+  "title": "Fascismo",
+  "summary": "Ficha de orientación para estudiar el fascismo como fenómeno político: su base social, su relación con el capital y las respuestas estratégicas del movimiento obrero.",
+  "editorial_intent": "Entrada recomendada: el análisis de Trotsky, que combina rigor teórico con urgencia política. Desde ahí se puede ir hacia Gramsci para la dimensión cultural e ideológica, y hacia Dimitrov para el debate estratégico sobre el frente popular.",
+  "status": "published",
+  "entry_points": [
+    {
+      "id": "ep-trotsky",
+      "label": "Desde Trotsky",
+      "description": "¿Qué es el fascismo? y sus textos de los años 30 son el punto de entrada más directo: analizan la base social del fascismo (pequeña burguesía desclasada) y critican las respuestas erróneas de la izquierda."
+    },
+    {
+      "id": "ep-gramsci",
+      "label": "Desde Gramsci",
+      "description": "Los cuadernos de la cárcel, escritos bajo la dictadura fascista, elaboran las categorías de hegemonía, guerra de posición y bloque histórico como respuesta al problema de por qué el fascismo pudo triunfar."
+    }
+  ],
+  "key_authors": [
+    {
+      "id": "trotsky-leon",
+      "name": "León Trotsky",
+      "role": "análisis de la base social y la dinámica política del fascismo",
+      "why_relevant": "Sus textos de 1930-1933 sobre Alemania son el análisis más preciso del fascismo como movimiento de masas de la pequeña burguesía movilizada por el gran capital contra el movimiento obrero. Critica duramente el oportunismo de la socialdemocracia y el sectarismo del KPD."
+    },
+    {
+      "id": "gramsci-antonio",
+      "name": "Antonio Gramsci",
+      "role": "hegemonía, cultura y crisis del Estado burgués ante el fascismo",
+      "why_relevant": "Analiza el fascismo como respuesta a la crisis orgánica del capitalismo italiano: cuando la clase dominante no puede mantener el consenso, recurre a la coerción. Sus categorías (hegemonía, bloque histórico, guerra de posición) son indispensables para entender por qué el fascismo no es un accidente sino un síntoma."
+    },
+    {
+      "id": "dimitrov-georgi",
+      "name": "Georgi Dimitrov",
+      "role": "estrategia antifascista: el frente popular",
+      "why_relevant": "Su informe al VII Congreso de la Internacional Comunista (1935) define el fascismo como la dictadura terrorista abierta de los sectores más reaccionarios del capital financiero y propone la estrategia del frente popular. Texto central para el debate estratégico, aunque también muy discutido."
+    }
+  ],
+  "essential_works": [
+    {
+      "id": "que-es-fascismo-trotsky",
+      "title": "¿Qué es el fascismo?",
+      "year": 1931,
+      "kind": "article",
+      "level": "introductory",
+      "estimated_effort": "short",
+      "author_ids": [
+        "trotsky-leon"
+      ],
+      "reason_to_read": "Definición precisa y accesible: el fascismo es la movilización contrarrevolucionaria de las masas pequeñoburguesas desclasadas al servicio del gran capital. Demoledor con la táctica del 'socialfascismo' del KPD.",
+      "source": {
+        "provider": "Marxists.org",
+        "url": "https://www.marxists.org/espanol/trotsky/ceip/escritos/libro2/T02V234.htm",
+        "attribution_label": "Trotsky, León. ¿Qué es el fascismo? (1931). Marxists.org."
+      }
+    },
+    {
+      "id": "alemania-clave-situacion-internacional",
+      "title": "Alemania, la clave de la situación internacional",
+      "year": 1931,
+      "kind": "article",
+      "level": "intermediate",
+      "estimated_effort": "short",
+      "author_ids": [
+        "trotsky-leon"
+      ],
+      "reason_to_read": "Análisis de la crisis política alemana de 1931-1933: por qué la victoria de Hitler no era inevitable y qué política de clase debía haber seguido el movimiento obrero para impedirla.",
+      "source": {
+        "provider": "Marxists.org",
+        "url": "https://www.marxists.org/espanol/trotsky/indice.htm",
+        "attribution_label": "Trotsky, León. Escritos sobre Alemania (1930-33). Marxists.org."
+      }
+    },
+    {
+      "id": "informe-vii-congreso-dimitrov",
+      "title": "Informe al VII Congreso de la Internacional Comunista",
+      "year": 1935,
+      "kind": "speech",
+      "level": "intermediate",
+      "estimated_effort": "medium",
+      "author_ids": [
+        "dimitrov-georgi"
+      ],
+      "reason_to_read": "El texto canónico de la estrategia de frente popular: define el fascismo, analiza sus bases sociales y propone la unidad antifascista de la clase obrera con sectores de la pequeña burguesía. Imprescindible para el debate estratégico.",
+      "source": {
+        "provider": "Marxists.org",
+        "url": "https://www.marxists.org/espanol/dimitrov/1935.htm",
+        "attribution_label": "Dimitrov, Georgi. La ofensiva del fascismo y las tareas de la IC (1935). Marxists.org."
+      }
+    },
+    {
+      "id": "cuadernos-carcel-gramsci",
+      "title": "Selección de los Cuadernos de la cárcel (sobre hegemonía y fascismo)",
+      "year": 1929,
+      "kind": "book",
+      "level": "advanced",
+      "estimated_effort": "long",
+      "author_ids": [
+        "gramsci-antonio"
+      ],
+      "reason_to_read": "No es un análisis directo del fascismo sino el desarrollo de las categorías teóricas necesarias para entenderlo: hegemonía, bloque histórico, guerra de posición, intelectuales orgánicos. Lectura difícil pero imprescindible.",
+      "source": {
+        "provider": "Marxists.org",
+        "url": "https://www.marxists.org/espanol/gramsci/index.htm",
+        "attribution_label": "Gramsci, Antonio. Cuadernos de la cárcel (1929-1935). Marxists.org."
+      }
+    }
+  ],
+  "connected_concepts": [
+    {
+      "id": "contrarrevolucion",
+      "label": "Contrarrevolución",
+      "relation": "Conecta el fascismo con la historia de las respuestas violentas del capital ante la amenaza revolucionaria."
+    },
+    {
+      "id": "pequena-burguesia",
+      "label": "Pequeña burguesía",
+      "relation": "La base social del fascismo: masas pequeñoburguesas desclasadas movilizadas contra el movimiento obrero."
+    },
+    {
+      "id": "hegemonia",
+      "label": "Hegemonía",
+      "relation": "Permite entender el fascismo como forma de dominación que combina coerción y consenso."
+    },
+    {
+      "id": "frente-popular",
+      "label": "Frente popular",
+      "relation": "La respuesta estratégica de los partidos comunistas al fascismo: alianza con la burguesía democrática."
+    },
+    {
+      "id": "capitalismo-monopolista",
+      "label": "Capitalismo monopolista",
+      "relation": "El fascismo como producto del capitalismo monopolista en crisis: su función económica y social."
+    },
+    {
+      "id": "crisis-organica",
+      "label": "Crisis orgánica",
+      "relation": "Gramsci: el fascismo emerge cuando la clase dominante pierde la capacidad de gobernar mediante el consenso."
+    },
+    {
+      "id": "estado-excepcion",
+      "label": "Estado de excepción",
+      "relation": "El fascismo como forma extrema del Estado de excepción: suspensión permanente de las libertades burguesas."
+    },
+    {
+      "id": "nacional-socialismo",
+      "label": "Nacional-socialismo",
+      "relation": "La variante alemana del fascismo: conexión entre ultranacionalismo, racismo y capital monopolista."
+    }
+  ],
+  "historical_debates": [
+    {
+      "id": "debate-socialfascismo",
+      "label": "El debate sobre el 'socialfascismo'",
+      "description": "El KPD y la IC en el período 1929-1933 equiparaban la socialdemocracia con el fascismo ('socialfascismo'), lo que bloqueó la unidad obrera. Trotsky criticó duramente esta táctica como un error fatal que facilitó la victoria de Hitler.",
+      "participant_author_ids": [
+        "trotsky-leon",
+        "dimitrov-georgi"
+      ],
+      "related_work_ids": [
+        "que-es-fascismo-trotsky",
+        "alemania-clave-situacion-internacional"
+      ]
+    },
+    {
+      "id": "debate-frente-popular",
+      "label": "Frente popular: alianza táctica o capitulación de clase",
+      "description": "La estrategia del frente popular (Dimitrov, 1935) propone la alianza con la burguesía democrática contra el fascismo. Trotsky la critica como subordinación del movimiento obrero a los intereses burgueses. Debate no resuelto con implicaciones estratégicas actuales.",
+      "participant_author_ids": [
+        "dimitrov-georgi",
+        "trotsky-leon"
+      ],
+      "related_work_ids": [
+        "informe-vii-congreso-dimitrov",
+        "alemania-clave-situacion-internacional"
+      ]
+    }
+  ],
+  "reading_paths": [
+    {
+      "id": "ruta-introduccion-fascismo",
+      "label": "Introducción al análisis marxista del fascismo",
+      "level": "introductory",
+      "goal": "Entender qué es el fascismo, cuál es su base social y por qué la izquierda cometió errores graves en su respuesta.",
+      "steps": [
+        {
+          "position": 1,
+          "work_id": "que-es-fascismo-trotsky",
+          "note": "Definición clara y accesible. Se lee en 20 minutos."
+        },
+        {
+          "position": 2,
+          "work_id": "alemania-clave-situacion-internacional",
+          "note": "Aplica el análisis al caso concreto de Alemania 1931."
+        },
+        {
+          "position": 3,
+          "work_id": "informe-vii-congreso-dimitrov",
+          "note": "La respuesta estratégica oficial del movimiento comunista. Comparar con Trotsky."
+        }
+      ]
+    },
+    {
+      "id": "ruta-avanzada-fascismo",
+      "label": "Fascismo, hegemonía y crisis del Estado",
+      "level": "advanced",
+      "goal": "Conectar el análisis coyuntural del fascismo con las categorías estructurales gramscianas sobre hegemonía, crisis orgánica y dominación de clase.",
+      "steps": [
+        {
+          "position": 1,
+          "work_id": "que-es-fascismo-trotsky",
+          "note": "Base: el análisis político concreto."
+        },
+        {
+          "position": 2,
+          "work_id": "cuadernos-carcel-gramsci",
+          "note": "Las categorías teóricas: hegemonía, bloque histórico, crisis orgánica."
+        },
+        {
+          "position": 3,
+          "work_id": "informe-vii-congreso-dimitrov",
+          "note": "El debate estratégico: frente popular como síntesis política."
+        }
+      ]
+    }
+  ],
+  "related_editorial_articles": [],
+  "related_themes": [
+    "estado",
+    "partido",
+    "imperialismo"
+  ],
+  "source_policy": {
+    "primary_source_name": "Marxists Internet Archive",
+    "link_only": true,
+    "allow_excerpt": true,
+    "excerpt_max_words": 120,
+    "attribution_required": true,
+    "notes": "Esta ficha funciona como orientación editorial. No debe republicar textos completos ni reemplazar la lectura de las obras enlazadas."
+  }
+}

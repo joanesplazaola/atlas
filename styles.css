@@ -91,6 +91,31 @@ button { cursor: pointer; }
   color: var(--text-muted);
 }
 
+/* ─── Topbar nav buttons ──────────────────────────────────────── */
+.topbar__nav {
+  display: flex;
+  gap: 4px;
+}
+
+.topbar__nav-btn {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  border-radius: var(--radius-sm);
+  padding: 5px 14px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: background 120ms, color 120ms, border-color 120ms;
+}
+
+.topbar__nav-btn:hover { color: var(--text); background: var(--surface-hover); }
+
+.topbar__nav-btn--active {
+  background: var(--accent-dim);
+  border-color: rgba(232,82,74,0.35);
+  color: #ffb8b5;
+}
+
 .topbar__claim {
   font-size: 0.8rem;
   color: var(--text-dim);
@@ -489,7 +514,114 @@ button.chip:focus-visible {
   margin-bottom: 6px;
 }
 
-/* ─── Overview tab ────────────────────────────────────────────── */
+/* ─── Skeleton loading cards ──────────────────────────────────── */
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 0.8; }
+}
+
+.theme-card--skeleton {
+  pointer-events: none;
+  animation: skeleton-pulse 1.4s ease-in-out infinite;
+}
+
+.skeleton-line {
+  background: var(--surface-raise);
+  border-radius: 4px;
+  height: 12px;
+  margin-bottom: 8px;
+}
+
+.skeleton-line--title { height: 16px; width: 70%; }
+.skeleton-line--short { width: 45%; }
+
+/* ─── Author list cards (sidebar autores view) ────────────────── */
+.author-list-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  text-align: left;
+  border: 1px solid transparent;
+  background: transparent;
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  color: var(--text);
+  cursor: pointer;
+  transition: background 120ms, border-color 120ms;
+}
+
+.author-list-card:hover { background: var(--surface-hover); }
+.author-list-card:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+.author-list-card--active {
+  background: var(--surface-hover);
+  border-color: rgba(232,82,74,0.35);
+}
+
+.author-list-card--active::before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: 20%;
+  height: 60%;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: var(--accent);
+}
+
+.author-list-card { position: relative; }
+
+.author-list-card__name {
+  font-family: "Lora", serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.author-list-card__count {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+
+/* ─── Related themes cloud ────────────────────────────────────── */
+.related-themes-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.chip--theme {
+  background: var(--accent-dim);
+  color: #ffb8b5;
+  border-color: rgba(232,82,74,0.25);
+  font-family: "Lora", serif;
+}
+
+.chip--theme:hover,
+.chip--theme:focus-visible {
+  background: rgba(232,82,74,0.25);
+  border-color: rgba(232,82,74,0.5);
+  color: var(--text);
+}
+
+/* ─── Detail back button (mobile only) ───────────────────────── */
+.detail__back {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  border: 0;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0 0 12px;
+  transition: color 120ms;
+}
+
+.detail__back:hover { color: var(--text); }
 .overview-grid {
   display: grid;
   gap: 16px;
@@ -824,12 +956,19 @@ button.chip:focus-visible {
   .detail { min-height: 70vh; }
 
   .tab-panels { overflow: visible; }
+
+  /* Mobile view switching */
+  .app[data-view="detail"] .sidebar  { display: none; }
+  .app[data-view="list"]   .detail   { display: none; }
+
+  .detail__back { display: flex; }
 }
 
 @media (max-width: 580px) {
   .detail__header { padding: 18px 18px 0; }
   .tab-panels     { padding: 18px 18px 32px; }
   .routes-grid    { grid-template-columns: 1fr; }
-  .detail__stats  { gap: 14px; }
+  .detail__stats  { gap: 6px; }
+  .topbar__nav-btn { padding: 5px 10px; font-size: 0.8rem; }
 }
 

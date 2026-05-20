@@ -1,0 +1,242 @@
+{
+  "id": "partido",
+  "slug": "partido",
+  "title": "El partido revolucionario",
+  "summary": "Ficha de orientación para estudiar el problema de la organización política de la clase trabajadora: qué es el partido, para qué sirve, cómo se construye y cuáles son sus límites.",
+  "editorial_intent": "Entrada recomendada: ¿Qué hacer? de Lenin, que define el partido de vanguardia como respuesta a la dispersión del movimiento obrero. Luxemburgo ofrece la crítica más aguda desde dentro del marxismo. Gramsci reelabora el problema en términos de hegemonía y partido como intelectual colectivo.",
+  "status": "published",
+  "entry_points": [
+    {
+      "id": "ep-lenin",
+      "label": "Desde Lenin",
+      "description": "¿Qué hacer? (1902) es el texto fundacional del partido de tipo bolchevique: organización centralizada de revolucionarios profesionales, conciencia de clase desde fuera, prensa como organizador colectivo."
+    },
+    {
+      "id": "ep-luxemburgo",
+      "label": "Desde la crítica de Luxemburgo",
+      "description": "Luxemburgo cuestiona el centralismo leninista y defiende la espontaneidad y el autodesarrollo de la clase obrera. Su debate con Lenin es uno de los más fructíferos de la historia marxista."
+    }
+  ],
+  "key_authors": [
+    {
+      "id": "lenin-vi",
+      "name": "V. I. Lenin",
+      "role": "teoría del partido de vanguardia",
+      "why_relevant": "Define el partido como el instrumento consciente que organiza la vanguardia obrera e introduce la conciencia socialista en el movimiento espontáneo. Su modelo de partido centralizado y disciplinado es el eje del debate sobre organización en el siglo XX."
+    },
+    {
+      "id": "luxemburg-rosa",
+      "name": "Rosa Luxemburgo",
+      "role": "crítica del centralismo y defensa de la espontaneidad",
+      "why_relevant": "En su polémica con Lenin critica el riesgo de que el centralismo del partido sustituya la iniciativa de la clase obrera. Su análisis de la huelga de masas como forma de autoorganización es una alternativa estratégica de primer orden."
+    },
+    {
+      "id": "gramsci-antonio",
+      "name": "Antonio Gramsci",
+      "role": "partido como intelectual colectivo y constructor de hegemonía",
+      "why_relevant": "Reelabora el problema del partido: no es solo una herramienta de poder sino un organismo que construye hegemonía cultural, forma cuadros intelectuales y elabora una visión del mundo alternativa a la dominante."
+    }
+  ],
+  "essential_works": [
+    {
+      "id": "que-hacer-lenin",
+      "title": "¿Qué hacer?",
+      "year": 1902,
+      "kind": "pamphlet",
+      "level": "introductory",
+      "estimated_effort": "medium",
+      "author_ids": [
+        "lenin-vi"
+      ],
+      "reason_to_read": "El texto fundacional del partido bolchevique: critica el 'economismo' y define la necesidad de una organización centralizada de revolucionarios profesionales que introduzca la conciencia socialista en la clase obrera.",
+      "source": {
+        "provider": "Marxists.org",
+        "url": "https://www.marxists.org/espanol/lenin/obras/1900s/quehacer/que_hacer.pdf",
+        "attribution_label": "Lenin, V. I. ¿Qué hacer? (1902). Marxists.org."
+      }
+    },
+    {
+      "id": "un-paso-adelante-lenin",
+      "title": "Un paso adelante, dos pasos atrás",
+      "year": 1904,
+      "kind": "pamphlet",
+      "level": "intermediate",
+      "estimated_effort": "medium",
+      "author_ids": [
+        "lenin-vi"
+      ],
+      "reason_to_read": "Sistematiza las conclusiones organizativas del II Congreso del POSDR: centralismo democrático, disciplina de partido, diferencia entre miembro y simpatizante. Base del modelo bolchevique de organización.",
+      "source": {
+        "provider": "Marxists.org",
+        "url": "https://www.marxists.org/espanol/lenin/obras/1900s/index.htm",
+        "attribution_label": "Lenin, V. I. Un paso adelante, dos pasos atrás (1904). Marxists.org."
+      }
+    },
+    {
+      "id": "huelga-masas-luxemburgo",
+      "title": "Huelga de masas, partido y sindicatos",
+      "year": 1906,
+      "kind": "pamphlet",
+      "level": "intermediate",
+      "estimated_effort": "medium",
+      "author_ids": [
+        "luxemburg-rosa"
+      ],
+      "reason_to_read": "Análisis de la revolución rusa de 1905 como modelo de autoorganización espontánea. Luxemburgo argumenta que la huelga de masas desborda la organización formal del partido y que la clase obrera desarrolla su propia consciencia en el proceso de lucha.",
+      "source": {
+        "provider": "Marxists.org",
+        "url": "https://www.marxists.org/espanol/luxem/06Huelgademasaspartidoysindicatos_0.pdf",
+        "attribution_label": "Luxemburgo, Rosa. Huelga de masas, partido y sindicatos (1906). Marxists.org."
+      }
+    },
+    {
+      "id": "moderno-principe-gramsci",
+      "title": "El moderno príncipe (Cuadernos de la cárcel)",
+      "year": 1933,
+      "kind": "chapter",
+      "level": "advanced",
+      "estimated_effort": "medium",
+      "author_ids": [
+        "gramsci-antonio"
+      ],
+      "reason_to_read": "Gramsci relee a Maquiavelo para definir el partido revolucionario de masas: no como máquina burocrática sino como intelectual colectivo que construye una nueva voluntad colectiva y hegemonía cultural.",
+      "source": {
+        "provider": "Marxists.org",
+        "url": "https://www.marxists.org/espanol/gramsci/index.htm",
+        "attribution_label": "Gramsci, Antonio. Cuadernos de la cárcel: El moderno príncipe (c. 1933). Marxists.org."
+      }
+    }
+  ],
+  "connected_concepts": [
+    {
+      "id": "vanguardia",
+      "label": "Vanguardia",
+      "relation": "El partido como vanguardia consciente: organización que introduce conciencia de clase en el movimiento espontáneo."
+    },
+    {
+      "id": "centralismo-democratico",
+      "label": "Centralismo democrático",
+      "relation": "El principio organizativo leninista: libertad de debate, unidad de acción."
+    },
+    {
+      "id": "espontaneidad",
+      "label": "Espontaneidad",
+      "relation": "La tensión entre organización consciente (partido) y autodesarrollo de la clase (Luxemburgo)."
+    },
+    {
+      "id": "conciencia-clase",
+      "label": "Conciencia de clase",
+      "relation": "El partido como portador de la conciencia de clase más desarrollada."
+    },
+    {
+      "id": "hegemonia",
+      "label": "Hegemonía",
+      "relation": "Permite entender el fascismo como forma de dominación que combina coerción y consenso."
+    },
+    {
+      "id": "sindicato",
+      "label": "Sindicato",
+      "relation": "La distinción partido/sindicato: el debate sobre las formas de organización obrera."
+    },
+    {
+      "id": "intelectual-organico",
+      "label": "Intelectual orgánico",
+      "relation": "Gramsci: el partido produce intelectuales orgánicos que construyen hegemonía cultural."
+    },
+    {
+      "id": "huelga-masas",
+      "label": "Huelga de masas",
+      "relation": "La huelga de masas como forma de autoorganización que supera la división partido/clase (Luxemburgo)."
+    }
+  ],
+  "historical_debates": [
+    {
+      "id": "debate-centralismo-espontaneidad",
+      "label": "Centralismo vs. espontaneidad",
+      "description": "El debate clásico entre Lenin y Luxemburgo sobre la relación entre el partido y la clase obrera: ¿debe el partido dirigir y organizar desde arriba o la clase desarrolla su propia conciencia en la lucha? No hay respuesta simple y el debate sigue abierto.",
+      "participant_author_ids": [
+        "lenin-vi",
+        "luxemburg-rosa"
+      ],
+      "related_work_ids": [
+        "que-hacer-lenin",
+        "huelga-masas-luxemburgo"
+      ]
+    },
+    {
+      "id": "debate-partido-hegemonia",
+      "label": "El partido como poder o como constructor de consenso",
+      "description": "Gramsci desplaza el problema: en las sociedades occidentales el partido no puede asaltar el poder directamente (guerra de movimiento) sino que debe construir hegemonía cultural antes y durante la lucha por el poder (guerra de posición).",
+      "participant_author_ids": [
+        "gramsci-antonio",
+        "lenin-vi"
+      ],
+      "related_work_ids": [
+        "moderno-principe-gramsci",
+        "que-hacer-lenin"
+      ]
+    }
+  ],
+  "reading_paths": [
+    {
+      "id": "ruta-intro-partido",
+      "label": "Introducción al problema del partido",
+      "level": "introductory",
+      "goal": "Entender el debate fundacional sobre la organización política revolucionaria: vanguardia vs. espontaneidad, centralismo vs. democracia interna.",
+      "steps": [
+        {
+          "position": 1,
+          "work_id": "que-hacer-lenin",
+          "note": "El punto de partida ineludible. Define el problema y una solución."
+        },
+        {
+          "position": 2,
+          "work_id": "huelga-masas-luxemburgo",
+          "note": "La respuesta crítica más importante: ¿y si la clase sabe organizarse sola?"
+        }
+      ]
+    },
+    {
+      "id": "ruta-avanzada-partido",
+      "label": "Del partido bolchevique al partido gramsciano",
+      "level": "advanced",
+      "goal": "Recorrer la evolución del concepto de partido en el marxismo del siglo XX: de la vanguardia leninista al intelectual colectivo gramsciano.",
+      "steps": [
+        {
+          "position": 1,
+          "work_id": "que-hacer-lenin",
+          "note": "El modelo original: vanguardia centralizada."
+        },
+        {
+          "position": 2,
+          "work_id": "un-paso-adelante-lenin",
+          "note": "La sistematización organizativa: centralismo democrático."
+        },
+        {
+          "position": 3,
+          "work_id": "huelga-masas-luxemburgo",
+          "note": "La crítica desde la izquierda: espontaneidad y autoorganización."
+        },
+        {
+          "position": 4,
+          "work_id": "moderno-principe-gramsci",
+          "note": "La síntesis gramsciana: partido como constructor de hegemonía."
+        }
+      ]
+    }
+  ],
+  "related_editorial_articles": [],
+  "related_themes": [
+    "estado",
+    "fascismo",
+    "imperialismo"
+  ],
+  "source_policy": {
+    "primary_source_name": "Marxists Internet Archive",
+    "link_only": true,
+    "allow_excerpt": true,
+    "excerpt_max_words": 120,
+    "attribution_required": true,
+    "notes": "Esta ficha funciona como orientación editorial. No debe republicar textos completos ni reemplazar la lectura de las obras enlazadas."
+  }
+}

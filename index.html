@@ -24,11 +24,15 @@
           </svg>
           <span class="topbar__title">Atlas marxista<em> de lectura</em></span>
         </div>
+        <nav class="topbar__nav" aria-label="Vistas principales">
+          <button type="button" id="nav-temas"   class="topbar__nav-btn topbar__nav-btn--active">Temas</button>
+          <button type="button" id="nav-autores"  class="topbar__nav-btn">Autores</button>
+        </nav>
         <p class="topbar__claim">Navega Marxists.org. No lo sustituye.</p>
       </div>
     </header>
 
-    <main class="app">
+    <main class="app" data-view="list">
       <aside class="sidebar">
         <div class="sidebar__search">
           <svg class="search-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">

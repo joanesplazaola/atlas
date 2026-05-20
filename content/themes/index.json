@@ -6,8 +6,10 @@
   },
   "theme_files": [
     "content/themes/estado.json",
+    "content/themes/fascismo.json",
     "content/themes/imperialismo.json",
-    "content/themes/vivienda.json",
-    "content/themes/teoria-del-valor.json"
+    "content/themes/partido.json",
+    "content/themes/teoria-del-valor.json",
+    "content/themes/vivienda.json"
   ]
 }

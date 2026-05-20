@@ -259,5 +259,9 @@
     "excerpt_max_words": 150,
     "attribution_required": true,
     "notes": "Todos los textos enlazados están en dominio público. El MIA distribuye ediciones históricas con atribución. Esta ficha no reproduce los textos sino que enlaza a las fuentes originales."
-  }
+  },
+  "related_themes": [
+    "imperialismo",
+    "vivienda"
+  ]
 }

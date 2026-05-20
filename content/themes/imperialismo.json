@@ -188,5 +188,10 @@
     "excerpt_max_words": 120,
     "attribution_required": true,
     "notes": "No republicar textos completos como propios. Esta ficha debe enlazar a la fuente original, atribuirla de forma visible y usar solo citas breves cuando proceda."
-  }
+  },
+  "related_themes": [
+    "estado",
+    "teoria-del-valor",
+    "partido"
+  ]
 }

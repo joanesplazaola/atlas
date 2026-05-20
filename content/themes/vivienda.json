@@ -180,5 +180,9 @@
     "excerpt_max_words": 120,
     "attribution_required": true,
     "notes": "La ficha debe orientar y atribuir. No debe copiar grandes fragmentos ni presentar la lectura editorial como sustituto del archivo original."
-  }
+  },
+  "related_themes": [
+    "teoria-del-valor",
+    "estado"
+  ]
 }
