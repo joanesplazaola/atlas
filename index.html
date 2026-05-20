@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlas marxista de lectura</title>
+    <meta
+      name="description"
+      content="Una capa de navegacion y estudio sobre Marxists.org."
+    >
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar__inner">
+        <div class="topbar__brand">
+          <svg class="topbar__logo" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <rect width="32" height="32" rx="8" fill="#f15c5c" fill-opacity="0.15"/>
+            <path d="M8 24 15 8h2l7 16h-3l-1.5-4h-7L11 24zm5.5-7h5L16 10z" fill="#f15c5c"/>
+          </svg>
+          <span class="topbar__title">Atlas marxista<em> de lectura</em></span>
+        </div>
+        <p class="topbar__claim">Navega Marxists.org. No lo sustituye.</p>
+      </div>
+    </header>
+
+    <main class="app">
+      <aside class="sidebar">
+        <div class="sidebar__search">
+          <svg class="search-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <circle cx="8.5" cy="8.5" r="5.5" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M13 13l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          <input id="search-input" type="search" placeholder="Tema, autor, concepto…" autocomplete="off">
+        </div>
+
+        <div class="sidebar__meta">
+          <div class="stats" id="stats"></div>
+          <div class="active-filter" id="active-filter" hidden></div>
+        </div>
+
+        <div class="theme-list" id="theme-grid" role="list" aria-live="polite"></div>
+      </aside>
+
+      <section class="detail" aria-labelledby="detail-title">
+        <div id="detail-empty" class="detail__empty">
+          <svg viewBox="0 0 48 48" fill="none" aria-hidden="true" width="48" height="48">
+            <rect x="6" y="10" width="28" height="34" rx="3" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M14 18h12M14 24h8M34 6v8M30 10h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          <p>Selecciona un tema para ver autores, obras, debates y rutas de lectura.</p>
+        </div>
+        <article id="detail-content" hidden></article>
+      </section>
+    </main>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>

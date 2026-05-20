@@ -1,0 +1,192 @@
+{
+  "id": "imperialismo",
+  "slug": "imperialismo",
+  "title": "Imperialismo",
+  "summary": "Ficha de orientacion para estudiar el imperialismo como fase historica del capitalismo, sus formas de expansion y sus debates clasicos.",
+  "editorial_intent": "Orientar la lectura del tema sin sustituir las fuentes originales, sin generar doctrina nueva y dejando visible que esta ficha es una capa editorial de navegacion.",
+  "status": "reviewed",
+  "entry_points": [
+    {
+      "id": "primera-toma-de-contacto",
+      "label": "Primera toma de contacto",
+      "description": "Empieza con una vision general del problema antes de entrar en debates teoricos mas densos."
+    }
+  ],
+  "key_authors": [
+    {
+      "id": "lenin",
+      "name": "V. I. Lenin",
+      "role": "sintesis politica y economica",
+      "why_relevant": "Ofrece una formulacion panoramica del imperialismo ligada al monopolio, el capital financiero y el reparto del mundo."
+    },
+    {
+      "id": "luxemburg",
+      "name": "Rosa Luxemburg",
+      "role": "debate sobre acumulacion y expansion capitalista",
+      "why_relevant": "Su trabajo permite entrar en las discusiones sobre acumulacion, expansion hacia espacios no capitalistas y contradicciones del sistema."
+    },
+    {
+      "id": "bukharin",
+      "name": "Nikolai Bukharin",
+      "role": "analisis del mercado mundial y la competencia interestatal",
+      "why_relevant": "Conecta la economia mundial, la concentracion del capital y la rivalidad entre Estados en una misma lectura del imperialismo."
+    }
+  ],
+  "essential_works": [
+    {
+      "id": "lenin-imperialism-highest-stage",
+      "title": "Imperialism, the Highest Stage of Capitalism",
+      "author_ids": [
+        "lenin"
+      ],
+      "year": 1916,
+      "level": "introductory",
+      "kind": "pamphlet",
+      "estimated_effort": "medium",
+      "reason_to_read": "Sirve como mapa general para ubicar monopolio, banca, exportacion de capitales y reparto colonial dentro de una sola explicacion.",
+      "source": {
+        "provider": "Marxists Internet Archive",
+        "url": "https://www.marxists.org/archive/lenin/works/1916/imp-hsc/",
+        "attribution_label": "Lenin, Imperialism, the Highest Stage of Capitalism (Marxists.org)"
+      }
+    },
+    {
+      "id": "luxemburg-accumulation-of-capital",
+      "title": "The Accumulation of Capital",
+      "author_ids": [
+        "luxemburg"
+      ],
+      "year": 1913,
+      "level": "advanced",
+      "kind": "book",
+      "estimated_effort": "long",
+      "reason_to_read": "Abre el debate sobre las condiciones de realizacion y expansion del capital, util para una lectura mas exigente y comparativa.",
+      "source": {
+        "provider": "Marxists Internet Archive",
+        "url": "https://www.marxists.org/archive/luxemburg/1913/accumulation-capital/",
+        "attribution_label": "Rosa Luxemburg, The Accumulation of Capital (Marxists.org)"
+      }
+    },
+    {
+      "id": "bukharin-imperialism-and-world-economy",
+      "title": "Imperialism and World Economy",
+      "author_ids": [
+        "bukharin"
+      ],
+      "year": 1917,
+      "level": "intermediate",
+      "kind": "book",
+      "estimated_effort": "long",
+      "reason_to_read": "Permite estudiar el imperialismo a escala de economia mundial y entender mejor la articulacion entre capital concentrado y competencia interestatal.",
+      "source": {
+        "provider": "Marxists Internet Archive",
+        "url": "https://www.marxists.org/archive/bukharin/works/1917/imperial/",
+        "attribution_label": "Bukharin, Imperialism and World Economy (Marxists.org)"
+      }
+    }
+  ],
+  "connected_concepts": [
+    {
+      "id": "capital-financiero",
+      "label": "Capital financiero",
+      "relation": "Ayuda a explicar la fusion entre banca e industria y la concentracion del poder economico."
+    },
+    {
+      "id": "colonialismo",
+      "label": "Colonialismo",
+      "relation": "Permite seguir las formas politicas y militares de la expansion imperial."
+    },
+    {
+      "id": "guerra",
+      "label": "Guerra",
+      "relation": "Conecta el imperialismo con la rivalidad entre potencias y el conflicto por mercados, territorios y zonas de influencia."
+    },
+    {
+      "id": "nacion",
+      "label": "Nacion",
+      "relation": "Abre la relacion entre expansion imperial, cuestion nacional y dominacion sobre pueblos oprimidos."
+    }
+  ],
+  "historical_debates": [
+    {
+      "id": "monopolio-y-capital-financiero",
+      "label": "Monopolio, capital financiero y reparto del mundo",
+      "description": "Debate sobre si el rasgo definitorio del imperialismo es la concentracion monopolista, la exportacion de capitales o la reorganizacion del mercado mundial bajo grandes potencias.",
+      "participant_author_ids": [
+        "lenin",
+        "bukharin"
+      ],
+      "related_work_ids": [
+        "lenin-imperialism-highest-stage",
+        "bukharin-imperialism-and-world-economy"
+      ]
+    },
+    {
+      "id": "acumulacion-y-expansion",
+      "label": "Acumulacion y expansion hacia espacios no capitalistas",
+      "description": "Debate sobre como el capitalismo necesita expandirse, absorber nuevos espacios y resolver sus contradicciones de realizacion.",
+      "participant_author_ids": [
+        "luxemburg",
+        "lenin",
+        "bukharin"
+      ],
+      "related_work_ids": [
+        "luxemburg-accumulation-of-capital",
+        "lenin-imperialism-highest-stage",
+        "bukharin-imperialism-and-world-economy"
+      ]
+    }
+  ],
+  "reading_paths": [
+    {
+      "id": "ruta-basica",
+      "label": "Ruta basica",
+      "level": "introductory",
+      "goal": "Obtener una vision general del imperialismo y sus categorias principales.",
+      "steps": [
+        {
+          "position": 1,
+          "work_id": "lenin-imperialism-highest-stage",
+          "note": "Leer como mapa inicial del tema, prestando atencion a monopolio, banca, exportacion de capitales y reparto colonial."
+        },
+        {
+          "position": 2,
+          "work_id": "bukharin-imperialism-and-world-economy",
+          "note": "Usar la introduccion y los primeros capitulos para ampliar la escala hacia la economia mundial y la competencia entre Estados."
+        }
+      ]
+    },
+    {
+      "id": "ruta-avanzada",
+      "label": "Ruta avanzada",
+      "level": "advanced",
+      "goal": "Comparar enfoques y entrar en los debates clasicos sobre acumulacion, expansion y guerra.",
+      "steps": [
+        {
+          "position": 1,
+          "work_id": "lenin-imperialism-highest-stage",
+          "note": "Empezar por la sintesis general para fijar el vocabulario basico del tema."
+        },
+        {
+          "position": 2,
+          "work_id": "bukharin-imperialism-and-world-economy",
+          "note": "Profundizar en la dinamica del mercado mundial y en la articulacion entre capital y Estado."
+        },
+        {
+          "position": 3,
+          "work_id": "luxemburg-accumulation-of-capital",
+          "note": "Cerrar con una lectura comparativa sobre acumulacion y expansion del capital para abrir el debate teorico."
+        }
+      ]
+    }
+  ],
+  "related_editorial_articles": [],
+  "source_policy": {
+    "primary_source_name": "Marxists Internet Archive",
+    "link_only": true,
+    "allow_excerpt": true,
+    "excerpt_max_words": 120,
+    "attribution_required": true,
+    "notes": "No republicar textos completos como propios. Esta ficha debe enlazar a la fuente original, atribuirla de forma visible y usar solo citas breves cuando proceda."
+  }
+}

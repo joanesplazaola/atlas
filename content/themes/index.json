@@ -1,0 +1,13 @@
+{
+  "site": {
+    "title": "Atlas marxista de lectura",
+    "tagline": "Una capa de navegacion y estudio sobre Marxists.org",
+    "description": "MVP estatico para orientar la lectura por temas, autores, obras y rutas sin sustituir las fuentes originales."
+  },
+  "theme_files": [
+    "content/themes/estado.json",
+    "content/themes/imperialismo.json",
+    "content/themes/vivienda.json",
+    "content/themes/teoria-del-valor.json"
+  ]
+}

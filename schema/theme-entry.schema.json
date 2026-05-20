@@ -1,0 +1,429 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://atlas-marxista.local/schema/theme-entry.schema.json",
+  "title": "Atlas Marxista Theme Entry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "slug",
+    "title",
+    "summary",
+    "editorial_intent",
+    "status",
+    "key_authors",
+    "essential_works",
+    "connected_concepts",
+    "historical_debates",
+    "reading_paths",
+    "related_editorial_articles",
+    "source_policy"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "editorial_intent": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "reviewed",
+        "published"
+      ]
+    },
+    "entry_points": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/entryPoint"
+      }
+    },
+    "key_authors": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/author"
+      }
+    },
+    "essential_works": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/work"
+      }
+    },
+    "connected_concepts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/concept"
+      }
+    },
+    "historical_debates": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/debate"
+      }
+    },
+    "reading_paths": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/readingPath"
+      }
+    },
+    "related_editorial_articles": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/editorialArticle"
+      }
+    },
+    "source_policy": {
+      "$ref": "#/$defs/sourcePolicy"
+    }
+  },
+  "$defs": {
+    "entryPoint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "label",
+        "description"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$"
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "author": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "role",
+        "why_relevant"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "why_relevant": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "work": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "author_ids",
+        "year",
+        "level",
+        "kind",
+        "estimated_effort",
+        "reason_to_read",
+        "source"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "author_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          }
+        },
+        "year": {
+          "type": "integer"
+        },
+        "level": {
+          "type": "string",
+          "enum": [
+            "introductory",
+            "intermediate",
+            "advanced"
+          ]
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "article",
+            "chapter",
+            "book",
+            "pamphlet",
+            "speech",
+            "letter"
+          ]
+        },
+        "estimated_effort": {
+          "type": "string",
+          "enum": [
+            "short",
+            "medium",
+            "long"
+          ]
+        },
+        "reason_to_read": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source": {
+          "$ref": "#/$defs/source"
+        }
+      }
+    },
+    "concept": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "label",
+        "relation"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$"
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "relation": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "debate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "label",
+        "description",
+        "participant_author_ids",
+        "related_work_ids"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$"
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "participant_author_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          }
+        },
+        "related_work_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          }
+        }
+      }
+    },
+    "readingPath": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "label",
+        "level",
+        "goal",
+        "steps"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$"
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "level": {
+          "type": "string",
+          "enum": [
+            "introductory",
+            "intermediate",
+            "advanced"
+          ]
+        },
+        "goal": {
+          "type": "string",
+          "minLength": 1
+        },
+        "steps": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/readingStep"
+          }
+        }
+      }
+    },
+    "readingStep": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "position",
+        "work_id",
+        "note"
+      ],
+      "properties": {
+        "position": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "work_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$"
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "editorialArticle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "title",
+        "url",
+        "relation"
+      ],
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "relation": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "provider",
+        "url",
+        "attribution_label"
+      ],
+      "properties": {
+        "provider": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "attribution_label": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "sourcePolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "primary_source_name",
+        "link_only",
+        "allow_excerpt",
+        "excerpt_max_words",
+        "attribution_required",
+        "notes"
+      ],
+      "properties": {
+        "primary_source_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "link_only": {
+          "type": "boolean"
+        },
+        "allow_excerpt": {
+          "type": "boolean"
+        },
+        "excerpt_max_words": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "attribution_required": {
+          "type": "boolean"
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,184 @@
+{
+  "id": "vivienda",
+  "slug": "vivienda",
+  "title": "Vivienda",
+  "summary": "Ficha de orientacion para estudiar la cuestion de la vivienda como problema social ligado a la explotacion, la urbanizacion capitalista y la reproduccion de la clase trabajadora.",
+  "editorial_intent": "Conectar textos clasicos que ayuden a pasar de la denuncia de la miseria urbana a una lectura estructural del problema de la vivienda dentro del capitalismo.",
+  "status": "reviewed",
+  "entry_points": [
+    {
+      "id": "desde-el-problema-social",
+      "label": "Desde el problema social",
+      "description": "Empieza por los textos que muestran la vivienda como efecto de relaciones de clase, no como un simple fallo tecnico de gestion urbana."
+    }
+  ],
+  "key_authors": [
+    {
+      "id": "engels",
+      "name": "Friedrich Engels",
+      "role": "critica socialista de la vivienda bajo el capitalismo",
+      "why_relevant": "Es la referencia mas directa para estudiar la cuestion de la vivienda como problema estructural y no meramente moral."
+    },
+    {
+      "id": "marx",
+      "name": "Karl Marx",
+      "role": "contexto de la acumulacion y reproduccion capitalista",
+      "why_relevant": "Aporta el marco mas amplio para situar la vivienda dentro de la explotacion, la reproduccion de la fuerza de trabajo y la urbanizacion capitalista."
+    }
+  ],
+  "essential_works": [
+    {
+      "id": "engels-housing-question",
+      "title": "The Housing Question",
+      "author_ids": [
+        "engels"
+      ],
+      "year": 1872,
+      "level": "introductory",
+      "kind": "book",
+      "estimated_effort": "medium",
+      "reason_to_read": "Es la puerta de entrada central para comprender por que la escasez y el encarecimiento de la vivienda no se resuelven dentro de las relaciones capitalistas.",
+      "source": {
+        "provider": "Marxists Internet Archive",
+        "url": "https://www.marxists.org/archive/marx/works/1872/housing-question/",
+        "attribution_label": "Friedrich Engels, The Housing Question (Marxists.org)"
+      }
+    },
+    {
+      "id": "engels-condition-working-class",
+      "title": "The Condition of the Working Class in England",
+      "author_ids": [
+        "engels"
+      ],
+      "year": 1845,
+      "level": "intermediate",
+      "kind": "book",
+      "estimated_effort": "long",
+      "reason_to_read": "Permite ver empiricamente la forma en que hacinamiento, enfermedad y segregacion urbana se articulan con la explotacion industrial.",
+      "source": {
+        "provider": "Marxists Internet Archive",
+        "url": "https://www.marxists.org/archive/marx/works/1845/condition-working-class/",
+        "attribution_label": "Friedrich Engels, The Condition of the Working Class in England (Marxists.org)"
+      }
+    },
+    {
+      "id": "marx-capital-volume-one",
+      "title": "Capital, Volume I",
+      "author_ids": [
+        "marx"
+      ],
+      "year": 1867,
+      "level": "advanced",
+      "kind": "book",
+      "estimated_effort": "long",
+      "reason_to_read": "Sirve como marco de fondo para situar la vivienda dentro de la acumulacion, la reproduccion de la fuerza de trabajo y la configuracion espacial del capitalismo.",
+      "source": {
+        "provider": "Marxists Internet Archive",
+        "url": "https://www.marxists.org/archive/marx/works/1867-c1/",
+        "attribution_label": "Karl Marx, Capital, Volume I (Marxists.org)"
+      }
+    }
+  ],
+  "connected_concepts": [
+    {
+      "id": "urbanizacion",
+      "label": "Urbanizacion",
+      "relation": "Relaciona vivienda con concentracion industrial, crecimiento desigual de la ciudad y segregacion espacial."
+    },
+    {
+      "id": "reproduccion-de-la-fuerza-de-trabajo",
+      "label": "Reproduccion de la fuerza de trabajo",
+      "relation": "Permite entender la vivienda como condicion material de vida y trabajo, no como consumo aislado."
+    },
+    {
+      "id": "alquiler",
+      "label": "Alquiler",
+      "relation": "Abre la cuestion del ingreso de propietarios, renta urbana y endeudamiento popular."
+    },
+    {
+      "id": "salud-publica",
+      "label": "Salud publica",
+      "relation": "Conecta hacinamiento y vivienda degradada con enfermedad, mortalidad y desigualdad urbana."
+    }
+  ],
+  "historical_debates": [
+    {
+      "id": "reforma-urbana-o-transformacion-social",
+      "label": "Reforma urbana o transformacion social",
+      "description": "Debate sobre si el problema de la vivienda puede resolverse mediante mejoras parciales del mercado o si remite a la estructura de propiedad y a la explotacion capitalista.",
+      "participant_author_ids": [
+        "engels",
+        "marx"
+      ],
+      "related_work_ids": [
+        "engels-housing-question",
+        "marx-capital-volume-one"
+      ]
+    },
+    {
+      "id": "miseria-urbana-y-explotacion-industrial",
+      "label": "Miseria urbana y explotacion industrial",
+      "description": "Debate sobre como vivienda, sanidad, salario y tiempo de trabajo forman parte de un mismo problema social.",
+      "participant_author_ids": [
+        "engels",
+        "marx"
+      ],
+      "related_work_ids": [
+        "engels-condition-working-class",
+        "marx-capital-volume-one"
+      ]
+    }
+  ],
+  "reading_paths": [
+    {
+      "id": "ruta-basica",
+      "label": "Ruta basica",
+      "level": "introductory",
+      "goal": "Entender la vivienda como problema estructural del capitalismo y no como simple falta de oferta.",
+      "steps": [
+        {
+          "position": 1,
+          "work_id": "engels-housing-question",
+          "note": "Empezar aqui para fijar la tesis central del tema y el vocabulario basico de la cuestion de la vivienda."
+        },
+        {
+          "position": 2,
+          "work_id": "engels-condition-working-class",
+          "note": "Continuar con una lectura historica de las condiciones de vida obreras en la ciudad industrial."
+        }
+      ]
+    },
+    {
+      "id": "ruta-estructural",
+      "label": "Ruta estructural",
+      "level": "advanced",
+      "goal": "Conectar la cuestion de la vivienda con acumulacion, urbanizacion y reproduccion de la fuerza de trabajo.",
+      "steps": [
+        {
+          "position": 1,
+          "work_id": "engels-housing-question",
+          "note": "Usarlo como puerta de entrada especifica al problema de la vivienda."
+        },
+        {
+          "position": 2,
+          "work_id": "marx-capital-volume-one",
+          "note": "Leer de forma selectiva para dar marco teorico general a la acumulacion y a las condiciones de vida obrera."
+        },
+        {
+          "position": 3,
+          "work_id": "engels-condition-working-class",
+          "note": "Volver a la evidencia historica y urbana para cruzarla con el marco teorico."
+        }
+      ]
+    }
+  ],
+  "related_editorial_articles": [],
+  "source_policy": {
+    "primary_source_name": "Marxists Internet Archive",
+    "link_only": true,
+    "allow_excerpt": true,
+    "excerpt_max_words": 120,
+    "attribution_required": true,
+    "notes": "La ficha debe orientar y atribuir. No debe copiar grandes fragmentos ni presentar la lectura editorial como sustituto del archivo original."
+  }
+}

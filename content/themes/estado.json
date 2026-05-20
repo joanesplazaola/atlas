@@ -1,0 +1,192 @@
+{
+  "id": "estado",
+  "slug": "estado",
+  "title": "Estado",
+  "summary": "Ficha de orientacion para estudiar el Estado como forma historica de dominacion de clase, sus crisis y su relacion con la revolucion.",
+  "editorial_intent": "Ordenar un tema amplio a partir de textos clasicos que permitan pasar de la critica del Estado existente a los problemas de transicion y poder revolucionario.",
+  "status": "reviewed",
+  "entry_points": [
+    {
+      "id": "pregunta-central",
+      "label": "Pregunta central",
+      "description": "Empieza por como Marx y Lenin discuten si la clase trabajadora puede limitarse a ocupar el aparato estatal existente o necesita transformarlo radicalmente."
+    }
+  ],
+  "key_authors": [
+    {
+      "id": "marx",
+      "name": "Karl Marx",
+      "role": "critica politica del Estado burgues",
+      "why_relevant": "Permite entrar al tema desde la experiencia de la Comuna de Paris y desde la critica de la maquinaria estatal existente."
+    },
+    {
+      "id": "engels",
+      "name": "Friedrich Engels",
+      "role": "origen historico del Estado",
+      "why_relevant": "Ofrece una lectura historica sobre la aparicion del Estado ligada a la division de clases y a la necesidad de administracion coercitiva."
+    },
+    {
+      "id": "lenin",
+      "name": "V. I. Lenin",
+      "role": "sintesis revolucionaria del problema del Estado",
+      "why_relevant": "Reorganiza el debate sobre Estado, revolucion, democracia y dictadura del proletariado desde una perspectiva estrategica."
+    }
+  ],
+  "essential_works": [
+    {
+      "id": "marx-civil-war-in-france",
+      "title": "The Civil War in France",
+      "author_ids": [
+        "marx"
+      ],
+      "year": 1871,
+      "level": "intermediate",
+      "kind": "pamphlet",
+      "estimated_effort": "medium",
+      "reason_to_read": "Sirve para estudiar la Comuna de Paris como experiencia historica desde la que Marx replantea el problema del poder politico y la maquinaria estatal.",
+      "source": {
+        "provider": "Marxists Internet Archive",
+        "url": "https://www.marxists.org/archive/marx/works/1871/civil-war-france/",
+        "attribution_label": "Karl Marx, The Civil War in France (Marxists.org)"
+      }
+    },
+    {
+      "id": "engels-origin-family-state",
+      "title": "The Origin of the Family, Private Property and the State",
+      "author_ids": [
+        "engels"
+      ],
+      "year": 1884,
+      "level": "introductory",
+      "kind": "book",
+      "estimated_effort": "long",
+      "reason_to_read": "Aporta una puerta de entrada historica para entender el Estado no como institucion eterna sino como resultado de relaciones sociales determinadas.",
+      "source": {
+        "provider": "Marxists Internet Archive",
+        "url": "https://www.marxists.org/archive/marx/works/1884/origin-family/",
+        "attribution_label": "Friedrich Engels, The Origin of the Family, Private Property and the State (Marxists.org)"
+      }
+    },
+    {
+      "id": "lenin-state-and-revolution",
+      "title": "The State and Revolution",
+      "author_ids": [
+        "lenin"
+      ],
+      "year": 1917,
+      "level": "introductory",
+      "kind": "book",
+      "estimated_effort": "medium",
+      "reason_to_read": "Ordena las discusiones sobre destruccion del aparato estatal, democracia burguesa, transicion y dictadura del proletariado en un solo recorrido.",
+      "source": {
+        "provider": "Marxists Internet Archive",
+        "url": "https://www.marxists.org/archive/lenin/works/1917/staterev/",
+        "attribution_label": "Lenin, The State and Revolution (Marxists.org)"
+      }
+    }
+  ],
+  "connected_concepts": [
+    {
+      "id": "comuna-de-paris",
+      "label": "Comuna de Paris",
+      "relation": "Permite seguir el problema del poder obrero y la transformacion de la forma estatal."
+    },
+    {
+      "id": "dictadura-del-proletariado",
+      "label": "Dictadura del proletariado",
+      "relation": "Conecta la discusion sobre transicion revolucionaria y poder politico de la clase trabajadora."
+    },
+    {
+      "id": "democracia-burguesa",
+      "label": "Democracia burguesa",
+      "relation": "Sirve para comparar formas politicas representativas con la critica marxista del Estado de clase."
+    },
+    {
+      "id": "revolucion",
+      "label": "Revolucion",
+      "relation": "Abre la pregunta por la toma del poder y la reorganizacion de la sociedad."
+    }
+  ],
+  "historical_debates": [
+    {
+      "id": "tomar-o-destruir-la-maquina-estatal",
+      "label": "Tomar o destruir la maquina estatal",
+      "description": "Debate sobre si la clase trabajadora puede servirse del aparato estatal existente o debe romperlo y sustituirlo por nuevas formas de poder.",
+      "participant_author_ids": [
+        "marx",
+        "lenin"
+      ],
+      "related_work_ids": [
+        "marx-civil-war-in-france",
+        "lenin-state-and-revolution"
+      ]
+    },
+    {
+      "id": "origen-historico-del-estado",
+      "label": "Origen historico del Estado y division en clases",
+      "description": "Debate sobre el caracter historico del Estado, sus funciones de dominacion y su relacion con la propiedad y la reproduccion social.",
+      "participant_author_ids": [
+        "engels",
+        "marx",
+        "lenin"
+      ],
+      "related_work_ids": [
+        "engels-origin-family-state",
+        "marx-civil-war-in-france",
+        "lenin-state-and-revolution"
+      ]
+    }
+  ],
+  "reading_paths": [
+    {
+      "id": "ruta-basica",
+      "label": "Ruta basica",
+      "level": "introductory",
+      "goal": "Entender por que el Estado aparece como problema estrategico dentro de la teoria marxista.",
+      "steps": [
+        {
+          "position": 1,
+          "work_id": "lenin-state-and-revolution",
+          "note": "Leer primero para fijar las preguntas centrales sobre Estado, democracia y revolucion."
+        },
+        {
+          "position": 2,
+          "work_id": "marx-civil-war-in-france",
+          "note": "Volver a la experiencia de la Comuna para ver de donde sale parte de ese debate."
+        }
+      ]
+    },
+    {
+      "id": "ruta-historica",
+      "label": "Ruta historica",
+      "level": "intermediate",
+      "goal": "Combinar el origen historico del Estado con el problema politico de su transformacion revolucionaria.",
+      "steps": [
+        {
+          "position": 1,
+          "work_id": "engels-origin-family-state",
+          "note": "Usar esta lectura para situar el Estado como fenomeno historico ligado a clases y propiedad."
+        },
+        {
+          "position": 2,
+          "work_id": "marx-civil-war-in-france",
+          "note": "Relacionar el marco historico con una experiencia concreta de poder obrero."
+        },
+        {
+          "position": 3,
+          "work_id": "lenin-state-and-revolution",
+          "note": "Cerrar con la sistematizacion revolucionaria del debate."
+        }
+      ]
+    }
+  ],
+  "related_editorial_articles": [],
+  "source_policy": {
+    "primary_source_name": "Marxists Internet Archive",
+    "link_only": true,
+    "allow_excerpt": true,
+    "excerpt_max_words": 120,
+    "attribution_required": true,
+    "notes": "Esta ficha funciona como orientacion editorial. No debe republicar textos completos ni reemplazar la lectura de las obras enlazadas."
+  }
+}
