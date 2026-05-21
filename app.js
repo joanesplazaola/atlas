@@ -34,8 +34,18 @@ function getSlugFromHash() {
   return match ? match[1] : null;
 }
 
+function getAuthorFromHash() {
+  const match = window.location.hash.match(/^#autor\/([a-z0-9-]+)/);
+  return match ? match[1] : null;
+}
+
 function setHash(slug) {
   const next = `#tema/${slug}`;
+  if (window.location.hash !== next) window.location.hash = next;
+}
+
+function setAuthorHash(id) {
+  const next = `#autor/${id}`;
   if (window.location.hash !== next) window.location.hash = next;
 }
 
@@ -309,6 +319,7 @@ function renderAuthorList() {
 
     const select = () => {
       state.selectedAuthorId = a.id;
+      setAuthorHash(a.id);
       renderAuthorList();
       renderDetail();
       switchMobileView("detail");
@@ -727,6 +738,7 @@ async function renderAuthorDetail() {
         <div class="author-landing__card-count">${a.themes.length} tema${a.themes.length !== 1 ? "s" : ""}</div>`;
       const go = () => {
         state.selectedAuthorId = a.id;
+        setAuthorHash(a.id);
         renderAuthorList();
         renderDetail();
         switchMobileView("detail");
@@ -944,6 +956,7 @@ async function renderAuthorDetail() {
           ${rel.years ? `<div class="author-detail__related-years">${esc(rel.years)}</div>` : ""}`;
         const goToAuthor = () => {
           state.selectedAuthorId = rel.id;
+          setAuthorHash(rel.id);
           renderAuthorList();
           renderDetail();
           switchMobileView("detail");
@@ -1028,7 +1041,7 @@ function forceLayout(nodes, edges, width, height) {
   const n = nodes.length;
   if (n === 0) return;
   const cx = width / 2, cy = height / 2;
-  const R  = Math.min(width, height) * 0.33;
+  const R  = Math.min(width, height) * 0.36;
 
   // Circular init
   nodes.forEach((node, i) => {
@@ -1037,10 +1050,14 @@ function forceLayout(nodes, edges, width, height) {
     node.y = cy + R * Math.sin(angle);
   });
 
-  const k = Math.sqrt((width * height) / n) * 0.5;
-  let temp = Math.min(width, height) * 0.1;
+  // Increased k for better node separation (0.9 instead of 0.5)
+  const k = Math.sqrt((width * height) / n) * 0.9;
+  let temp = Math.min(width, height) * 0.12;
 
-  for (let iter = 0; iter < 200; iter++) {
+  // Node physical dimensions for collision avoidance (width + margin, height + margin)
+  const NW = 165, NH = 108;
+
+  for (let iter = 0; iter < 300; iter++) {
     const fx = new Float64Array(n);
     const fy = new Float64Array(n);
 
@@ -1054,6 +1071,26 @@ function forceLayout(nodes, edges, width, height) {
         const f = (k * k) / dist;
         fx[i] += (ddx / dist) * f;
         fy[i] += (ddy / dist) * f;
+      }
+    }
+
+    // Hard collision avoidance: treat nodes as NW×NH rectangles
+    for (let i = 0; i < n; i++) {
+      for (let j = i + 1; j < n; j++) {
+        const ddx = nodes[i].x - nodes[j].x;
+        const ddy = nodes[i].y - nodes[j].y;
+        const overlapX = NW - Math.abs(ddx);
+        const overlapY = NH - Math.abs(ddy);
+        if (overlapX > 0 && overlapY > 0) {
+          const push = Math.min(overlapX, overlapY) * 0.6 + 1;
+          if (overlapX < overlapY) {
+            const dir = ddx >= 0 ? 1 : -1;
+            fx[i] += dir * push; fx[j] -= dir * push;
+          } else {
+            const dir = ddy >= 0 ? 1 : -1;
+            fy[i] += dir * push; fy[j] -= dir * push;
+          }
+        }
       }
     }
 
@@ -1071,8 +1108,8 @@ function forceLayout(nodes, edges, width, height) {
 
     // Gentle gravity toward center
     nodes.forEach((node, i) => {
-      fx[i] += (cx - node.x) * 0.025;
-      fy[i] += (cy - node.y) * 0.025;
+      fx[i] += (cx - node.x) * 0.02;
+      fy[i] += (cy - node.y) * 0.02;
     });
 
     // Apply with temperature cooling
@@ -1082,13 +1119,79 @@ function forceLayout(nodes, edges, width, height) {
       node.x += (fx[i] / mag) * step;
       node.y += (fy[i] / mag) * step;
       // Keep inside padded bounds
-      const px = 105, py = 75;
+      const px = 90, py = 60;
       node.x = Math.max(px, Math.min(width  - px, node.x));
       node.y = Math.max(py, Math.min(height - py, node.y));
     });
 
     temp *= 0.97;
   }
+}
+
+/* ─── Map: pan/zoom state ────────────────────────────────────────── */
+
+let mapTransform = { x: 0, y: 0, scale: 1 };
+
+function applyMapTransform(stage) {
+  if (!stage) return;
+  const { x, y, scale } = mapTransform;
+  stage.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
+}
+
+function initMapInteraction() {
+  const canvas = document.getElementById("map-canvas");
+  if (!canvas) return;
+  const getStage = () => document.getElementById("map-stage");
+
+  // Mouse wheel → zoom toward cursor
+  canvas.addEventListener("wheel", e => {
+    e.preventDefault();
+    const factor = e.deltaY < 0 ? 1.1 : 0.91;
+    const newScale = Math.max(0.3, Math.min(3, mapTransform.scale * factor));
+    const rect = canvas.getBoundingClientRect();
+    const mx = e.clientX - rect.left;
+    const my = e.clientY - rect.top;
+    const dx = (mx - mapTransform.x) / mapTransform.scale;
+    const dy = (my - mapTransform.y) / mapTransform.scale;
+    mapTransform.x = mx - dx * newScale;
+    mapTransform.y = my - dy * newScale;
+    mapTransform.scale = newScale;
+    applyMapTransform(getStage());
+  }, { passive: false });
+
+  // Mouse drag → pan
+  let dragging = false, startX, startY, startTX, startTY;
+  canvas.addEventListener("mousedown", e => {
+    if (e.button !== 0 || e.target.closest(".map-node")) return;
+    dragging = true;
+    startX = e.clientX; startY = e.clientY;
+    startTX = mapTransform.x; startTY = mapTransform.y;
+    canvas.style.cursor = "grabbing";
+    e.preventDefault();
+  });
+  window.addEventListener("mousemove", e => {
+    if (!dragging) return;
+    mapTransform.x = startTX + (e.clientX - startX);
+    mapTransform.y = startTY + (e.clientY - startY);
+    applyMapTransform(getStage());
+  });
+  window.addEventListener("mouseup", () => {
+    if (dragging) { dragging = false; canvas.style.cursor = ""; }
+  });
+
+  // Zoom buttons
+  document.getElementById("map-zoom-in")?.addEventListener("click", () => {
+    mapTransform.scale = Math.min(3, mapTransform.scale * 1.25);
+    applyMapTransform(getStage());
+  });
+  document.getElementById("map-zoom-out")?.addEventListener("click", () => {
+    mapTransform.scale = Math.max(0.3, mapTransform.scale / 1.25);
+    applyMapTransform(getStage());
+  });
+  document.getElementById("map-zoom-reset")?.addEventListener("click", () => {
+    mapTransform = { x: 0, y: 0, scale: 1 };
+    applyMapTransform(getStage());
+  });
 }
 
 /* ─── Map: render ───────────────────────────────────────────────── */
@@ -1108,10 +1211,15 @@ function renderMapLegend() {
 function renderMap() {
   const canvas = document.getElementById("map-canvas");
   const svg    = document.getElementById("map-svg");
-  if (!canvas || !svg || !state.themes.length) return;
+  const stage  = document.getElementById("map-stage");
+  if (!canvas || !svg || !stage || !state.themes.length) return;
 
   const { width, height } = canvas.getBoundingClientRect();
   if (width < 100 || height < 100) return;
+
+  // Reset pan/zoom for a fresh render
+  mapTransform = { x: 0, y: 0, scale: 1 };
+  applyMapTransform(stage);
 
   // Build node list
   const slugIndex = new Map(state.themes.map((t, i) => [t.slug, i]));
@@ -1145,14 +1253,15 @@ function renderMap() {
   const maxDeg = Math.max(...nodeDegree, 1);
   const cx = width / 2, cy = height / 2;
 
-  // Render SVG edges as curved bezier paths
+  // Render SVG edges inside the stage
   svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
+  svg.style.width  = `${width}px`;
+  svg.style.height = `${height}px`;
   svg.innerHTML = "";
   edgeList.forEach(([a, b]) => {
     const na = nodes[a], nb = nodes[b];
     const mx = (na.x + nb.x) / 2;
     const my = (na.y + nb.y) / 2;
-    // Control point: midpoint offset away from canvas center
     const dx = mx - cx, dy = my - cy;
     const dist = Math.hypot(dx, dy) || 1;
     const edgeLen = Math.hypot(nb.x - na.x, nb.y - na.y);
@@ -1168,8 +1277,8 @@ function renderMap() {
     svg.appendChild(path);
   });
 
-  // Remove old nodes then render new HTML nodes
-  canvas.querySelectorAll(".map-node").forEach(el => el.remove());
+  // Remove old nodes then render into stage (not canvas)
+  stage.querySelectorAll(".map-node").forEach(el => el.remove());
 
   nodes.forEach((node, i) => {
     const color = CATEGORY_COLORS[node.category] || "#999";
@@ -1209,7 +1318,7 @@ function renderMap() {
     // Hover: highlight connected nodes + edges
     el.addEventListener("mouseenter", () => {
       const neighbors = new Set(node.neighbors);
-      canvas.querySelectorAll(".map-node").forEach(n => {
+      stage.querySelectorAll(".map-node").forEach(n => {
         n.classList.toggle("map-node--dim",
           n.dataset.slug !== node.slug && !neighbors.has(n.dataset.slug));
       });
@@ -1221,12 +1330,12 @@ function renderMap() {
     });
 
     el.addEventListener("mouseleave", () => {
-      canvas.querySelectorAll(".map-node").forEach(n => n.classList.remove("map-node--dim"));
+      stage.querySelectorAll(".map-node").forEach(n => n.classList.remove("map-node--dim"));
       svg.querySelectorAll(".map-edge").forEach(e =>
         e.classList.remove("map-edge--active", "map-edge--dim"));
     });
 
-    canvas.appendChild(el);
+    stage.appendChild(el);
   });
 
   renderMapLegend();
@@ -1256,10 +1365,20 @@ async function init() {
 
     state.authors = authors;
     state.themes  = lightIndex.themes.sort((a, b) => a.title.localeCompare(b.title, "es"));
-    state.selectedSlug = getSlugFromHash() || null;
 
-    if (state.selectedSlug) setHash(state.selectedSlug);
-    applyFilters();
+    const authorId = getAuthorFromHash();
+    if (authorId) {
+      state.selectedAuthorId = authorId;
+      state.selectedSlug = null;
+      applyFilters();
+      switchView("autores");
+    } else {
+      state.selectedSlug = getSlugFromHash() || null;
+      if (state.selectedSlug) setHash(state.selectedSlug);
+      applyFilters();
+    }
+
+    initMapInteraction();
   } catch (err) {
     themeList.innerHTML = `<div class="empty-state">Error al cargar el contenido: ${esc(err.message)}</div>`;
   }
@@ -1274,6 +1393,15 @@ navAutores.addEventListener("click", () => switchView("autores"));
 navMapa.addEventListener("click",    () => switchView("mapa"));
 
 window.addEventListener("hashchange", () => {
+  const authorId = getAuthorFromHash();
+  if (authorId) {
+    if (authorId === state.selectedAuthorId && state.view === "autores") return;
+    state.selectedAuthorId = authorId;
+    if (state.view !== "autores") switchView("autores");
+    else { renderAuthorList(); renderDetail(); }
+    return;
+  }
+
   const slug = getSlugFromHash();
   if (!slug || slug === state.selectedSlug) return;
   state.selectedSlug = slug;

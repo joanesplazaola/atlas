@@ -1173,7 +1173,7 @@ body.modal-open { overflow: hidden; }
 
 .map-header {
   flex-shrink: 0;
-  padding: 12px 24px;
+  padding: 10px 20px;
   border-bottom: 1px solid var(--border);
   display: flex;
   align-items: center;
@@ -1181,6 +1181,13 @@ body.modal-open { overflow: hidden; }
   gap: 16px;
   flex-wrap: wrap;
   background: rgba(18,21,30,0.7);
+}
+
+.map-header__controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 .map-header__title {
@@ -1191,9 +1198,46 @@ body.modal-open { overflow: hidden; }
 }
 
 .map-header__subtitle {
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   color: var(--text-muted);
   margin-top: 1px;
+}
+
+/* Zoom controls */
+.map-zoom-controls {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.map-zoom-btn {
+  appearance: none;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 120ms, color 120ms;
+}
+
+.map-zoom-btn:hover {
+  background: rgba(255,255,255,0.1);
+  color: var(--text);
+}
+
+.map-zoom-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
 }
 
 .map-legend {
@@ -1224,15 +1268,29 @@ body.modal-open { overflow: hidden; }
   min-height: 0;
   position: relative;
   overflow: hidden;
+  cursor: grab;
   background-image: radial-gradient(rgba(255,255,255,0.045) 1px, transparent 1px);
   background-size: 28px 28px;
 }
 
-.map-svg {
+.map-canvas:active {
+  cursor: grabbing;
+}
+
+/* Stage: transformable layer for pan/zoom */
+#map-stage {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+  transform-origin: 0 0;
+}
+
+.map-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
   pointer-events: none;
   overflow: visible;
 }

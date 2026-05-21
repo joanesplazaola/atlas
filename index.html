@@ -79,12 +79,21 @@
       <div class="map-header">
         <div class="map-header__text">
           <h2 class="map-header__title">Mapa de conexiones</h2>
-          <p class="map-header__subtitle">Haz clic en un tema para estudiar autores, obras y rutas de lectura</p>
+          <p class="map-header__subtitle">Haz clic en un tema · Scroll para zoom · Arrastra para mover</p>
         </div>
-        <div class="map-legend" id="map-legend"></div>
+        <div class="map-header__controls">
+          <div class="map-zoom-controls" aria-label="Controles de zoom">
+            <button type="button" id="map-zoom-in"    class="map-zoom-btn" title="Acercar"           aria-label="Acercar">+</button>
+            <button type="button" id="map-zoom-reset" class="map-zoom-btn" title="Restablecer vista"  aria-label="Restablecer vista">⊙</button>
+            <button type="button" id="map-zoom-out"   class="map-zoom-btn" title="Alejar"             aria-label="Alejar">−</button>
+          </div>
+          <div class="map-legend" id="map-legend"></div>
+        </div>
       </div>
       <div class="map-canvas" id="map-canvas">
-        <svg class="map-svg" id="map-svg" aria-hidden="true"></svg>
+        <div id="map-stage">
+          <svg class="map-svg" id="map-svg" aria-hidden="true"></svg>
+        </div>
       </div>
     </div>
 
