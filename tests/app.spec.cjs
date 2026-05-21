@@ -204,6 +204,53 @@ test.describe("Atlas Marxista — vista de autores", () => {
   });
 });
 
+test.describe("Atlas Marxista — mapa de conexiones", () => {
+  test("el botón Mapa en el topbar muestra la vista del mapa", async ({ page }) => {
+    await page.goto("/");
+    await page.locator("#nav-mapa").click();
+    await expect(page.locator("#map-view")).toBeVisible();
+    await expect(page.locator(".app")).not.toBeVisible();
+  });
+
+  test("el mapa renderiza los nodos de todos los temas", async ({ page }) => {
+    await page.goto("/");
+    await page.locator("#nav-mapa").click();
+    // Wait for nodes to appear (force layout is synchronous after rAF)
+    await page.waitForSelector(".map-node");
+    const nodes = page.locator(".map-node");
+    const count = await nodes.count();
+    expect(count).toBe(6);
+  });
+
+  test("el mapa renderiza las aristas SVG entre temas relacionados", async ({ page }) => {
+    await page.goto("/");
+    await page.locator("#nav-mapa").click();
+    await page.waitForSelector(".map-edge");
+    const edges = page.locator(".map-edge");
+    const count = await edges.count();
+    expect(count).toBeGreaterThanOrEqual(5);
+  });
+
+  test("hacer clic en un nodo navega al tema correspondiente", async ({ page }) => {
+    await page.goto("/");
+    await page.locator("#nav-mapa").click();
+    await page.waitForSelector(".map-node");
+    const firstNode = page.locator(".map-node").first();
+    await firstNode.click();
+    // Should switch back to temas view and show detail
+    await expect(page.locator(".app")).toBeVisible();
+    await expect(page.locator("#detail-content")).toBeVisible();
+  });
+
+  test("el botón Temas desde el mapa vuelve a la vista normal", async ({ page }) => {
+    await page.goto("/");
+    await page.locator("#nav-mapa").click();
+    await page.locator("#nav-temas").click();
+    await expect(page.locator(".app")).toBeVisible();
+    await expect(page.locator("#map-view")).not.toBeVisible();
+  });
+});
+
 test.describe("Atlas Marxista — UX móvil", () => {
   test.use({ viewport: { width: 375, height: 812 } });
 

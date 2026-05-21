@@ -27,6 +27,7 @@
         <nav class="topbar__nav" aria-label="Vistas principales">
           <button type="button" id="nav-temas"   class="topbar__nav-btn topbar__nav-btn--active">Temas</button>
           <button type="button" id="nav-autores"  class="topbar__nav-btn">Autores</button>
+          <button type="button" id="nav-mapa"     class="topbar__nav-btn">Mapa</button>
         </nav>
         <p class="topbar__claim">Navega Marxists.org. No lo sustituye.</p>
       </div>
@@ -72,6 +73,20 @@
     </main>
 
     <script src="app.js" defer></script>
+
+    <!-- Map view -->
+    <div id="map-view" class="map-view" hidden aria-label="Mapa de conexiones entre temas">
+      <div class="map-header">
+        <div class="map-header__text">
+          <h2 class="map-header__title">Mapa de conexiones</h2>
+          <p class="map-header__subtitle">Haz clic en un tema para estudiar autores, obras y rutas de lectura</p>
+        </div>
+        <div class="map-legend" id="map-legend"></div>
+      </div>
+      <div class="map-canvas" id="map-canvas">
+        <svg class="map-svg" id="map-svg" aria-hidden="true"></svg>
+      </div>
+    </div>
 
     <!-- Works search modal (Pagefind) -->
     <div id="works-search-modal" class="works-modal" hidden role="dialog" aria-modal="true" aria-label="Buscar en obras">

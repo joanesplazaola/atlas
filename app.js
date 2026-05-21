@@ -22,6 +22,8 @@ const searchInput  = document.querySelector("#search-input");
 const activeFilter = document.querySelector("#active-filter");
 const navTemas     = document.querySelector("#nav-temas");
 const navAutores   = document.querySelector("#nav-autores");
+const navMapa      = document.querySelector("#nav-mapa");
+const mapViewEl    = document.querySelector("#map-view");
 
 /* ─── Helpers ──────────────────────────────────────────────────── */
 
@@ -572,15 +574,251 @@ async function renderDetail() {
 
 function switchView(view) {
   state.view = view;
-  navTemas.classList.toggle("topbar__nav-btn--active", view === "temas");
+  navTemas.classList.toggle("topbar__nav-btn--active",   view === "temas");
   navAutores.classList.toggle("topbar__nav-btn--active", view === "autores");
+  navMapa.classList.toggle("topbar__nav-btn--active",    view === "mapa");
+
+  // Show/hide main app vs map view
+  appEl.hidden    = (view === "mapa");
+  mapViewEl.hidden = (view !== "mapa");
+
   searchInput.placeholder = view === "autores" ? "Buscar autor…" : "Tema, autor, concepto…";
   renderStats();
-  if (view === "autores") {
+  if (view === "mapa") {
+    requestAnimationFrame(renderMap);
+  } else if (view === "autores") {
     renderAuthorList();
   } else {
     renderList();
   }
+}
+
+/* ─── Map: category metadata ─────────────────────────────────────── */
+
+const THEME_CATEGORIES = {
+  "estado":           "politica",
+  "partido":          "politica",
+  "fascismo":         "historia",
+  "imperialismo":     "economia",
+  "teoria-del-valor": "economia",
+  "vivienda":         "social",
+};
+
+const CATEGORY_COLORS = {
+  politica: "#4f9cf9",
+  historia: "#f97316",
+  economia: "#22c55e",
+  social:   "#06b6d4",
+};
+
+const CATEGORY_LABELS = {
+  politica: "Política y Estado",
+  historia: "Historia",
+  economia: "Economía",
+  social:   "Cuestión social",
+};
+
+function getCategoryForTheme(slug) {
+  return THEME_CATEGORIES[slug] || "politica";
+}
+
+/* ─── Map: force-directed layout (Fruchterman-Reingold) ─────────── */
+
+function forceLayout(nodes, edges, width, height) {
+  const n = nodes.length;
+  if (n === 0) return;
+  const cx = width / 2, cy = height / 2;
+  const R  = Math.min(width, height) * 0.33;
+
+  // Circular init
+  nodes.forEach((node, i) => {
+    const angle = (2 * Math.PI * i) / n - Math.PI / 2;
+    node.x = cx + R * Math.cos(angle);
+    node.y = cy + R * Math.sin(angle);
+  });
+
+  const k = Math.sqrt((width * height) / n) * 0.5;
+  let temp = Math.min(width, height) * 0.1;
+
+  for (let iter = 0; iter < 200; iter++) {
+    const fx = new Float64Array(n);
+    const fy = new Float64Array(n);
+
+    // Repulsion between all pairs
+    for (let i = 0; i < n; i++) {
+      for (let j = 0; j < n; j++) {
+        if (i === j) continue;
+        const ddx = nodes[i].x - nodes[j].x;
+        const ddy = nodes[i].y - nodes[j].y;
+        const dist = Math.max(Math.hypot(ddx, ddy), 1);
+        const f = (k * k) / dist;
+        fx[i] += (ddx / dist) * f;
+        fy[i] += (ddy / dist) * f;
+      }
+    }
+
+    // Attraction along edges
+    edges.forEach(([a, b]) => {
+      const ddx = nodes[b].x - nodes[a].x;
+      const ddy = nodes[b].y - nodes[a].y;
+      const dist = Math.max(Math.hypot(ddx, ddy), 1);
+      const f = (dist * dist) / k;
+      fx[a] += (ddx / dist) * f;
+      fy[a] += (ddy / dist) * f;
+      fx[b] -= (ddx / dist) * f;
+      fy[b] -= (ddy / dist) * f;
+    });
+
+    // Gentle gravity toward center
+    nodes.forEach((node, i) => {
+      fx[i] += (cx - node.x) * 0.025;
+      fy[i] += (cy - node.y) * 0.025;
+    });
+
+    // Apply with temperature cooling
+    nodes.forEach((node, i) => {
+      const mag  = Math.hypot(fx[i], fy[i]) || 1;
+      const step = Math.min(mag, temp);
+      node.x += (fx[i] / mag) * step;
+      node.y += (fy[i] / mag) * step;
+      // Keep inside padded bounds
+      const px = 105, py = 75;
+      node.x = Math.max(px, Math.min(width  - px, node.x));
+      node.y = Math.max(py, Math.min(height - py, node.y));
+    });
+
+    temp *= 0.97;
+  }
+}
+
+/* ─── Map: render ───────────────────────────────────────────────── */
+
+function renderMapLegend() {
+  const legendEl = document.getElementById("map-legend");
+  if (!legendEl) return;
+  const categories = [...new Set(state.themes.map(t => getCategoryForTheme(t.slug)))];
+  legendEl.innerHTML = categories.map(cat =>
+    `<span class="map-legend-item">
+       <span class="map-legend-dot" style="background:${CATEGORY_COLORS[cat] || "#999"}"></span>
+       ${esc(CATEGORY_LABELS[cat] || cat)}
+     </span>`
+  ).join("");
+}
+
+function renderMap() {
+  const canvas = document.getElementById("map-canvas");
+  const svg    = document.getElementById("map-svg");
+  if (!canvas || !svg || !state.themes.length) return;
+
+  const { width, height } = canvas.getBoundingClientRect();
+  if (width < 100 || height < 100) return;
+
+  // Build node list
+  const slugIndex = new Map(state.themes.map((t, i) => [t.slug, i]));
+  const nodes = state.themes.map(t => ({
+    slug:      t.slug,
+    title:     t.title,
+    count:     t.work_count ?? 0,
+    authors:   (t.key_author_names ?? []).slice(0, 2),
+    category:  getCategoryForTheme(t.slug),
+    neighbors: t.related_themes ?? [],
+    x: 0, y: 0,
+  }));
+
+  // Build deduplicated edge list
+  const edgeSet = new Set();
+  const edgeList = [];
+  state.themes.forEach(t => {
+    (t.related_themes || []).forEach(relSlug => {
+      const a = slugIndex.get(t.slug), b = slugIndex.get(relSlug);
+      if (a == null || b == null) return;
+      const key = [Math.min(a, b), Math.max(a, b)].join("-");
+      if (!edgeSet.has(key)) { edgeSet.add(key); edgeList.push([a, b]); }
+    });
+  });
+
+  forceLayout(nodes, edgeList, width, height);
+
+  // Render SVG edges
+  svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
+  svg.innerHTML = "";
+  edgeList.forEach(([a, b]) => {
+    const na = nodes[a], nb = nodes[b];
+    const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+    line.setAttribute("x1", na.x); line.setAttribute("y1", na.y);
+    line.setAttribute("x2", nb.x); line.setAttribute("y2", nb.y);
+    line.setAttribute("class", "map-edge");
+    line.dataset.a = na.slug;
+    line.dataset.b = nb.slug;
+    svg.appendChild(line);
+  });
+
+  // Remove old nodes then render new HTML nodes
+  canvas.querySelectorAll(".map-node").forEach(el => el.remove());
+
+  nodes.forEach(node => {
+    const color = CATEGORY_COLORS[node.category] || "#999";
+    const el = document.createElement("div");
+    el.className = "map-node";
+    el.style.cssText = `left:${node.x}px; top:${node.y}px; --cat-color:${color};`;
+    el.setAttribute("tabindex", "0");
+    el.setAttribute("role", "button");
+    el.setAttribute("aria-label", `Ver tema: ${node.title}`);
+    el.dataset.slug = node.slug;
+
+    el.innerHTML = `
+      <div class="map-node__inner">
+        <div class="map-node__header">
+          <span class="map-node__dot"></span>
+          <span class="map-node__title">${esc(node.title)}</span>
+        </div>
+        <div class="map-node__count">${node.count} obra${node.count !== 1 ? "s" : ""}</div>
+        <div class="map-node__authors">${node.authors.map(esc).join(" · ")}</div>
+      </div>`;
+
+    const navigate = () => {
+      switchView("temas");
+      state.selectedSlug = node.slug;
+      state.activeTab = "overview";
+      setHash(node.slug);
+      applyFilters();
+    };
+
+    el.addEventListener("click", navigate);
+    el.addEventListener("keydown", e => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); navigate(); }
+    });
+
+    // Hover: highlight connected nodes + edges
+    el.addEventListener("mouseenter", () => {
+      const neighbors = new Set(node.neighbors);
+      canvas.querySelectorAll(".map-node").forEach(n => {
+        n.classList.toggle("map-node--dim",
+          n.dataset.slug !== node.slug && !neighbors.has(n.dataset.slug));
+      });
+      svg.querySelectorAll(".map-edge").forEach(e => {
+        const connected = e.dataset.a === node.slug || e.dataset.b === node.slug;
+        e.classList.toggle("map-edge--active", connected);
+        e.classList.toggle("map-edge--dim", !connected);
+      });
+    });
+
+    el.addEventListener("mouseleave", () => {
+      canvas.querySelectorAll(".map-node").forEach(n => n.classList.remove("map-node--dim"));
+      svg.querySelectorAll(".map-edge").forEach(e =>
+        e.classList.remove("map-edge--active", "map-edge--dim"));
+    });
+
+    canvas.appendChild(el);
+  });
+
+  renderMapLegend();
+}
+
+// Re-render map on canvas resize
+const _mapCanvas = document.getElementById("map-canvas");
+if (_mapCanvas && "ResizeObserver" in window) {
+  new ResizeObserver(() => { if (state.view === "mapa") renderMap(); }).observe(_mapCanvas);
 }
 
 /* ─── Data loading ─────────────────────────────────────────────── */
@@ -616,6 +854,7 @@ searchInput.addEventListener("input", e => { state.query = e.target.value; apply
 
 navTemas.addEventListener("click",   () => switchView("temas"));
 navAutores.addEventListener("click", () => switchView("autores"));
+navMapa.addEventListener("click",    () => switchView("mapa"));
 
 window.addEventListener("hashchange", () => {
   const slug = getSlugFromHash();
