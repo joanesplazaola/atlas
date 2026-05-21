@@ -14,19 +14,19 @@
   ],
   "key_authors": [
     {
-      "id": "marx",
+      "id": "marx-karl",
       "name": "Karl Marx",
       "role": "critica politica del Estado burgues",
       "why_relevant": "Permite entrar al tema desde la experiencia de la Comuna de Paris y desde la critica de la maquinaria estatal existente."
     },
     {
-      "id": "engels",
+      "id": "engels-friedrich",
       "name": "Friedrich Engels",
       "role": "origen historico del Estado",
       "why_relevant": "Ofrece una lectura historica sobre la aparicion del Estado ligada a la division de clases y a la necesidad de administracion coercitiva."
     },
     {
-      "id": "lenin",
+      "id": "lenin-vi",
       "name": "V. I. Lenin",
       "role": "sintesis revolucionaria del problema del Estado",
       "why_relevant": "Reorganiza el debate sobre Estado, revolucion, democracia y dictadura del proletariado desde una perspectiva estrategica."
@@ -37,7 +37,7 @@
       "id": "marx-civil-war-in-france",
       "title": "The Civil War in France",
       "author_ids": [
-        "marx"
+        "marx-karl"
       ],
       "year": 1871,
       "level": "intermediate",
@@ -54,7 +54,7 @@
       "id": "engels-origin-family-state",
       "title": "The Origin of the Family, Private Property and the State",
       "author_ids": [
-        "engels"
+        "engels-friedrich"
       ],
       "year": 1884,
       "level": "introductory",
@@ -71,7 +71,7 @@
       "id": "lenin-state-and-revolution",
       "title": "The State and Revolution",
       "author_ids": [
-        "lenin"
+        "lenin-vi"
       ],
       "year": 1917,
       "level": "introductory",
@@ -113,8 +113,8 @@
       "label": "Tomar o destruir la maquina estatal",
       "description": "Debate sobre si la clase trabajadora puede servirse del aparato estatal existente o debe romperlo y sustituirlo por nuevas formas de poder.",
       "participant_author_ids": [
-        "marx",
-        "lenin"
+        "marx-karl",
+        "lenin-vi"
       ],
       "related_work_ids": [
         "marx-civil-war-in-france",
@@ -126,9 +126,9 @@
       "label": "Origen historico del Estado y division en clases",
       "description": "Debate sobre el caracter historico del Estado, sus funciones de dominacion y su relacion con la propiedad y la reproduccion social.",
       "participant_author_ids": [
-        "engels",
-        "marx",
-        "lenin"
+        "engels-friedrich",
+        "marx-karl",
+        "lenin-vi"
       ],
       "related_work_ids": [
         "engels-origin-family-state",

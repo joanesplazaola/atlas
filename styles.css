@@ -671,12 +671,34 @@ button.chip:focus-visible {
   border-color: var(--border-strong);
 }
 
+.author-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
 .author-card__name {
   font-family: "Lora", serif;
   font-size: 1rem;
   font-weight: 600;
-  margin-bottom: 4px;
 }
+
+.author-card__years {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  margin-top: 2px;
+}
+
+.author-card__link {
+  color: var(--text-dim);
+  flex-shrink: 0;
+  opacity: 0.6;
+  transition: opacity 120ms, color 120ms;
+}
+
+.author-card__link:hover { opacity: 1; color: var(--accent); }
 
 .author-card__role {
   font-size: 0.78rem;
@@ -689,6 +711,12 @@ button.chip:focus-visible {
   font-size: 0.83rem;
   color: var(--text-muted);
   line-height: 1.55;
+}
+
+.author-list-card__years {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  margin-top: 2px;
 }
 
 /* ─── Work cards ──────────────────────────────────────────────── */

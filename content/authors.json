@@ -1,0 +1,74 @@
+[
+  {
+    "id": "marx-karl",
+    "name": "Karl Marx",
+    "years": "1818–1883",
+    "nationality": "alemán",
+    "marxists_org_url": "https://www.marxists.org/espanol/m-e/index.htm",
+    "short_bio": "Filósofo, economista y revolucionario alemán. Fundador junto a Engels del materialismo histórico y del socialismo científico. Autor de El Capital y del Manifiesto Comunista.",
+    "themes": ["estado", "teoria-del-valor", "vivienda"]
+  },
+  {
+    "id": "engels-friedrich",
+    "name": "Friedrich Engels",
+    "years": "1820–1895",
+    "nationality": "alemán",
+    "marxists_org_url": "https://www.marxists.org/espanol/m-e/index.htm",
+    "short_bio": "Filósofo y revolucionario alemán. Colaborador permanente de Marx. Autor de El origen de la familia, la propiedad privada y el Estado, y del Antidühring.",
+    "themes": ["estado", "teoria-del-valor", "vivienda"]
+  },
+  {
+    "id": "lenin-vi",
+    "name": "V. I. Lenin",
+    "years": "1870–1924",
+    "nationality": "ruso",
+    "marxists_org_url": "https://www.marxists.org/espanol/lenin/index.htm",
+    "short_bio": "Revolucionario ruso y dirigente de la Revolución de Octubre. Desarrolló la teoría del partido revolucionario, el imperialismo como fase superior del capitalismo y la cuestión del Estado.",
+    "themes": ["estado", "imperialismo", "partido"]
+  },
+  {
+    "id": "luxemburg-rosa",
+    "name": "Rosa Luxemburg",
+    "years": "1871–1919",
+    "nationality": "polaca-alemana",
+    "marxists_org_url": "https://www.marxists.org/espanol/luxem/index.htm",
+    "short_bio": "Revolucionaria polaca-alemana. Teorizó la huelga de masas, criticó el oportunismo y el centralismo burocrático, y analizó la acumulación del capital a escala mundial.",
+    "themes": ["imperialismo", "partido"]
+  },
+  {
+    "id": "gramsci-antonio",
+    "name": "Antonio Gramsci",
+    "years": "1891–1937",
+    "nationality": "italiano",
+    "marxists_org_url": "https://www.marxists.org/espanol/gramsci/index.htm",
+    "short_bio": "Marxista italiano, fundador del PCI. Elaboró los conceptos de hegemonía, bloque histórico, guerra de posición y el partido como intelectual colectivo desde la cárcel fascista.",
+    "themes": ["fascismo", "partido"]
+  },
+  {
+    "id": "trotsky-leon",
+    "name": "León Trotsky",
+    "years": "1879–1940",
+    "nationality": "ruso-ucraniano",
+    "marxists_org_url": "https://www.marxists.org/espanol/trotsky/index.htm",
+    "short_bio": "Revolucionario ruso y dirigente del Ejército Rojo. Teorizó la revolución permanente y fue el principal marxista que analizó el fascismo como movimiento de masas pequeñoburgués.",
+    "themes": ["fascismo"]
+  },
+  {
+    "id": "dimitrov-georgi",
+    "name": "Georgi Dimitrov",
+    "years": "1882–1949",
+    "nationality": "búlgaro",
+    "marxists_org_url": "https://www.marxists.org/espanol/dimitrov/index.htm",
+    "short_bio": "Dirigente comunista búlgaro y secretario general de la Komintern. Formuló la estrategia del Frente Popular contra el fascismo en el VII Congreso de la IC (1935).",
+    "themes": ["fascismo"]
+  },
+  {
+    "id": "bukharin",
+    "name": "Nikolai Bukharin",
+    "years": "1888–1938",
+    "nationality": "ruso",
+    "marxists_org_url": "https://www.marxists.org/espanol/bujarin/index.htm",
+    "short_bio": "Economista y teórico marxista ruso. Analizó el imperialismo como economía mundial y el capitalismo de Estado, convirtiéndose en una de las figuras centrales del debate sobre el imperialismo.",
+    "themes": ["imperialismo"]
+  }
+]

@@ -179,6 +179,8 @@ test.describe("Atlas Marxista — vista de autores", () => {
   test("la lista de autores contiene al menos 5 autores únicos", async ({ page }) => {
     await page.goto("/");
     await page.locator("#nav-autores").click();
+    // Wait for at least one card to appear (data may still be loading)
+    await expect(page.locator(".author-list-card").first()).toBeVisible();
     const authors = page.locator(".author-list-card");
     const count = await authors.count();
     expect(count).toBeGreaterThanOrEqual(5);

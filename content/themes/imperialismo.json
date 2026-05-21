@@ -14,13 +14,13 @@
   ],
   "key_authors": [
     {
-      "id": "lenin",
+      "id": "lenin-vi",
       "name": "V. I. Lenin",
       "role": "sintesis politica y economica",
       "why_relevant": "Ofrece una formulacion panoramica del imperialismo ligada al monopolio, el capital financiero y el reparto del mundo."
     },
     {
-      "id": "luxemburg",
+      "id": "luxemburg-rosa",
       "name": "Rosa Luxemburg",
       "role": "debate sobre acumulacion y expansion capitalista",
       "why_relevant": "Su trabajo permite entrar en las discusiones sobre acumulacion, expansion hacia espacios no capitalistas y contradicciones del sistema."
@@ -37,7 +37,7 @@
       "id": "lenin-imperialism-highest-stage",
       "title": "Imperialism, the Highest Stage of Capitalism",
       "author_ids": [
-        "lenin"
+        "lenin-vi"
       ],
       "year": 1916,
       "level": "introductory",
@@ -54,7 +54,7 @@
       "id": "luxemburg-accumulation-of-capital",
       "title": "The Accumulation of Capital",
       "author_ids": [
-        "luxemburg"
+        "luxemburg-rosa"
       ],
       "year": 1913,
       "level": "advanced",
@@ -113,7 +113,7 @@
       "label": "Monopolio, capital financiero y reparto del mundo",
       "description": "Debate sobre si el rasgo definitorio del imperialismo es la concentracion monopolista, la exportacion de capitales o la reorganizacion del mercado mundial bajo grandes potencias.",
       "participant_author_ids": [
-        "lenin",
+        "lenin-vi",
         "bukharin"
       ],
       "related_work_ids": [
@@ -126,8 +126,8 @@
       "label": "Acumulacion y expansion hacia espacios no capitalistas",
       "description": "Debate sobre como el capitalismo necesita expandirse, absorber nuevos espacios y resolver sus contradicciones de realizacion.",
       "participant_author_ids": [
-        "luxemburg",
-        "lenin",
+        "luxemburg-rosa",
+        "lenin-vi",
         "bukharin"
       ],
       "related_work_ids": [

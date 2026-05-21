@@ -1,6 +1,7 @@
 const state = {
   manifest: null,
   themes: [],
+  authors: [],          // canonical authors registry
   filteredThemes: [],
   selectedSlug: null,
   activeTab: "overview",
@@ -214,16 +215,31 @@ function renderList() {
 /* ─── Author index (sidebar autores) ────────────────────────────── */
 
 function getAllAuthors() {
-  const seen = new Map();
+  // Build theme-count map from fichas
+  const themesByAuthor = new Map();
   state.themes.forEach(t => {
     t.key_authors.forEach(a => {
-      if (!seen.has(a.id)) {
-        seen.set(a.id, { ...a, themes: [] });
-      }
-      seen.get(a.id).themes.push(t.slug);
+      if (!themesByAuthor.has(a.id)) themesByAuthor.set(a.id, []);
+      themesByAuthor.get(a.id).push(t.slug);
     });
   });
-  return [...seen.values()].sort((a, b) => a.name.localeCompare(b.name, "es"));
+
+  // Use canonical registry; fall back to inline data for unknown IDs
+  const canonicalIds = new Set(state.authors.map(a => a.id));
+  const result = state.authors.map(a => ({
+    ...a,
+    themes: themesByAuthor.get(a.id) || [],
+  })).filter(a => a.themes.length > 0);
+
+  // Include any authors present in fichas but not in registry (shouldn't happen, but safe)
+  themesByAuthor.forEach((themes, id) => {
+    if (!canonicalIds.has(id)) {
+      const inline = state.themes.flatMap(t => t.key_authors).find(a => a.id === id);
+      if (inline) result.push({ ...inline, themes });
+    }
+  });
+
+  return result.sort((a, b) => a.name.localeCompare(b.name, "es"));
 }
 
 function renderAuthorList() {
@@ -231,7 +247,11 @@ function renderAuthorList() {
   const q = norm(state.query.trim());
 
   const filtered = q
-    ? authors.filter(a => norm(a.name).includes(q) || norm(a.role).includes(q))
+    ? authors.filter(a =>
+        norm(a.name).includes(q) ||
+        norm(a.short_bio || a.role || "").includes(q) ||
+        norm(a.nationality || "").includes(q)
+      )
     : authors;
 
   if (!filtered.length) {
@@ -247,7 +267,10 @@ function renderAuthorList() {
     el.setAttribute("role", "button");
     el.tabIndex = 0;
     el.innerHTML =
-      `<div class="author-list-card__name">${esc(a.name)}</div>
+      `<div>
+         <div class="author-list-card__name">${esc(a.name)}</div>
+         ${a.years ? `<div class="author-list-card__years">${esc(a.years)}</div>` : ""}
+       </div>
        <div class="author-list-card__count">${a.themes.length} tema${a.themes.length !== 1 ? "s" : ""}</div>`;
 
     const select = () => {
@@ -385,10 +408,19 @@ function renderDetail() {
   overviewEl.innerHTML += `<p class="section-title">Autores clave</p><div class="authors-grid" id="ov-authors"></div>`;
   const ovAuthors = overviewEl.querySelector("#ov-authors");
   theme.key_authors.forEach(a => {
+    const canonical = state.authors.find(ca => ca.id === a.id);
     const c = document.createElement("article");
     c.className = "author-card";
     c.innerHTML =
-      `<div class="author-card__name">${esc(a.name)}</div>
+      `<div class="author-card__header">
+         <div>
+           <div class="author-card__name">${esc(a.name)}</div>
+           ${canonical?.years ? `<div class="author-card__years">${esc(canonical.years)}</div>` : ""}
+         </div>
+         ${canonical?.marxists_org_url ? `<a class="author-card__link" href="${esc(canonical.marxists_org_url)}" target="_blank" rel="noreferrer" title="Marxists.org">
+           <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+         </a>` : ""}
+       </div>
        <div class="author-card__role">${esc(a.role)}</div>
        <p class="author-card__why">${esc(a.why_relevant)}</p>`;
     ovAuthors.appendChild(c);
@@ -521,10 +553,14 @@ async function fetchJson(path) {
 async function init() {
   renderSkeleton();
   try {
-    const manifest = await fetchJson("content/themes/index.json");
-    const themes   = await Promise.all(manifest.theme_files.map(p => fetchJson(p)));
+    const [manifest, authors] = await Promise.all([
+      fetchJson("content/themes/index.json"),
+      fetchJson("content/authors.json"),
+    ]);
+    const themes = await Promise.all(manifest.theme_files.map(p => fetchJson(p)));
 
     state.manifest = manifest;
+    state.authors  = authors;
     state.themes   = themes.sort((a, b) => a.title.localeCompare(b.title, "es"));
     state.selectedSlug = getSlugFromHash() || state.themes[0]?.slug || null;
 
