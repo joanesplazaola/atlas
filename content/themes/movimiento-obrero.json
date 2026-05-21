@@ -1,0 +1,196 @@
+{
+  "id": "movimiento-obrero",
+  "slug": "movimiento-obrero",
+  "title": "Movimiento obrero y sindicatos",
+  "summary": "Ficha de orientación para estudiar la organización del movimiento obrero, la experiencia sindical y la formación de conciencia de clase.",
+  "editorial_intent": "La entrada más clara es el Manifiesto, seguida por Trabajo asalariado y capital o Salario, precio y ganancia. Después se puede abrir el problema de la huelga de masas y de la organización política con Luxemburg, Lenin y Gramsci.",
+  "status": "reviewed",
+  "entry_points": [
+    {
+      "id": "organizacion-colectiva",
+      "label": "Organización colectiva",
+      "description": "Empieza por cómo la clase trabajadora pasa de experiencias dispersas de explotación a formas duraderas de organización, lucha y aprendizaje político."
+    }
+  ],
+  "key_authors": [
+    {
+      "id": "marx-karl",
+      "name": "Karl Marx",
+      "role": "organizacion de clase y critica de la explotacion",
+      "why_relevant": "Sitúa el movimiento obrero en la relación entre explotación capitalista, organización colectiva y horizonte político propio."
+    },
+    {
+      "id": "engels-friedrich",
+      "name": "Friedrich Engels",
+      "role": "descripcion de la condicion obrera y del asociacionismo",
+      "why_relevant": "Ofrece un retrato decisivo de la clase obrera moderna y de las condiciones que hacen necesaria su organización."
+    },
+    {
+      "id": "gramsci-antonio",
+      "name": "Antonio Gramsci",
+      "role": "relacion entre organizacion, hegemonia y direccion politica",
+      "why_relevant": "Ayuda a pensar cómo sindicatos, partido y cultura se articulan en la formación de una fuerza obrera dirigente."
+    },
+    {
+      "id": "luxemburg-rosa",
+      "name": "Rosa Luxemburg",
+      "role": "huelga de masas y autoactividad obrera",
+      "why_relevant": "Introduce la dimensión de la acción de masas y del aprendizaje colectivo en situaciones de ascenso de lucha."
+    }
+  ],
+  "essential_works": [
+    {
+      "work_id": "manifesto",
+      "level": "introductory",
+      "estimated_effort": "short",
+      "reason_to_read": "Presenta a la clase obrera como sujeto histórico y ofrece un mapa inicial de su organización política."
+    },
+    {
+      "work_id": "engels-condition-working-class",
+      "level": "introductory",
+      "estimated_effort": "long",
+      "reason_to_read": "Muestra las condiciones sociales que hacen surgir el movimiento obrero moderno y sus primeras formas de resistencia."
+    },
+    {
+      "work_id": "salario-precio-ganancia",
+      "level": "introductory",
+      "estimated_effort": "short",
+      "reason_to_read": "Es útil para comprender los límites y la necesidad de la lucha sindical alrededor del salario."
+    },
+    {
+      "work_id": "huelga-masas-luxemburgo",
+      "level": "intermediate",
+      "estimated_effort": "medium",
+      "reason_to_read": "Permite estudiar la relación entre huelga, espontaneidad, organización y maduración política de las masas."
+    },
+    {
+      "work_id": "que-hacer-lenin",
+      "level": "intermediate",
+      "estimated_effort": "medium",
+      "reason_to_read": "Abre el debate sobre la relación entre lucha económica, conciencia socialista y organización revolucionaria."
+    },
+    {
+      "work_id": "trabajo-asalariado-capital",
+      "level": "introductory",
+      "estimated_effort": "short",
+      "reason_to_read": "Aporta una base sencilla para entender por qué la organización obrera nace de la relación salarial capitalista."
+    }
+  ],
+  "connected_concepts": [
+    {
+      "id": "huelga-general",
+      "label": "Huelga general",
+      "relation": "Conecta la lucha económica inmediata con momentos de politización y enfrentamiento general."
+    },
+    {
+      "id": "sindicato",
+      "label": "Sindicato",
+      "relation": "Permite estudiar la organización defensiva cotidiana de la clase trabajadora."
+    },
+    {
+      "id": "conciencia-de-clase",
+      "label": "Conciencia de clase",
+      "relation": "Abre la cuestión de cómo experiencias de explotación se transforman en proyecto político común."
+    },
+    {
+      "id": "organizacion",
+      "label": "Organización",
+      "relation": "Relaciona formas sindicales, políticas y culturales de coordinación obrera."
+    }
+  ],
+  "historical_debates": [
+    {
+      "id": "sindicalismo-y-politica",
+      "label": "Sindicalismo reformista y organización revolucionaria",
+      "description": "Debate sobre si el movimiento obrero debe limitarse a la negociación económica o si necesita construir organizaciones capaces de disputar poder político y dirección estratégica.",
+      "participant_author_ids": [
+        "marx-karl",
+        "luxemburg-rosa",
+        "lenin-vi",
+        "gramsci-antonio"
+      ],
+      "related_work_ids": [
+        "salario-precio-ganancia",
+        "huelga-masas-luxemburgo",
+        "que-hacer-lenin"
+      ]
+    },
+    {
+      "id": "espontaneidad-y-direccion",
+      "label": "Espontaneidad, conciencia y dirección",
+      "description": "Debate sobre cómo se relacionan la autoactividad de las masas, la experiencia sindical y las formas de dirección política dentro del movimiento obrero.",
+      "participant_author_ids": [
+        "luxemburg-rosa",
+        "gramsci-antonio",
+        "lenin-vi"
+      ],
+      "related_work_ids": [
+        "huelga-masas-luxemburgo",
+        "que-hacer-lenin",
+        "moderno-principe-gramsci"
+      ]
+    }
+  ],
+  "reading_paths": [
+    {
+      "id": "ruta-de-base",
+      "label": "Ruta de base",
+      "level": "introductory",
+      "goal": "Entender cómo surge el movimiento obrero moderno y cuáles son sus luchas inmediatas.",
+      "steps": [
+        {
+          "position": 1,
+          "work_id": "manifesto",
+          "note": "Empezar por la visión general del proletariado como fuerza histórica."
+        },
+        {
+          "position": 2,
+          "work_id": "trabajo-asalariado-capital",
+          "note": "Relacionar después la explotación salarial con la necesidad de organización."
+        },
+        {
+          "position": 3,
+          "work_id": "salario-precio-ganancia",
+          "note": "Cerrar con una lectura sobre lucha salarial y límites del sindicalismo."
+        }
+      ]
+    },
+    {
+      "id": "ruta-de-organizacion",
+      "label": "Ruta de organización",
+      "level": "intermediate",
+      "goal": "Cruzar experiencia sindical, acción de masas y construcción política.",
+      "steps": [
+        {
+          "position": 1,
+          "work_id": "engels-condition-working-class",
+          "note": "Ubicar primero el terreno social en el que nace el movimiento obrero."
+        },
+        {
+          "position": 2,
+          "work_id": "huelga-masas-luxemburgo",
+          "note": "Observar después cómo la acción de masas transforma organización y conciencia."
+        },
+        {
+          "position": 3,
+          "work_id": "que-hacer-lenin",
+          "note": "Terminar con el problema de la organización revolucionaria y su relación con la lucha económica."
+        }
+      ]
+    }
+  ],
+  "related_editorial_articles": [],
+  "source_policy": {
+    "primary_source_name": "Marxists Internet Archive",
+    "link_only": true,
+    "allow_excerpt": true,
+    "excerpt_max_words": 120,
+    "attribution_required": true,
+    "notes": "Esta ficha funciona como orientacion editorial. No debe republicar textos completos ni reemplazar la lectura de las obras enlazadas."
+  },
+  "related_themes": [
+    "partido",
+    "vivienda",
+    "reforma-revolucion"
+  ]
+}

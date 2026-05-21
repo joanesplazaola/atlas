@@ -579,9 +579,38 @@ async function renderDetail() {
 
 async function renderAuthorDetail() {
   if (!state.selectedAuthorId) {
-    detailEmpty.hidden = false;
-    detailContent.hidden = true;
-    detailContent.innerHTML = "";
+    // Show a useful autores landing panel instead of blank state
+    detailEmpty.hidden = true;
+    detailContent.hidden = false;
+    const authors = getAllAuthors();
+    detailContent.innerHTML = `
+      <div class="author-landing">
+        <div class="author-landing__hero">
+          <h2 class="author-landing__title">Autores</h2>
+          <p class="author-landing__subtitle">Selecciona un autor para ver su perfil, sus obras en la biblioteca y su relación con otros autores y temas.</p>
+        </div>
+        <div class="author-landing__grid" id="author-landing-grid"></div>
+      </div>`;
+    const grid = detailContent.querySelector("#author-landing-grid");
+    authors.forEach(a => {
+      const card = document.createElement("div");
+      card.className = "author-landing__card";
+      card.setAttribute("role", "button");
+      card.tabIndex = 0;
+      card.innerHTML = `
+        <div class="author-landing__card-name">${esc(a.name)}</div>
+        ${a.years ? `<div class="author-landing__card-years">${esc(a.years)}</div>` : ""}
+        <div class="author-landing__card-count">${a.themes.length} tema${a.themes.length !== 1 ? "s" : ""}</div>`;
+      const go = () => {
+        state.selectedAuthorId = a.id;
+        renderAuthorList();
+        renderDetail();
+        switchMobileView("detail");
+      };
+      card.addEventListener("click", go);
+      card.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); } });
+      grid.appendChild(card);
+    });
     return;
   }
 
@@ -835,26 +864,34 @@ function switchView(view) {
 /* ─── Map: category metadata ─────────────────────────────────────── */
 
 const THEME_CATEGORIES = {
-  "estado":           "politica",
-  "partido":          "politica",
-  "fascismo":         "historia",
-  "imperialismo":     "economia",
-  "teoria-del-valor": "economia",
-  "vivienda":         "social",
+  "estado":             "politica",
+  "partido":            "politica",
+  "reforma-revolucion": "politica",
+  "revolucion":         "politica",
+  "fascismo":           "historia",
+  "cuestion-nacional":  "historia",
+  "imperialismo":       "economia",
+  "teoria-del-valor":   "economia",
+  "alienacion":         "economia",
+  "vivienda":           "social",
+  "movimiento-obrero":  "social",
+  "dialectica":         "filosofia",
 };
 
 const CATEGORY_COLORS = {
-  politica: "#4f9cf9",
-  historia: "#f97316",
-  economia: "#22c55e",
-  social:   "#06b6d4",
+  politica:  "#4f9cf9",
+  historia:  "#f97316",
+  economia:  "#22c55e",
+  social:    "#06b6d4",
+  filosofia: "#a78bfa",
 };
 
 const CATEGORY_LABELS = {
-  politica: "Política y Estado",
-  historia: "Historia",
-  economia: "Economía",
-  social:   "Cuestión social",
+  politica:  "Política y Estado",
+  historia:  "Historia",
+  economia:  "Economía política",
+  social:    "Cuestión social",
+  filosofia: "Filosofía",
 };
 
 function getCategoryForTheme(slug) {

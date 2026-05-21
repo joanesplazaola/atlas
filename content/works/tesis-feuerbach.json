@@ -1,0 +1,14 @@
+{
+  "id": "tesis-feuerbach",
+  "title": "Tesis sobre Feuerbach",
+  "author_ids": [
+    "marx-karl"
+  ],
+  "year": 1845,
+  "kind": "article",
+  "source": {
+    "provider": "Marxists.org",
+    "url": "https://www.marxists.org/espanol/m-e/1840s/45-feuer.htm",
+    "attribution_label": "Marx, Karl. Tesis sobre Feuerbach (1845). Marxists.org."
+  }
+}

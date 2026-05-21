@@ -1,0 +1,14 @@
+{
+  "id": "marx-miseria-filosofia",
+  "title": "Miseria de la filosofía",
+  "author_ids": [
+    "marx-karl"
+  ],
+  "year": 1847,
+  "kind": "book",
+  "source": {
+    "provider": "Marxists.org",
+    "url": "https://www.marxists.org/espanol/m-e/1840s/miseria/index.htm",
+    "attribution_label": "Marx, Karl. Miseria de la filosofía (1847). Marxists.org."
+  }
+}

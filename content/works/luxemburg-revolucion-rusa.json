@@ -1,0 +1,14 @@
+{
+  "id": "luxemburg-revolucion-rusa",
+  "title": "La revolución rusa",
+  "author_ids": [
+    "luxemburg-rosa"
+  ],
+  "year": 1918,
+  "kind": "pamphlet",
+  "source": {
+    "provider": "Marxists.org",
+    "url": "https://www.marxists.org/espanol/luxemburg/1918-rev_rusa.htm",
+    "attribution_label": "Luxemburg, Rosa. La revolución rusa (1918). Marxists.org."
+  }
+}

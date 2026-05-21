@@ -70,5 +70,23 @@
     "marxists_org_url": "https://www.marxists.org/espanol/bujarin/index.htm",
     "short_bio": "Economista y teórico marxista ruso. Analizó el imperialismo como economía mundial y el capitalismo de Estado, convirtiéndose en una de las figuras centrales del debate sobre el imperialismo.",
     "themes": ["imperialismo"]
+  },
+  {
+    "id": "kautsky-karl",
+    "name": "Karl Kautsky",
+    "years": "1854–1938",
+    "nationality": "alemán-checo",
+    "marxists_org_url": "https://www.marxists.org/espanol/kautsky/index.htm",
+    "short_bio": "Principal teórico de la Segunda Internacional y editor de las obras de Marx y Engels. Defensor del marxismo ortodoxo frente al revisionismo de Bernstein, pero criticado posteriormente por Lenin y Luxemburg por su posición ante la revolución rusa y su oposición al bolchevismo.",
+    "themes": []
+  },
+  {
+    "id": "bernstein-eduard",
+    "name": "Eduard Bernstein",
+    "years": "1850–1932",
+    "nationality": "alemán",
+    "marxists_org_url": "https://www.marxists.org/espanol/bernstein/index.htm",
+    "short_bio": "Teórico del revisionismo socialista. Sostuvo que el capitalismo podía transformarse gradualmente sin revolución y que el marxismo debía ser revisado a la luz del desarrollo capitalista. Sus tesis fueron el blanco central de la crítica de Rosa Luxemburg en Reforma o revolución.",
+    "themes": []
   }
 ]

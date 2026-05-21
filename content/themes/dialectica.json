@@ -1,0 +1,180 @@
+{
+  "id": "dialectica",
+  "slug": "dialectica",
+  "title": "Dialéctica materialista",
+  "summary": "Ficha de orientación para estudiar la dialéctica materialista, su relación con la praxis y su diferencia frente al idealismo filosófico.",
+  "editorial_intent": "Conviene empezar por las Tesis sobre Feuerbach y después pasar por Engels para ver cómo el materialismo histórico se formula como crítica del idealismo y como método para pensar procesos y contradicciones.",
+  "status": "reviewed",
+  "entry_points": [
+    {
+      "id": "problema-filosofico",
+      "label": "Problema filosófico",
+      "description": "Empieza por la pregunta sobre cómo pensar la realidad social como proceso histórico, contradictorio y transformable por la praxis."
+    }
+  ],
+  "key_authors": [
+    {
+      "id": "marx-karl",
+      "name": "Karl Marx",
+      "role": "praxis y critica del idealismo",
+      "why_relevant": "Reformula la filosofía como crítica práctica de las condiciones materiales y no como contemplación abstracta del mundo."
+    },
+    {
+      "id": "engels-friedrich",
+      "name": "Friedrich Engels",
+      "role": "sistematizacion del materialismo dialectico",
+      "why_relevant": "Ordena y populariza los problemas de método, historia y contradicción en textos de gran valor pedagógico."
+    },
+    {
+      "id": "lenin-vi",
+      "name": "V. I. Lenin",
+      "role": "lectura revolucionaria del metodo dialectico",
+      "why_relevant": "Su obra política ayuda a ver que la dialéctica no es un adorno filosófico sino una herramienta para el análisis de coyunturas y rupturas."
+    }
+  ],
+  "essential_works": [
+    {
+      "work_id": "tesis-feuerbach",
+      "level": "introductory",
+      "estimated_effort": "short",
+      "reason_to_read": "Condensa de forma breve la idea de praxis y la ruptura con el materialismo contemplativo."
+    },
+    {
+      "work_id": "engels-anti-duhring",
+      "level": "intermediate",
+      "estimated_effort": "long",
+      "reason_to_read": "Ofrece una exposición amplia sobre dialéctica, ciencia, historia y socialismo desde una perspectiva polémica."
+    },
+    {
+      "work_id": "engels-ludwig-feuerbach",
+      "level": "introductory",
+      "estimated_effort": "medium",
+      "reason_to_read": "Sirve para ubicar la transición desde la filosofía clásica alemana hacia el materialismo histórico."
+    },
+    {
+      "work_id": "engels-socialismo-cientifico",
+      "level": "introductory",
+      "estimated_effort": "short",
+      "reason_to_read": "Resume de forma accesible la relación entre método materialista, historia y socialismo científico."
+    },
+    {
+      "work_id": "prologo-contribucion",
+      "level": "intermediate",
+      "estimated_effort": "short",
+      "reason_to_read": "Fija una formulación clásica sobre estructura, superestructura e historia útil para releer el resto del tema."
+    }
+  ],
+  "connected_concepts": [
+    {
+      "id": "materialismo-historico",
+      "label": "Materialismo histórico",
+      "relation": "Permite trasladar la dialéctica al estudio de la sociedad, sus modos de producción y sus transformaciones."
+    },
+    {
+      "id": "contradiccion",
+      "label": "Contradicción",
+      "relation": "Organiza la idea de que los procesos sociales se mueven por tensiones internas y no por equilibrios eternos."
+    },
+    {
+      "id": "negacion-de-la-negacion",
+      "label": "Negación de la negación",
+      "relation": "Sirve para discutir cambios cualitativos, superaciones y desarrollos no lineales."
+    },
+    {
+      "id": "praxis",
+      "label": "Praxis",
+      "relation": "Conecta conocimiento, intervención y transformación consciente de la realidad social."
+    }
+  ],
+  "historical_debates": [
+    {
+      "id": "idealismo-vs-materialismo",
+      "label": "Idealismo y materialismo",
+      "description": "Debate sobre si las ideas explican el movimiento de la historia o si deben entenderse a partir de relaciones sociales, trabajo y vida material.",
+      "participant_author_ids": [
+        "marx-karl",
+        "engels-friedrich"
+      ],
+      "related_work_ids": [
+        "tesis-feuerbach",
+        "engels-ludwig-feuerbach",
+        "prologo-contribucion"
+      ]
+    },
+    {
+      "id": "dialectica-y-ciencia-revolucionaria",
+      "label": "Método dialéctico y ciencia revolucionaria",
+      "description": "Debate sobre cómo usar la dialéctica sin convertirla en una fórmula vacía, manteniendo su vínculo con la historia real y con la práctica transformadora.",
+      "participant_author_ids": [
+        "engels-friedrich",
+        "lenin-vi"
+      ],
+      "related_work_ids": [
+        "engels-anti-duhring",
+        "engels-socialismo-cientifico",
+        "lenin-state-and-revolution"
+      ]
+    }
+  ],
+  "reading_paths": [
+    {
+      "id": "ruta-conceptual",
+      "label": "Ruta conceptual",
+      "level": "introductory",
+      "goal": "Entender la ruptura con el idealismo y la centralidad de la praxis.",
+      "steps": [
+        {
+          "position": 1,
+          "work_id": "tesis-feuerbach",
+          "note": "Leer primero por su densidad y brevedad, tratando de fijar la idea de praxis."
+        },
+        {
+          "position": 2,
+          "work_id": "engels-ludwig-feuerbach",
+          "note": "Usar esta lectura para ubicar a Hegel, Feuerbach y el paso al materialismo histórico."
+        },
+        {
+          "position": 3,
+          "work_id": "engels-socialismo-cientifico",
+          "note": "Cerrar con una síntesis accesible del método y su relación con el socialismo."
+        }
+      ]
+    },
+    {
+      "id": "ruta-de-profundizacion",
+      "label": "Ruta de profundización",
+      "level": "intermediate",
+      "goal": "Relacionar el método dialéctico con historia, ciencia y análisis social.",
+      "steps": [
+        {
+          "position": 1,
+          "work_id": "prologo-contribucion",
+          "note": "Tomar este prólogo como formulación clásica del materialismo histórico."
+        },
+        {
+          "position": 2,
+          "work_id": "engels-socialismo-cientifico",
+          "note": "Pasar después a una exposición sintética de las principales categorías."
+        },
+        {
+          "position": 3,
+          "work_id": "engels-anti-duhring",
+          "note": "Profundizar al final con una obra más extensa y polémica."
+        }
+      ]
+    }
+  ],
+  "related_editorial_articles": [],
+  "source_policy": {
+    "primary_source_name": "Marxists Internet Archive",
+    "link_only": true,
+    "allow_excerpt": true,
+    "excerpt_max_words": 120,
+    "attribution_required": true,
+    "notes": "Esta ficha funciona como orientacion editorial. No debe republicar textos completos ni reemplazar la lectura de las obras enlazadas."
+  },
+  "related_themes": [
+    "alienacion",
+    "teoria-del-valor"
+  ]
+}

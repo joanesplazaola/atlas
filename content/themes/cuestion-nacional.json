@@ -1,0 +1,176 @@
+{
+  "id": "cuestion-nacional",
+  "slug": "cuestion-nacional",
+  "title": "Cuestión nacional",
+  "summary": "Ficha de orientación para estudiar la cuestión nacional, la autodeterminación y su vínculo con el imperialismo y el internacionalismo proletario.",
+  "editorial_intent": "La mejor entrada es el Manifiesto por su enfoque internacionalista general. Después conviene leer a Lenin para el problema de la autodeterminación y cruzarlo con los debates abiertos por Luxemburg y el imperialismo.",
+  "status": "reviewed",
+  "entry_points": [
+    {
+      "id": "pregunta-politica",
+      "label": "Pregunta política",
+      "description": "Empieza por cómo se relacionan nación, lucha de clases, opresión imperial y estrategia socialista en contextos de pueblos oprimidos."
+    }
+  ],
+  "key_authors": [
+    {
+      "id": "lenin-vi",
+      "name": "V. I. Lenin",
+      "role": "autodeterminacion y estrategia antiimperialista",
+      "why_relevant": "Formula con claridad la defensa del derecho a separarse como parte de una política internacionalista contra la opresión nacional."
+    },
+    {
+      "id": "luxemburg-rosa",
+      "name": "Rosa Luxemburg",
+      "role": "critica de los limites del nacionalismo",
+      "why_relevant": "Obliga a discutir hasta qué punto la consigna nacional puede fortalecer o desviar la organización independiente de la clase trabajadora."
+    },
+    {
+      "id": "marx-karl",
+      "name": "Karl Marx",
+      "role": "internacionalismo y formacion historica de las naciones",
+      "why_relevant": "Sitúa la cuestión nacional dentro del desarrollo histórico del capitalismo y de la unidad internacional de la clase obrera."
+    },
+    {
+      "id": "engels-friedrich",
+      "name": "Friedrich Engels",
+      "role": "analisis historico de pueblos, Estados y conflictos europeos",
+      "why_relevant": "Aporta un trasfondo histórico para comprender cómo la cuestión nacional aparece ligada a guerras, Estados y transformaciones sociales."
+    }
+  ],
+  "essential_works": [
+    {
+      "work_id": "manifesto",
+      "level": "introductory",
+      "estimated_effort": "short",
+      "reason_to_read": "Ofrece la formulación clásica del internacionalismo proletario y del carácter mundial del capitalismo."
+    },
+    {
+      "work_id": "lenin-derecho-naciones",
+      "level": "introductory",
+      "estimated_effort": "medium",
+      "reason_to_read": "Es el texto más directo para estudiar autodeterminación, opresión nacional y táctica socialista ante los pueblos oprimidos."
+    },
+    {
+      "work_id": "huelga-masas-luxemburgo",
+      "level": "intermediate",
+      "estimated_effort": "medium",
+      "reason_to_read": "Permite leer a Luxemburg desde el terreno de la acción de masas y cruzar su sensibilidad internacionalista con el debate nacional."
+    },
+    {
+      "work_id": "bukharin-imperialism-and-world-economy",
+      "level": "intermediate",
+      "estimated_effort": "long",
+      "reason_to_read": "Ayuda a situar la cuestión nacional dentro de la economía mundial y de la competencia entre Estados imperialistas."
+    }
+  ],
+  "connected_concepts": [
+    {
+      "id": "autodeterminacion",
+      "label": "Autodeterminación",
+      "relation": "Organiza la discusión sobre el derecho de los pueblos oprimidos a decidir su destino político."
+    },
+    {
+      "id": "nacion",
+      "label": "Nación",
+      "relation": "Permite estudiar la nación como forma histórica y política surgida en el desarrollo del capitalismo."
+    },
+    {
+      "id": "colonialismo",
+      "label": "Colonialismo",
+      "relation": "Conecta la cuestión nacional con dominación imperial, ocupación y subordinación de pueblos enteros."
+    },
+    {
+      "id": "internacionalismo",
+      "label": "Internacionalismo",
+      "relation": "Sitúa la política socialista más allá de las fronteras nacionales sin ignorar las opresiones concretas."
+    }
+  ],
+  "historical_debates": [
+    {
+      "id": "autodeterminacion-lenin-luxemburg",
+      "label": "Derecho a la autodeterminación",
+      "description": "Debate sobre si la defensa del derecho de separación fortalece la unidad internacional de la clase trabajadora o si puede reforzar ilusiones nacionalistas dentro del movimiento obrero.",
+      "participant_author_ids": [
+        "lenin-vi",
+        "luxemburg-rosa"
+      ],
+      "related_work_ids": [
+        "lenin-derecho-naciones",
+        "huelga-masas-luxemburgo"
+      ]
+    },
+    {
+      "id": "nacion-imperio-e-internacionalismo",
+      "label": "Nación, colonialismo e internacionalismo",
+      "description": "Debate sobre cómo articular la lucha contra la opresión nacional con una estrategia socialista capaz de enfrentar al imperialismo y evitar el seguidismo a las burguesías nacionales.",
+      "participant_author_ids": [
+        "marx-karl",
+        "engels-friedrich",
+        "lenin-vi"
+      ],
+      "related_work_ids": [
+        "manifesto",
+        "lenin-derecho-naciones",
+        "bukharin-imperialism-and-world-economy"
+      ]
+    }
+  ],
+  "reading_paths": [
+    {
+      "id": "ruta-inicial",
+      "label": "Ruta inicial",
+      "level": "introductory",
+      "goal": "Comprender la relación entre internacionalismo y derecho de los pueblos oprimidos.",
+      "steps": [
+        {
+          "position": 1,
+          "work_id": "manifesto",
+          "note": "Empezar por la escala general del capitalismo y de la unidad internacional del proletariado."
+        },
+        {
+          "position": 2,
+          "work_id": "lenin-derecho-naciones",
+          "note": "Leer después para fijar el problema político de la autodeterminación."
+        }
+      ]
+    },
+    {
+      "id": "ruta-imperio-y-masas",
+      "label": "Ruta imperio y masas",
+      "level": "intermediate",
+      "goal": "Cruzar la cuestión nacional con la economía mundial y con la acción de masas.",
+      "steps": [
+        {
+          "position": 1,
+          "work_id": "lenin-derecho-naciones",
+          "note": "Tomar este texto como eje del problema político."
+        },
+        {
+          "position": 2,
+          "work_id": "bukharin-imperialism-and-world-economy",
+          "note": "Situar la cuestión nacional dentro del marco del imperialismo y la competencia interestatal."
+        },
+        {
+          "position": 3,
+          "work_id": "huelga-masas-luxemburgo",
+          "note": "Cerrar observando cómo la iniciativa obrera y la política de masas desbordan marcos puramente nacionales."
+        }
+      ]
+    }
+  ],
+  "related_editorial_articles": [],
+  "source_policy": {
+    "primary_source_name": "Marxists Internet Archive",
+    "link_only": true,
+    "allow_excerpt": true,
+    "excerpt_max_words": 120,
+    "attribution_required": true,
+    "notes": "Esta ficha funciona como orientacion editorial. No debe republicar textos completos ni reemplazar la lectura de las obras enlazadas."
+  },
+  "related_themes": [
+    "imperialismo",
+    "revolucion",
+    "partido"
+  ]
+}

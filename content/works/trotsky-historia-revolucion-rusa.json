@@ -1,0 +1,14 @@
+{
+  "id": "trotsky-historia-revolucion-rusa",
+  "title": "Historia de la revolución rusa",
+  "author_ids": [
+    "trotsky-leon"
+  ],
+  "year": 1930,
+  "kind": "book",
+  "source": {
+    "provider": "Marxists.org",
+    "url": "https://www.marxists.org/espanol/trotsky/1932/hrr/index.htm",
+    "attribution_label": "Trotsky, León. Historia de la revolución rusa (1930). Marxists.org."
+  }
+}

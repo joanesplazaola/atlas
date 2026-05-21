@@ -1,0 +1,15 @@
+{
+  "id": "manifesto",
+  "title": "El Manifiesto Comunista",
+  "author_ids": [
+    "marx-karl",
+    "engels-friedrich"
+  ],
+  "year": 1848,
+  "kind": "pamphlet",
+  "source": {
+    "provider": "Marxists.org",
+    "url": "https://www.marxists.org/espanol/m-e/1840s/48-manif.htm",
+    "attribution_label": "Marx, Karl y Engels, Friedrich. El Manifiesto Comunista (1848). Marxists.org."
+  }
+}

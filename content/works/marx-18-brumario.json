@@ -1,0 +1,14 @@
+{
+  "id": "marx-18-brumario",
+  "title": "El 18 Brumario de Luis Bonaparte",
+  "author_ids": [
+    "marx-karl"
+  ],
+  "year": 1852,
+  "kind": "pamphlet",
+  "source": {
+    "provider": "Marxists.org",
+    "url": "https://www.marxists.org/espanol/m-e/1850s/brumaire/brum1.htm",
+    "attribution_label": "Marx, Karl. El 18 Brumario de Luis Bonaparte (1852). Marxists.org."
+  }
+}

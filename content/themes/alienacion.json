@@ -1,0 +1,168 @@
+{
+  "id": "alienacion",
+  "slug": "alienacion",
+  "title": "Alienación y trabajo",
+  "summary": "Ficha de orientación para estudiar la alienación, el trabajo enajenado y su relación con el fetichismo y la praxis.",
+  "editorial_intent": "La mejor entrada es Manuscritos de 1844 para captar el problema en su formulación temprana. Después conviene contrastarlo con Trabajo asalariado y capital y con El Capital para seguir la continuidad y las transformaciones del tema.",
+  "status": "reviewed",
+  "entry_points": [
+    {
+      "id": "experiencia-del-trabajo",
+      "label": "Experiencia del trabajo",
+      "description": "Empieza por cómo el trabajo aparece separado de quien lo realiza y por qué esa separación adopta formas económicas, sociales y subjetivas."
+    }
+  ],
+  "key_authors": [
+    {
+      "id": "marx-karl",
+      "name": "Karl Marx",
+      "role": "trabajo enajenado, fetichismo y critica de la economia politica",
+      "why_relevant": "Permite seguir el problema desde la alienación del trabajo hasta el fetichismo de la mercancía y la dominación abstracta del capital."
+    },
+    {
+      "id": "engels-friedrich",
+      "name": "Friedrich Engels",
+      "role": "condiciones materiales de la vida obrera",
+      "why_relevant": "Aporta un contrapunto empírico y social que ayuda a leer la alienación no solo como concepto filosófico sino como experiencia histórica."
+    }
+  ],
+  "essential_works": [
+    {
+      "work_id": "manuscritos-1844",
+      "level": "introductory",
+      "estimated_effort": "medium",
+      "reason_to_read": "Es la puerta de entrada clásica al tema del trabajo enajenado, la propiedad privada y la relación entre ser humano y producción."
+    },
+    {
+      "work_id": "trabajo-asalariado-capital",
+      "level": "introductory",
+      "estimated_effort": "short",
+      "reason_to_read": "Hace visible cómo la dependencia salarial organiza la subordinación del trabajo al capital en términos accesibles."
+    },
+    {
+      "work_id": "tesis-feuerbach",
+      "level": "intermediate",
+      "estimated_effort": "short",
+      "reason_to_read": "Ayuda a conectar alienación con praxis y con una crítica materialista de la pasividad contemplativa."
+    },
+    {
+      "work_id": "marx-capital-volume-one",
+      "level": "advanced",
+      "estimated_effort": "long",
+      "reason_to_read": "Permite releer la alienación en un nivel más maduro, especialmente a través del fetichismo, la explotación y la subordinación real del trabajo."
+    },
+    {
+      "work_id": "prologo-contribucion",
+      "level": "intermediate",
+      "estimated_effort": "short",
+      "reason_to_read": "Sirve para situar el problema dentro de un marco histórico más amplio sobre relaciones sociales y formas de conciencia."
+    }
+  ],
+  "connected_concepts": [
+    {
+      "id": "fetichismo-de-la-mercancia",
+      "label": "Fetichismo de la mercancía",
+      "relation": "Muestra cómo relaciones sociales entre personas aparecen como relaciones entre cosas."
+    },
+    {
+      "id": "trabajo-enajenado",
+      "label": "Trabajo enajenado",
+      "relation": "Concentra la experiencia de separación entre productor, producto, actividad y comunidad."
+    },
+    {
+      "id": "reificacion",
+      "label": "Reificación",
+      "relation": "Permite seguir cómo procesos sociales vivos se presentan como objetos fijos y autónomos."
+    },
+    {
+      "id": "praxis",
+      "label": "Praxis",
+      "relation": "Abre la pregunta por la superación práctica de la alienación y no solo por su descripción teórica."
+    }
+  ],
+  "historical_debates": [
+    {
+      "id": "joven-marx-y-marx-maduro",
+      "label": "Joven Marx y Marx maduro",
+      "description": "Debate sobre si existe una ruptura completa entre los escritos filosóficos tempranos y la crítica madura de la economía política o si ambos momentos se iluminan mutuamente.",
+      "participant_author_ids": [
+        "marx-karl",
+        "engels-friedrich"
+      ],
+      "related_work_ids": [
+        "manuscritos-1844",
+        "trabajo-asalariado-capital",
+        "marx-capital-volume-one"
+      ]
+    },
+    {
+      "id": "alienacion-y-fetichismo",
+      "label": "Alienación y fetichismo",
+      "description": "Debate sobre cómo se relacionan el lenguaje filosófico de la alienación y el análisis económico del fetichismo dentro de una misma crítica del capitalismo.",
+      "participant_author_ids": [
+        "marx-karl"
+      ],
+      "related_work_ids": [
+        "manuscritos-1844",
+        "marx-capital-volume-one",
+        "prologo-contribucion"
+      ]
+    }
+  ],
+  "reading_paths": [
+    {
+      "id": "ruta-inicial",
+      "label": "Ruta inicial",
+      "level": "introductory",
+      "goal": "Reconocer el problema de la alienación en su formulación más accesible.",
+      "steps": [
+        {
+          "position": 1,
+          "work_id": "manuscritos-1844",
+          "note": "Leer primero para captar el vocabulario del trabajo enajenado y de la deshumanización."
+        },
+        {
+          "position": 2,
+          "work_id": "trabajo-asalariado-capital",
+          "note": "Pasar a una exposición más económica del vínculo entre salario y dominación capitalista."
+        }
+      ]
+    },
+    {
+      "id": "ruta-fetichismo-y-praxis",
+      "label": "Ruta fetichismo y praxis",
+      "level": "intermediate",
+      "goal": "Conectar el problema filosófico de la alienación con la crítica madura del capital.",
+      "steps": [
+        {
+          "position": 1,
+          "work_id": "tesis-feuerbach",
+          "note": "Abrir con la idea de praxis como salida del materialismo contemplativo."
+        },
+        {
+          "position": 2,
+          "work_id": "prologo-contribucion",
+          "note": "Ubicar el problema dentro de una teoría histórica de las relaciones sociales."
+        },
+        {
+          "position": 3,
+          "work_id": "marx-capital-volume-one",
+          "note": "Profundizar finalmente en fetichismo, explotación y subordinación del trabajo."
+        }
+      ]
+    }
+  ],
+  "related_editorial_articles": [],
+  "source_policy": {
+    "primary_source_name": "Marxists Internet Archive",
+    "link_only": true,
+    "allow_excerpt": true,
+    "excerpt_max_words": 120,
+    "attribution_required": true,
+    "notes": "Esta ficha funciona como orientacion editorial. No debe republicar textos completos ni reemplazar la lectura de las obras enlazadas."
+  },
+  "related_themes": [
+    "teoria-del-valor",
+    "dialectica"
+  ]
+}

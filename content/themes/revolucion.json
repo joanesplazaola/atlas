@@ -1,0 +1,194 @@
+{
+  "id": "revolucion",
+  "slug": "revolucion",
+  "title": "Revolución",
+  "summary": "Ficha de orientación para estudiar la revolución como problema estratégico, histórico y organizativo dentro de la tradición marxista.",
+  "editorial_intent": "La entrada más accesible es el Manifiesto Comunista. Desde ahí conviene pasar por Marx para ver la experiencia de la lucha de clases y después abrir el debate estratégico con Luxemburg, Lenin y Trotsky.",
+  "status": "reviewed",
+  "entry_points": [
+    {
+      "id": "pregunta-estrategica",
+      "label": "Pregunta estratégica",
+      "description": "Empieza por cómo la tradición marxista piensa el paso de la lucha social a la conquista del poder y a la transformación del Estado."
+    }
+  ],
+  "key_authors": [
+    {
+      "id": "marx-karl",
+      "name": "Karl Marx",
+      "role": "analisis historico de la lucha de clases y del poder",
+      "why_relevant": "Permite estudiar la revolución como proceso real, inscrito en conflictos de clase, formas estatales y experiencias como la Comuna."
+    },
+    {
+      "id": "lenin-vi",
+      "name": "V. I. Lenin",
+      "role": "estrategia revolucionaria y problema del poder",
+      "why_relevant": "Ayuda a ordenar la discusión sobre dualidad de poderes, insurrección, partido y transición revolucionaria."
+    },
+    {
+      "id": "trotsky-leon",
+      "name": "León Trotsky",
+      "role": "teoria de la revolucion permanente",
+      "why_relevant": "Su trabajo permite seguir la articulación entre revolución democrática, revolución socialista y dinámica internacional."
+    },
+    {
+      "id": "luxemburg-rosa",
+      "name": "Rosa Luxemburg",
+      "role": "espontaneidad, democracia obrera y critica del reformismo",
+      "why_relevant": "Aporta una mirada sobre la iniciativa de masas, la democracia revolucionaria y los peligros de una transición burocrática."
+    }
+  ],
+  "essential_works": [
+    {
+      "work_id": "manifesto",
+      "level": "introductory",
+      "estimated_effort": "short",
+      "reason_to_read": "Funciona como puerta de entrada para entender la revolución como resultado de la lucha de clases y horizonte histórico del comunismo."
+    },
+    {
+      "work_id": "marx-civil-war-in-france",
+      "level": "intermediate",
+      "estimated_effort": "medium",
+      "reason_to_read": "Vincula la revolución con la experiencia concreta de la Comuna y con la necesidad de nuevas formas de poder obrero."
+    },
+    {
+      "work_id": "trotsky-revolucion-permanente",
+      "level": "advanced",
+      "estimated_effort": "long",
+      "reason_to_read": "Abre el debate sobre el carácter combinado e internacional de la revolución en países de desarrollo desigual."
+    },
+    {
+      "work_id": "luxemburg-revolucion-rusa",
+      "level": "intermediate",
+      "estimated_effort": "medium",
+      "reason_to_read": "Permite discutir la relación entre democracia revolucionaria, dictadura del proletariado y poder soviético."
+    },
+    {
+      "work_id": "critica-programa-gotha",
+      "level": "intermediate",
+      "estimated_effort": "short",
+      "reason_to_read": "Ayuda a pensar la transición, el programa y las mediaciones políticas entre capitalismo y comunismo."
+    },
+    {
+      "work_id": "marx-18-brumario",
+      "level": "intermediate",
+      "estimated_effort": "medium",
+      "reason_to_read": "Ofrece una lectura histórica de las derrotas, de la coyuntura y de las formas políticas que atraviesan los procesos revolucionarios."
+    }
+  ],
+  "connected_concepts": [
+    {
+      "id": "revolucion-permanente",
+      "label": "Revolución permanente",
+      "relation": "Conecta la discusión sobre etapas, desarrollo desigual e internacionalización del proceso revolucionario."
+    },
+    {
+      "id": "insurreccion",
+      "label": "Insurrección",
+      "relation": "Permite seguir la dimensión política y militar de la toma del poder."
+    },
+    {
+      "id": "poder-obrero",
+      "label": "Poder obrero",
+      "relation": "Abre la pregunta por las instituciones y formas de autoorganización de la clase trabajadora."
+    },
+    {
+      "id": "ruptura-del-estado",
+      "label": "Ruptura del Estado",
+      "relation": "Relaciona la revolución con el problema de destruir o transformar la maquinaria estatal existente."
+    }
+  ],
+  "historical_debates": [
+    {
+      "id": "revolucion-permanente-vs-etapismo",
+      "label": "Revolución en un solo país y revolución permanente",
+      "description": "Debate sobre si la revolución puede consolidarse de manera aislada o si su supervivencia depende de la extensión internacional del proceso y de la articulación entre tareas democráticas y socialistas.",
+      "participant_author_ids": [
+        "lenin-vi",
+        "trotsky-leon"
+      ],
+      "related_work_ids": [
+        "lenin-tareas-proletariado",
+        "trotsky-revolucion-permanente"
+      ]
+    },
+    {
+      "id": "via-pacifica-o-ruptura",
+      "label": "La vía pacífica al socialismo",
+      "description": "Debate sobre si la transformación socialista puede alcanzarse por acumulación parlamentaria o si exige una ruptura revolucionaria con el poder de clase existente.",
+      "participant_author_ids": [
+        "marx-karl",
+        "luxemburg-rosa",
+        "lenin-vi"
+      ],
+      "related_work_ids": [
+        "marx-civil-war-in-france",
+        "critica-programa-gotha",
+        "luxemburg-reforma-o-revolucion"
+      ]
+    }
+  ],
+  "reading_paths": [
+    {
+      "id": "ruta-inicial",
+      "label": "Ruta inicial",
+      "level": "introductory",
+      "goal": "Ubicar la revolución como proceso histórico y no como mera consigna abstracta.",
+      "steps": [
+        {
+          "position": 1,
+          "work_id": "manifesto",
+          "note": "Leer primero para fijar el vínculo entre lucha de clases, crisis del capitalismo y horizonte comunista."
+        },
+        {
+          "position": 2,
+          "work_id": "marx-civil-war-in-france",
+          "note": "Pasar a la Comuna para ver cómo se concreta el problema del poder obrero."
+        },
+        {
+          "position": 3,
+          "work_id": "luxemburg-revolucion-rusa",
+          "note": "Cerrar con una reflexión sobre democracia revolucionaria y límites de la experiencia soviética."
+        }
+      ]
+    },
+    {
+      "id": "ruta-estrategica",
+      "label": "Ruta estratégica",
+      "level": "intermediate",
+      "goal": "Seguir el debate sobre transición, estrategia y temporalidad de la revolución.",
+      "steps": [
+        {
+          "position": 1,
+          "work_id": "marx-18-brumario",
+          "note": "Usar esta lectura para pensar derrotas, coyunturas y formas estatales."
+        },
+        {
+          "position": 2,
+          "work_id": "critica-programa-gotha",
+          "note": "Relacionar la estrategia con el problema del programa y de la transición."
+        },
+        {
+          "position": 3,
+          "work_id": "trotsky-revolucion-permanente",
+          "note": "Profundizar en el problema internacional y en la continuidad entre tareas democráticas y socialistas."
+        }
+      ]
+    }
+  ],
+  "related_editorial_articles": [],
+  "source_policy": {
+    "primary_source_name": "Marxists Internet Archive",
+    "link_only": true,
+    "allow_excerpt": true,
+    "excerpt_max_words": 120,
+    "attribution_required": true,
+    "notes": "Esta ficha funciona como orientacion editorial. No debe republicar textos completos ni reemplazar la lectura de las obras enlazadas."
+  },
+  "related_themes": [
+    "estado",
+    "partido",
+    "reforma-revolucion",
+    "cuestion-nacional"
+  ]
+}

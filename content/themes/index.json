@@ -10,6 +10,12 @@
     "content/themes/imperialismo.json",
     "content/themes/partido.json",
     "content/themes/teoria-del-valor.json",
-    "content/themes/vivienda.json"
+    "content/themes/vivienda.json",
+    "content/themes/revolucion.json",
+    "content/themes/cuestion-nacional.json",
+    "content/themes/dialectica.json",
+    "content/themes/alienacion.json",
+    "content/themes/movimiento-obrero.json",
+    "content/themes/reforma-revolucion.json"
   ]
 }

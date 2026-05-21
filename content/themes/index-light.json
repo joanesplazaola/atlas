@@ -216,6 +216,208 @@
         "estado"
       ],
       "work_count": 3
+    },
+    {
+      "slug": "revolucion",
+      "title": "Revolución",
+      "summary": "Ficha de orientación para estudiar la revolución como problema estratégico, histórico y organizativo dentro de la tradición marxista.",
+      "key_author_ids": [
+        "marx-karl",
+        "lenin-vi",
+        "trotsky-leon",
+        "luxemburg-rosa"
+      ],
+      "key_author_names": [
+        "Karl Marx",
+        "V. I. Lenin",
+        "León Trotsky",
+        "Rosa Luxemburg"
+      ],
+      "concept_labels": [
+        "Revolución permanente",
+        "Insurrección",
+        "Poder obrero",
+        "Ruptura del Estado"
+      ],
+      "concept_ids": [
+        "revolucion-permanente",
+        "insurreccion",
+        "poder-obrero",
+        "ruptura-del-estado"
+      ],
+      "related_themes": [
+        "estado",
+        "partido",
+        "reforma-revolucion",
+        "cuestion-nacional"
+      ],
+      "work_count": 6
+    },
+    {
+      "slug": "cuestion-nacional",
+      "title": "Cuestión nacional",
+      "summary": "Ficha de orientación para estudiar la cuestión nacional, la autodeterminación y su vínculo con el imperialismo y el internacionalismo proletario.",
+      "key_author_ids": [
+        "lenin-vi",
+        "luxemburg-rosa",
+        "marx-karl",
+        "engels-friedrich"
+      ],
+      "key_author_names": [
+        "V. I. Lenin",
+        "Rosa Luxemburg",
+        "Karl Marx",
+        "Friedrich Engels"
+      ],
+      "concept_labels": [
+        "Autodeterminación",
+        "Nación",
+        "Colonialismo",
+        "Internacionalismo"
+      ],
+      "concept_ids": [
+        "autodeterminacion",
+        "nacion",
+        "colonialismo",
+        "internacionalismo"
+      ],
+      "related_themes": [
+        "imperialismo",
+        "revolucion",
+        "partido"
+      ],
+      "work_count": 4
+    },
+    {
+      "slug": "dialectica",
+      "title": "Dialéctica materialista",
+      "summary": "Ficha de orientación para estudiar la dialéctica materialista, su relación con la praxis y su diferencia frente al idealismo filosófico.",
+      "key_author_ids": [
+        "marx-karl",
+        "engels-friedrich",
+        "lenin-vi"
+      ],
+      "key_author_names": [
+        "Karl Marx",
+        "Friedrich Engels",
+        "V. I. Lenin"
+      ],
+      "concept_labels": [
+        "Materialismo histórico",
+        "Contradicción",
+        "Negación de la negación",
+        "Praxis"
+      ],
+      "concept_ids": [
+        "materialismo-historico",
+        "contradiccion",
+        "negacion-de-la-negacion",
+        "praxis"
+      ],
+      "related_themes": [
+        "alienacion",
+        "teoria-del-valor"
+      ],
+      "work_count": 5
+    },
+    {
+      "slug": "alienacion",
+      "title": "Alienación y trabajo",
+      "summary": "Ficha de orientación para estudiar la alienación, el trabajo enajenado y su relación con el fetichismo y la praxis.",
+      "key_author_ids": [
+        "marx-karl",
+        "engels-friedrich"
+      ],
+      "key_author_names": [
+        "Karl Marx",
+        "Friedrich Engels"
+      ],
+      "concept_labels": [
+        "Fetichismo de la mercancía",
+        "Trabajo enajenado",
+        "Reificación",
+        "Praxis"
+      ],
+      "concept_ids": [
+        "fetichismo-de-la-mercancia",
+        "trabajo-enajenado",
+        "reificacion",
+        "praxis"
+      ],
+      "related_themes": [
+        "teoria-del-valor",
+        "dialectica"
+      ],
+      "work_count": 5
+    },
+    {
+      "slug": "movimiento-obrero",
+      "title": "Movimiento obrero y sindicatos",
+      "summary": "Ficha de orientación para estudiar la organización del movimiento obrero, la experiencia sindical y la formación de conciencia de clase.",
+      "key_author_ids": [
+        "marx-karl",
+        "engels-friedrich",
+        "gramsci-antonio",
+        "luxemburg-rosa"
+      ],
+      "key_author_names": [
+        "Karl Marx",
+        "Friedrich Engels",
+        "Antonio Gramsci",
+        "Rosa Luxemburg"
+      ],
+      "concept_labels": [
+        "Huelga general",
+        "Sindicato",
+        "Conciencia de clase",
+        "Organización"
+      ],
+      "concept_ids": [
+        "huelga-general",
+        "sindicato",
+        "conciencia-de-clase",
+        "organizacion"
+      ],
+      "related_themes": [
+        "partido",
+        "vivienda",
+        "reforma-revolucion"
+      ],
+      "work_count": 6
+    },
+    {
+      "slug": "reforma-revolucion",
+      "title": "Reforma o revolución",
+      "summary": "Ficha de orientación para estudiar el debate entre reformismo y ruptura revolucionaria dentro del movimiento obrero socialista.",
+      "key_author_ids": [
+        "luxemburg-rosa",
+        "lenin-vi",
+        "gramsci-antonio"
+      ],
+      "key_author_names": [
+        "Rosa Luxemburg",
+        "V. I. Lenin",
+        "Antonio Gramsci"
+      ],
+      "concept_labels": [
+        "Reformismo",
+        "Gradualismo",
+        "Ruptura revolucionaria",
+        "Socialdemocracia"
+      ],
+      "concept_ids": [
+        "reformismo",
+        "gradualismo",
+        "ruptura-revolucionaria",
+        "socialdemocracia"
+      ],
+      "related_themes": [
+        "partido",
+        "revolucion",
+        "movimiento-obrero",
+        "estado"
+      ],
+      "work_count": 5
     }
   ]
 }

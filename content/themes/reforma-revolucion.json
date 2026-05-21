@@ -1,0 +1,177 @@
+{
+  "id": "reforma-revolucion",
+  "slug": "reforma-revolucion",
+  "title": "Reforma o revolución",
+  "summary": "Ficha de orientación para estudiar el debate entre reformismo y ruptura revolucionaria dentro del movimiento obrero socialista.",
+  "editorial_intent": "La entrada principal es el folleto de Luxemburg. A partir de ahí conviene releer a Marx sobre programa y transición, y luego cruzar a Lenin y Gramsci para pensar estrategia, táctica y organización.",
+  "status": "reviewed",
+  "entry_points": [
+    {
+      "id": "nudo-estrategico",
+      "label": "Nudo estratégico",
+      "description": "Empieza por la pregunta sobre si las reformas dentro del capitalismo pueden acumularse hasta el socialismo o si este exige una ruptura política y social cualitativa."
+    }
+  ],
+  "key_authors": [
+    {
+      "id": "luxemburg-rosa",
+      "name": "Rosa Luxemburg",
+      "role": "critica del revisionismo y defensa de la ruptura revolucionaria",
+      "why_relevant": "Su intervención condensa de manera ejemplar el debate contra el reformismo de la Segunda Internacional."
+    },
+    {
+      "id": "lenin-vi",
+      "name": "V. I. Lenin",
+      "role": "estrategia revolucionaria, partido y tactica",
+      "why_relevant": "Ayuda a traducir el debate general en problemas de organización, coyuntura y lucha por la hegemonía."
+    },
+    {
+      "id": "gramsci-antonio",
+      "name": "Antonio Gramsci",
+      "role": "hegemonia, guerra de posicion y direccion politica",
+      "why_relevant": "Permite pensar mediaciones, alianzas y temporalidades sin disolver la necesidad de una ruptura con el orden existente."
+    }
+  ],
+  "essential_works": [
+    {
+      "work_id": "luxemburg-reforma-o-revolucion",
+      "level": "introductory",
+      "estimated_effort": "medium",
+      "reason_to_read": "Es la lectura central para entrar al debate entre revisión gradualista y revolución socialista."
+    },
+    {
+      "work_id": "critica-programa-gotha",
+      "level": "intermediate",
+      "estimated_effort": "short",
+      "reason_to_read": "Ayuda a discutir programa, transición y límites de los compromisos ambiguos dentro del socialismo."
+    },
+    {
+      "work_id": "que-hacer-lenin",
+      "level": "intermediate",
+      "estimated_effort": "medium",
+      "reason_to_read": "Vincula el debate estratégico con el problema de la conciencia y de la organización política."
+    },
+    {
+      "work_id": "moderno-principe-gramsci",
+      "level": "advanced",
+      "estimated_effort": "medium",
+      "reason_to_read": "Permite pensar la estrategia revolucionaria más allá de la oposición simplista entre espontaneidad y aparato."
+    },
+    {
+      "work_id": "un-paso-adelante-lenin",
+      "level": "intermediate",
+      "estimated_effort": "medium",
+      "reason_to_read": "Aporta una reflexión concreta sobre organización, centralización y lucha interna en el partido obrero."
+    }
+  ],
+  "connected_concepts": [
+    {
+      "id": "reformismo",
+      "label": "Reformismo",
+      "relation": "Permite seguir las estrategias que apuestan por una transformación gradual dentro del orden existente."
+    },
+    {
+      "id": "gradualismo",
+      "label": "Gradualismo",
+      "relation": "Conecta el debate sobre temporalidad política y acumulación de reformas."
+    },
+    {
+      "id": "ruptura-revolucionaria",
+      "label": "Ruptura revolucionaria",
+      "relation": "Sitúa el problema del salto político y social necesario para superar el capitalismo."
+    },
+    {
+      "id": "socialdemocracia",
+      "label": "Socialdemocracia",
+      "relation": "Sirve para estudiar el terreno histórico en el que se formuló el debate clásico entre reforma y revolución."
+    }
+  ],
+  "historical_debates": [
+    {
+      "id": "bernstein-vs-luxemburg",
+      "label": "El debate reforma y revolución",
+      "description": "Debate sobre si el socialismo puede alcanzarse mediante una ampliación continua de reformas democráticas y sindicales o si ese camino termina integrando al movimiento obrero en el orden capitalista.",
+      "participant_author_ids": [
+        "bernstein-eduard",
+        "luxemburg-rosa"
+      ],
+      "related_work_ids": [
+        "luxemburg-reforma-o-revolucion",
+        "critica-programa-gotha"
+      ]
+    },
+    {
+      "id": "estrategia-y-tactica",
+      "label": "Estrategia y táctica",
+      "description": "Debate sobre cómo combinar luchas parciales, organización, hegemonía y perspectiva de ruptura sin caer ni en el maximalismo abstracto ni en la adaptación reformista.",
+      "participant_author_ids": [
+        "lenin-vi",
+        "gramsci-antonio",
+        "luxemburg-rosa"
+      ],
+      "related_work_ids": [
+        "que-hacer-lenin",
+        "un-paso-adelante-lenin",
+        "moderno-principe-gramsci"
+      ]
+    }
+  ],
+  "reading_paths": [
+    {
+      "id": "ruta-debate-clasico",
+      "label": "Ruta debate clásico",
+      "level": "introductory",
+      "goal": "Entrar al problema clásico del revisionismo y la ruptura revolucionaria.",
+      "steps": [
+        {
+          "position": 1,
+          "work_id": "luxemburg-reforma-o-revolucion",
+          "note": "Comenzar por la crítica más clara del revisionismo."
+        },
+        {
+          "position": 2,
+          "work_id": "critica-programa-gotha",
+          "note": "Releer después a Marx para pensar programa, transición y límites de los compromisos."
+        }
+      ]
+    },
+    {
+      "id": "ruta-estrategia-politica",
+      "label": "Ruta estrategia política",
+      "level": "intermediate",
+      "goal": "Pasar del debate general sobre reformas al problema concreto de la organización y la táctica.",
+      "steps": [
+        {
+          "position": 1,
+          "work_id": "luxemburg-reforma-o-revolucion",
+          "note": "Mantener este folleto como punto de partida del debate."
+        },
+        {
+          "position": 2,
+          "work_id": "que-hacer-lenin",
+          "note": "Cruzar la crítica del reformismo con el problema de la conciencia y del partido."
+        },
+        {
+          "position": 3,
+          "work_id": "moderno-principe-gramsci",
+          "note": "Cerrar con una reflexión sobre hegemonía, organización y dirección política."
+        }
+      ]
+    }
+  ],
+  "related_editorial_articles": [],
+  "source_policy": {
+    "primary_source_name": "Marxists Internet Archive",
+    "link_only": true,
+    "allow_excerpt": true,
+    "excerpt_max_words": 120,
+    "attribution_required": true,
+    "notes": "Esta ficha funciona como orientacion editorial. No debe republicar textos completos ni reemplazar la lectura de las obras enlazadas."
+  },
+  "related_themes": [
+    "partido",
+    "revolucion",
+    "movimiento-obrero",
+    "estado"
+  ]
+}
