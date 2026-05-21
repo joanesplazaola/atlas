@@ -186,14 +186,33 @@ test.describe("Atlas Marxista — vista de autores", () => {
     expect(count).toBeGreaterThanOrEqual(5);
   });
 
-  test("clic en un autor en vista Autores filtra el sidebar de temas", async ({ page }) => {
+  test("clic en un autor en vista Autores muestra el panel de detalle del autor", async ({ page }) => {
     await page.goto("/");
     await page.locator("#nav-autores").click();
     await page.locator(".author-list-card").first().click();
-    // Debe volver a la vista de temas mostrando solo fichas del autor
+    // Should show author detail, not switch to temas
+    await expect(page.locator("#nav-autores")).toHaveClass(/topbar__nav-btn--active/);
+    await expect(page.locator("#detail-content")).toBeVisible();
+    await expect(page.locator(".author-detail__name")).toBeVisible();
+  });
+
+  test("el panel de detalle del autor muestra bio y enlace a Marxists.org", async ({ page }) => {
+    await page.goto("/");
+    await page.locator("#nav-autores").click();
+    await page.locator(".author-list-card").first().click();
+    await expect(page.locator(".author-detail__bio")).toBeVisible();
+    await expect(page.locator(".author-detail__ext-link")).toBeVisible();
+  });
+
+  test("el botón 'Ver todos los temas' en el detalle del autor filtra la vista de temas", async ({ page }) => {
+    await page.goto("/");
+    await page.locator("#nav-autores").click();
+    await page.locator(".author-list-card").first().click();
+    await page.locator(".author-detail__filter-btn").first().click();
+    // Should switch to temas view with author filter active
+    await expect(page.locator("#nav-temas")).toHaveClass(/topbar__nav-btn--active/);
     const cards = page.locator(".theme-card");
-    const count = await cards.count();
-    expect(count).toBeGreaterThanOrEqual(1);
+    await expect(cards.first()).toBeVisible();
   });
 
   test("el botón Temas vuelve a la vista normal", async ({ page }) => {

@@ -4,11 +4,12 @@ const state = {
   authors: [],          // canonical authors registry
   filteredThemes: [],
   selectedSlug: null,
+  selectedAuthorId: null, // author detail panel
   activeTab: "overview",
   query: "",
   activeConcept: null,
   activeAuthor: null,   // author filter from author index view
-  view: "temas",        // "temas" | "autores"
+  view: "temas",        // "temas" | "autores" | "mapa"
   themeCache: new Map(),  // slug → full theme JSON (loaded on demand)
   worksCache: new Map(),  // work_id → canonical work JSON (loaded on demand)
 };
@@ -265,11 +266,12 @@ function renderAuthorList() {
 
   themeList.innerHTML = "";
   filtered.forEach(a => {
-    const isActive = state.activeAuthor === a.name;
+    const isActive = state.selectedAuthorId === a.id;
     const el = document.createElement("article");
     el.className = `author-list-card${isActive ? " author-list-card--active" : ""}`;
     el.setAttribute("role", "button");
     el.tabIndex = 0;
+    el.setAttribute("aria-pressed", String(isActive));
     el.innerHTML =
       `<div>
          <div class="author-list-card__name">${esc(a.name)}</div>
@@ -278,12 +280,10 @@ function renderAuthorList() {
        <div class="author-list-card__count">${a.themes.length} tema${a.themes.length !== 1 ? "s" : ""}</div>`;
 
     const select = () => {
-      state.activeAuthor = isActive ? null : a.name;
-      state.view = "temas";
-      navTemas.classList.add("topbar__nav-btn--active");
-      navAutores.classList.remove("topbar__nav-btn--active");
-      searchInput.placeholder = "Tema, autor, concepto…";
-      applyFilters();
+      state.selectedAuthorId = a.id;
+      renderAuthorList();
+      renderDetail();
+      switchMobileView("detail");
     };
 
     el.addEventListener("click", select);
@@ -295,6 +295,11 @@ function renderAuthorList() {
 /* ─── Detail panel ─────────────────────────────────────────────── */
 
 async function renderDetail() {
+  if (state.view === "autores") {
+    await renderAuthorDetail();
+    return;
+  }
+
   if (!state.selectedSlug) {
     detailEmpty.hidden = false;
     detailContent.hidden = true;
@@ -570,6 +575,239 @@ async function renderDetail() {
   }
 }
 
+/* ─── Author detail panel ──────────────────────────────────────── */
+
+async function renderAuthorDetail() {
+  if (!state.selectedAuthorId) {
+    detailEmpty.hidden = false;
+    detailContent.hidden = true;
+    detailContent.innerHTML = "";
+    return;
+  }
+
+  const author = state.authors.find(a => a.id === state.selectedAuthorId);
+  if (!author) {
+    detailEmpty.hidden = false;
+    detailContent.hidden = true;
+    return;
+  }
+
+  detailEmpty.hidden = true;
+  detailContent.hidden = false;
+
+  detailContent.innerHTML = `
+    <div class="detail-loading" aria-live="polite">
+      <div class="detail-loading__spinner" aria-label="Cargando perfil del autor…"></div>
+    </div>`;
+
+  try {
+    // Themes this author appears in (using light index)
+    const authorThemes = state.themes.filter(t =>
+      (t.key_author_ids ?? []).includes(author.id)
+    );
+
+    // Lazy-load full theme JSONs to collect work refs
+    await Promise.all(authorThemes.map(async t => {
+      if (!state.themeCache.has(t.slug)) {
+        const full = await fetchJson(`content/themes/${t.slug}.json`);
+        state.themeCache.set(t.slug, full);
+      }
+    }));
+
+    // Collect deduplicated work refs from these themes
+    const seenWorkIds = new Set();
+    const allWorkRefs = [];
+    authorThemes.forEach(t => {
+      const full = state.themeCache.get(t.slug);
+      if (!full) return;
+      (full.essential_works || []).forEach(ref => {
+        if (!seenWorkIds.has(ref.work_id)) {
+          seenWorkIds.add(ref.work_id);
+          allWorkRefs.push(ref);
+        }
+      });
+    });
+
+    // Lazy-load canonical work data for missing works
+    const missing = allWorkRefs.map(r => r.work_id).filter(id => !state.worksCache.has(id));
+    if (missing.length) {
+      const loaded = await Promise.all(missing.map(id => fetchJson(`content/works/${id}.json`)));
+      loaded.forEach(w => state.worksCache.set(w.id, w));
+    }
+
+    // Filter to works by this author
+    const authorWorks = allWorkRefs
+      .filter(ref => {
+        const w = state.worksCache.get(ref.work_id);
+        return w && (w.author_ids || []).includes(author.id);
+      })
+      .map(ref => ({ ...state.worksCache.get(ref.work_id), ...ref, id: ref.work_id }));
+
+    // Related authors: others that share themes with this author
+    const relatedIds = new Set();
+    authorThemes.forEach(t => {
+      (t.key_author_ids ?? []).forEach(id => { if (id !== author.id) relatedIds.add(id); });
+    });
+    const relatedAuthors = state.authors.filter(a => relatedIds.has(a.id));
+
+    // ── Build DOM ──────────────────────────────────────────────────
+    detailContent.innerHTML = "";
+
+    // Header
+    const header = document.createElement("header");
+    header.className = "author-detail__header";
+    header.innerHTML = `
+      <button class="detail__back" id="author-detail-back" aria-label="Volver a la lista">
+        <svg viewBox="0 0 16 16" fill="none" width="16" height="16" aria-hidden="true">
+          <path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Autores
+      </button>
+      <div class="author-detail__top">
+        <div class="author-detail__identity">
+          <h2 id="detail-title" class="author-detail__name">${esc(author.name)}</h2>
+          <div class="author-detail__meta">
+            ${author.years ? `<span>${esc(author.years)}</span>` : ""}
+            ${author.nationality ? `<span class="author-detail__sep">·</span><span>${esc(author.nationality)}</span>` : ""}
+          </div>
+        </div>
+        ${author.marxists_org_url
+          ? `<a href="${esc(author.marxists_org_url)}" target="_blank" rel="noopener noreferrer" class="author-detail__ext-link">
+               Marxists.org
+               <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                 <path d="M7 1h4v4M11 1 5.5 6.5M2 3H1v8h8V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+               </svg>
+             </a>`
+          : ""}
+      </div>`;
+    detailContent.appendChild(header);
+    header.querySelector("#author-detail-back").addEventListener("click", () => switchMobileView("list"));
+
+    // Bio
+    if (author.short_bio) {
+      const bioSection = document.createElement("div");
+      bioSection.className = "author-detail__bio-section";
+      bioSection.innerHTML = `<p class="author-detail__bio">${esc(author.short_bio)}</p>`;
+      detailContent.appendChild(bioSection);
+    }
+
+    // Themes section
+    if (authorThemes.length) {
+      const themesSection = document.createElement("div");
+      themesSection.className = "author-detail__section";
+      const h3 = document.createElement("h3");
+      h3.className = "author-detail__section-title";
+      h3.textContent = "Aparece en";
+      themesSection.appendChild(h3);
+
+      const chips = document.createElement("div");
+      chips.className = "author-detail__theme-chips";
+      authorThemes.forEach(t => {
+        const chip = document.createElement("button");
+        chip.type = "button";
+        chip.className = "chip chip--theme";
+        chip.textContent = t.title;
+        chip.addEventListener("click", () => {
+          state.selectedSlug = t.slug;
+          state.activeTab = "overview";
+          setHash(t.slug);
+          switchView("temas");
+          applyFilters();
+        });
+        chips.appendChild(chip);
+      });
+      themesSection.appendChild(chips);
+
+      const filterBtn = document.createElement("button");
+      filterBtn.type = "button";
+      filterBtn.className = "author-detail__filter-btn";
+      filterBtn.textContent = `Ver todos los temas con ${author.name} →`;
+      filterBtn.addEventListener("click", () => {
+        state.activeAuthor = author.name;
+        switchView("temas");
+        applyFilters();
+      });
+      themesSection.appendChild(filterBtn);
+      detailContent.appendChild(themesSection);
+    }
+
+    // Works section
+    if (authorWorks.length) {
+      const worksSection = document.createElement("div");
+      worksSection.className = "author-detail__section";
+      const h3 = document.createElement("h3");
+      h3.className = "author-detail__section-title";
+      h3.textContent = `Obras en esta biblioteca (${authorWorks.length})`;
+      worksSection.appendChild(h3);
+
+      const grid = document.createElement("div");
+      grid.className = "works-grid";
+      authorWorks.forEach(w => {
+        const card = document.createElement("article");
+        card.className = "work-card";
+        card.innerHTML = `
+          <div>
+            <div class="work-card__title">${esc(w.title)}</div>
+            <div class="work-card__author">${esc(String(w.year || ""))}</div>
+          </div>
+          <div class="work-card__meta">
+            ${w.level    ? `<span class="badge ${levelBadge[w.level] || ""}">${esc(levelLabel[w.level] || w.level)}</span>` : ""}
+            ${w.kind     ? `<span class="badge badge--kind">${esc(kindLabel[w.kind] || w.kind)}</span>` : ""}
+            ${w.estimated_effort ? `<span class="badge badge--effort">Lectura ${esc(effortLabel[w.estimated_effort] || w.estimated_effort)}</span>` : ""}
+          </div>
+          ${w.reason_to_read ? `<p class="work-card__reason">${esc(w.reason_to_read)}</p>` : ""}
+          ${w.source?.url
+            ? `<a class="work-card__link" href="${esc(w.source.url)}" target="_blank" rel="noopener noreferrer">
+                 Leer en ${esc(w.source.provider ?? "fuente")}
+                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                   <path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                 </svg>
+               </a>`
+            : ""}`;
+        grid.appendChild(card);
+      });
+      worksSection.appendChild(grid);
+      detailContent.appendChild(worksSection);
+    }
+
+    // Related authors section
+    if (relatedAuthors.length) {
+      const relSection = document.createElement("div");
+      relSection.className = "author-detail__section";
+      const h3 = document.createElement("h3");
+      h3.className = "author-detail__section-title";
+      h3.textContent = "Autores relacionados";
+      relSection.appendChild(h3);
+
+      const relGrid = document.createElement("div");
+      relGrid.className = "author-detail__related";
+      relatedAuthors.forEach(rel => {
+        const card = document.createElement("div");
+        card.className = "author-detail__related-card";
+        card.setAttribute("role", "button");
+        card.tabIndex = 0;
+        card.innerHTML = `
+          <div class="author-detail__related-name">${esc(rel.name)}</div>
+          ${rel.years ? `<div class="author-detail__related-years">${esc(rel.years)}</div>` : ""}`;
+        const goToAuthor = () => {
+          state.selectedAuthorId = rel.id;
+          renderAuthorList();
+          renderDetail();
+          switchMobileView("detail");
+        };
+        card.addEventListener("click", goToAuthor);
+        card.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); goToAuthor(); } });
+        relGrid.appendChild(card);
+      });
+      relSection.appendChild(relGrid);
+      detailContent.appendChild(relSection);
+    }
+
+  } catch (err) {
+    detailContent.innerHTML = `<div class="empty-state">Error al cargar el perfil: ${esc(err.message)}</div>`;
+  }
+}
+
 /* ─── View switching ────────────────────────────────────────────── */
 
 function switchView(view) {
@@ -588,6 +826,7 @@ function switchView(view) {
     requestAnimationFrame(renderMap);
   } else if (view === "autores") {
     renderAuthorList();
+    renderDetail();
   } else {
     renderList();
   }
@@ -739,28 +978,45 @@ function renderMap() {
 
   forceLayout(nodes, edgeList, width, height);
 
-  // Render SVG edges
+  // Compute node degrees for variable sizing
+  const nodeDegree = new Array(nodes.length).fill(0);
+  edgeList.forEach(([a, b]) => { nodeDegree[a]++; nodeDegree[b]++; });
+  const maxDeg = Math.max(...nodeDegree, 1);
+  const cx = width / 2, cy = height / 2;
+
+  // Render SVG edges as curved bezier paths
   svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
   svg.innerHTML = "";
   edgeList.forEach(([a, b]) => {
     const na = nodes[a], nb = nodes[b];
-    const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
-    line.setAttribute("x1", na.x); line.setAttribute("y1", na.y);
-    line.setAttribute("x2", nb.x); line.setAttribute("y2", nb.y);
-    line.setAttribute("class", "map-edge");
-    line.dataset.a = na.slug;
-    line.dataset.b = nb.slug;
-    svg.appendChild(line);
+    const mx = (na.x + nb.x) / 2;
+    const my = (na.y + nb.y) / 2;
+    // Control point: midpoint offset away from canvas center
+    const dx = mx - cx, dy = my - cy;
+    const dist = Math.hypot(dx, dy) || 1;
+    const edgeLen = Math.hypot(nb.x - na.x, nb.y - na.y);
+    const curve = edgeLen * 0.18;
+    const cpx = mx + (dx / dist) * curve;
+    const cpy = my + (dy / dist) * curve;
+    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    path.setAttribute("d", `M ${na.x} ${na.y} Q ${cpx} ${cpy} ${nb.x} ${nb.y}`);
+    path.setAttribute("class", "map-edge");
+    path.setAttribute("fill", "none");
+    path.dataset.a = na.slug;
+    path.dataset.b = nb.slug;
+    svg.appendChild(path);
   });
 
   // Remove old nodes then render new HTML nodes
   canvas.querySelectorAll(".map-node").forEach(el => el.remove());
 
-  nodes.forEach(node => {
+  nodes.forEach((node, i) => {
     const color = CATEGORY_COLORS[node.category] || "#999";
+    const degree = nodeDegree[i];
+    const nodeWidth = 148 + Math.round((degree / maxDeg) * 24); // 148–172px
     const el = document.createElement("div");
     el.className = "map-node";
-    el.style.cssText = `left:${node.x}px; top:${node.y}px; --cat-color:${color};`;
+    el.style.cssText = `left:${node.x}px; top:${node.y}px; --cat-color:${color}; --node-w:${nodeWidth}px;`;
     el.setAttribute("tabindex", "0");
     el.setAttribute("role", "button");
     el.setAttribute("aria-label", `Ver tema: ${node.title}`);
