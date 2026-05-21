@@ -35,6 +35,18 @@
       "name": "Antonio Gramsci",
       "role": "partido como intelectual colectivo y constructor de hegemonía",
       "why_relevant": "Reelabora el problema del partido: no es solo una herramienta de poder sino un organismo que construye hegemonía cultural, forma cuadros intelectuales y elabora una visión del mundo alternativa a la dominante."
+    },
+    {
+      "id": "zetkin-clara",
+      "name": "Clara Zetkin",
+      "role": "organizacion de las mujeres en el partido socialista",
+      "why_relevant": "Construyó la organización femenina del SPD y later del KPD, pensando cómo integrar la lucha de las mujeres trabajadoras en la estructura del partido."
+    },
+    {
+      "id": "mao-zedong",
+      "name": "Mao Zedong",
+      "role": "linea de masas y nueva democracia",
+      "why_relevant": "Desarrolló la teoría de la línea de masas y del partido adaptado a condiciones semicoloniales, ampliando el debate sobre la relación entre partido y pueblo."
     }
   ],
   "essential_works": [

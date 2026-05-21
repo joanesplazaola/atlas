@@ -36,6 +36,12 @@
       "name": "Friedrich Engels",
       "role": "analisis historico de pueblos, Estados y conflictos europeos",
       "why_relevant": "Aporta un trasfondo histórico para comprender cómo la cuestión nacional aparece ligada a guerras, Estados y transformaciones sociales."
+    },
+    {
+      "id": "mao-zedong",
+      "name": "Mao Zedong",
+      "role": "revolucion en paises semicoloniales y cuestion campesina",
+      "why_relevant": "Su experiencia de la Revolución China abrió la cuestión de cómo articular la lucha nacional, la reforma agraria y la construcción socialista en países dependientes."
     }
   ],
   "essential_works": [

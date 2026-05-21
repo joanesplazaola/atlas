@@ -36,6 +36,18 @@
       "name": "Rosa Luxemburg",
       "role": "huelga de masas y autoactividad obrera",
       "why_relevant": "Introduce la dimensión de la acción de masas y del aprendizaje colectivo en situaciones de ascenso de lucha."
+    },
+    {
+      "id": "zetkin-clara",
+      "name": "Clara Zetkin",
+      "role": "cuestion de la mujer y el movimiento obrero",
+      "why_relevant": "Desarrolló el análisis marxista de la opresión de la mujer como cuestión de clase, integrando la lucha de las trabajadoras en el movimiento obrero socialista."
+    },
+    {
+      "id": "kollontai-alexandra",
+      "name": "Alexandra Kollontai",
+      "role": "emancipacion de la mujer y reorganizacion de la vida colectiva",
+      "why_relevant": "Teorizó cómo la emancipación femenina requería transformar no solo el trabajo sino la vida doméstica, la familia y la moral desde una perspectiva socialista."
     }
   ],
   "essential_works": [

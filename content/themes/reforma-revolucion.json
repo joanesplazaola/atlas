@@ -30,6 +30,18 @@
       "name": "Antonio Gramsci",
       "role": "hegemonia, guerra de posicion y direccion politica",
       "why_relevant": "Permite pensar mediaciones, alianzas y temporalidades sin disolver la necesidad de una ruptura con el orden existente."
+    },
+    {
+      "id": "bernstein-eduard",
+      "name": "Eduard Bernstein",
+      "role": "revision del marxismo y socialismo gradualista",
+      "why_relevant": "Su obra 'Las premisas del socialismo y las tareas de la socialdemocracia' es el texto fundacional del reformismo socialista, imprescindible para entender el debate que define la tradición marxista."
+    },
+    {
+      "id": "kautsky-karl",
+      "name": "Karl Kautsky",
+      "role": "marxismo ortodoxo de la Segunda Internacional",
+      "why_relevant": "Encarna la posición centrista que pretendía mantener la ortodoxia marxista sin comprometerse con la acción revolucionaria, criticado tanto por Luxemburg como por Lenin."
     }
   ],
   "essential_works": [

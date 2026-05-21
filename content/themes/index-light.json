@@ -8,12 +8,14 @@
       "key_author_ids": [
         "marx-karl",
         "engels-friedrich",
-        "lenin-vi"
+        "lenin-vi",
+        "kollontai-alexandra"
       ],
       "key_author_names": [
         "Karl Marx",
         "Friedrich Engels",
-        "V. I. Lenin"
+        "V. I. Lenin",
+        "Alexandra Kollontai"
       ],
       "concept_labels": [
         "Comuna de París",
@@ -41,12 +43,14 @@
       "key_author_ids": [
         "trotsky-leon",
         "gramsci-antonio",
-        "dimitrov-georgi"
+        "dimitrov-georgi",
+        "zetkin-clara"
       ],
       "key_author_names": [
         "León Trotsky",
         "Antonio Gramsci",
-        "Georgi Dimitrov"
+        "Georgi Dimitrov",
+        "Clara Zetkin"
       ],
       "concept_labels": [
         "Contrarrevolución",
@@ -82,12 +86,14 @@
       "key_author_ids": [
         "lenin-vi",
         "luxemburg-rosa",
-        "bukharin"
+        "bukharin",
+        "mao-zedong"
       ],
       "key_author_names": [
         "V. I. Lenin",
         "Rosa Luxemburg",
-        "Nikolai Bukharin"
+        "Nikolai Bukharin",
+        "Mao Zedong"
       ],
       "concept_labels": [
         "Capital financiero",
@@ -115,12 +121,16 @@
       "key_author_ids": [
         "lenin-vi",
         "luxemburg-rosa",
-        "gramsci-antonio"
+        "gramsci-antonio",
+        "zetkin-clara",
+        "mao-zedong"
       ],
       "key_author_names": [
         "V. I. Lenin",
         "Rosa Luxemburgo",
-        "Antonio Gramsci"
+        "Antonio Gramsci",
+        "Clara Zetkin",
+        "Mao Zedong"
       ],
       "concept_labels": [
         "Vanguardia",
@@ -261,13 +271,15 @@
         "lenin-vi",
         "luxemburg-rosa",
         "marx-karl",
-        "engels-friedrich"
+        "engels-friedrich",
+        "mao-zedong"
       ],
       "key_author_names": [
         "V. I. Lenin",
         "Rosa Luxemburg",
         "Karl Marx",
-        "Friedrich Engels"
+        "Friedrich Engels",
+        "Mao Zedong"
       ],
       "concept_labels": [
         "Autodeterminación",
@@ -295,12 +307,14 @@
       "key_author_ids": [
         "marx-karl",
         "engels-friedrich",
-        "lenin-vi"
+        "lenin-vi",
+        "mao-zedong"
       ],
       "key_author_names": [
         "Karl Marx",
         "Friedrich Engels",
-        "V. I. Lenin"
+        "V. I. Lenin",
+        "Mao Zedong"
       ],
       "concept_labels": [
         "Materialismo histórico",
@@ -358,13 +372,17 @@
         "marx-karl",
         "engels-friedrich",
         "gramsci-antonio",
-        "luxemburg-rosa"
+        "luxemburg-rosa",
+        "zetkin-clara",
+        "kollontai-alexandra"
       ],
       "key_author_names": [
         "Karl Marx",
         "Friedrich Engels",
         "Antonio Gramsci",
-        "Rosa Luxemburg"
+        "Rosa Luxemburg",
+        "Clara Zetkin",
+        "Alexandra Kollontai"
       ],
       "concept_labels": [
         "Huelga general",
@@ -392,12 +410,16 @@
       "key_author_ids": [
         "luxemburg-rosa",
         "lenin-vi",
-        "gramsci-antonio"
+        "gramsci-antonio",
+        "bernstein-eduard",
+        "kautsky-karl"
       ],
       "key_author_names": [
         "Rosa Luxemburg",
         "V. I. Lenin",
-        "Antonio Gramsci"
+        "Antonio Gramsci",
+        "Eduard Bernstein",
+        "Karl Kautsky"
       ],
       "concept_labels": [
         "Reformismo",

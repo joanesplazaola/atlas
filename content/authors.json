@@ -78,7 +78,7 @@
     "nationality": "alemán-checo",
     "marxists_org_url": "https://www.marxists.org/espanol/kautsky/index.htm",
     "short_bio": "Principal teórico de la Segunda Internacional y editor de las obras de Marx y Engels. Defensor del marxismo ortodoxo frente al revisionismo de Bernstein, pero criticado posteriormente por Lenin y Luxemburg por su posición ante la revolución rusa y su oposición al bolchevismo.",
-    "themes": []
+    "themes": ["reforma-revolucion"]
   },
   {
     "id": "bernstein-eduard",
@@ -87,6 +87,33 @@
     "nationality": "alemán",
     "marxists_org_url": "https://www.marxists.org/espanol/bernstein/index.htm",
     "short_bio": "Teórico del revisionismo socialista. Sostuvo que el capitalismo podía transformarse gradualmente sin revolución y que el marxismo debía ser revisado a la luz del desarrollo capitalista. Sus tesis fueron el blanco central de la crítica de Rosa Luxemburg en Reforma o revolución.",
-    "themes": []
+    "themes": ["reforma-revolucion"]
+  },
+  {
+    "id": "zetkin-clara",
+    "name": "Clara Zetkin",
+    "years": "1857–1933",
+    "nationality": "alemana",
+    "marxists_org_url": "https://www.marxists.org/espanol/zetkin/index.htm",
+    "short_bio": "Revolucionaria y teórica socialista alemana. Pionera del movimiento socialista de mujeres, fundadora del Día Internacional de la Mujer y autora del análisis marxista de la opresión de género como producto del capitalismo. Cofundadora del Partido Comunista de Alemania (KPD) junto a Luxemburg y Liebknecht.",
+    "themes": ["movimiento-obrero", "partido", "fascismo"]
+  },
+  {
+    "id": "kollontai-alexandra",
+    "name": "Alexandra Kollontai",
+    "years": "1872–1952",
+    "nationality": "rusa",
+    "marxists_org_url": "https://www.marxists.org/espanol/kollontai/index.htm",
+    "short_bio": "Revolucionaria rusa, primera mujer nombrada ministra y primera embajadora del mundo. Teorizó la emancipación de la mujer desde el socialismo: la nueva moral sexual, el amor libre y la reorganización de la vida doméstica como condición de la liberación femenina. Integró la cuestión de género en el programa bolchevique.",
+    "themes": ["movimiento-obrero", "estado"]
+  },
+  {
+    "id": "mao-zedong",
+    "name": "Mao Zedong",
+    "years": "1893–1976",
+    "nationality": "chino",
+    "marxists_org_url": "https://www.marxists.org/espanol/mao/index.htm",
+    "short_bio": "Dirigente de la Revolución China y fundador de la República Popular China. Desarrolló la teoría de la guerra popular prolongada, la nueva democracia y la contradicción como método de análisis. Adaptó el marxismo-leninismo a las condiciones semicoloniales de China, situando al campesinado como fuerza revolucionaria central.",
+    "themes": ["imperialismo", "cuestion-nacional", "partido", "dialectica"]
   }
 ]
