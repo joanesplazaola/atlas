@@ -9,6 +9,7 @@ const state = {
   query: "",
   activeConcept: null,
   activeAuthor: null,   // author filter from author index view
+  activeCategory: null, // category filter (politica|economia|historia|social|filosofia)
   view: "temas",        // "temas" | "autores" | "mapa"
   themeCache: new Map(),  // slug → full theme JSON (loaded on demand)
   worksCache: new Map(),  // work_id → canonical work JSON (loaded on demand)
@@ -110,15 +111,18 @@ function applyFilters() {
   const q  = norm(state.query.trim());
   const ac = state.activeConcept ? norm(state.activeConcept) : null;
   const aa = state.activeAuthor  ? norm(state.activeAuthor)  : null;
+  const cat = state.activeCategory;
 
   state.filteredThemes = state.themes.filter(t => {
     const mQ  = !q  || buildSearchText(t).includes(q);
     const mC  = !ac || (t.concept_labels ?? t.connected_concepts?.map(c => c.label) ?? []).some(l => norm(l) === ac);
     const mA  = !aa || (t.key_author_names ?? t.key_authors?.map(a => a.name) ?? []).some(n => norm(n) === aa);
-    return mQ && mC && mA;
+    const mCat = !cat || getCategoryForTheme(t.slug) === cat;
+    return mQ && mC && mA && mCat;
   });
 
-  if (!state.filteredThemes.some(t => t.slug === state.selectedSlug)) {
+  // Only auto-select when a previously-selected theme gets filtered out (not when landing)
+  if (state.selectedSlug && !state.filteredThemes.some(t => t.slug === state.selectedSlug)) {
     state.selectedSlug = state.filteredThemes[0]?.slug || null;
   }
 
@@ -149,8 +153,9 @@ function renderStats() {
 
 function renderFilterBar() {
   const filters = [];
-  if (state.activeConcept) filters.push({ key: "concept", label: `Concepto: ${state.activeConcept}`, clear: () => { state.activeConcept = null; applyFilters(); } });
-  if (state.activeAuthor)  filters.push({ key: "author",  label: `Autor: ${state.activeAuthor}`,     clear: () => { state.activeAuthor = null;  applyFilters(); } });
+  if (state.activeConcept)  filters.push({ key: "concept",  label: `Concepto: ${state.activeConcept}`, clear: () => { state.activeConcept = null; applyFilters(); } });
+  if (state.activeAuthor)   filters.push({ key: "author",   label: `Autor: ${state.activeAuthor}`,     clear: () => { state.activeAuthor = null;  applyFilters(); } });
+  if (state.activeCategory) filters.push({ key: "category", label: CATEGORY_LABELS[state.activeCategory] || state.activeCategory, clear: () => { state.activeCategory = null; applyFilters(); } });
 
   if (!filters.length) { activeFilter.hidden = true; activeFilter.innerHTML = ""; return; }
   activeFilter.hidden = false;
@@ -177,42 +182,65 @@ function renderSkeleton() {
   ).join("");
 }
 
+function buildThemeCard(t) {
+  const el = document.createElement("article");
+  el.className = `theme-card${t.slug === state.selectedSlug ? " theme-card--active" : ""}`;
+  el.setAttribute("role", "button");
+  el.tabIndex = 0;
+  el.setAttribute("aria-pressed", String(t.slug === state.selectedSlug));
+
+  el.innerHTML =
+    `<div class="theme-card__title">${esc(t.title)}</div>
+     <p class="theme-card__summary">${esc(t.summary)}</p>
+     <div class="theme-card__chips"></div>`;
+
+  const chips = el.querySelector(".theme-card__chips");
+  const conceptsToShow = t.concept_labels ?? t.connected_concepts?.map(c => c.label) ?? [];
+  conceptsToShow.slice(0, 4).forEach(label => chips.appendChild(conceptChip(label)));
+
+  const select = () => {
+    state.selectedSlug = t.slug;
+    state.activeTab = "overview";
+    setHash(t.slug);
+    renderList();
+    renderDetail();
+    switchMobileView("detail");
+  };
+
+  el.addEventListener("click", e => { if (!e.target.closest(".chip")) select(); });
+  el.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); select(); } });
+  return el;
+}
+
+const CATEGORY_ORDER = ["politica", "economia", "historia", "social", "filosofia"];
+
 function renderList() {
   if (!state.filteredThemes.length) {
     themeList.innerHTML = `<div class="empty-state">Sin resultados para esta búsqueda.</div>`;
     return;
   }
 
-  themeList.innerHTML = "";
+  // Group themes by category
+  const byCategory = {};
   state.filteredThemes.forEach(t => {
-    const el = document.createElement("article");
-    el.className = `theme-card${t.slug === state.selectedSlug ? " theme-card--active" : ""}`;
-    el.setAttribute("role", "button");
-    el.tabIndex = 0;
-    el.setAttribute("aria-pressed", String(t.slug === state.selectedSlug));
+    const cat = getCategoryForTheme(t.slug);
+    if (!byCategory[cat]) byCategory[cat] = [];
+    byCategory[cat].push(t);
+  });
 
-    el.innerHTML =
-      `<div class="theme-card__title">${esc(t.title)}</div>
-       <p class="theme-card__summary">${esc(t.summary)}</p>
-       <div class="theme-card__chips"></div>`;
+  const presentCategories = CATEGORY_ORDER.filter(cat => byCategory[cat]);
+  const showHeaders = presentCategories.length > 1;
 
-    const chips = el.querySelector(".theme-card__chips");
-    const conceptsToShow = t.concept_labels ?? t.connected_concepts?.map(c => c.label) ?? [];
-    conceptsToShow.slice(0, 4).forEach(label => chips.appendChild(conceptChip(label)));
-
-    const select = () => {
-      state.selectedSlug = t.slug;
-      state.activeTab = "overview";
-      setHash(t.slug);
-      renderList();
-      renderDetail();
-      switchMobileView("detail");
-    };
-
-    el.addEventListener("click", e => { if (!e.target.closest(".chip")) select(); });
-    el.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); select(); } });
-
-    themeList.appendChild(el);
+  themeList.innerHTML = "";
+  presentCategories.forEach(cat => {
+    if (showHeaders) {
+      const header = document.createElement("div");
+      header.className = "theme-group__header";
+      header.style.setProperty("--cat-color", CATEGORY_COLORS[cat] || "#999");
+      header.innerHTML = `<span class="theme-group__dot"></span>${esc(CATEGORY_LABELS[cat] || cat)}`;
+      themeList.appendChild(header);
+    }
+    byCategory[cat].forEach(t => themeList.appendChild(buildThemeCard(t)));
   });
 }
 
@@ -294,6 +322,104 @@ function renderAuthorList() {
 
 /* ─── Detail panel ─────────────────────────────────────────────── */
 
+function renderLandingPanel() {
+  detailEmpty.hidden = true;
+  detailContent.hidden = false;
+
+  const works   = state.themes.reduce((n, t) => n + (t.work_count ?? t.essential_works?.length ?? 0), 0);
+  const authors = getAllAuthors().length;
+
+  const byCategory = {};
+  state.themes.forEach(t => {
+    const cat = getCategoryForTheme(t.slug);
+    if (!byCategory[cat]) byCategory[cat] = [];
+    byCategory[cat].push(t);
+  });
+
+  detailContent.innerHTML = `
+    <div class="landing">
+      <header class="landing__hero">
+        <h2 class="landing__title">Atlas marxista de lectura</h2>
+        <p class="landing__desc">Una capa de navegación sobre Marxists.org. Encuentra textos, comprende las relaciones entre autores y construye rutas de lectura.</p>
+        <div class="landing__stats">
+          <div class="landing__stat"><span class="landing__stat-num">${state.themes.length}</span><span class="landing__stat-label">temas</span></div>
+          <div class="landing__stat"><span class="landing__stat-num">${works}</span><span class="landing__stat-label">obras</span></div>
+          <div class="landing__stat"><span class="landing__stat-num">${authors}</span><span class="landing__stat-label">autores</span></div>
+        </div>
+      </header>
+
+      <section class="landing__section">
+        <h3 class="landing__section-title">Explorar por área temática</h3>
+        <div class="landing__categories" id="landing-categories"></div>
+      </section>
+
+      <section class="landing__section">
+        <h3 class="landing__section-title">¿Por dónde empezar?</h3>
+        <div class="landing__starters" id="landing-starters"></div>
+      </section>
+    </div>`;
+
+  // Category cards
+  const catContainer = detailContent.querySelector("#landing-categories");
+  CATEGORY_ORDER.filter(cat => byCategory[cat]).forEach(cat => {
+    const themes = byCategory[cat];
+    const card = document.createElement("div");
+    card.className = "landing__cat-card";
+    card.style.setProperty("--cat-color", CATEGORY_COLORS[cat] || "#999");
+    card.setAttribute("role", "button");
+    card.tabIndex = 0;
+    card.innerHTML = `
+      <div class="landing__cat-header">
+        <span class="landing__cat-dot"></span>
+        <span class="landing__cat-name">${esc(CATEGORY_LABELS[cat] || cat)}</span>
+        <span class="landing__cat-count">${themes.length} tema${themes.length !== 1 ? "s" : ""}</span>
+      </div>
+      <div class="landing__cat-chips">${themes.map(t => `<span class="landing__cat-chip">${esc(t.title)}</span>`).join("")}</div>`;
+
+    const filter = () => {
+      state.activeCategory = cat;
+      applyFilters();
+    };
+    card.addEventListener("click", filter);
+    card.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); filter(); } });
+    catContainer.appendChild(card);
+  });
+
+  // Suggested starter themes
+  const starterSlugs = [
+    { slug: "teoria-del-valor", note: "La base económica del marxismo" },
+    { slug: "estado",           note: "Teoría política fundamental" },
+    { slug: "imperialismo",     note: "El capitalismo en su fase monopolista" },
+    { slug: "revolucion",       note: "Estrategia y táctica del cambio social" },
+  ];
+
+  const startersEl = detailContent.querySelector("#landing-starters");
+  starterSlugs
+    .map(s => ({ ...s, theme: state.themes.find(t => t.slug === s.slug) }))
+    .filter(s => s.theme)
+    .forEach(({ theme, note }) => {
+      const card = document.createElement("div");
+      card.className = "landing__starter";
+      card.setAttribute("role", "button");
+      card.tabIndex = 0;
+      card.innerHTML = `
+        <div class="landing__starter-title">${esc(theme.title)}</div>
+        <div class="landing__starter-note">${esc(note)}</div>`;
+
+      const go = () => {
+        state.selectedSlug = theme.slug;
+        state.activeTab = "overview";
+        setHash(theme.slug);
+        renderList();
+        renderDetail();
+        switchMobileView("detail");
+      };
+      card.addEventListener("click", go);
+      card.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); } });
+      startersEl.appendChild(card);
+    });
+}
+
 async function renderDetail() {
   if (state.view === "autores") {
     await renderAuthorDetail();
@@ -301,9 +427,7 @@ async function renderDetail() {
   }
 
   if (!state.selectedSlug) {
-    detailEmpty.hidden = false;
-    detailContent.hidden = true;
-    detailContent.innerHTML = "";
+    renderLandingPanel();
     return;
   }
 
@@ -1132,7 +1256,7 @@ async function init() {
 
     state.authors = authors;
     state.themes  = lightIndex.themes.sort((a, b) => a.title.localeCompare(b.title, "es"));
-    state.selectedSlug = getSlugFromHash() || state.themes[0]?.slug || null;
+    state.selectedSlug = getSlugFromHash() || null;
 
     if (state.selectedSlug) setHash(state.selectedSlug);
     applyFilters();

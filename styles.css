@@ -1550,3 +1550,203 @@ body.modal-open { overflow: hidden; }
   color: var(--accent);
   font-weight: 500;
 }
+
+/* ─── Sidebar category group headers ─────────────────────────── */
+.theme-group__header {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 16px 6px;
+  font-size: 0.71rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 4px;
+  border-top: 1px solid var(--border);
+  user-select: none;
+}
+.theme-group__header:first-child { border-top: none; margin-top: 0; }
+
+.theme-group__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: var(--cat-color, #999);
+}
+
+/* ─── Landing panel ───────────────────────────────────────────── */
+.landing {
+  padding: 0 0 2rem;
+}
+
+.landing__hero {
+  padding: 2rem 2rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--surface-raise) 0%, transparent 100%);
+}
+
+.landing__title {
+  font-size: 1.35rem;
+  font-family: "Lora", Georgia, serif;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.landing__desc {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 52ch;
+  margin-bottom: 1.25rem;
+}
+
+.landing__stats {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.landing__stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.landing__stat-num {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: "Lora", Georgia, serif;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.landing__stat-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 3px;
+}
+
+.landing__section {
+  padding: 1.5rem 2rem 0;
+}
+
+.landing__section-title {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-muted);
+  margin-bottom: 0.9rem;
+  font-family: inherit;
+}
+
+/* Category cards grid */
+.landing__categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.75rem;
+}
+
+.landing__cat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.9rem 1rem;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, transform 0.12s;
+  border-left: 3px solid var(--cat-color, #999);
+}
+
+.landing__cat-card:hover,
+.landing__cat-card:focus-visible {
+  background: var(--surface-hover);
+  border-color: var(--border-strong);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.landing__cat-header {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 0.6rem;
+}
+
+.landing__cat-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: var(--cat-color, #999);
+}
+
+.landing__cat-name {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text);
+  flex: 1;
+}
+
+.landing__cat-count {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  background: var(--surface-raise);
+  border-radius: 20px;
+  padding: 1px 7px;
+}
+
+.landing__cat-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.landing__cat-chip {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  background: var(--surface-raise);
+  border-radius: 4px;
+  padding: 2px 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* Starter themes grid */
+.landing__starters {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 0.6rem;
+}
+
+.landing__starter {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1rem;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.landing__starter:hover,
+.landing__starter:focus-visible {
+  background: var(--surface-hover);
+  border-color: var(--border-strong);
+  outline: none;
+}
+
+.landing__starter-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.landing__starter-note {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
