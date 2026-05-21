@@ -41,6 +41,15 @@
           </svg>
           <input id="search-input" type="search" placeholder="Tema, autor, concepto…" autocomplete="off">
         </div>
+        <div class="sidebar__works-search">
+          <button type="button" id="open-works-search" class="works-search-btn">
+            <svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <circle cx="8.5" cy="8.5" r="5.5" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M13 13l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+            Buscar en obras…
+          </button>
+        </div>
 
         <div class="sidebar__meta">
           <div class="stats" id="stats"></div>
@@ -63,5 +72,17 @@
     </main>
 
     <script src="app.js" defer></script>
+
+    <!-- Works search modal (Pagefind) -->
+    <div id="works-search-modal" class="works-modal" hidden role="dialog" aria-modal="true" aria-label="Buscar en obras">
+      <div class="works-modal__overlay" id="works-modal-overlay"></div>
+      <div class="works-modal__panel">
+        <div class="works-modal__header">
+          <h2 class="works-modal__title">Buscar en obras</h2>
+          <button type="button" class="works-modal__close" id="close-works-search" aria-label="Cerrar búsqueda">×</button>
+        </div>
+        <div id="pagefind-search-ui"></div>
+      </div>
+    </div>
   </body>
 </html>
