@@ -6,7 +6,9 @@
   "directories": {
     "test": "tests"
   },
+  "type": "module",
   "scripts": {
+    "build": "node build.js",
     "test": "playwright test",
     "test:ui": "playwright test --ui"
   },
@@ -22,6 +24,11 @@
   },
   "homepage": "https://github.com/joanesplazaola/atlas#readme",
   "devDependencies": {
-    "@playwright/test": "^1.60.0"
+    "@playwright/test": "^1.60.0",
+    "pagefind": "^1.5.2"
+  },
+  "dependencies": {
+    "ajv": "^8.20.0",
+    "ajv-formats": "^3.0.1"
   }
 }

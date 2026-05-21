@@ -1000,3 +1000,24 @@ button.chip:focus-visible {
   .topbar__nav-btn { padding: 5px 10px; font-size: 0.8rem; }
 }
 
+
+/* ─── Detail loading spinner ───────────────────────────────────── */
+.detail-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+}
+
+.detail-loading__spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--surface-raise);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

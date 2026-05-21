@@ -34,55 +34,22 @@
   ],
   "essential_works": [
     {
-      "id": "lenin-imperialism-highest-stage",
-      "title": "Imperialism, the Highest Stage of Capitalism",
-      "author_ids": [
-        "lenin-vi"
-      ],
-      "year": 1916,
+      "work_id": "lenin-imperialism-highest-stage",
       "level": "introductory",
-      "kind": "pamphlet",
       "estimated_effort": "medium",
-      "reason_to_read": "Sirve como mapa general para ubicar monopolio, banca, exportacion de capitales y reparto colonial dentro de una sola explicacion.",
-      "source": {
-        "provider": "Marxists Internet Archive",
-        "url": "https://www.marxists.org/archive/lenin/works/1916/imp-hsc/",
-        "attribution_label": "Lenin, Imperialism, the Highest Stage of Capitalism (Marxists.org)"
-      }
+      "reason_to_read": "Sirve como mapa general para ubicar monopolio, banca, exportacion de capitales y reparto colonial dentro de una sola explicacion."
     },
     {
-      "id": "luxemburg-accumulation-of-capital",
-      "title": "The Accumulation of Capital",
-      "author_ids": [
-        "luxemburg-rosa"
-      ],
-      "year": 1913,
+      "work_id": "luxemburg-accumulation-of-capital",
       "level": "advanced",
-      "kind": "book",
       "estimated_effort": "long",
-      "reason_to_read": "Abre el debate sobre las condiciones de realizacion y expansion del capital, util para una lectura mas exigente y comparativa.",
-      "source": {
-        "provider": "Marxists Internet Archive",
-        "url": "https://www.marxists.org/archive/luxemburg/1913/accumulation-capital/",
-        "attribution_label": "Rosa Luxemburg, The Accumulation of Capital (Marxists.org)"
-      }
+      "reason_to_read": "Abre el debate sobre las condiciones de realizacion y expansion del capital, util para una lectura mas exigente y comparativa."
     },
     {
-      "id": "bukharin-imperialism-and-world-economy",
-      "title": "Imperialism and World Economy",
-      "author_ids": [
-        "bukharin"
-      ],
-      "year": 1917,
+      "work_id": "bukharin-imperialism-and-world-economy",
       "level": "intermediate",
-      "kind": "book",
       "estimated_effort": "long",
-      "reason_to_read": "Permite estudiar el imperialismo a escala de economia mundial y entender mejor la articulacion entre capital concentrado y competencia interestatal.",
-      "source": {
-        "provider": "Marxists Internet Archive",
-        "url": "https://www.marxists.org/archive/bukharin/works/1917/imperial/",
-        "attribution_label": "Bukharin, Imperialism and World Economy (Marxists.org)"
-      }
+      "reason_to_read": "Permite estudiar el imperialismo a escala de economia mundial y entender mejor la articulacion entre capital concentrado y competencia interestatal."
     }
   ],
   "connected_concepts": [

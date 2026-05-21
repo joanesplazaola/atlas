@@ -28,55 +28,22 @@
   ],
   "essential_works": [
     {
-      "id": "engels-housing-question",
-      "title": "The Housing Question",
-      "author_ids": [
-        "engels-friedrich"
-      ],
-      "year": 1872,
+      "work_id": "engels-housing-question",
       "level": "introductory",
-      "kind": "book",
       "estimated_effort": "medium",
-      "reason_to_read": "Es la puerta de entrada central para comprender por que la escasez y el encarecimiento de la vivienda no se resuelven dentro de las relaciones capitalistas.",
-      "source": {
-        "provider": "Marxists Internet Archive",
-        "url": "https://www.marxists.org/archive/marx/works/1872/housing-question/",
-        "attribution_label": "Friedrich Engels, The Housing Question (Marxists.org)"
-      }
+      "reason_to_read": "Es la puerta de entrada central para comprender por que la escasez y el encarecimiento de la vivienda no se resuelven dentro de las relaciones capitalistas."
     },
     {
-      "id": "engels-condition-working-class",
-      "title": "The Condition of the Working Class in England",
-      "author_ids": [
-        "engels-friedrich"
-      ],
-      "year": 1845,
+      "work_id": "engels-condition-working-class",
       "level": "intermediate",
-      "kind": "book",
       "estimated_effort": "long",
-      "reason_to_read": "Permite ver empiricamente la forma en que hacinamiento, enfermedad y segregacion urbana se articulan con la explotacion industrial.",
-      "source": {
-        "provider": "Marxists Internet Archive",
-        "url": "https://www.marxists.org/archive/marx/works/1845/condition-working-class/",
-        "attribution_label": "Friedrich Engels, The Condition of the Working Class in England (Marxists.org)"
-      }
+      "reason_to_read": "Permite ver empiricamente la forma en que hacinamiento, enfermedad y segregacion urbana se articulan con la explotacion industrial."
     },
     {
-      "id": "marx-capital-volume-one",
-      "title": "Capital, Volume I",
-      "author_ids": [
-        "marx-karl"
-      ],
-      "year": 1867,
+      "work_id": "marx-capital-volume-one",
       "level": "advanced",
-      "kind": "book",
       "estimated_effort": "long",
-      "reason_to_read": "Sirve como marco de fondo para situar la vivienda dentro de la acumulacion, la reproduccion de la fuerza de trabajo y la configuracion espacial del capitalismo.",
-      "source": {
-        "provider": "Marxists Internet Archive",
-        "url": "https://www.marxists.org/archive/marx/works/1867-c1/",
-        "attribution_label": "Karl Marx, Capital, Volume I (Marxists.org)"
-      }
+      "reason_to_read": "Sirve como marco de fondo para situar la vivienda dentro de la acumulacion, la reproduccion de la fuerza de trabajo y la configuracion espacial del capitalismo."
     }
   ],
   "connected_concepts": [

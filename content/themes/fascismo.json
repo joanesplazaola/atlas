@@ -39,72 +39,28 @@
   ],
   "essential_works": [
     {
-      "id": "que-es-fascismo-trotsky",
-      "title": "¿Qué es el fascismo?",
-      "year": 1931,
-      "kind": "article",
+      "work_id": "que-es-fascismo-trotsky",
       "level": "introductory",
       "estimated_effort": "short",
-      "author_ids": [
-        "trotsky-leon"
-      ],
-      "reason_to_read": "Definición precisa y accesible: el fascismo es la movilización contrarrevolucionaria de las masas pequeñoburguesas desclasadas al servicio del gran capital. Demoledor con la táctica del 'socialfascismo' del KPD.",
-      "source": {
-        "provider": "Marxists.org",
-        "url": "https://www.marxists.org/espanol/trotsky/ceip/escritos/libro2/T02V234.htm",
-        "attribution_label": "Trotsky, León. ¿Qué es el fascismo? (1931). Marxists.org."
-      }
+      "reason_to_read": "Definición precisa y accesible: el fascismo es la movilización contrarrevolucionaria de las masas pequeñoburguesas desclasadas al servicio del gran capital. Demoledor con la táctica del 'socialfascismo' del KPD."
     },
     {
-      "id": "alemania-clave-situacion-internacional",
-      "title": "Alemania, la clave de la situación internacional",
-      "year": 1931,
-      "kind": "article",
+      "work_id": "alemania-clave-situacion-internacional",
       "level": "intermediate",
       "estimated_effort": "short",
-      "author_ids": [
-        "trotsky-leon"
-      ],
-      "reason_to_read": "Análisis de la crisis política alemana de 1931-1933: por qué la victoria de Hitler no era inevitable y qué política de clase debía haber seguido el movimiento obrero para impedirla.",
-      "source": {
-        "provider": "Marxists.org",
-        "url": "https://www.marxists.org/espanol/trotsky/indice.htm",
-        "attribution_label": "Trotsky, León. Escritos sobre Alemania (1930-33). Marxists.org."
-      }
+      "reason_to_read": "Análisis de la crisis política alemana de 1931-1933: por qué la victoria de Hitler no era inevitable y qué política de clase debía haber seguido el movimiento obrero para impedirla."
     },
     {
-      "id": "informe-vii-congreso-dimitrov",
-      "title": "Informe al VII Congreso de la Internacional Comunista",
-      "year": 1935,
-      "kind": "speech",
+      "work_id": "informe-vii-congreso-dimitrov",
       "level": "intermediate",
       "estimated_effort": "medium",
-      "author_ids": [
-        "dimitrov-georgi"
-      ],
-      "reason_to_read": "El texto canónico de la estrategia de frente popular: define el fascismo, analiza sus bases sociales y propone la unidad antifascista de la clase obrera con sectores de la pequeña burguesía. Imprescindible para el debate estratégico.",
-      "source": {
-        "provider": "Marxists.org",
-        "url": "https://www.marxists.org/espanol/dimitrov/1935.htm",
-        "attribution_label": "Dimitrov, Georgi. La ofensiva del fascismo y las tareas de la IC (1935). Marxists.org."
-      }
+      "reason_to_read": "El texto canónico de la estrategia de frente popular: define el fascismo, analiza sus bases sociales y propone la unidad antifascista de la clase obrera con sectores de la pequeña burguesía. Imprescindible para el debate estratégico."
     },
     {
-      "id": "cuadernos-carcel-gramsci",
-      "title": "Selección de los Cuadernos de la cárcel (sobre hegemonía y fascismo)",
-      "year": 1929,
-      "kind": "book",
+      "work_id": "cuadernos-carcel-gramsci",
       "level": "advanced",
       "estimated_effort": "long",
-      "author_ids": [
-        "gramsci-antonio"
-      ],
-      "reason_to_read": "No es un análisis directo del fascismo sino el desarrollo de las categorías teóricas necesarias para entenderlo: hegemonía, bloque histórico, guerra de posición, intelectuales orgánicos. Lectura difícil pero imprescindible.",
-      "source": {
-        "provider": "Marxists.org",
-        "url": "https://www.marxists.org/espanol/gramsci/index.htm",
-        "attribution_label": "Gramsci, Antonio. Cuadernos de la cárcel (1929-1935). Marxists.org."
-      }
+      "reason_to_read": "No es un análisis directo del fascismo sino el desarrollo de las categorías teóricas necesarias para entenderlo: hegemonía, bloque histórico, guerra de posición, intelectuales orgánicos. Lectura difícil pero imprescindible."
     }
   ],
   "connected_concepts": [

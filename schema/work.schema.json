@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "work.schema.json",
+  "title": "Canonical Work",
+  "description": "A single work (book, article, pamphlet…) in the Atlas library. Canonical data shared across all themes that reference it.",
+  "type": "object",
+  "required": ["id", "title", "author_ids", "year", "kind", "source"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "description": "Unique slug identifier for this work"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "author_ids": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+      "minItems": 1
+    },
+    "year": {
+      "type": "integer",
+      "minimum": 1800,
+      "maximum": 2100
+    },
+    "kind": {
+      "type": "string",
+      "enum": ["article", "chapter", "book", "pamphlet", "speech", "letter"]
+    },
+    "source": {
+      "type": "object",
+      "required": ["url", "provider"],
+      "additionalProperties": false,
+      "properties": {
+        "url":               { "type": "string", "format": "uri" },
+        "provider":          { "type": "string" },
+        "attribution_label": { "type": "string" }
+      }
+    }
+  }
+}

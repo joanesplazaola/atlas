@@ -1,0 +1,14 @@
+{
+  "id": "engels-housing-question",
+  "title": "The Housing Question",
+  "author_ids": [
+    "engels-friedrich"
+  ],
+  "year": 1872,
+  "kind": "book",
+  "source": {
+    "provider": "Marxists Internet Archive",
+    "url": "https://www.marxists.org/archive/marx/works/1872/housing-question/",
+    "attribution_label": "Friedrich Engels, The Housing Question (Marxists.org)"
+  }
+}

@@ -1,0 +1,221 @@
+{
+  "generated_at": "2026-05-21",
+  "themes": [
+    {
+      "slug": "estado",
+      "title": "Estado",
+      "summary": "Ficha de orientación para estudiar el Estado como forma histórica de dominación de clase, sus crisis y su relación con la revolución.",
+      "key_author_ids": [
+        "marx-karl",
+        "engels-friedrich",
+        "lenin-vi"
+      ],
+      "key_author_names": [
+        "Karl Marx",
+        "Friedrich Engels",
+        "V. I. Lenin"
+      ],
+      "concept_labels": [
+        "Comuna de París",
+        "Dictadura del proletariado",
+        "Democracia burguesa",
+        "Revolución"
+      ],
+      "concept_ids": [
+        "comuna-de-paris",
+        "dictadura-del-proletariado",
+        "democracia-burguesa",
+        "revolucion"
+      ],
+      "related_themes": [
+        "imperialismo",
+        "partido",
+        "fascismo"
+      ],
+      "work_count": 3
+    },
+    {
+      "slug": "fascismo",
+      "title": "Fascismo",
+      "summary": "Ficha de orientación para estudiar el fascismo como fenómeno político: su base social, su relación con el capital y las respuestas estratégicas del movimiento obrero.",
+      "key_author_ids": [
+        "trotsky-leon",
+        "gramsci-antonio",
+        "dimitrov-georgi"
+      ],
+      "key_author_names": [
+        "León Trotsky",
+        "Antonio Gramsci",
+        "Georgi Dimitrov"
+      ],
+      "concept_labels": [
+        "Contrarrevolución",
+        "Pequeña burguesía",
+        "Hegemonía",
+        "Frente popular",
+        "Capitalismo monopolista",
+        "Crisis orgánica",
+        "Estado de excepción",
+        "Nacional-socialismo"
+      ],
+      "concept_ids": [
+        "contrarrevolucion",
+        "pequena-burguesia",
+        "hegemonia",
+        "frente-popular",
+        "capitalismo-monopolista",
+        "crisis-organica",
+        "estado-excepcion",
+        "nacional-socialismo"
+      ],
+      "related_themes": [
+        "estado",
+        "partido",
+        "imperialismo"
+      ],
+      "work_count": 4
+    },
+    {
+      "slug": "imperialismo",
+      "title": "Imperialismo",
+      "summary": "Ficha de orientación para estudiar el imperialismo como fase histórica del capitalismo, sus formas de expansión y sus debates clásicos.",
+      "key_author_ids": [
+        "lenin-vi",
+        "luxemburg-rosa",
+        "bukharin"
+      ],
+      "key_author_names": [
+        "V. I. Lenin",
+        "Rosa Luxemburg",
+        "Nikolai Bukharin"
+      ],
+      "concept_labels": [
+        "Capital financiero",
+        "Colonialismo",
+        "Guerra",
+        "Nación"
+      ],
+      "concept_ids": [
+        "capital-financiero",
+        "colonialismo",
+        "guerra",
+        "nacion"
+      ],
+      "related_themes": [
+        "estado",
+        "teoria-del-valor",
+        "partido"
+      ],
+      "work_count": 3
+    },
+    {
+      "slug": "partido",
+      "title": "El partido revolucionario",
+      "summary": "Ficha de orientación para estudiar el problema de la organización política de la clase trabajadora: qué es el partido, para qué sirve, cómo se construye y cuáles son sus límites.",
+      "key_author_ids": [
+        "lenin-vi",
+        "luxemburg-rosa",
+        "gramsci-antonio"
+      ],
+      "key_author_names": [
+        "V. I. Lenin",
+        "Rosa Luxemburgo",
+        "Antonio Gramsci"
+      ],
+      "concept_labels": [
+        "Vanguardia",
+        "Centralismo democrático",
+        "Espontaneidad",
+        "Conciencia de clase",
+        "Hegemonía",
+        "Sindicato",
+        "Intelectual orgánico",
+        "Huelga de masas"
+      ],
+      "concept_ids": [
+        "vanguardia",
+        "centralismo-democratico",
+        "espontaneidad",
+        "conciencia-clase",
+        "hegemonia",
+        "sindicato",
+        "intelectual-organico",
+        "huelga-masas"
+      ],
+      "related_themes": [
+        "estado",
+        "fascismo",
+        "imperialismo"
+      ],
+      "work_count": 4
+    },
+    {
+      "slug": "teoria-del-valor",
+      "title": "Teoría del valor",
+      "summary": "Ficha de orientación para estudiar la teoría marxista del valor: cómo las mercancías contienen trabajo, cómo se genera la plusvalía y por qué el capitalismo produce riqueza y explotación al mismo tiempo.",
+      "key_author_ids": [
+        "marx-karl",
+        "engels-friedrich"
+      ],
+      "key_author_names": [
+        "Karl Marx",
+        "Friedrich Engels"
+      ],
+      "concept_labels": [
+        "Mercancía",
+        "Plusvalor",
+        "Trabajo abstracto",
+        "Fetichismo de la mercancía",
+        "Tiempo de trabajo socialmente necesario",
+        "Composición orgánica del capital",
+        "Alienación",
+        "Explotación"
+      ],
+      "concept_ids": [
+        "mercancia",
+        "plusvalor",
+        "trabajo-abstracto",
+        "fetichismo",
+        "tiempo-trabajo",
+        "composicion-organica",
+        "alienacion",
+        "explotacion"
+      ],
+      "related_themes": [
+        "imperialismo",
+        "vivienda"
+      ],
+      "work_count": 6
+    },
+    {
+      "slug": "vivienda",
+      "title": "Vivienda",
+      "summary": "Ficha de orientación para estudiar la cuestión de la vivienda como problema social ligado a la explotación, la urbanización capitalista y la reproducción de la clase trabajadora.",
+      "key_author_ids": [
+        "engels-friedrich",
+        "marx-karl"
+      ],
+      "key_author_names": [
+        "Friedrich Engels",
+        "Karl Marx"
+      ],
+      "concept_labels": [
+        "Urbanización",
+        "Reproducción de la fuerza de trabajo",
+        "Alquiler",
+        "Salud pública"
+      ],
+      "concept_ids": [
+        "urbanizacion",
+        "reproduccion-de-la-fuerza-de-trabajo",
+        "alquiler",
+        "salud-publica"
+      ],
+      "related_themes": [
+        "teoria-del-valor",
+        "estado"
+      ],
+      "work_count": 3
+    }
+  ]
+}

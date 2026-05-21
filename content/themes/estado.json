@@ -34,55 +34,22 @@
   ],
   "essential_works": [
     {
-      "id": "marx-civil-war-in-france",
-      "title": "The Civil War in France",
-      "author_ids": [
-        "marx-karl"
-      ],
-      "year": 1871,
+      "work_id": "marx-civil-war-in-france",
       "level": "intermediate",
-      "kind": "pamphlet",
       "estimated_effort": "medium",
-      "reason_to_read": "Sirve para estudiar la Comuna de Paris como experiencia historica desde la que Marx replantea el problema del poder politico y la maquinaria estatal.",
-      "source": {
-        "provider": "Marxists Internet Archive",
-        "url": "https://www.marxists.org/archive/marx/works/1871/civil-war-france/",
-        "attribution_label": "Karl Marx, The Civil War in France (Marxists.org)"
-      }
+      "reason_to_read": "Sirve para estudiar la Comuna de Paris como experiencia historica desde la que Marx replantea el problema del poder politico y la maquinaria estatal."
     },
     {
-      "id": "engels-origin-family-state",
-      "title": "The Origin of the Family, Private Property and the State",
-      "author_ids": [
-        "engels-friedrich"
-      ],
-      "year": 1884,
+      "work_id": "engels-origin-family-state",
       "level": "introductory",
-      "kind": "book",
       "estimated_effort": "long",
-      "reason_to_read": "Aporta una puerta de entrada historica para entender el Estado no como institucion eterna sino como resultado de relaciones sociales determinadas.",
-      "source": {
-        "provider": "Marxists Internet Archive",
-        "url": "https://www.marxists.org/archive/marx/works/1884/origin-family/",
-        "attribution_label": "Friedrich Engels, The Origin of the Family, Private Property and the State (Marxists.org)"
-      }
+      "reason_to_read": "Aporta una puerta de entrada historica para entender el Estado no como institucion eterna sino como resultado de relaciones sociales determinadas."
     },
     {
-      "id": "lenin-state-and-revolution",
-      "title": "The State and Revolution",
-      "author_ids": [
-        "lenin-vi"
-      ],
-      "year": 1917,
+      "work_id": "lenin-state-and-revolution",
       "level": "introductory",
-      "kind": "book",
       "estimated_effort": "medium",
-      "reason_to_read": "Ordena las discusiones sobre destruccion del aparato estatal, democracia burguesa, transicion y dictadura del proletariado en un solo recorrido.",
-      "source": {
-        "provider": "Marxists Internet Archive",
-        "url": "https://www.marxists.org/archive/lenin/works/1917/staterev/",
-        "attribution_label": "Lenin, The State and Revolution (Marxists.org)"
-      }
+      "reason_to_read": "Ordena las discusiones sobre destruccion del aparato estatal, democracia burguesa, transicion y dictadura del proletariado en un solo recorrido."
     }
   ],
   "connected_concepts": [

@@ -1,0 +1,14 @@
+{
+  "id": "marx-civil-war-in-france",
+  "title": "The Civil War in France",
+  "author_ids": [
+    "marx-karl"
+  ],
+  "year": 1871,
+  "kind": "pamphlet",
+  "source": {
+    "provider": "Marxists Internet Archive",
+    "url": "https://www.marxists.org/archive/marx/works/1871/civil-war-france/",
+    "attribution_label": "Karl Marx, The Civil War in France (Marxists.org)"
+  }
+}

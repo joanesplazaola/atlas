@@ -21,15 +21,27 @@ jobs:
           python3 - <<'EOF'
           import json, jsonschema, sys, glob
 
-          schema = json.load(open("schema/theme-entry.schema.json"))
-          files  = glob.glob("content/themes/*.json")
-          files  = [f for f in files if not f.endswith("index.json")]
+          theme_schema = json.load(open("schema/theme-entry.schema.json"))
+          work_schema  = json.load(open("schema/work.schema.json"))
+
+          theme_files = [f for f in glob.glob("content/themes/*.json")
+                         if not f.endswith("index.json") and not f.endswith("index-light.json")]
+          work_files  = [f for f in glob.glob("content/works/*.json")
+                         if not f.endswith("index.json")]
 
           errors = []
-          for path in files:
+          for path in theme_files:
               data = json.load(open(path))
               try:
-                  jsonschema.validate(data, schema)
+                  jsonschema.validate(data, theme_schema)
+                  print(f"  ✓ {path}")
+              except jsonschema.ValidationError as e:
+                  errors.append(f"  ✗ {path}: {e.message}")
+
+          for path in work_files:
+              data = json.load(open(path))
+              try:
+                  jsonschema.validate(data, work_schema)
                   print(f"  ✓ {path}")
               except jsonschema.ValidationError as e:
                   errors.append(f"  ✗ {path}: {e.message}")
@@ -40,7 +52,7 @@ jobs:
                   print(err)
               sys.exit(1)
 
-          print(f"\n{len(files)} fichas validadas correctamente.")
+          print(f"\n{len(theme_files)} fichas + {len(work_files)} obras validadas correctamente.")
           EOF
 
   e2e-tests:
@@ -57,6 +69,9 @@ jobs:
 
       - name: Instalar dependencias
         run: npm ci
+
+      - name: Build (Pagefind search index)
+        run: npm run build
 
       - name: Instalar Playwright browsers
         run: npx playwright install chromium --with-deps

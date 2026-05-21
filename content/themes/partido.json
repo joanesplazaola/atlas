@@ -39,72 +39,28 @@
   ],
   "essential_works": [
     {
-      "id": "que-hacer-lenin",
-      "title": "¿Qué hacer?",
-      "year": 1902,
-      "kind": "pamphlet",
+      "work_id": "que-hacer-lenin",
       "level": "introductory",
       "estimated_effort": "medium",
-      "author_ids": [
-        "lenin-vi"
-      ],
-      "reason_to_read": "El texto fundacional del partido bolchevique: critica el 'economismo' y define la necesidad de una organización centralizada de revolucionarios profesionales que introduzca la conciencia socialista en la clase obrera.",
-      "source": {
-        "provider": "Marxists.org",
-        "url": "https://www.marxists.org/espanol/lenin/obras/1900s/quehacer/que_hacer.pdf",
-        "attribution_label": "Lenin, V. I. ¿Qué hacer? (1902). Marxists.org."
-      }
+      "reason_to_read": "El texto fundacional del partido bolchevique: critica el 'economismo' y define la necesidad de una organización centralizada de revolucionarios profesionales que introduzca la conciencia socialista en la clase obrera."
     },
     {
-      "id": "un-paso-adelante-lenin",
-      "title": "Un paso adelante, dos pasos atrás",
-      "year": 1904,
-      "kind": "pamphlet",
+      "work_id": "un-paso-adelante-lenin",
       "level": "intermediate",
       "estimated_effort": "medium",
-      "author_ids": [
-        "lenin-vi"
-      ],
-      "reason_to_read": "Sistematiza las conclusiones organizativas del II Congreso del POSDR: centralismo democrático, disciplina de partido, diferencia entre miembro y simpatizante. Base del modelo bolchevique de organización.",
-      "source": {
-        "provider": "Marxists.org",
-        "url": "https://www.marxists.org/espanol/lenin/obras/1900s/index.htm",
-        "attribution_label": "Lenin, V. I. Un paso adelante, dos pasos atrás (1904). Marxists.org."
-      }
+      "reason_to_read": "Sistematiza las conclusiones organizativas del II Congreso del POSDR: centralismo democrático, disciplina de partido, diferencia entre miembro y simpatizante. Base del modelo bolchevique de organización."
     },
     {
-      "id": "huelga-masas-luxemburgo",
-      "title": "Huelga de masas, partido y sindicatos",
-      "year": 1906,
-      "kind": "pamphlet",
+      "work_id": "huelga-masas-luxemburgo",
       "level": "intermediate",
       "estimated_effort": "medium",
-      "author_ids": [
-        "luxemburg-rosa"
-      ],
-      "reason_to_read": "Análisis de la revolución rusa de 1905 como modelo de autoorganización espontánea. Luxemburgo argumenta que la huelga de masas desborda la organización formal del partido y que la clase obrera desarrolla su propia consciencia en el proceso de lucha.",
-      "source": {
-        "provider": "Marxists.org",
-        "url": "https://www.marxists.org/espanol/luxem/06Huelgademasaspartidoysindicatos_0.pdf",
-        "attribution_label": "Luxemburgo, Rosa. Huelga de masas, partido y sindicatos (1906). Marxists.org."
-      }
+      "reason_to_read": "Análisis de la revolución rusa de 1905 como modelo de autoorganización espontánea. Luxemburgo argumenta que la huelga de masas desborda la organización formal del partido y que la clase obrera desarrolla su propia consciencia en el proceso de lucha."
     },
     {
-      "id": "moderno-principe-gramsci",
-      "title": "El moderno príncipe (Cuadernos de la cárcel)",
-      "year": 1933,
-      "kind": "chapter",
+      "work_id": "moderno-principe-gramsci",
       "level": "advanced",
       "estimated_effort": "medium",
-      "author_ids": [
-        "gramsci-antonio"
-      ],
-      "reason_to_read": "Gramsci relee a Maquiavelo para definir el partido revolucionario de masas: no como máquina burocrática sino como intelectual colectivo que construye una nueva voluntad colectiva y hegemonía cultural.",
-      "source": {
-        "provider": "Marxists.org",
-        "url": "https://www.marxists.org/espanol/gramsci/index.htm",
-        "attribution_label": "Gramsci, Antonio. Cuadernos de la cárcel: El moderno príncipe (c. 1933). Marxists.org."
-      }
+      "reason_to_read": "Gramsci relee a Maquiavelo para definir el partido revolucionario de masas: no como máquina burocrática sino como intelectual colectivo que construye una nueva voluntad colectiva y hegemonía cultural."
     }
   ],
   "connected_concepts": [

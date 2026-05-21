@@ -65,7 +65,7 @@
       "type": "array",
       "minItems": 1,
       "items": {
-        "$ref": "#/$defs/work"
+        "$ref": "#/$defs/workRef"
       }
     },
     "connected_concepts": {
@@ -151,6 +151,29 @@
           "minLength": 1
         },
         "why_relevant": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "workRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["work_id", "level", "estimated_effort", "reason_to_read"],
+      "properties": {
+        "work_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$"
+        },
+        "level": {
+          "type": "string",
+          "enum": ["introductory", "intermediate", "advanced"]
+        },
+        "estimated_effort": {
+          "type": "string",
+          "enum": ["short", "medium", "long"]
+        },
+        "reason_to_read": {
           "type": "string",
           "minLength": 1
         }

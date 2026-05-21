@@ -1,6 +1,6 @@
 const state = {
   manifest: null,
-  themes: [],
+  themes: [],           // light theme objects from index-light.json (fast sidebar)
   authors: [],          // canonical authors registry
   filteredThemes: [],
   selectedSlug: null,
@@ -9,6 +9,8 @@ const state = {
   activeConcept: null,
   activeAuthor: null,   // author filter from author index view
   view: "temas",        // "temas" | "autores"
+  themeCache: new Map(),  // slug → full theme JSON (loaded on demand)
+  worksCache: new Map(),  // work_id → canonical work JSON (loaded on demand)
 };
 
 const appEl        = document.querySelector(".app");
@@ -51,11 +53,9 @@ const kindLabel   = { article: "artículo", chapter: "capítulo", book: "libro",
 
 function buildSearchText(t) {
   return norm([
-    t.title, t.summary, t.editorial_intent,
-    ...t.key_authors.map(a => `${a.name} ${a.role} ${a.why_relevant}`),
-    ...t.connected_concepts.map(c => `${c.label} ${c.relation}`),
-    ...t.historical_debates.map(d => `${d.label} ${d.description}`),
-    ...t.essential_works.map(w => `${w.title} ${w.reason_to_read}`)
+    t.title, t.summary,
+    ...(t.key_author_names ?? t.key_authors?.map(a => `${a.name} ${a.role} ${a.why_relevant}`) ?? []),
+    ...(t.concept_labels   ?? t.connected_concepts?.map(c => `${c.label} ${c.relation}`) ?? []),
   ].join(" "));
 }
 
@@ -110,8 +110,8 @@ function applyFilters() {
 
   state.filteredThemes = state.themes.filter(t => {
     const mQ  = !q  || buildSearchText(t).includes(q);
-    const mC  = !ac || t.connected_concepts.some(c => norm(c.label) === ac);
-    const mA  = !aa || t.key_authors.some(a => norm(a.name) === aa);
+    const mC  = !ac || (t.concept_labels ?? t.connected_concepts?.map(c => c.label) ?? []).some(l => norm(l) === ac);
+    const mA  = !aa || (t.key_author_names ?? t.key_authors?.map(a => a.name) ?? []).some(n => norm(n) === aa);
     return mQ && mC && mA;
   });
 
@@ -130,7 +130,7 @@ function applyFilters() {
 }
 
 function renderStats() {
-  const works   = state.themes.reduce((n, t) => n + t.essential_works.length, 0);
+  const works   = state.themes.reduce((n, t) => n + (t.work_count ?? t.essential_works?.length ?? 0), 0);
   const authors = getAllAuthors().length;
   if (state.view === "autores") {
     stats.innerHTML =
@@ -194,7 +194,8 @@ function renderList() {
        <div class="theme-card__chips"></div>`;
 
     const chips = el.querySelector(".theme-card__chips");
-    t.connected_concepts.slice(0, 4).forEach(c => chips.appendChild(conceptChip(c.label)));
+    const conceptsToShow = t.concept_labels ?? t.connected_concepts?.map(c => c.label) ?? [];
+    conceptsToShow.slice(0, 4).forEach(label => chips.appendChild(conceptChip(label)));
 
     const select = () => {
       state.selectedSlug = t.slug;
@@ -215,12 +216,13 @@ function renderList() {
 /* ─── Author index (sidebar autores) ────────────────────────────── */
 
 function getAllAuthors() {
-  // Build theme-count map from fichas
+  // Build theme-count map from fichas (support both light and full theme shape)
   const themesByAuthor = new Map();
   state.themes.forEach(t => {
-    t.key_authors.forEach(a => {
-      if (!themesByAuthor.has(a.id)) themesByAuthor.set(a.id, []);
-      themesByAuthor.get(a.id).push(t.slug);
+    const authorIds = t.key_author_ids ?? t.key_authors?.map(a => a.id) ?? [];
+    authorIds.forEach(id => {
+      if (!themesByAuthor.has(id)) themesByAuthor.set(id, []);
+      themesByAuthor.get(id).push(t.slug);
     });
   });
 
@@ -290,9 +292,8 @@ function renderAuthorList() {
 
 /* ─── Detail panel ─────────────────────────────────────────────── */
 
-function renderDetail() {
-  const theme = state.themes.find(t => t.slug === state.selectedSlug);
-  if (!theme) {
+async function renderDetail() {
+  if (!state.selectedSlug) {
     detailEmpty.hidden = false;
     detailContent.hidden = true;
     detailContent.innerHTML = "";
@@ -302,229 +303,269 @@ function renderDetail() {
   detailEmpty.hidden = true;
   detailContent.hidden = false;
 
-  const authorById = new Map(theme.key_authors.map(a => [a.id, a]));
-  const workById   = new Map(theme.essential_works.map(w => [w.id, w]));
-
-  const tabs = [
-    { id: "overview",  label: "Presentación" },
-    { id: "works",     label: `Obras (${theme.essential_works.length})` },
-    { id: "routes",    label: `Rutas (${theme.reading_paths.length})` },
-    { id: "debates",   label: "Debates" }
-  ];
-
+  // Show spinner while loading
   detailContent.innerHTML = `
-    <header class="detail__header">
-      <button class="detail__back" id="detail-back" aria-label="Volver a la lista">
-        <svg viewBox="0 0 16 16" fill="none" width="16" height="16" aria-hidden="true">
-          <path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        Temas
-      </button>
-      <div class="detail__header-top">
-        <div>
-          <p class="detail__eyebrow">Tema</p>
-          <h2 id="detail-title">${esc(theme.title)}</h2>
+    <div class="detail-loading" aria-live="polite">
+      <div class="detail-loading__spinner" aria-label="Cargando tema…"></div>
+    </div>`;
+
+  try {
+    // ── Lazy-load full theme ─────────────────────────────────────
+    let theme = state.themeCache.get(state.selectedSlug);
+    if (!theme) {
+      theme = await fetchJson(`content/themes/${state.selectedSlug}.json`);
+      state.themeCache.set(state.selectedSlug, theme);
+    }
+
+    // ── Lazy-load canonical works for this theme ─────────────────
+    const workRefs = theme.essential_works; // [{work_id, level, estimated_effort, reason_to_read}]
+    const missing  = workRefs.filter(r => !state.worksCache.has(r.work_id));
+    if (missing.length) {
+      const loaded = await Promise.all(
+        missing.map(r => fetchJson(`content/works/${r.work_id}.json`))
+      );
+      loaded.forEach(w => state.worksCache.set(w.id, w));
+    }
+
+    // Merge canonical work data with theme-specific ref overlay
+    const mergedWorks = workRefs.map(ref => ({
+      ...state.worksCache.get(ref.work_id),
+      ...ref,
+      id: ref.work_id,
+    }));
+
+    // ── Build lookup maps ────────────────────────────────────────
+    // Prefer canonical registry, fall back to theme key_authors (has role/why_relevant)
+    const authorById = new Map([
+      ...state.authors.map(a => [a.id, a]),
+      ...theme.key_authors.map(a => [a.id, a]),
+    ]);
+    const workById = new Map(mergedWorks.map(w => [w.id, w]));
+
+    const tabs = [
+      { id: "overview",  label: "Presentación" },
+      { id: "works",     label: `Obras (${mergedWorks.length})` },
+      { id: "routes",    label: `Rutas (${theme.reading_paths.length})` },
+      { id: "debates",   label: "Debates" }
+    ];
+
+    detailContent.innerHTML = `
+      <header class="detail__header">
+        <button class="detail__back" id="detail-back" aria-label="Volver a la lista">
+          <svg viewBox="0 0 16 16" fill="none" width="16" height="16" aria-hidden="true">
+            <path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Temas
+        </button>
+        <div class="detail__header-top">
+          <div>
+            <p class="detail__eyebrow">Tema</p>
+            <h2 id="detail-title">${esc(theme.title)}</h2>
+          </div>
+          <div class="detail__stats">
+            <div class="detail__stat">
+              <span class="detail__stat-num">${theme.key_authors.length}</span>
+              <span class="detail__stat-label">autores</span>
+            </div>
+            <div class="detail__stat">
+              <span class="detail__stat-num">${mergedWorks.length}</span>
+              <span class="detail__stat-label">obras</span>
+            </div>
+            <div class="detail__stat">
+              <span class="detail__stat-num">${theme.reading_paths.length}</span>
+              <span class="detail__stat-label">rutas</span>
+            </div>
+          </div>
         </div>
-        <div class="detail__stats">
-          <div class="detail__stat">
-            <span class="detail__stat-num">${theme.key_authors.length}</span>
-            <span class="detail__stat-label">autores</span>
-          </div>
-          <div class="detail__stat">
-            <span class="detail__stat-num">${theme.essential_works.length}</span>
-            <span class="detail__stat-label">obras</span>
-          </div>
-          <div class="detail__stat">
-            <span class="detail__stat-num">${theme.reading_paths.length}</span>
-            <span class="detail__stat-label">rutas</span>
-          </div>
-        </div>
+        <p class="detail__summary">${esc(theme.summary)}</p>
+        <nav class="tabs" role="tablist" aria-label="Secciones del tema"></nav>
+      </header>
+
+      <div class="tab-panels">
+        <div id="tab-overview" class="tab-panel" role="tabpanel"></div>
+        <div id="tab-works"    class="tab-panel" role="tabpanel"></div>
+        <div id="tab-routes"   class="tab-panel" role="tabpanel"></div>
+        <div id="tab-debates"  class="tab-panel" role="tabpanel"></div>
       </div>
-      <p class="detail__summary">${esc(theme.summary)}</p>
-      <nav class="tabs" role="tablist" aria-label="Secciones del tema"></nav>
-    </header>
+    `;
 
-    <div class="tab-panels">
-      <div id="tab-overview" class="tab-panel" role="tabpanel"></div>
-      <div id="tab-works"    class="tab-panel" role="tabpanel"></div>
-      <div id="tab-routes"   class="tab-panel" role="tabpanel"></div>
-      <div id="tab-debates"  class="tab-panel" role="tabpanel"></div>
-    </div>
-  `;
-
-  /* back button (mobile) */
-  detailContent.querySelector("#detail-back").addEventListener("click", () => {
-    switchMobileView("list");
-  });
-
-  /* tabs nav */
-  const tabsNav = detailContent.querySelector(".tabs");
-  tabs.forEach(({ id, label }) => {
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = `tab-btn${state.activeTab === id ? " tab-btn--active" : ""}`;
-    btn.textContent = label;
-    btn.setAttribute("role", "tab");
-    btn.setAttribute("aria-selected", String(state.activeTab === id));
-    btn.addEventListener("click", () => {
-      state.activeTab = id;
-      tabsNav.querySelectorAll(".tab-btn").forEach(b => {
-        b.classList.toggle("tab-btn--active", b === btn);
-        b.setAttribute("aria-selected", String(b === btn));
-      });
-      detailContent.querySelectorAll(".tab-panel").forEach(p => {
-        p.classList.toggle("tab-panel--active", p.id === `tab-${id}`);
-      });
+    /* back button (mobile) */
+    detailContent.querySelector("#detail-back").addEventListener("click", () => {
+      switchMobileView("list");
     });
-    tabsNav.appendChild(btn);
-  });
 
-  /* activate current tab panel */
-  const currentPanel = detailContent.querySelector(`#tab-${state.activeTab}`);
-  if (currentPanel) currentPanel.classList.add("tab-panel--active");
-
-  /* ── Overview tab ── */
-  const overviewEl = detailContent.querySelector("#tab-overview");
-
-  if (theme.editorial_intent) {
-    overviewEl.innerHTML += `
-      <div class="editorial-note">
-        <div class="editorial-note__label">Nota editorial</div>
-        ${esc(theme.editorial_intent)}
-      </div>`;
-  }
-
-  if (theme.entry_points?.length) {
-    overviewEl.innerHTML += `<p class="section-title">Puntos de entrada</p><div class="overview-grid" id="ov-entry"></div>`;
-    const ovEntry = overviewEl.querySelector("#ov-entry");
-    theme.entry_points.forEach(ep => {
-      const c = document.createElement("div");
-      c.className = "entry-card";
-      c.innerHTML = `<h3>${esc(ep.label)}</h3><p>${esc(ep.description)}</p>`;
-      ovEntry.appendChild(c);
+    /* tabs nav */
+    const tabsNav = detailContent.querySelector(".tabs");
+    tabs.forEach(({ id, label }) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = `tab-btn${state.activeTab === id ? " tab-btn--active" : ""}`;
+      btn.textContent = label;
+      btn.setAttribute("role", "tab");
+      btn.setAttribute("aria-selected", String(state.activeTab === id));
+      btn.addEventListener("click", () => {
+        state.activeTab = id;
+        tabsNav.querySelectorAll(".tab-btn").forEach(b => {
+          b.classList.toggle("tab-btn--active", b === btn);
+          b.setAttribute("aria-selected", String(b === btn));
+        });
+        detailContent.querySelectorAll(".tab-panel").forEach(p => {
+          p.classList.toggle("tab-panel--active", p.id === `tab-${id}`);
+        });
+      });
+      tabsNav.appendChild(btn);
     });
-  }
 
-  overviewEl.innerHTML += `<p class="section-title">Autores clave</p><div class="authors-grid" id="ov-authors"></div>`;
-  const ovAuthors = overviewEl.querySelector("#ov-authors");
-  theme.key_authors.forEach(a => {
-    const canonical = state.authors.find(ca => ca.id === a.id);
-    const c = document.createElement("article");
-    c.className = "author-card";
-    c.innerHTML =
-      `<div class="author-card__header">
-         <div>
-           <div class="author-card__name">${esc(a.name)}</div>
-           ${canonical?.years ? `<div class="author-card__years">${esc(canonical.years)}</div>` : ""}
-         </div>
-         ${canonical?.marxists_org_url ? `<a class="author-card__link" href="${esc(canonical.marxists_org_url)}" target="_blank" rel="noreferrer" title="Marxists.org">
-           <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-         </a>` : ""}
-       </div>
-       <div class="author-card__role">${esc(a.role)}</div>
-       <p class="author-card__why">${esc(a.why_relevant)}</p>`;
-    ovAuthors.appendChild(c);
-  });
+    /* activate current tab panel */
+    const currentPanel = detailContent.querySelector(`#tab-${state.activeTab}`);
+    if (currentPanel) currentPanel.classList.add("tab-panel--active");
 
-  if (theme.connected_concepts?.length) {
-    overviewEl.innerHTML += `<p class="section-title">Conceptos relacionados</p><div class="concepts-cloud" id="ov-concepts"></div>`;
-    const ovConcepts = overviewEl.querySelector("#ov-concepts");
-    theme.connected_concepts.forEach(c => ovConcepts.appendChild(conceptChip(c.label)));
-  }
+    /* ── Overview tab ── */
+    const overviewEl = detailContent.querySelector("#tab-overview");
 
-  if (theme.related_themes?.length) {
-    const existingRelated = theme.related_themes.filter(slug => state.themes.some(t => t.slug === slug));
-    if (existingRelated.length) {
-      overviewEl.innerHTML += `<p class="section-title">Temas relacionados</p><div class="related-themes-cloud" id="ov-related"></div>`;
-      const ovRelated = overviewEl.querySelector("#ov-related");
-      existingRelated.forEach(slug => {
-        const chip = relatedThemeChip(slug);
-        if (chip) ovRelated.appendChild(chip);
+    if (theme.editorial_intent) {
+      overviewEl.innerHTML += `
+        <div class="editorial-note">
+          <div class="editorial-note__label">Nota editorial</div>
+          ${esc(theme.editorial_intent)}
+        </div>`;
+    }
+
+    if (theme.entry_points?.length) {
+      overviewEl.innerHTML += `<p class="section-title">Puntos de entrada</p><div class="overview-grid" id="ov-entry"></div>`;
+      const ovEntry = overviewEl.querySelector("#ov-entry");
+      theme.entry_points.forEach(ep => {
+        const c = document.createElement("div");
+        c.className = "entry-card";
+        c.innerHTML = `<h3>${esc(ep.label)}</h3><p>${esc(ep.description)}</p>`;
+        ovEntry.appendChild(c);
       });
     }
+
+    overviewEl.innerHTML += `<p class="section-title">Autores clave</p><div class="authors-grid" id="ov-authors"></div>`;
+    const ovAuthors = overviewEl.querySelector("#ov-authors");
+    theme.key_authors.forEach(a => {
+      const canonical = state.authors.find(ca => ca.id === a.id);
+      const c = document.createElement("article");
+      c.className = "author-card";
+      c.innerHTML =
+        `<div class="author-card__header">
+           <div>
+             <div class="author-card__name">${esc(a.name)}</div>
+             ${canonical?.years ? `<div class="author-card__years">${esc(canonical.years)}</div>` : ""}
+           </div>
+           ${canonical?.marxists_org_url ? `<a class="author-card__link" href="${esc(canonical.marxists_org_url)}" target="_blank" rel="noreferrer" title="Marxists.org">
+             <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+           </a>` : ""}
+         </div>
+         <div class="author-card__role">${esc(a.role)}</div>
+         <p class="author-card__why">${esc(a.why_relevant)}</p>`;
+      ovAuthors.appendChild(c);
+    });
+
+    if (theme.connected_concepts?.length) {
+      overviewEl.innerHTML += `<p class="section-title">Conceptos relacionados</p><div class="concepts-cloud" id="ov-concepts"></div>`;
+      const ovConcepts = overviewEl.querySelector("#ov-concepts");
+      theme.connected_concepts.forEach(c => ovConcepts.appendChild(conceptChip(c.label)));
+    }
+
+    if (theme.related_themes?.length) {
+      const existingRelated = theme.related_themes.filter(slug => state.themes.some(t => t.slug === slug));
+      if (existingRelated.length) {
+        overviewEl.innerHTML += `<p class="section-title">Temas relacionados</p><div class="related-themes-cloud" id="ov-related"></div>`;
+        const ovRelated = overviewEl.querySelector("#ov-related");
+        existingRelated.forEach(slug => {
+          const chip = relatedThemeChip(slug);
+          if (chip) ovRelated.appendChild(chip);
+        });
+      }
+    }
+
+    /* ── Works tab ── */
+    const worksEl = detailContent.querySelector("#tab-works");
+    worksEl.innerHTML = `<div class="works-grid" id="works-inner"></div>`;
+    const worksInner = worksEl.querySelector("#works-inner");
+
+    mergedWorks.forEach(w => {
+      const authors = (w.author_ids ?? []).map(id => authorById.get(id)?.name).filter(Boolean).join(", ");
+      const c = document.createElement("article");
+      c.className = "work-card";
+      c.innerHTML =
+        `<div>
+           <div class="work-card__title">${esc(w.title)}</div>
+           <div class="work-card__author">${esc(authors)} · ${esc(String(w.year))}</div>
+         </div>
+         <div class="work-card__meta">
+           <span class="badge ${levelBadge[w.level] || ""}">${levelLabel[w.level] || w.level}</span>
+           <span class="badge badge--kind">${esc(kindLabel[w.kind] || w.kind)}</span>
+           <span class="badge badge--effort">Lectura ${esc(effortLabel[w.estimated_effort] || w.estimated_effort)}</span>
+         </div>
+         <p class="work-card__reason">${esc(w.reason_to_read)}</p>
+         <a class="work-card__link" href="${esc(w.source?.url ?? "#")}" target="_blank" rel="noreferrer">
+           Leer en ${esc(w.source?.provider ?? "fuente")}
+           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+             <path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>
+         </a>`;
+      worksInner.appendChild(c);
+    });
+
+    /* ── Routes tab ── */
+    const routesEl = detailContent.querySelector("#tab-routes");
+    routesEl.innerHTML = `<div class="routes-grid" id="routes-inner"></div>`;
+    const routesInner = routesEl.querySelector("#routes-inner");
+
+    theme.reading_paths.forEach(rp => {
+      const c = document.createElement("article");
+      c.className = "route-card";
+      const stepsHtml = rp.steps.map(s => {
+        const w = workById.get(s.work_id);
+        return `
+          <div class="route-step">
+            <span class="route-step__num">${s.position}</span>
+            <div class="route-step__body">
+              <div class="route-step__title">${esc(w?.title || s.work_id)}</div>
+              <div class="route-step__note">${esc(s.note)}</div>
+            </div>
+          </div>`;
+      }).join("");
+      c.innerHTML =
+        `<div class="route-card__level" style="color:${rp.level === "introductory" ? "var(--green)" : rp.level === "advanced" ? "var(--red)" : "var(--yellow)"}">${levelLabel[rp.level] || rp.level}</div>
+         <div class="route-card__title">${esc(rp.label)}</div>
+         <p class="route-card__goal">${esc(rp.goal)}</p>
+         <div class="route-steps">${stepsHtml}</div>`;
+      routesInner.appendChild(c);
+    });
+
+    /* ── Debates tab ── */
+    const debatesEl = detailContent.querySelector("#tab-debates");
+    debatesEl.innerHTML = `<div class="debates-grid" id="debates-inner"></div>`;
+    const debatesInner = debatesEl.querySelector("#debates-inner");
+
+    theme.historical_debates.forEach(d => {
+      const participants = d.participant_author_ids.map(id => authorById.get(id)?.name).filter(Boolean).join(", ");
+      const works = d.related_work_ids.map(id => workById.get(id)?.title).filter(Boolean).join("; ");
+      const c = document.createElement("div");
+      c.className = "debate-card";
+      c.innerHTML =
+        `<div class="debate-card__title">${esc(d.label)}</div>
+         <p class="debate-card__desc">${esc(d.description)}</p>
+         <div class="debate-card__meta">
+           <div class="debate-card__meta-row">
+             <span class="debate-card__meta-label">Autores:</span>
+             <span class="debate-card__meta-value">${esc(participants)}</span>
+           </div>
+           <div class="debate-card__meta-row">
+             <span class="debate-card__meta-label">Obras:</span>
+             <span class="debate-card__meta-value">${esc(works)}</span>
+           </div>
+         </div>`;
+      debatesInner.appendChild(c);
+    });
+
+  } catch (err) {
+    detailContent.innerHTML = `<div class="empty-state">Error al cargar el tema: ${esc(err.message)}</div>`;
   }
-
-  /* ── Works tab ── */
-  const worksEl = detailContent.querySelector("#tab-works");
-  worksEl.innerHTML = `<div class="works-grid" id="works-inner"></div>`;
-  const worksInner = worksEl.querySelector("#works-inner");
-
-  theme.essential_works.forEach(w => {
-    const authors = w.author_ids.map(id => authorById.get(id)?.name).filter(Boolean).join(", ");
-    const c = document.createElement("article");
-    c.className = "work-card";
-    c.innerHTML =
-      `<div>
-         <div class="work-card__title">${esc(w.title)}</div>
-         <div class="work-card__author">${esc(authors)} · ${esc(String(w.year))}</div>
-       </div>
-       <div class="work-card__meta">
-         <span class="badge ${levelBadge[w.level] || ""}">${levelLabel[w.level] || w.level}</span>
-         <span class="badge badge--kind">${esc(kindLabel[w.kind] || w.kind)}</span>
-         <span class="badge badge--effort">Lectura ${esc(effortLabel[w.estimated_effort] || w.estimated_effort)}</span>
-       </div>
-       <p class="work-card__reason">${esc(w.reason_to_read)}</p>
-       <a class="work-card__link" href="${esc(w.source.url)}" target="_blank" rel="noreferrer">
-         Leer en ${esc(w.source.provider)}
-         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-           <path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-         </svg>
-       </a>`;
-    worksInner.appendChild(c);
-  });
-
-  /* ── Routes tab ── */
-  const routesEl = detailContent.querySelector("#tab-routes");
-  routesEl.innerHTML = `<div class="routes-grid" id="routes-inner"></div>`;
-  const routesInner = routesEl.querySelector("#routes-inner");
-
-  theme.reading_paths.forEach(rp => {
-    const c = document.createElement("article");
-    c.className = "route-card";
-    const stepsHtml = rp.steps.map(s => {
-      const w = workById.get(s.work_id);
-      return `
-        <div class="route-step">
-          <span class="route-step__num">${s.position}</span>
-          <div class="route-step__body">
-            <div class="route-step__title">${esc(w?.title || s.work_id)}</div>
-            <div class="route-step__note">${esc(s.note)}</div>
-          </div>
-        </div>`;
-    }).join("");
-    c.innerHTML =
-      `<div class="route-card__level" style="color:${rp.level === "introductory" ? "var(--green)" : rp.level === "advanced" ? "var(--red)" : "var(--yellow)"}">${levelLabel[rp.level] || rp.level}</div>
-       <div class="route-card__title">${esc(rp.label)}</div>
-       <p class="route-card__goal">${esc(rp.goal)}</p>
-       <div class="route-steps">${stepsHtml}</div>`;
-    routesInner.appendChild(c);
-  });
-
-  /* ── Debates tab ── */
-  const debatesEl = detailContent.querySelector("#tab-debates");
-  debatesEl.innerHTML = `<div class="debates-grid" id="debates-inner"></div>`;
-  const debatesInner = debatesEl.querySelector("#debates-inner");
-
-  theme.historical_debates.forEach(d => {
-    const participants = d.participant_author_ids.map(id => authorById.get(id)?.name).filter(Boolean).join(", ");
-    const works = d.related_work_ids.map(id => workById.get(id)?.title).filter(Boolean).join("; ");
-    const c = document.createElement("div");
-    c.className = "debate-card";
-    c.innerHTML =
-      `<div class="debate-card__title">${esc(d.label)}</div>
-       <p class="debate-card__desc">${esc(d.description)}</p>
-       <div class="debate-card__meta">
-         <div class="debate-card__meta-row">
-           <span class="debate-card__meta-label">Autores:</span>
-           <span class="debate-card__meta-value">${esc(participants)}</span>
-         </div>
-         <div class="debate-card__meta-row">
-           <span class="debate-card__meta-label">Obras:</span>
-           <span class="debate-card__meta-value">${esc(works)}</span>
-         </div>
-       </div>`;
-    debatesInner.appendChild(c);
-  });
 }
 
 /* ─── View switching ────────────────────────────────────────────── */
@@ -553,15 +594,13 @@ async function fetchJson(path) {
 async function init() {
   renderSkeleton();
   try {
-    const [manifest, authors] = await Promise.all([
-      fetchJson("content/themes/index.json"),
+    const [lightIndex, authors] = await Promise.all([
+      fetchJson("content/themes/index-light.json"),
       fetchJson("content/authors.json"),
     ]);
-    const themes = await Promise.all(manifest.theme_files.map(p => fetchJson(p)));
 
-    state.manifest = manifest;
-    state.authors  = authors;
-    state.themes   = themes.sort((a, b) => a.title.localeCompare(b.title, "es"));
+    state.authors = authors;
+    state.themes  = lightIndex.themes.sort((a, b) => a.title.localeCompare(b.title, "es"));
     state.selectedSlug = getSlugFromHash() || state.themes[0]?.slug || null;
 
     if (state.selectedSlug) setHash(state.selectedSlug);

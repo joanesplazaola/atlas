@@ -1,0 +1,14 @@
+{
+  "id": "salario-precio-ganancia",
+  "title": "Salario, precio y ganancia",
+  "author_ids": [
+    "marx-karl"
+  ],
+  "year": 1865,
+  "kind": "speech",
+  "source": {
+    "provider": "Marxists.org",
+    "url": "https://www.marxists.org/espanol/m-e/1860s/65-salar.htm",
+    "attribution_label": "Karl Marx (1865). Marxists Internet Archive."
+  }
+}

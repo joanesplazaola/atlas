@@ -1,0 +1,14 @@
+{
+  "id": "marx-capital-volume-one",
+  "title": "Capital, Volume I",
+  "author_ids": [
+    "marx-karl"
+  ],
+  "year": 1867,
+  "kind": "book",
+  "source": {
+    "provider": "Marxists Internet Archive",
+    "url": "https://www.marxists.org/archive/marx/works/1867-c1/",
+    "attribution_label": "Karl Marx, Capital, Volume I (Marxists.org)"
+  }
+}

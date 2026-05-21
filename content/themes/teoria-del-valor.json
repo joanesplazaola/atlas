@@ -33,106 +33,40 @@
   ],
   "essential_works": [
     {
-      "id": "salario-precio-ganancia",
-      "title": "Salario, precio y ganancia",
-      "author_ids": [
-        "marx-karl"
-      ],
-      "year": 1865,
+      "work_id": "salario-precio-ganancia",
       "level": "introductory",
-      "kind": "speech",
       "estimated_effort": "short",
-      "reason_to_read": "El mejor texto de entrada. Marx expone la teoría del valor para obreros sin formación económica: qué determina el salario, cómo se forma el precio y de dónde viene la ganancia capitalista.",
-      "source": {
-        "provider": "Marxists.org",
-        "url": "https://www.marxists.org/espanol/m-e/1860s/65-salar.htm",
-        "attribution_label": "Karl Marx (1865). Marxists Internet Archive."
-      }
+      "reason_to_read": "El mejor texto de entrada. Marx expone la teoría del valor para obreros sin formación económica: qué determina el salario, cómo se forma el precio y de dónde viene la ganancia capitalista."
     },
     {
-      "id": "trabajo-asalariado-capital",
-      "title": "Trabajo asalariado y capital",
-      "author_ids": [
-        "marx-karl"
-      ],
-      "year": 1849,
+      "work_id": "trabajo-asalariado-capital",
       "level": "introductory",
-      "kind": "article",
       "estimated_effort": "short",
-      "reason_to_read": "Explica la relación entre el trabajador asalariado y el capital antes de que Marx desarrollara la teoría del valor completa. Accesible y directo, muestra por qué el salario no es el precio del trabajo sino del trabajo vendido.",
-      "source": {
-        "provider": "Marxists.org",
-        "url": "https://www.marxists.org/espanol/m-e/1840s/49-trab2.htm",
-        "attribution_label": "Karl Marx (1849). Marxists Internet Archive."
-      }
+      "reason_to_read": "Explica la relación entre el trabajador asalariado y el capital antes de que Marx desarrollara la teoría del valor completa. Accesible y directo, muestra por qué el salario no es el precio del trabajo sino del trabajo vendido."
     },
     {
-      "id": "prologo-contribucion",
-      "title": "Prólogo a la Contribución a la Crítica de la Economía Política",
-      "author_ids": [
-        "marx-karl"
-      ],
-      "year": 1859,
+      "work_id": "prologo-contribucion",
       "level": "intermediate",
-      "kind": "chapter",
       "estimated_effort": "short",
-      "reason_to_read": "Texto breve pero denso: el célebre pasaje donde Marx formula la concepción materialista de la historia. Sitúa la teoría del valor en el conjunto del método y el proyecto crítico.",
-      "source": {
-        "provider": "Marxists.org",
-        "url": "https://www.marxists.org/espanol/m-e/1850s/criteconpol.htm",
-        "attribution_label": "Karl Marx (1859). Marxists Internet Archive."
-      }
+      "reason_to_read": "Texto breve pero denso: el célebre pasaje donde Marx formula la concepción materialista de la historia. Sitúa la teoría del valor en el conjunto del método y el proyecto crítico."
     },
     {
-      "id": "manuscritos-1844",
-      "title": "Manuscritos económico-filosóficos de 1844",
-      "author_ids": [
-        "marx-karl"
-      ],
-      "year": 1844,
+      "work_id": "manuscritos-1844",
       "level": "intermediate",
-      "kind": "book",
       "estimated_effort": "long",
-      "reason_to_read": "El momento en que Marx entra en la economía política. Aquí aparece por primera vez el concepto de trabajo alienado: el trabajador se separa del producto de su trabajo, de su actividad y de su especie. Base filosófica de toda la economía posterior.",
-      "source": {
-        "provider": "Marxists.org",
-        "url": "https://www.marxists.org/espanol/m-e/1840s/manuscritos/index.htm",
-        "attribution_label": "Karl Marx (1844). Marxists Internet Archive."
-      }
+      "reason_to_read": "El momento en que Marx entra en la economía política. Aquí aparece por primera vez el concepto de trabajo alienado: el trabajador se separa del producto de su trabajo, de su actividad y de su especie. Base filosófica de toda la economía posterior."
     },
     {
-      "id": "prologo-capital-i",
-      "title": "Prólogo a la primera edición alemana de El Capital",
-      "author_ids": [
-        "marx-karl"
-      ],
-      "year": 1867,
+      "work_id": "prologo-capital-i",
       "level": "intermediate",
-      "kind": "chapter",
       "estimated_effort": "short",
-      "reason_to_read": "Marx explica el método dialéctico y por qué la mercancía es el punto de partida. Fundamental para entender qué hace El Capital y cómo hay que leerlo.",
-      "source": {
-        "provider": "Marxists.org",
-        "url": "https://www.marxists.org/espanol/m-e/1860s/palp67s.htm",
-        "attribution_label": "Karl Marx (1867). Marxists Internet Archive."
-      }
+      "reason_to_read": "Marx explica el método dialéctico y por qué la mercancía es el punto de partida. Fundamental para entender qué hace El Capital y cómo hay que leerlo."
     },
     {
-      "id": "apuntes-critica-economia",
-      "title": "Apuntes para una crítica de la economía política",
-      "author_ids": [
-        "engels-friedrich"
-      ],
-      "year": 1843,
+      "work_id": "apuntes-critica-economia",
       "level": "advanced",
-      "kind": "article",
       "estimated_effort": "medium",
-      "reason_to_read": "El texto que impresionó al propio Marx y le impulsó a estudiar economía. Engels critica a Smith y Ricardo y prefigura la crítica del fetichismo: la propiedad privada y la competencia como determinantes del valor.",
-      "source": {
-        "provider": "Marxists.org",
-        "url": "https://www.marxists.org/espanol/m-e/1843/noviembre/apuntes.htm",
-        "attribution_label": "Friedrich Engels (1843). Marxists Internet Archive."
-      }
+      "reason_to_read": "El texto que impresionó al propio Marx y le impulsó a estudiar economía. Engels critica a Smith y Ricardo y prefigura la crítica del fetichismo: la propiedad privada y la competencia como determinantes del valor."
     }
   ],
   "connected_concepts": [
