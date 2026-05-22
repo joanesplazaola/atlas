@@ -10,5 +10,56 @@
     "provider": "Marxists.org",
     "url": "https://www.marxists.org/espanol/lenin/obras/1900s/quehacer/que_hacer.pdf",
     "attribution_label": "Lenin, V. I. ¿Qué hacer? (1902). Marxists.org."
+  },
+  "study_guide": {
+    "hook": "Intervención de organización que intenta responder cómo construir una fuerza revolucionaria duradera frente al espontaneísmo y la dispersión del movimiento obrero ruso.",
+    "historical_context": "Escrito en el debate entre economistas, iskristas y corrientes revolucionarias rusas de comienzos del siglo XX, cuando la cuestión central es si la lucha obrera debe limitarse a reivindicaciones inmediatas o tomar forma política organizada.",
+    "responds_to": [
+      {
+        "label": "El economismo",
+        "why_it_matters": "Lenin critica la idea de que la lucha sindical, por sí sola, produzca una política socialista consistente."
+      },
+      {
+        "label": "La dispersión organizativa",
+        "why_it_matters": "La obra busca justificar un partido con continuidad, prensa y coordinación a escala nacional."
+      }
+    ],
+    "timeline": [
+      {
+        "year": 1898,
+        "kind": "context",
+        "label": "Se funda el POSDR",
+        "note": "La debilidad organizativa inicial del partido es el trasfondo del libro."
+      },
+      {
+        "year": 1902,
+        "kind": "writing",
+        "label": "Lenin sistematiza la polémica contra el economismo",
+        "note": "El libro funciona como un intento de fijar una línea organizativa antes del ciclo revolucionario que se aproxima."
+      },
+      {
+        "year": 1903,
+        "kind": "reception",
+        "label": "La obra queda asociada a la fractura bolchevique-menchevique",
+        "note": "Aunque no la explica entera, se convierte en referencia obligada del debate sobre centralismo y militancia."
+      }
+    ],
+    "criticisms": [
+      {
+        "from": "Rosa Luxemburg",
+        "claim": "Cuestiona que el partido pueda suplir la creatividad política que emerge de la lucha de masas.",
+        "note": "Su objeción apunta al riesgo de centralismo burocrático."
+      },
+      {
+        "from": "Lecturas posteriores del propio Lenin",
+        "claim": "Se ha señalado que el libro responde a una coyuntura concreta y no puede leerse como fórmula fija para cualquier situación.",
+        "note": "Esa relectura impide convertir el texto en receta universal."
+      }
+    ],
+    "legacy": "Sigue siendo el texto clásico para entrar en el problema del partido como organización consciente y no como simple agregación espontánea.",
+    "questions_opened": [
+      "¿Qué papel cumple la prensa, la organización y la continuidad militante?",
+      "¿Cómo se relacionan espontaneidad de masas y dirección política?"
+    ]
   }
 }

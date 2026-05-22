@@ -10,5 +10,54 @@
     "provider": "Marxists.org",
     "url": "https://www.marxists.org/espanol/luxemburg/1900-reforma.htm",
     "attribution_label": "Luxemburg, Rosa. Reforma o revolución (1900). Marxists.org."
+  },
+  "study_guide": {
+    "hook": "Rosa Luxemburg interviene para cortar una deriva: defender reformas sí, pero sin convertirlas en sustituto de la estrategia revolucionaria.",
+    "historical_context": "Escrito contra el revisionismo de Eduard Bernstein dentro de la socialdemocracia alemana, el texto aparece cuando la expansión parlamentaria y sindical empuja a separar cada vez más reforma cotidiana y horizonte revolucionario.",
+    "responds_to": [
+      {
+        "label": "El revisionismo de Bernstein",
+        "why_it_matters": "Luxemburg combate la idea de que el capitalismo puede transformarse gradualmente hasta el socialismo sin ruptura política."
+      },
+      {
+        "label": "La escisión entre táctica inmediata y objetivo final",
+        "why_it_matters": "Sostiene que las reformas solo tienen sentido estratégico si se inscriben en una perspectiva de poder."
+      }
+    ],
+    "timeline": [
+      {
+        "year": 1899,
+        "kind": "context",
+        "label": "Bernstein formula abiertamente sus tesis revisionistas",
+        "note": "La polémica se vuelve explícita dentro del SPD."
+      },
+      {
+        "year": 1900,
+        "kind": "publication",
+        "label": "Luxemburg publica la respuesta",
+        "note": "El texto fija el marco clásico del debate reforma/revolución."
+      },
+      {
+        "year": 1914,
+        "kind": "reception",
+        "label": "La guerra reactiva la lectura del texto",
+        "note": "La bancarrota de la Segunda Internacional da nueva fuerza retrospectiva a la crítica luxemburguista."
+      }
+    ],
+    "criticisms": [
+      {
+        "from": "Eduard Bernstein",
+        "claim": "Considera inviable una estrategia apoyada en crisis catastróficas y ruptura revolucionaria."
+      },
+      {
+        "from": "Lecturas más parlamentaristas del socialismo",
+        "claim": "Se ha acusado a Luxemburg de subestimar los avances estables obtenidos por vía electoral y sindical."
+      }
+    ],
+    "legacy": "Sigue siendo el texto clásico para no confundir acumulación de reformas con transformación revolucionaria de la sociedad.",
+    "questions_opened": [
+      "¿Cómo se relacionan reformas parciales y objetivo estratégico?",
+      "¿Qué pasa cuando el crecimiento institucional del movimiento obrero altera su horizonte político?"
+    ]
   }
 }

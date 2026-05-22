@@ -69,7 +69,7 @@ async function main() {
     ].join(' — ');
 
     await index.addCustomRecord({
-      url: `/#tema/${themes.find(t => t.essential_works.some(r => r.work_id === work.id))?.slug ?? 'obras'}`,
+      url: `/#obra/${work.id}`,
       content,
       meta: {
         title: work.title,

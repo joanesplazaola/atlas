@@ -39,6 +39,59 @@
         "provider":          { "type": "string" },
         "attribution_label": { "type": "string" }
       }
+    },
+    "study_guide": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "hook": { "type": "string" },
+        "historical_context": { "type": "string" },
+        "responds_to": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["label", "why_it_matters"],
+            "additionalProperties": false,
+            "properties": {
+              "label": { "type": "string" },
+              "why_it_matters": { "type": "string" }
+            }
+          }
+        },
+        "timeline": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["year", "kind", "label"],
+            "additionalProperties": false,
+            "properties": {
+              "year": { "type": "integer", "minimum": 1800, "maximum": 2100 },
+              "kind": { "type": "string", "enum": ["writing", "publication", "context", "reception"] },
+              "label": { "type": "string" },
+              "note": { "type": "string" }
+            }
+          }
+        },
+        "criticisms": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["from", "claim"],
+            "additionalProperties": false,
+            "properties": {
+              "from": { "type": "string" },
+              "claim": { "type": "string" },
+              "note": { "type": "string" },
+              "related_work_id": { "type": "string", "pattern": "^[a-z0-9-]+$" }
+            }
+          }
+        },
+        "legacy": { "type": "string" },
+        "questions_opened": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
     }
   }
 }

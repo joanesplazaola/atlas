@@ -10,5 +10,44 @@
     "provider": "Marxists.org",
     "url": "https://www.marxists.org/espanol/m-e/1860s/65-salar.htm",
     "attribution_label": "Karl Marx (1865). Marxists Internet Archive."
+  },
+  "study_guide": {
+    "hook": "Texto corto y muy pedagógico donde Marx entra al debate sindical para explicar por qué la lucha salarial importa y, al mismo tiempo, por qué no basta.",
+    "historical_context": "Presentado ante la Asociación Internacional de Trabajadores en 1865, responde a discusiones concretas sobre salarios, precios y sentido de la acción sindical.",
+    "responds_to": [
+      {
+        "label": "La idea de que subir salarios solo hace subir precios",
+        "why_it_matters": "Marx desmonta ese argumento para defender la legitimidad de la lucha obrera inmediata."
+      },
+      {
+        "label": "La reducción del conflicto obrero a gestión salarial",
+        "why_it_matters": "El texto muestra que la lucha económica es necesaria, pero debe abrir a una crítica del sistema salarial en su conjunto."
+      }
+    ],
+    "timeline": [
+      {
+        "year": 1865,
+        "kind": "writing",
+        "label": "Marx expone la argumentación ante la Internacional",
+        "note": "Su tono didáctico responde a un debate militante y no a un tratado académico."
+      },
+      {
+        "year": 1867,
+        "kind": "reception",
+        "label": "Se relee a la luz de El Capital",
+        "note": "Muchos de sus argumentos funcionan como puerta de entrada condensada a problemas luego desarrollados con más extensión."
+      }
+    ],
+    "criticisms": [
+      {
+        "from": "Lecturas economicistas",
+        "claim": "Se ha usado el texto para quedarse en la defensa sindical y perder el salto hacia la crítica del trabajo asalariado."
+      }
+    ],
+    "legacy": "Sigue siendo probablemente la entrada más clara para empezar a estudiar plusvalor, salario y límites de la lucha puramente económica.",
+    "questions_opened": [
+      "¿Por qué la lucha salarial es necesaria pero insuficiente?",
+      "¿Cómo se conecta la defensa inmediata con la abolición del trabajo asalariado?"
+    ]
   }
 }

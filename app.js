@@ -4,6 +4,7 @@ const state = {
   authors: [],          // canonical authors registry
   filteredThemes: [],
   selectedSlug: null,
+  selectedWorkId: null,
   selectedAuthorId: null, // author detail panel
   activeTab: "overview",
   query: "",
@@ -39,6 +40,11 @@ function getAuthorFromHash() {
   return match ? match[1] : null;
 }
 
+function getWorkFromHash() {
+  const match = window.location.hash.match(/^#obra\/([a-z0-9-]+)/);
+  return match ? match[1] : null;
+}
+
 function setHash(slug) {
   const next = `#tema/${slug}`;
   if (window.location.hash !== next) window.location.hash = next;
@@ -46,6 +52,11 @@ function setHash(slug) {
 
 function setAuthorHash(id) {
   const next = `#autor/${id}`;
+  if (window.location.hash !== next) window.location.hash = next;
+}
+
+function setWorkHash(id) {
+  const next = `#obra/${id}`;
   if (window.location.hash !== next) window.location.hash = next;
 }
 
@@ -90,6 +101,29 @@ function parseYearRange(years) {
   if (!years) return {};
   const nums = String(years).match(/\d{4}/g)?.map(Number) ?? [];
   return { start: nums[0] ?? null, end: nums[1] ?? nums[0] ?? null };
+}
+
+async function ensureWorksLoaded(ids) {
+  const missing = ids.filter(Boolean).filter(id => !state.worksCache.has(id));
+  if (!missing.length) return;
+  const loaded = await Promise.all(missing.map(id => fetchJson(`content/works/${id}.json`)));
+  loaded.forEach(work => state.worksCache.set(work.id, work));
+}
+
+async function ensureAllThemesLoaded() {
+  const missing = state.themes
+    .map(theme => theme.slug)
+    .filter(slug => !state.themeCache.has(slug));
+  if (missing.length) {
+    const loaded = await Promise.all(missing.map(slug => fetchJson(`content/themes/${slug}.json`)));
+    loaded.forEach(theme => state.themeCache.set(theme.slug, theme));
+  }
+  return state.themes.map(theme => state.themeCache.get(theme.slug)).filter(Boolean);
+}
+
+function workDetailLink(work, className, text = work?.title) {
+  if (!work?.id) return `<span class="${className}">${esc(text || "")}</span>`;
+  return `<a class="${className}" href="#obra/${work.id}">${esc(text || work.title)}</a>`;
 }
 
 /* ─── Concept chip factory ─────────────────────────────────────── */
@@ -453,6 +487,10 @@ function renderLandingPanel() {
 
 async function renderDetail() {
   detailContent.classList.remove("detail-content--author");
+  if (state.selectedWorkId) {
+    await renderWorkDetail();
+    return;
+  }
   if (state.view === "autores") {
     await renderAuthorDetail();
     return;
@@ -487,13 +525,7 @@ async function renderDetail() {
       ...(theme.reading_paths ?? []).flatMap(path => path.steps.map(step => step.work_id)),
       ...(theme.historical_debates ?? []).flatMap(debate => debate.related_work_ids ?? []),
     ]));
-    const missing  = workIds.filter(id => !state.worksCache.has(id));
-    if (missing.length) {
-      const loaded = await Promise.all(
-        missing.map(id => fetchJson(`content/works/${id}.json`))
-      );
-      loaded.forEach(w => state.worksCache.set(w.id, w));
-    }
+    await ensureWorksLoaded(workIds);
 
     // Merge canonical work data with theme-specific ref overlay
     const workRefById = new Map(workRefs.map(ref => [ref.work_id, ref]));
@@ -612,9 +644,9 @@ async function renderDetail() {
     if (guidance) {
       const startWork = workById.get(guidance.start_here.work_id);
       const nextWork = workById.get(guidance.after_this.work_id);
-      const nextWorkLink = nextWork?.source?.url
-        ? `<a class="start-here__next-link" href="${esc(nextWork.source.url)}" target="_blank" rel="noreferrer">${esc(nextWork.title)}</a>`
-        : `<span class="start-here__next-link">${esc(nextWork?.title || guidance.after_this.work_id)}</span>`;
+      const nextWorkLink = nextWork
+        ? workDetailLink(nextWork, "start-here__next-link")
+        : `<span class="start-here__next-link">${esc(guidance.after_this.work_id)}</span>`;
       const debate = theme.historical_debates.find(d => d.id === guidance.debate_to_watch?.debate_id);
 
       overviewEl.innerHTML += `
@@ -624,9 +656,9 @@ async function renderDetail() {
           <div class="start-here__grid">
             <article class="start-here__primary">
               <div class="start-here__label">Lee primero</div>
-              ${startWork?.source?.url
-                ? `<a class="start-here__work" href="${esc(startWork.source.url)}" target="_blank" rel="noreferrer">${esc(startWork.title)}</a>`
-                : `<div class="start-here__work">${esc(startWork?.title || guidance.start_here.work_id)}</div>`}
+              ${startWork
+                ? workDetailLink(startWork, "start-here__work")
+                : `<div class="start-here__work">${esc(guidance.start_here.work_id)}</div>`}
               ${getWorkMeta(startWork) ? `<div class="start-here__meta">${esc(getWorkMeta(startWork))}</div>` : ""}
               <p class="start-here__why">${esc(guidance.start_here.why)}</p>
               <p class="start-here__focus"><strong>Fíjate en:</strong> ${esc(guidance.start_here.focus)}</p>
@@ -730,7 +762,7 @@ async function renderDetail() {
       c.innerHTML =
         `<div class="work-card__header">
            <div>
-             <div class="work-card__title">${esc(w.title)}</div>
+             ${workDetailLink(w, "work-card__title work-card__title--link")}
             <div class="work-card__author">${esc(authors)} · ${esc(String(w.year))}</div>
            </div>
            ${(isStartHere || isNextRead) ? `
@@ -758,11 +790,11 @@ async function renderDetail() {
     const routesEl = detailContent.querySelector("#tab-routes");
     const routeStartWork = startHereWorkId ? workById.get(startHereWorkId) : null;
     const routeNextWork = afterThisWorkId ? workById.get(afterThisWorkId) : null;
-    const routeStartHtml = routeStartWork?.source?.url
-      ? `<a class="routes-intro__link" href="${esc(routeStartWork.source.url)}" target="_blank" rel="noreferrer">${esc(routeStartWork.title)}</a>`
+    const routeStartHtml = routeStartWork
+      ? workDetailLink(routeStartWork, "routes-intro__link")
       : `<span class="routes-intro__link">${esc(routeStartWork?.title || "")}</span>`;
-    const routeNextHtml = routeNextWork?.source?.url
-      ? `<a class="routes-intro__link" href="${esc(routeNextWork.source.url)}" target="_blank" rel="noreferrer">${esc(routeNextWork.title)}</a>`
+    const routeNextHtml = routeNextWork
+      ? workDetailLink(routeNextWork, "routes-intro__link")
       : `<span class="routes-intro__link">${esc(routeNextWork?.title || "")}</span>`;
     routesEl.innerHTML = `
       <section class="routes-intro">
@@ -783,9 +815,9 @@ async function renderDetail() {
       c.className = "route-card";
       const stepsHtml = rp.steps.map(s => {
         const w = workById.get(s.work_id);
-        const titleHtml = w?.source?.url
-          ? `<a class="route-step__title route-step__title--link" href="${esc(w.source.url)}" target="_blank" rel="noreferrer">${esc(w.title)}</a>`
-          : `<div class="route-step__title">${esc(w?.title || s.work_id)}</div>`;
+        const titleHtml = w
+          ? workDetailLink(w, "route-step__title route-step__title--link")
+          : `<div class="route-step__title">${esc(s.work_id)}</div>`;
         return `
           <div class="route-step">
             <span class="route-step__num">${s.position}</span>
@@ -817,8 +849,8 @@ async function renderDetail() {
         const author = authorById.get(position.author_id);
         const work = workById.get(position.work_id);
         const workTitle = work?.title || position.work_id;
-        const workLink = work?.source?.url
-          ? `<a class="debate-position__work" href="${esc(work.source.url)}" target="_blank" rel="noreferrer">${esc(workTitle)}</a>`
+        const workLink = work
+          ? workDetailLink(work, "debate-position__work", workTitle)
           : `<span class="debate-position__work">${esc(workTitle)}</span>`;
         return `
           <article class="debate-position">
@@ -848,6 +880,228 @@ async function renderDetail() {
 
   } catch (err) {
     detailContent.innerHTML = `<div class="empty-state">Error al cargar el tema: ${esc(err.message)}</div>`;
+  }
+}
+
+/* ─── Work detail panel ──────────────────────────────────────────── */
+
+async function renderWorkDetail() {
+  if (!state.selectedWorkId) {
+    renderLandingPanel();
+    return;
+  }
+
+  detailEmpty.hidden = true;
+  detailContent.hidden = false;
+  detailContent.classList.remove("detail-content--author");
+  detailContent.innerHTML = `
+    <div class="detail-loading" aria-live="polite">
+      <div class="detail-loading__spinner" aria-label="Cargando obra…"></div>
+    </div>`;
+
+  try {
+    await ensureWorksLoaded([state.selectedWorkId]);
+    const allThemes = await ensureAllThemesLoaded();
+    const work = state.worksCache.get(state.selectedWorkId);
+    if (!work) throw new Error("La obra solicitada no existe en la biblioteca.");
+
+    const guide = work.study_guide ?? null;
+    const authorById = new Map(state.authors.map(author => [author.id, author]));
+    const authors = (work.author_ids ?? []).map(id => authorById.get(id)).filter(Boolean);
+    const themeRefs = allThemes
+      .filter(theme => (theme.essential_works ?? []).some(ref => ref.work_id === work.id))
+      .map(theme => ({
+        theme,
+        ref: (theme.essential_works ?? []).find(ref => ref.work_id === work.id),
+      }));
+
+    const relatedWorkIds = (guide?.criticisms ?? [])
+      .map(item => item.related_work_id)
+      .filter(Boolean);
+    await ensureWorksLoaded(relatedWorkIds);
+
+    const timelineItems = [...(guide?.timeline ?? [])];
+    if (!timelineItems.some(item => item.year === work.year && item.kind === "publication")) {
+      timelineItems.push({
+        year: work.year,
+        kind: "publication",
+        label: `Publicación de ${work.title}`,
+        note: `La obra entra en circulación como ${kindLabel[work.kind] || work.kind}.`,
+      });
+    }
+    timelineItems.sort((a, b) => a.year - b.year);
+
+    const lead = guide?.hook || themeRefs[0]?.ref?.reason_to_read || `Entrada editorial para situar ${work.title} dentro del archivo.`;
+
+    detailContent.innerHTML = `
+      <header class="detail__header work-detail__header">
+        <button class="detail__back" id="work-detail-back" aria-label="Volver">
+          <svg viewBox="0 0 16 16" fill="none" width="16" height="16" aria-hidden="true">
+            <path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Volver
+        </button>
+        <div class="detail__header-top">
+          <div>
+            <p class="detail__eyebrow">Obra</p>
+            <h2 id="detail-title">${esc(work.title)}</h2>
+            <div class="work-detail__meta">
+              ${authors.length ? `<span>${esc(authors.map(author => author.name).join(", "))}</span>` : ""}
+              ${authors.length ? `<span class="author-detail__sep">·</span>` : ""}
+              <span>${esc(String(work.year))}</span>
+              <span class="author-detail__sep">·</span>
+              <span>${esc(kindLabel[work.kind] || work.kind)}</span>
+            </div>
+          </div>
+          ${work.source?.url
+            ? `<a class="author-detail__ext-link" href="${esc(work.source.url)}" target="_blank" rel="noreferrer">
+                 Abrir texto original
+                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                   <path d="M7 1h4v4M11 1 5.5 6.5M2 3H1v8h8V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                 </svg>
+               </a>`
+            : ""}
+        </div>
+        <p class="detail__summary">${esc(lead)}</p>
+        <div class="detail__stats">
+          <div class="detail__stat">
+            <span class="detail__stat-num">${esc(String(work.year))}</span>
+            <span class="detail__stat-label">año</span>
+          </div>
+          <div class="detail__stat">
+            <span class="detail__stat-num">${themeRefs.length}</span>
+            <span class="detail__stat-label">temas</span>
+          </div>
+          <div class="detail__stat">
+            <span class="detail__stat-num">${guide?.criticisms?.length ?? 0}</span>
+            <span class="detail__stat-label">críticas</span>
+          </div>
+        </div>
+      </header>
+      <div class="work-detail__body" id="work-detail-body"></div>
+    `;
+
+    detailContent.querySelector("#work-detail-back").addEventListener("click", () => {
+      state.selectedWorkId = null;
+      if (window.history.length > 1) {
+        window.history.back();
+        return;
+      }
+      const fallbackTheme = themeRefs[0]?.theme?.slug ?? null;
+      if (fallbackTheme) {
+        state.selectedSlug = fallbackTheme;
+        setHash(fallbackTheme);
+      } else {
+        window.history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
+        renderDetail();
+      }
+    });
+
+    const body = detailContent.querySelector("#work-detail-body");
+    const appendSection = (title, innerHtml, extraClass = "") => {
+      const section = document.createElement("section");
+      section.className = `work-detail__section${extraClass ? ` ${extraClass}` : ""}`;
+      section.innerHTML = `
+        <h3 class="work-detail__section-title">${esc(title)}</h3>
+        ${innerHtml}
+      `;
+      body.appendChild(section);
+    };
+
+    if (guide?.historical_context) {
+      appendSection("Contexto de escritura", `<p class="work-detail__text">${esc(guide.historical_context)}</p>`);
+    }
+
+    if (guide?.responds_to?.length) {
+      appendSection(
+        "A qué responde",
+        `<div class="work-detail__list">
+          ${guide.responds_to.map(item => `
+            <article class="work-detail__list-item">
+              <div class="work-detail__list-title">${esc(item.label)}</div>
+              <p class="work-detail__text">${esc(item.why_it_matters)}</p>
+            </article>`).join("")}
+        </div>`
+      );
+    }
+
+    if (timelineItems.length) {
+      appendSection(
+        "Cronología de la obra",
+        `<div class="work-timeline">
+          ${timelineItems.map(item => `
+            <article class="work-timeline__item work-timeline__item--${esc(item.kind)}">
+              <div class="work-timeline__year">${esc(String(item.year))}</div>
+              <div class="work-timeline__dot"></div>
+              <div class="work-timeline__body">
+                <div class="work-timeline__kind">${esc(item.kind === "publication" ? "Publicación" : item.kind === "writing" ? "Escritura" : item.kind === "reception" ? "Recepción" : "Contexto")}</div>
+                <div class="work-timeline__title">${esc(item.label)}</div>
+                ${item.note ? `<p class="work-timeline__note">${esc(item.note)}</p>` : ""}
+              </div>
+            </article>`).join("")}
+        </div>`
+      );
+    }
+
+    if (guide?.criticisms?.length) {
+      appendSection(
+        "Críticas y debates",
+        `<div class="work-detail__criticisms">
+          ${guide.criticisms.map(item => {
+            const relatedWork = item.related_work_id ? state.worksCache.get(item.related_work_id) : null;
+            return `
+              <article class="work-critique">
+                <div class="work-critique__from">${esc(item.from)}</div>
+                <p class="work-critique__claim">${esc(item.claim)}</p>
+                ${item.note ? `<p class="work-critique__note">${esc(item.note)}</p>` : ""}
+                ${relatedWork ? `<div class="work-critique__link">Obra ligada: ${workDetailLink(relatedWork, "work-detail__inline-link")}</div>` : ""}
+              </article>`;
+          }).join("")}
+        </div>`
+      );
+    }
+
+    if (guide?.questions_opened?.length || guide?.legacy) {
+      appendSection(
+        "Qué abrió después",
+        `
+          ${guide?.legacy ? `<p class="work-detail__text">${esc(guide.legacy)}</p>` : ""}
+          ${guide?.questions_opened?.length ? `
+            <ul class="work-detail__bullets">
+              ${guide.questions_opened.map(item => `<li>${esc(item)}</li>`).join("")}
+            </ul>` : ""}
+        `
+      );
+    }
+
+    if (themeRefs.length) {
+      appendSection(
+        "Dónde aparece en este atlas",
+        `<div class="work-theme-grid">
+          ${themeRefs.map(({ theme, ref }) => `
+            <article class="work-theme-card">
+              <button type="button" class="work-theme-card__title" data-theme-slug="${esc(theme.slug)}">${esc(theme.title)}</button>
+              <p class="work-theme-card__reason">${esc(ref?.reason_to_read || theme.summary)}</p>
+              <div class="work-theme-card__meta">
+                ${ref?.level ? `<span class="badge ${levelBadge[ref.level] || ""}">${esc(levelLabel[ref.level] || ref.level)}</span>` : ""}
+                ${ref?.estimated_effort ? `<span class="badge badge--effort">Lectura ${esc(effortLabel[ref.estimated_effort] || ref.estimated_effort)}</span>` : ""}
+              </div>
+            </article>`).join("")}
+        </div>`
+      );
+
+      body.querySelectorAll("[data-theme-slug]").forEach(button => {
+        button.addEventListener("click", () => {
+          const slug = button.dataset.themeSlug;
+          state.selectedWorkId = null;
+          state.selectedSlug = slug;
+          state.activeTab = "works";
+          setHash(slug);
+        });
+      });
+    }
+  } catch (err) {
+    detailContent.innerHTML = `<div class="empty-state">Error al cargar la obra: ${esc(err.message)}</div>`;
   }
 }
 
@@ -935,11 +1189,7 @@ async function renderAuthorDetail() {
     });
 
     // Lazy-load canonical work data for missing works
-    const missing = allWorkRefs.map(r => r.work_id).filter(id => !state.worksCache.has(id));
-    if (missing.length) {
-      const loaded = await Promise.all(missing.map(id => fetchJson(`content/works/${id}.json`)));
-      loaded.forEach(w => state.worksCache.set(w.id, w));
-    }
+    await ensureWorksLoaded(allWorkRefs.map(r => r.work_id));
 
     // Filter to works by this author
     const authorWorks = Array.from(new Map(
@@ -1068,8 +1318,8 @@ async function renderAuthorDetail() {
         const entry = document.createElement("article");
         entry.className = `author-timeline__item author-timeline__item--${item.type}`;
         const label = item.type === "work" ? "Texto" : item.type === "context" ? "Contexto" : "Vida";
-        const titleHtml = item.work?.source?.url
-          ? `<a class="author-timeline__title author-timeline__title--link" href="${esc(item.work.source.url)}" target="_blank" rel="noreferrer">${esc(item.title)}</a>`
+        const titleHtml = item.work
+          ? workDetailLink(item.work, "author-timeline__title author-timeline__title--link", item.title)
           : `<div class="author-timeline__title">${esc(item.title)}</div>`;
         entry.innerHTML = `
           <div class="author-timeline__year">${esc(String(item.year))}</div>
@@ -1141,7 +1391,7 @@ async function renderAuthorDetail() {
         card.className = "work-card";
         card.innerHTML = `
           <div>
-            <div class="work-card__title">${esc(w.title)}</div>
+            ${workDetailLink(w, "work-card__title work-card__title--link")}
             <div class="work-card__author">${esc(String(w.year || ""))}</div>
           </div>
           <div class="work-card__meta">
@@ -1600,13 +1850,21 @@ async function init() {
     state.authors = authors;
     state.themes  = lightIndex.themes.sort((a, b) => a.title.localeCompare(b.title, "es"));
 
+    const workId = getWorkFromHash();
     const authorId = getAuthorFromHash();
-    if (authorId) {
+    if (workId) {
+      state.selectedWorkId = workId;
+      state.selectedSlug = null;
+      applyFilters();
+      switchView("temas");
+    } else if (authorId) {
       state.selectedAuthorId = authorId;
+      state.selectedWorkId = null;
       state.selectedSlug = null;
       applyFilters();
       switchView("autores");
     } else {
+      state.selectedWorkId = null;
       state.selectedSlug = getSlugFromHash() || null;
       if (state.selectedSlug) setHash(state.selectedSlug);
       applyFilters();
@@ -1622,14 +1880,39 @@ async function init() {
 
 searchInput.addEventListener("input", e => { state.query = e.target.value; applyFilters(); });
 
-navTemas.addEventListener("click",   () => switchView("temas"));
-navAutores.addEventListener("click", () => switchView("autores"));
-navMapa.addEventListener("click",    () => switchView("mapa"));
+navTemas.addEventListener("click", () => {
+  state.selectedWorkId = null;
+  if (state.selectedSlug) setHash(state.selectedSlug);
+  else window.history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
+  switchView("temas");
+  renderDetail();
+});
+navAutores.addEventListener("click", () => {
+  state.selectedWorkId = null;
+  if (state.selectedAuthorId) setAuthorHash(state.selectedAuthorId);
+  else window.history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
+  switchView("autores");
+  renderDetail();
+});
+navMapa.addEventListener("click", () => {
+  state.selectedWorkId = null;
+  switchView("mapa");
+});
 
 window.addEventListener("hashchange", () => {
+  const workId = getWorkFromHash();
+  if (workId) {
+    state.selectedWorkId = workId;
+    state.activeTab = "overview";
+    if (state.view !== "temas") switchView("temas");
+    else renderDetail();
+    return;
+  }
+
   const authorId = getAuthorFromHash();
   if (authorId) {
     if (authorId === state.selectedAuthorId && state.view === "autores") return;
+    state.selectedWorkId = null;
     state.selectedAuthorId = authorId;
     if (state.view !== "autores") switchView("autores");
     else { renderAuthorList(); renderDetail(); }
@@ -1637,7 +1920,12 @@ window.addEventListener("hashchange", () => {
   }
 
   const slug = getSlugFromHash();
-  if (!slug || slug === state.selectedSlug) return;
+  if (!slug) {
+    state.selectedWorkId = null;
+    return;
+  }
+  if (slug === state.selectedSlug && !state.selectedWorkId) return;
+  state.selectedWorkId = null;
   state.selectedSlug = slug;
   state.activeTab = "overview";
   if (state.view !== "temas") switchView("temas");

@@ -10,5 +10,44 @@
     "provider": "Marxists Internet Archive",
     "url": "https://www.marxists.org/archive/marx/works/1872/housing-question/",
     "attribution_label": "Friedrich Engels, The Housing Question (Marxists.org)"
+  },
+  "study_guide": {
+    "hook": "Engels discute la vivienda no como problema moral ni técnico aislado, sino como expresión de la estructura urbana y de clase del capitalismo.",
+    "historical_context": "Escrito en el contexto de urbanización acelerada, hacinamiento obrero y debates sobre cooperativas y propiedad de la vivienda en la Alemania de la década de 1870.",
+    "responds_to": [
+      {
+        "label": "Las soluciones pequeño-burguesas basadas en propiedad individual",
+        "why_it_matters": "Engels rechaza que la generalización de la casa en propiedad resuelva la cuestión social de fondo."
+      },
+      {
+        "label": "La idea de que la vivienda puede separarse del conjunto de relaciones capitalistas",
+        "why_it_matters": "El texto obliga a conectar alquiler, urbanización, salario y especulación."
+      }
+    ],
+    "timeline": [
+      {
+        "year": 1872,
+        "kind": "publication",
+        "label": "Engels publica la serie sobre la cuestión de la vivienda",
+        "note": "Se inserta en una polémica concreta contra propuestas proudhonianas y reformistas."
+      },
+      {
+        "year": 1871,
+        "kind": "context",
+        "label": "Tras la Comuna se intensifica el miedo burgués a la ciudad obrera",
+        "note": "La cuestión urbana aparece cada vez más unida a la cuestión política."
+      }
+    ],
+    "criticisms": [
+      {
+        "from": "Lecturas urbanistas posteriores",
+        "claim": "Se le reprocha no desarrollar una teoría positiva detallada de planificación urbana."
+      }
+    ],
+    "legacy": "Es una referencia clave para evitar lecturas despolitizadas de la vivienda y para conectar ciudad, propiedad y lucha de clases.",
+    "questions_opened": [
+      "¿Puede resolverse la crisis de vivienda sin tocar propiedad del suelo, renta y salario?",
+      "¿Cómo se conecta la cuestión urbana con la estructura general del capital?"
+    ]
   }
 }

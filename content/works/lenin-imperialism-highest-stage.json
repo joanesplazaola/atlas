@@ -10,5 +10,56 @@
     "provider": "Marxists Internet Archive",
     "url": "https://www.marxists.org/archive/lenin/works/1916/imp-hsc/",
     "attribution_label": "Lenin, Imperialism, the Highest Stage of Capitalism (Marxists.org)"
+  },
+  "study_guide": {
+    "hook": "Síntesis breve y polémica que intenta explicar la guerra mundial a partir de la concentración del capital, el monopolio y la exportación de capitales.",
+    "historical_context": "La obra aparece en plena Primera Guerra Mundial, cuando la quiebra de la Segunda Internacional obliga a explicar por qué la competencia interimperialista desemboca en guerra y reparto del mundo.",
+    "responds_to": [
+      {
+        "label": "La idea de que la guerra es solo un error diplomático",
+        "why_it_matters": "Lenin discute que la guerra no sea accidente ni desviación moral, sino expresión de una fase específica del capitalismo."
+      },
+      {
+        "label": "Las lecturas del capitalismo como sistema aún expansivo y estable",
+        "why_it_matters": "La obra sostiene que la concentración, el capital financiero y la lucha por colonias alteran radicalmente el terreno político mundial."
+      }
+    ],
+    "timeline": [
+      {
+        "year": 1914,
+        "kind": "context",
+        "label": "Comienza la Primera Guerra Mundial",
+        "note": "El estallido de la guerra funciona como detonante inmediato del libro."
+      },
+      {
+        "year": 1916,
+        "kind": "writing",
+        "label": "Lenin redacta la síntesis en el exilio",
+        "note": "El formato breve y condensado responde a la necesidad de intervenir rápidamente en un debate político internacional."
+      },
+      {
+        "year": 1917,
+        "kind": "reception",
+        "label": "La obra pasa a ser referencia del antiimperialismo marxista",
+        "note": "Se vuelve texto de entrada para relacionar economía mundial, guerra y política revolucionaria."
+      }
+    ],
+    "criticisms": [
+      {
+        "from": "Rosa Luxemburg",
+        "claim": "El centro del problema no estaría tanto en el monopolio como en la necesidad de expansión hacia espacios no capitalistas.",
+        "related_work_id": "luxemburg-accumulation-of-capital"
+      },
+      {
+        "from": "Nikolai Bukharin",
+        "claim": "El foco debería ponerse más en la economía mundial y en el capitalismo de Estado que en una definición cerrada de monopolio.",
+        "related_work_id": "bukharin-imperialism-and-world-economy"
+      }
+    ],
+    "legacy": "Sigue siendo la puerta más usada para conectar guerra, monopolio, finanzas y reparto del mundo dentro de la tradición marxista.",
+    "questions_opened": [
+      "¿El rasgo decisivo del imperialismo es el monopolio, el Estado o el mercado mundial?",
+      "¿Cómo se relacionan rivalidad interestatal y acumulación capitalista?"
+    ]
   }
 }

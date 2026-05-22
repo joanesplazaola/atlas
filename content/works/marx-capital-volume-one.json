@@ -10,5 +10,55 @@
     "provider": "Marxists Internet Archive",
     "url": "https://www.marxists.org/archive/marx/works/1867-c1/",
     "attribution_label": "Karl Marx, Capital, Volume I (Marxists.org)"
+  },
+  "study_guide": {
+    "hook": "La gran obra de crítica de la economía política: no explica solo precios o mercados, sino la forma social específica en la que el trabajo produce valor y plusvalor bajo el capitalismo.",
+    "historical_context": "Publicada tras una larga década de investigación en el British Museum y de reelaboración de manuscritos, aparece en una Europa ya marcada por la gran industria, la cuestión obrera y la consolidación del mercado mundial.",
+    "responds_to": [
+      {
+        "label": "La economía política clásica",
+        "why_it_matters": "Marx discute con Smith y Ricardo, retomando sus hallazgos para mostrar sus límites cuando se trata de explicar explotación y forma valor."
+      },
+      {
+        "label": "Las explicaciones superficiales del beneficio",
+        "why_it_matters": "La obra intenta mostrar que la ganancia no surge del comercio ni del fraude, sino de la extracción de plusvalor en la producción."
+      }
+    ],
+    "timeline": [
+      {
+        "year": 1857,
+        "kind": "context",
+        "label": "Nueva crisis capitalista internacional",
+        "note": "La coyuntura acelera el proyecto de crítica de la economía política."
+      },
+      {
+        "year": 1867,
+        "kind": "publication",
+        "label": "Sale el primer volumen de El Capital",
+        "note": "Es el único volumen publicado en vida por Marx en forma acabada."
+      },
+      {
+        "year": 1872,
+        "kind": "reception",
+        "label": "Aparecen nuevas ediciones y traducciones",
+        "note": "La circulación internacional convierte el libro en referencia central del movimiento obrero."
+      }
+    ],
+    "criticisms": [
+      {
+        "from": "Economistas marginalistas y neoclásicos",
+        "claim": "Cuestionan la teoría del valor-trabajo y la convierten en principal frente de crítica al libro."
+      },
+      {
+        "from": "Lecturas marxistas posteriores",
+        "claim": "Se debate si la exposición debe leerse como lógica del capital en general o como historia concreta del capitalismo.",
+        "note": "Esa discusión afecta la forma de usar el libro para análisis de coyuntura."
+      }
+    ],
+    "legacy": "Sigue siendo la obra insoslayable para estudiar mercancía, valor, plusvalor, acumulación y composición del capital desde un enfoque marxista.",
+    "questions_opened": [
+      "¿Cómo se transforma el trabajo humano en valor bajo relaciones capitalistas?",
+      "¿De dónde sale la ganancia si los intercambios aparecen como equivalentes?"
+    ]
   }
 }

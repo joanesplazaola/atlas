@@ -10,5 +10,55 @@
     "provider": "Marxists Internet Archive",
     "url": "https://www.marxists.org/archive/lenin/works/1917/staterev/",
     "attribution_label": "Lenin, The State and Revolution (Marxists.org)"
+  },
+  "study_guide": {
+    "hook": "Texto de combate escrito en plena crisis revolucionaria para reabrir el problema del Estado contra las lecturas parlamentarias y gradualistas del marxismo.",
+    "historical_context": "Lenin redacta gran parte de la obra entre el verano de 1917 y la antesala de Octubre, mientras en Rusia se discute si la revolución debe detenerse en una república parlamentaria o avanzar hacia una forma de poder basada en soviets.",
+    "responds_to": [
+      {
+        "label": "La reducción del Estado a un instrumento neutral",
+        "why_it_matters": "Lenin insiste en que el Estado moderno es una maquinaria de dominación de clase y no un simple aparato técnico disponible para cualquier proyecto político."
+      },
+      {
+        "label": "La separación entre democracia y revolución",
+        "why_it_matters": "Busca mostrar que la cuestión democrática no se resuelve ampliando el parlamentarismo existente, sino transformando la forma del poder político."
+      }
+    ],
+    "timeline": [
+      {
+        "year": 1871,
+        "kind": "context",
+        "label": "La Comuna de París entra como referencia decisiva",
+        "note": "La experiencia comunera funciona como laboratorio histórico para pensar destrucción del viejo aparato estatal y autogobierno."
+      },
+      {
+        "year": 1917,
+        "kind": "writing",
+        "label": "Lenin escribe la obra durante la crisis revolucionaria rusa",
+        "note": "La urgencia del momento atraviesa cada capítulo: no es un tratado abstracto, sino una intervención estratégica."
+      },
+      {
+        "year": 1917,
+        "kind": "reception",
+        "label": "Se vuelve texto canónico del bolchevismo",
+        "note": "Su recepción posterior lo convierte en punto obligado de todo debate sobre Estado, transición y dictadura del proletariado."
+      }
+    ],
+    "criticisms": [
+      {
+        "from": "Karl Kautsky",
+        "claim": "La lectura leninista rompe con la estrategia socialista basada en mayoría parlamentaria y evolución institucional.",
+        "note": "La polémica resume la fractura entre la Segunda Internacional y la estrategia bolchevique."
+      },
+      {
+        "from": "Críticas libertarias y consejistas posteriores",
+        "claim": "Se acusa a Lenin de subestimar el riesgo de que el partido sustituya a los propios órganos de autoorganización obrera."
+      }
+    ],
+    "legacy": "La obra sigue siendo una entrada privilegiada para pensar relación entre aparato estatal, revolución y formas de democracia obrera.",
+    "questions_opened": [
+      "¿Qué significa destruir el viejo aparato estatal y con qué instituciones se lo sustituye?",
+      "¿Cómo se articulan soviets, partido y democracia obrera en una situación revolucionaria?"
+    ]
   }
 }

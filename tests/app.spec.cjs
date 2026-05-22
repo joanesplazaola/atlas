@@ -104,7 +104,7 @@ test.describe("Atlas Marxista — sistema de tabs", () => {
     await expect(page.locator(".start-here")).toBeVisible();
     await expect(page.locator(".start-here__title")).toContainText(/ganancia capitalista/i);
     await expect(page.locator(".start-here__work")).toContainText(/Salario, precio y ganancia/i);
-    await expect(page.locator(".start-here__work")).toHaveAttribute("href", /marxists\.org/);
+    await expect(page.locator(".start-here__work")).toHaveAttribute("href", /#obra\//);
   });
 
   test("la guía puede abrir el debate clave del tema", async ({ page }) => {
@@ -132,7 +132,16 @@ test.describe("Atlas Marxista — sistema de tabs", () => {
     await page.locator(".tab-btn", { hasText: /Debates/ }).click();
     await expect(page.locator(".debate-position").first()).toBeVisible();
     await expect(page.locator(".debate-position__author").first()).toContainText(/Lenin|Luxemburgo/);
-    await expect(page.locator(".debate-position__work").first()).toHaveAttribute("href", /marxists\.org/);
+    await expect(page.locator(".debate-position__work").first()).toHaveAttribute("href", /#obra\//);
+  });
+
+  test("hacer clic en una obra abre su ficha contextual", async ({ page }) => {
+    await page.goto("/#tema/estado");
+    await page.locator(".tab-btn", { hasText: /Obras/ }).click();
+    await page.locator(".work-card__title--link").first().click();
+    await expect(page).toHaveURL(/#obra\//);
+    await expect(page.locator(".work-detail__body")).toBeVisible();
+    await expect(page.locator(".detail__eyebrow")).toHaveText(/Obra/);
   });
 });
 
@@ -197,6 +206,14 @@ test.describe("Atlas Marxista — navegación por hash", () => {
     await page.goto("/#tema/imperialismo");
     await expect(page.locator("#detail-title")).toHaveText(/imperialismo/i);
     await expect(page.locator(".theme-card--active")).toBeVisible();
+  });
+
+  test("navegar directamente a un hash de obra carga su ficha contextual", async ({ page }) => {
+    await page.goto("/#obra/lenin-state-and-revolution");
+    await expect(page.locator("#detail-title")).toHaveText(/State and Revolution/i);
+    const sectionTitles = await page.locator(".work-detail__section-title").allTextContents();
+    expect(sectionTitles).toEqual(expect.arrayContaining(["Contexto de escritura", "Cronología de la obra", "Críticas y debates"]));
+    await expect(page.locator(".author-detail__ext-link")).toHaveAttribute("href", /marxists\.org/);
   });
 
   test("un hash inválido muestra el estado vacío del detalle", async ({ page }) => {
@@ -283,7 +300,7 @@ test.describe("Atlas Marxista — vista de autores", () => {
     await page.goto("/#autor/lenin-vi");
     await expect(page.locator(".author-timeline")).toBeVisible();
     await expect(page.locator(".author-timeline__item--context").first()).toBeVisible();
-    await expect(page.locator(".author-timeline__item--work .author-timeline__title--link").first()).toHaveAttribute("href", /marxists\.org/);
+    await expect(page.locator(".author-timeline__item--work .author-timeline__title--link").first()).toHaveAttribute("href", /#obra\//);
     const years = await page.locator(".author-timeline__year").allTextContents();
     expect(years).toEqual(expect.arrayContaining(["1870", "1914", "1924"]));
   });

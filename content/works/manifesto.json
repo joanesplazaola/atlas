@@ -11,5 +11,54 @@
     "provider": "Marxists.org",
     "url": "https://www.marxists.org/espanol/m-e/1840s/48-manif.htm",
     "attribution_label": "Marx, Karl y Engels, Friedrich. El Manifiesto Comunista (1848). Marxists.org."
+  },
+  "study_guide": {
+    "hook": "No es solo un panfleto fundacional: es una intervención política escrita para situar al comunismo dentro del ciclo revolucionario europeo de 1848.",
+    "historical_context": "Encargado por la Liga de los Comunistas en vísperas de las revoluciones de 1848, condensa un programa político, una lectura histórica del capitalismo y una ubicación de clase del comunismo.",
+    "responds_to": [
+      {
+        "label": "Las corrientes socialistas moralistas o utópicas",
+        "why_it_matters": "Marx y Engels intentan diferenciar el comunismo de proyectos abstractos y apoyarlo en la dinámica real de las clases."
+      },
+      {
+        "label": "La fragmentación política de la clase obrera emergente",
+        "why_it_matters": "La obra busca ofrecer lenguaje común, horizonte estratégico y posición internacionalista."
+      }
+    ],
+    "timeline": [
+      {
+        "year": 1848,
+        "kind": "writing",
+        "label": "Se redacta por encargo de la Liga de los Comunistas",
+        "note": "El texto nace como manifiesto político para una organización concreta."
+      },
+      {
+        "year": 1848,
+        "kind": "context",
+        "label": "Estallan las revoluciones europeas",
+        "note": "La cercanía temporal convierte al texto en intervención inmediata y no en simple declaración doctrinal."
+      },
+      {
+        "year": 1872,
+        "kind": "reception",
+        "label": "Marx y Engels introducen matices retrospectivos",
+        "note": "Advierten que algunas formulaciones deben leerse a la luz de la Comuna y de nuevas experiencias históricas."
+      }
+    ],
+    "criticisms": [
+      {
+        "from": "Lecturas reformistas posteriores",
+        "claim": "Se ha intentado leerlo como declaración genérica de progreso histórico, separándolo de su apuesta por la ruptura política."
+      },
+      {
+        "from": "Críticas al determinismo",
+        "claim": "Algunas lecturas lo consideran demasiado lineal en su exposición de la expansión capitalista y del papel revolucionario del proletariado."
+      }
+    ],
+    "legacy": "Sigue siendo la puerta clásica para entrar en la historia, el vocabulario y la autocomprensión política del marxismo.",
+    "questions_opened": [
+      "¿Cómo se articula un programa comunista con ciclos revolucionarios reales?",
+      "¿Qué significa pensar la política desde la lucha de clases a escala internacional?"
+    ]
   }
 }
