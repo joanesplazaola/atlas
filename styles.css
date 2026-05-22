@@ -23,7 +23,13 @@
   --radius:        14px;
   --radius-sm:     8px;
   --shadow:        0 8px 32px rgba(0,0,0,0.4);
-  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  --topbar-bg:     rgba(18,21,30,0.92);
+  --map-header-bg: rgba(18,21,30,0.70);
+  --font-heading:  "Lora", Georgia, serif;
+  --font-body:     "Inter", system-ui, -apple-system, sans-serif;
+  --accent-fg:     #ffb8b5;
+  --accent-border: rgba(232,82,74,0.35);
+  font-family: var(--font-body);
   font-size: 15px;
 }
 
@@ -40,7 +46,7 @@ body {
   overflow: hidden;
 }
 
-h1,h2,h3,h4 { margin: 0; font-family: "Lora", Georgia, serif; }
+h1,h2,h3,h4 { margin: 0; font-family: var(--font-heading); }
 p  { margin: 0; }
 a  { color: inherit; }
 button, input { font: inherit; }
@@ -51,7 +57,7 @@ button { cursor: pointer; }
   flex-shrink: 0;
   height: var(--topbar-h);
   border-bottom: 1px solid var(--border);
-  background: rgba(18,21,30,0.9);
+  background: var(--topbar-bg);
   backdrop-filter: blur(12px);
 }
 
@@ -79,7 +85,7 @@ button { cursor: pointer; }
 }
 
 .topbar__title {
-  font-family: "Lora", serif;
+  font-family: var(--font-heading);
   font-size: 1.05rem;
   font-weight: 600;
   color: var(--text);
@@ -112,8 +118,8 @@ button { cursor: pointer; }
 
 .topbar__nav-btn--active {
   background: var(--accent-dim);
-  border-color: rgba(232,82,74,0.35);
-  color: #ffb8b5;
+  border-color: var(--accent-border);
+  color: var(--accent-fg);
 }
 
 .topbar__claim {
@@ -196,7 +202,7 @@ button { cursor: pointer; }
 
 .stat-pill {
   background: var(--accent-dim);
-  color: #ffb8b5;
+  color: var(--accent-fg);
   border-radius: 999px;
   padding: 4px 10px;
   font-size: 0.75rem;
@@ -267,7 +273,7 @@ button { cursor: pointer; }
 
 .theme-card--active {
   background: var(--surface-hover);
-  border-color: rgba(232,82,74,0.35);
+  border-color: var(--accent-border);
 }
 
 .theme-card--active::before {
@@ -282,7 +288,7 @@ button { cursor: pointer; }
 }
 
 .theme-card__title {
-  font-family: "Lora", serif;
+  font-family: var(--font-heading);
   font-size: 1rem;
   font-weight: 600;
   line-height: 1.25;
@@ -330,8 +336,8 @@ button.chip:focus-visible {
 
 .chip--selected {
   background: var(--accent-dim);
-  color: #ffb8b5;
-  border-color: rgba(232,82,74,0.35);
+  color: var(--accent-fg);
+  border-color: var(--accent-border);
 }
 
 .empty-state {
@@ -430,7 +436,7 @@ button.chip:focus-visible {
 }
 
 .detail__stat-num {
-  font-family: "Lora", serif;
+  font-family: var(--font-heading);
   font-size: 1rem;
   font-weight: 600;
   color: var(--text);
@@ -559,7 +565,7 @@ button.chip:focus-visible {
 
 .author-list-card--active {
   background: var(--surface-hover);
-  border-color: rgba(232,82,74,0.35);
+  border-color: var(--accent-border);
 }
 
 .author-list-card--active::before {
@@ -576,7 +582,7 @@ button.chip:focus-visible {
 .author-list-card { position: relative; }
 
 .author-list-card__name {
-  font-family: "Lora", serif;
+  font-family: var(--font-heading);
   font-size: 0.95rem;
   font-weight: 600;
 }
@@ -597,9 +603,9 @@ button.chip:focus-visible {
 
 .chip--theme {
   background: var(--accent-dim);
-  color: #ffb8b5;
+  color: var(--accent-fg);
   border-color: rgba(232,82,74,0.25);
-  font-family: "Lora", serif;
+  font-family: var(--font-heading);
 }
 
 .chip--theme:hover,
@@ -682,7 +688,7 @@ button.chip:focus-visible {
 }
 
 .author-card__name {
-  font-family: "Lora", serif;
+  font-family: var(--font-heading);
   font-size: 1rem;
   font-weight: 600;
 }
@@ -750,7 +756,7 @@ button.chip:focus-visible {
 }
 
 .work-card__title {
-  font-family: "Lora", serif;
+  font-family: var(--font-heading);
   font-size: 1.02rem;
   font-weight: 600;
   line-height: 1.3;
@@ -796,7 +802,7 @@ button.chip:focus-visible {
   border-radius: var(--radius-sm);
   background: var(--accent-dim);
   border: 1px solid rgba(232,82,74,0.25);
-  color: #ffb8b5;
+  color: var(--accent-fg);
   text-decoration: none;
   font-size: 0.85rem;
   font-weight: 600;
@@ -836,7 +842,7 @@ button.chip:focus-visible {
 }
 
 .route-card__title {
-  font-family: "Lora", serif;
+  font-family: var(--font-heading);
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 6px;
@@ -921,7 +927,7 @@ button.chip:focus-visible {
 
 .debate-card__title {
   font-size: 0.95rem;
-  font-family: "Lora", serif;
+  font-family: var(--font-heading);
   font-weight: 600;
   margin-bottom: 6px;
 }
@@ -1180,7 +1186,7 @@ body.modal-open { overflow: hidden; }
   justify-content: space-between;
   gap: 16px;
   flex-wrap: wrap;
-  background: rgba(18,21,30,0.7);
+  background: var(--map-header-bg);
 }
 
 .map-header__controls {
@@ -1191,7 +1197,7 @@ body.modal-open { overflow: hidden; }
 }
 
 .map-header__title {
-  font-family: "Lora", serif;
+  font-family: var(--font-heading);
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--text);
@@ -1367,7 +1373,7 @@ body.modal-open { overflow: hidden; }
 }
 
 .map-node__title {
-  font-family: "Lora", serif;
+  font-family: var(--font-heading);
   font-size: 0.87rem;
   font-weight: 600;
   line-height: 1.3;
@@ -1406,7 +1412,7 @@ body.modal-open { overflow: hidden; }
 }
 
 .author-detail__name {
-  font-family: "Lora", serif;
+  font-family: var(--font-heading);
   font-size: 1.35rem;
   font-weight: 700;
   color: var(--text);
@@ -1457,7 +1463,7 @@ body.modal-open { overflow: hidden; }
 }
 
 .author-detail__bio {
-  font-family: "Lora", serif;
+  font-family: var(--font-heading);
   font-style: italic;
   font-size: 0.92rem;
   color: var(--text-muted);
@@ -1552,7 +1558,7 @@ body.modal-open { overflow: hidden; }
 }
 
 .author-landing__title {
-  font-family: "Lora", serif;
+  font-family: var(--font-heading);
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--text);
@@ -1647,7 +1653,7 @@ body.modal-open { overflow: hidden; }
 
 .landing__title {
   font-size: 1.35rem;
-  font-family: "Lora", Georgia, serif;
+  font-family: var(--font-heading);
   color: var(--text);
   margin-bottom: 0.5rem;
 }
@@ -1673,7 +1679,7 @@ body.modal-open { overflow: hidden; }
 .landing__stat-num {
   font-size: 1.5rem;
   font-weight: 700;
-  font-family: "Lora", Georgia, serif;
+  font-family: var(--font-heading);
   color: var(--accent);
   line-height: 1;
 }
@@ -1807,4 +1813,338 @@ body.modal-open { overflow: hidden; }
   font-size: 0.75rem;
   color: var(--text-muted);
   line-height: 1.4;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   TEMAS VISUALES
+   ════════════════════════════════════════════════════════════════ */
+
+/* ─── Tema: Editorial Archivo ────────────────────────────────── */
+[data-theme="editorial"] {
+  --bg:            #f7f3ea;
+  --surface:       #eee8d8;
+  --surface-raise: #e6dfc8;
+  --surface-hover: #dbd4bc;
+  --border:        rgba(26,16,8,0.12);
+  --border-strong: rgba(26,16,8,0.24);
+  --text:          #1a1008;
+  --text-muted:    #5a4838;
+  --text-dim:      #9a8878;
+  --accent:        #7a1c1c;
+  --accent-fg:     #7a1c1c;
+  --accent-border: rgba(122,28,28,0.35);
+  --accent-dim:    rgba(122,28,28,0.08);
+  --accent-glow:   rgba(122,28,28,0.04);
+  --green:         #2e5c2e;
+  --green-dim:     rgba(46,92,46,0.12);
+  --yellow:        #7a5a00;
+  --yellow-dim:    rgba(122,90,0,0.12);
+  --red:           #7a1c1c;
+  --red-dim:       rgba(122,28,28,0.10);
+  --topbar-bg:     #f7f3ea;
+  --map-header-bg: rgba(247,243,234,0.95);
+  --font-heading:  "IM Fell English", Georgia, "Times New Roman", serif;
+  --font-body:     "IM Fell English", Georgia, "Times New Roman", serif;
+  --radius:        2px;
+  --radius-sm:     1px;
+  --shadow:        0 1px 6px rgba(0,0,0,0.12);
+  scrollbar-color: rgba(26,16,8,0.15) transparent;
+}
+
+[data-theme="editorial"] .topbar {
+  border-bottom: 2px solid var(--text);
+  backdrop-filter: none;
+}
+
+[data-theme="editorial"] .topbar__nav-btn--active {
+  background: var(--accent-dim);
+  border-color: var(--accent-border);
+  color: var(--accent);
+}
+
+[data-theme="editorial"] h1,
+[data-theme="editorial"] h2,
+[data-theme="editorial"] h3 {
+  font-style: italic;
+}
+
+[data-theme="editorial"] .detail__eyebrow {
+  font-family: "Inter", sans-serif;
+  font-size: 0.65rem;
+}
+
+[data-theme="editorial"] .topbar__title {
+  font-style: italic;
+}
+
+[data-theme="editorial"] .topbar__title em {
+  font-style: normal;
+  color: var(--text-muted);
+}
+
+[data-theme="editorial"] .chip--theme {
+  background: var(--accent-dim);
+  color: var(--accent);
+  border-color: var(--accent-border);
+  font-style: italic;
+}
+
+[data-theme="editorial"] .chip--selected {
+  background: var(--accent-dim);
+  color: var(--accent);
+  border-color: var(--accent-border);
+}
+
+[data-theme="editorial"] .work-card__link {
+  color: var(--accent);
+  border-color: var(--accent-border);
+}
+
+[data-theme="editorial"] .theme-card--active {
+  border-color: var(--accent-border);
+}
+
+[data-theme="editorial"] .topbar__nav-btn--active,
+[data-theme="editorial"] .stat-pill {
+  color: var(--accent);
+}
+
+[data-theme="editorial"] .editorial-note {
+  border-left-color: var(--accent);
+  border-left-width: 4px;
+  font-style: italic;
+}
+
+[data-theme="editorial"] .landing__hero {
+  background: linear-gradient(180deg, var(--surface-raise) 0%, transparent 100%);
+  border-bottom: 2px solid var(--border-strong);
+}
+
+[data-theme="editorial"] .route-step__num {
+  border-radius: 0;
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+}
+
+[data-theme="editorial"] .badge--kind,
+[data-theme="editorial"] .badge--effort {
+  border-radius: 0;
+}
+
+[data-theme="editorial"] .section-title {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+}
+
+/* ─── Tema: Constructivista ───────────────────────────────────── */
+[data-theme="constructivista"] {
+  --bg:            #f0e6d0;
+  --surface:       #e4d8be;
+  --surface-raise: #d8ccb0;
+  --surface-hover: #ccc09e;
+  --border:        rgba(13,5,0,0.18);
+  --border-strong: rgba(13,5,0,0.40);
+  --text:          #0d0500;
+  --text-muted:    #3d2200;
+  --text-dim:      #8a6840;
+  --accent:        #c41e00;
+  --accent-fg:     #c41e00;
+  --accent-border: rgba(196,30,0,0.5);
+  --accent-dim:    rgba(196,30,0,0.10);
+  --accent-glow:   rgba(196,30,0,0.05);
+  --green:         #1a4a1a;
+  --green-dim:     rgba(26,74,26,0.12);
+  --yellow:        #8a5500;
+  --yellow-dim:    rgba(138,85,0,0.12);
+  --red:           #c41e00;
+  --red-dim:       rgba(196,30,0,0.10);
+  --topbar-bg:     #0d0500;
+  --map-header-bg: rgba(13,5,0,0.9);
+  --font-heading:  "Oswald", "Impact", Arial Narrow, sans-serif;
+  --font-body:     "Inter", system-ui, sans-serif;
+  --radius:        0px;
+  --radius-sm:     0px;
+  --shadow:        3px 3px 0 rgba(13,5,0,0.4);
+  scrollbar-color: rgba(196,30,0,0.4) transparent;
+}
+
+/* Dark topbar — text must be light */
+[data-theme="constructivista"] .topbar {
+  border-bottom: 3px solid var(--accent);
+  backdrop-filter: none;
+}
+
+[data-theme="constructivista"] .topbar__title,
+[data-theme="constructivista"] .topbar__nav-btn,
+[data-theme="constructivista"] .topbar__claim {
+  color: rgba(240,230,208,0.9);
+}
+
+[data-theme="constructivista"] .topbar__title em {
+  color: rgba(240,230,208,0.55);
+}
+
+[data-theme="constructivista"] .topbar__nav-btn {
+  border-color: rgba(240,230,208,0.15);
+  color: rgba(240,230,208,0.7);
+}
+
+[data-theme="constructivista"] .topbar__nav-btn:hover {
+  color: rgba(240,230,208,1);
+  background: rgba(240,230,208,0.08);
+  border-color: rgba(240,230,208,0.3);
+}
+
+[data-theme="constructivista"] .topbar__nav-btn--active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: rgba(240,230,208,1);
+}
+
+[data-theme="constructivista"] .topbar__claim {
+  color: rgba(240,230,208,0.4);
+}
+
+[data-theme="constructivista"] h1,
+[data-theme="constructivista"] h2,
+[data-theme="constructivista"] h3,
+[data-theme="constructivista"] h4,
+[data-theme="constructivista"] .theme-card__title,
+[data-theme="constructivista"] .author-card__name,
+[data-theme="constructivista"] .author-list-card__name,
+[data-theme="constructivista"] .work-card__title,
+[data-theme="constructivista"] .route-card__title,
+[data-theme="constructivista"] .debate-card__title,
+[data-theme="constructivista"] #detail-title {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+[data-theme="constructivista"] .theme-card--active::before {
+  border-radius: 0;
+  width: 4px;
+}
+
+[data-theme="constructivista"] .chip--theme {
+  background: var(--accent);
+  color: rgba(240,230,208,1);
+  border-color: var(--accent);
+  border-radius: 0;
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.7rem;
+}
+
+[data-theme="constructivista"] .chip--theme:hover {
+  background: #a01800;
+  border-color: #a01800;
+  color: rgba(240,230,208,1);
+}
+
+[data-theme="constructivista"] .chip--selected {
+  background: var(--accent-dim);
+  color: var(--accent);
+  border-color: var(--accent-border);
+}
+
+[data-theme="constructivista"] .work-card__link {
+  color: var(--accent);
+  border-color: var(--accent-border);
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+}
+
+[data-theme="constructivista"] .editorial-note {
+  border-left-width: 5px;
+  border-left-color: var(--accent);
+  border-radius: 0;
+}
+
+[data-theme="constructivista"] .editorial-note__label {
+  font-family: var(--font-heading);
+  letter-spacing: 0.1em;
+}
+
+[data-theme="constructivista"] .route-step__num {
+  border-radius: 0;
+  background: var(--accent);
+  color: #f0e6d0;
+  border-color: var(--accent);
+  font-family: var(--font-heading);
+}
+
+[data-theme="constructivista"] .detail__eyebrow {
+  font-family: var(--font-heading);
+  letter-spacing: 0.15em;
+  font-size: 0.72rem;
+}
+
+[data-theme="constructivista"] .badge {
+  border-radius: 0;
+  font-family: var(--font-heading);
+  letter-spacing: 0.06em;
+}
+
+[data-theme="constructivista"] .tab-btn--active {
+  font-family: var(--font-heading);
+  letter-spacing: 0.05em;
+  border-bottom-width: 3px;
+}
+
+[data-theme="constructivista"] .landing__hero {
+  background: linear-gradient(180deg, rgba(196,30,0,0.08) 0%, transparent 100%);
+  border-bottom: 2px solid var(--border-strong);
+}
+
+[data-theme="constructivista"] .landing__stat-num {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+}
+
+[data-theme="constructivista"] .map-header {
+  border-bottom: 2px solid var(--accent);
+}
+
+/* ─── Theme switcher ──────────────────────────────────────────── */
+.theme-switcher {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  margin-left: auto;
+}
+
+.theme-btn {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 140ms, box-shadow 140ms;
+  flex-shrink: 0;
+  position: relative;
+  outline: none;
+}
+
+.theme-btn:hover   { transform: scale(1.15); }
+.theme-btn:focus-visible { box-shadow: 0 0 0 3px var(--accent); }
+
+.theme-btn--oscuro         { background: #0c0e14; border-color: #e8524a; }
+.theme-btn--editorial      { background: #f7f3ea; border-color: #7a1c1c; }
+.theme-btn--constructivista {
+  background: conic-gradient(#0d0500 180deg, #c41e00 180deg);
+  border-color: #c41e00;
+}
+
+.theme-btn--active {
+  box-shadow: 0 0 0 2px var(--bg, #fff), 0 0 0 4px var(--accent);
+}
+
+/* Switcher adapts in dark topbars */
+[data-theme="constructivista"] .theme-btn--active {
+  box-shadow: 0 0 0 2px #0d0500, 0 0 0 4px rgba(240,230,208,0.8);
 }
