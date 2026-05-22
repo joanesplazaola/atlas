@@ -85,21 +85,18 @@ test.describe("Atlas Marxista — sistema de tabs", () => {
     await expect(page.locator(".route-card").first()).toBeVisible();
   });
 
-  test("el launcher de estudio genera un recorrido con enlaces a Marxists.org", async ({ page }) => {
+  test("la tab Rutas prioriza rutas editoriales explícitas y no un launcher generado", async ({ page }) => {
     await page.goto("/#tema/estado");
     await page.locator(".tab-btn", { hasText: /Rutas/ }).click();
-    await expect(page.locator(".study-launcher")).toBeVisible();
-    await expect(page.locator(".study-plan")).toBeVisible();
-    await expect(page.locator(".study-plan__step").first()).toBeVisible();
-    await expect(page.locator(".study-plan__step-link").first()).toHaveAttribute("href", /marxists\.org/);
+    await expect(page.locator(".routes-intro")).toBeVisible();
+    await expect(page.locator(".study-launcher")).toHaveCount(0);
+    await expect(page.locator(".route-card").first()).toBeVisible();
   });
 
-  test("el launcher permite cambiar a modo debate", async ({ page }) => {
-    await page.goto("/#tema/partido");
+  test("los pasos de las rutas enlazan al texto original", async ({ page }) => {
+    await page.goto("/#tema/imperialismo");
     await page.locator(".tab-btn", { hasText: /Rutas/ }).click();
-    await page.locator('.study-toggle[data-goal="debate"]').click();
-    await expect(page.locator(".study-plan__eyebrow")).toContainText(/debate/i);
-    await expect(page.locator(".study-plan__title")).toContainText(/debate/i);
+    await expect(page.locator(".route-step__link").first()).toHaveAttribute("href", /marxists\.org/);
   });
 
   test("la presentación muestra una guía explícita de dónde empezar", async ({ page }) => {

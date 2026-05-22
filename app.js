@@ -65,38 +65,6 @@ const levelBadge = { introductory: "badge--intro",  intermediate: "badge--inter"
 const effortLabel = { short: "corto", medium: "medio", long: "largo" };
 const kindLabel   = { article: "artículo", chapter: "capítulo", book: "libro", pamphlet: "folleto", speech: "discurso", letter: "carta" };
 const routeAccent = { introductory: "var(--green)", intermediate: "var(--yellow)", advanced: "var(--red)" };
-const effortUnits = { short: 1, medium: 2, long: 3 };
-const studyGoalPresets = [
-  {
-    id: "start",
-    label: "Entrar",
-    title: "Entrada guiada",
-    description: "Un recorrido corto para orientarte sin perder el hilo del problema.",
-  },
-  {
-    id: "history",
-    label: "Historia",
-    title: "Recorrido histórico",
-    description: "Sigue el problema en secuencia, desde su contexto hasta su formulación más nítida.",
-  },
-  {
-    id: "debate",
-    label: "Debate",
-    title: "Ruta de debate",
-    description: "Lee posiciones en tensión y entiende qué desacuerdo organiza el tema.",
-  },
-  {
-    id: "deep",
-    label: "Profundizar",
-    title: "Profundización",
-    description: "Un itinerario más exigente para ir al núcleo teórico y estratégico.",
-  },
-];
-const studyBudgetPresets = [
-  { id: "quick", label: "45 min", description: "1-2 textos", maxUnits: 3, maxSteps: 2 },
-  { id: "session", label: "90 min", description: "2-3 textos", maxUnits: 5, maxSteps: 3 },
-  { id: "seminar", label: "3 sesiones", description: "3-4 textos", maxUnits: 8, maxSteps: 4 },
-];
 
 function buildSearchText(t) {
   return norm([
@@ -104,154 +72,6 @@ function buildSearchText(t) {
     ...(t.key_author_names ?? t.key_authors?.map(a => `${a.name} ${a.role} ${a.why_relevant}`) ?? []),
     ...(t.concept_labels   ?? t.connected_concepts?.map(c => `${c.label} ${c.relation}`) ?? []),
   ].join(" "));
-}
-
-function getRouteText(route) {
-  return norm([
-    route.label,
-    route.goal,
-    ...(route.steps ?? []).map(step => step.note),
-  ].join(" "));
-}
-
-function scoreRouteForGoal(route, workById, goalId) {
-  const routeText = getRouteText(route);
-  const authors = new Set(
-    (route.steps ?? [])
-      .flatMap(step => workById.get(step.work_id)?.author_ids ?? [])
-      .filter(Boolean)
-  );
-
-  let score = 0;
-  if (goalId === "start") {
-    if (route.level === "introductory") score += 40;
-    if (route.steps.length <= 2) score += 18;
-    if (route.steps.length === 3) score += 10;
-  }
-  if (goalId === "history") {
-    if (/hist|origen|comuna|proceso|secuencia|contexto/.test(routeText)) score += 30;
-    if (route.level === "intermediate") score += 12;
-  }
-  if (goalId === "debate") {
-    if (/debate|critica|critica|pol[eé]mica|tensi[oó]n|estrateg|respuesta|controvers/.test(routeText)) score += 24;
-    if (authors.size > 1) score += 20;
-  }
-  if (goalId === "deep") {
-    if (route.level === "advanced") score += 42;
-    if (/metodo|m[eé]todo|mercanc[ií]a|hegemon[ií]a|te[oó]ric|profund|dial[eé]ctic/.test(routeText)) score += 18;
-    score += route.steps.length * 3;
-  }
-
-  score += authors.size * 2;
-  score += route.steps.length;
-  return score;
-}
-
-function buildDebateRoute(theme) {
-  const debate = [...(theme.historical_debates ?? [])]
-    .sort((a, b) => (b.related_work_ids?.length ?? 0) - (a.related_work_ids?.length ?? 0))[0];
-
-  if (!debate?.related_work_ids?.length) return null;
-
-  const stepNotes = [
-    "Empieza por la formulación que fija mejor el problema.",
-    "Contrasta esta lectura con la anterior y localiza el desacuerdo central.",
-    "Usa este tercer texto para ampliar el choque estratégico o teórico.",
-    "Cierra comparando qué presupuestos conserva y cuáles rompe esta intervención.",
-  ];
-
-  return {
-    id: `debate-${debate.id}`,
-    label: `Debate: ${debate.label}`,
-    level: "intermediate",
-    goal: debate.description,
-    steps: debate.related_work_ids.map((work_id, index) => ({
-      position: index + 1,
-      work_id,
-      note: stepNotes[index] || "Úsalo para completar el mapa del debate.",
-    })),
-    synthetic: true,
-    debate,
-  };
-}
-
-function pickStudyRoute(theme, workById, goalId) {
-  const routes = [...(theme.reading_paths ?? [])];
-  if (goalId === "debate") {
-    const debateRoute = buildDebateRoute(theme);
-    if (debateRoute) return debateRoute;
-  }
-
-  if (!routes.length) return null;
-  return routes
-    .map(route => ({ route, score: scoreRouteForGoal(route, workById, goalId) }))
-    .sort((a, b) => b.score - a.score)[0]
-    ?.route ?? null;
-}
-
-function trimStudySteps(steps, workById, budget) {
-  if (!steps.length) return [];
-
-  const chosen = [];
-  let units = 0;
-
-  for (const step of steps) {
-    const work = workById.get(step.work_id);
-    const weight = effortUnits[work?.estimated_effort ?? "medium"] || 2;
-    const canFit = chosen.length < budget.maxSteps && (units + weight <= budget.maxUnits || chosen.length === 0);
-    if (!canFit) break;
-    chosen.push(step);
-    units += weight;
-  }
-
-  return chosen.length ? chosen : [steps[0]];
-}
-
-function pickStudyBranches(theme, goalId) {
-  const related = (theme.related_themes ?? [])
-    .map(slug => state.themes.find(t => t.slug === slug))
-    .filter(Boolean);
-
-  const scored = related.map(nextTheme => {
-    const haystack = norm(`${nextTheme.title} ${nextTheme.summary}`);
-    let score = 0;
-    if (goalId === "history" && /estado|revoluci|imperial|naci[oó]n|reforma/.test(haystack)) score += 4;
-    if (goalId === "debate" && /fascismo|partido|estado|reforma|revoluci/.test(haystack)) score += 4;
-    if (goalId === "deep" && /valor|dial[eé]ctica|estado|imperial|partido/.test(haystack)) score += 4;
-    if (goalId === "start" && /estado|valor|partido|revoluci/.test(haystack)) score += 2;
-    return { nextTheme, score };
-  });
-
-  return scored
-    .sort((a, b) => b.score - a.score || a.nextTheme.title.localeCompare(b.nextTheme.title, "es"))
-    .slice(0, 3)
-    .map(({ nextTheme }) => nextTheme);
-}
-
-function buildStudyPlan(theme, workById, goalId, budgetId) {
-  const goal = studyGoalPresets.find(item => item.id === goalId) || studyGoalPresets[0];
-  const budget = studyBudgetPresets.find(item => item.id === budgetId) || studyBudgetPresets[0];
-  const route = pickStudyRoute(theme, workById, goal.id);
-
-  if (!route) return null;
-
-  const trimmedSteps = trimStudySteps(route.steps ?? [], workById, budget);
-  const totalUnits = trimmedSteps.reduce((sum, step) => {
-    const work = workById.get(step.work_id);
-    return sum + (effortUnits[work?.estimated_effort ?? "medium"] || 2);
-  }, 0);
-
-  return {
-    goal,
-    budget,
-    route,
-    steps: trimmedSteps,
-    totalUnits,
-    branches: pickStudyBranches(theme, goal.id),
-    sourceLabel: route.synthetic
-      ? `Basado en el debate: ${route.debate.label}`
-      : `Basado en la ruta: ${route.label}`,
-  };
 }
 
 /* ─── Concept chip factory ─────────────────────────────────────── */
@@ -916,151 +736,44 @@ async function renderDetail() {
 
     /* ── Routes tab ── */
     const routesEl = detailContent.querySelector("#tab-routes");
+    const routeStartWork = startHereWorkId ? workById.get(startHereWorkId) : null;
+    const routeNextWork = afterThisWorkId ? workById.get(afterThisWorkId) : null;
+    const routeStartHtml = routeStartWork?.source?.url
+      ? `<a class="routes-intro__link" href="${esc(routeStartWork.source.url)}" target="_blank" rel="noreferrer">${esc(routeStartWork.title)}</a>`
+      : `<span class="routes-intro__link">${esc(routeStartWork?.title || "")}</span>`;
+    const routeNextHtml = routeNextWork?.source?.url
+      ? `<a class="routes-intro__link" href="${esc(routeNextWork.source.url)}" target="_blank" rel="noreferrer">${esc(routeNextWork.title)}</a>`
+      : `<span class="routes-intro__link">${esc(routeNextWork?.title || "")}</span>`;
     routesEl.innerHTML = `
-      <section class="study-launcher">
-        <div class="study-launcher__intro">
-          <div class="study-launcher__eyebrow">Empieza a estudiar</div>
-          <h3 class="study-launcher__title">Lanza una ruta guiada para ${esc(theme.title)}</h3>
-          <p class="study-launcher__desc">Elige el tipo de recorrido y el tiempo que tienes. El atlas te propone una secuencia compacta y el siguiente salto más lógico.</p>
-        </div>
-        <div class="study-launcher__controls">
-          <div class="study-launcher__control">
-            <span class="study-launcher__label">Objetivo</span>
-            <div class="study-launcher__toggles" id="study-goals"></div>
-          </div>
-          <div class="study-launcher__control">
-            <span class="study-launcher__label">Tiempo</span>
-            <div class="study-launcher__toggles" id="study-budgets"></div>
-          </div>
-        </div>
-        <div id="study-plan"></div>
+      <section class="routes-intro">
+        <div class="routes-intro__eyebrow">Rutas editoriales</div>
+        <h3 class="routes-intro__title">Recorridos explícitos para estudiar ${esc(theme.title)}</h3>
+        <p class="routes-intro__desc">Aquí no hay rutas generadas: cada itinerario está escrito como una propuesta editorial concreta para entrar, comparar o profundizar.</p>
+        ${guidance ? `
+          <div class="routes-intro__flow">
+            <span>Si vienes de cero, empieza por ${routeStartHtml}.</span>
+            ${routeNextWork ? `<span>Después sigue con ${routeNextHtml}.</span>` : ""}
+          </div>` : ""}
       </section>
-      <section class="routes-library">
-        <p class="section-title">Rutas editoriales completas</p>
-        <div class="routes-grid" id="routes-inner"></div>
-      </section>`;
-    const studyGoalsEl = routesEl.querySelector("#study-goals");
-    const studyBudgetsEl = routesEl.querySelector("#study-budgets");
-    const studyPlanEl = routesEl.querySelector("#study-plan");
+      <div class="routes-grid" id="routes-inner"></div>`;
     const routesInner = routesEl.querySelector("#routes-inner");
-    const studySelection = { goal: "start", budget: "quick" };
-
-    const renderStudyPlan = () => {
-      const plan = buildStudyPlan(theme, workById, studySelection.goal, studySelection.budget);
-      if (!plan) {
-        studyPlanEl.innerHTML = `<div class="empty-state">Todavía no hay suficientes referencias para generar una ruta guiada.</div>`;
-        return;
-      }
-
-      studyPlanEl.innerHTML = `
-        <article class="study-plan">
-          <header class="study-plan__header">
-            <div>
-              <div class="study-plan__eyebrow">${esc(plan.sourceLabel)}</div>
-              <h4 class="study-plan__title">${esc(`${plan.goal.title} · ${theme.title}`)}</h4>
-              <p class="study-plan__summary">${esc(plan.goal.description)}</p>
-            </div>
-            <div class="study-plan__meta">
-              <span class="study-plan__pill">${esc(levelLabel[plan.route.level] || plan.route.level)}</span>
-              <span class="study-plan__pill">${plan.steps.length} parada${plan.steps.length !== 1 ? "s" : ""}</span>
-              <span class="study-plan__pill">${esc(plan.budget.label)}</span>
-            </div>
-          </header>
-          <div class="study-plan__steps">
-            ${plan.steps.map((step, index) => {
-              const work = workById.get(step.work_id);
-              return `
-                <article class="study-plan__step">
-                  <div class="study-plan__step-num">${index + 1}</div>
-                  <div class="study-plan__step-body">
-                    <div class="study-plan__step-kicker">${index === 0 ? "Entrada" : index === plan.steps.length - 1 ? "Cierre" : "Puente"}</div>
-                    <div class="study-plan__step-title">${esc(work?.title || step.work_id)}</div>
-                    <div class="study-plan__step-meta">${esc(getWorkMeta(work))}</div>
-                    <p class="study-plan__step-note">${esc(step.note || work?.reason_to_read || theme.summary)}</p>
-                    ${work?.source?.url ? `
-                      <a class="study-plan__step-link" href="${esc(work.source.url)}" target="_blank" rel="noreferrer">
-                        Leer en ${esc(work.source.provider ?? "fuente")}
-                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                          <path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                      </a>` : ""}
-                  </div>
-                </article>`;
-            }).join("")}
-          </div>
-          ${plan.branches.length ? `
-            <div class="study-plan__branches">
-              <div class="study-plan__branches-label">Siguientes saltos</div>
-              <div class="study-plan__branch-grid">
-                ${plan.branches.map(nextTheme => `
-                  <button type="button" class="study-branch" data-study-slug="${esc(nextTheme.slug)}">
-                    <span class="study-branch__eyebrow">${studySelection.goal === "debate" ? "Abrir otro frente" : studySelection.goal === "history" ? "Seguir el hilo" : "Continuar por"}</span>
-                    <span class="study-branch__title">${esc(nextTheme.title)}</span>
-                    <span class="study-branch__summary">${esc(nextTheme.summary)}</span>
-                  </button>`).join("")}
-              </div>
-            </div>` : ""}
-        </article>`;
-
-      studyPlanEl.querySelectorAll("[data-study-slug]").forEach(btn => {
-        btn.addEventListener("click", () => {
-          const slug = btn.dataset.studySlug;
-          if (!slug) return;
-          state.selectedSlug = slug;
-          state.activeTab = "overview";
-          setHash(slug);
-          renderList();
-          renderDetail();
-          switchMobileView("detail");
-        });
-      });
-    };
-
-    studyGoalPresets.forEach(goal => {
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = `study-toggle${studySelection.goal === goal.id ? " study-toggle--active" : ""}`;
-      btn.dataset.goal = goal.id;
-      btn.innerHTML = `<span class="study-toggle__title">${esc(goal.label)}</span><span class="study-toggle__desc">${esc(goal.description)}</span>`;
-      btn.addEventListener("click", () => {
-        studySelection.goal = goal.id;
-        studyGoalsEl.querySelectorAll(".study-toggle").forEach(toggle => {
-          toggle.classList.toggle("study-toggle--active", toggle === btn);
-        });
-        renderStudyPlan();
-      });
-      studyGoalsEl.appendChild(btn);
-    });
-
-    studyBudgetPresets.forEach(budget => {
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = `study-toggle study-toggle--budget${studySelection.budget === budget.id ? " study-toggle--active" : ""}`;
-      btn.dataset.budget = budget.id;
-      btn.innerHTML = `<span class="study-toggle__title">${esc(budget.label)}</span><span class="study-toggle__desc">${esc(budget.description)}</span>`;
-      btn.addEventListener("click", () => {
-        studySelection.budget = budget.id;
-        studyBudgetsEl.querySelectorAll(".study-toggle").forEach(toggle => {
-          toggle.classList.toggle("study-toggle--active", toggle === btn);
-        });
-        renderStudyPlan();
-      });
-      studyBudgetsEl.appendChild(btn);
-    });
-    renderStudyPlan();
 
     theme.reading_paths.forEach(rp => {
       const c = document.createElement("article");
       c.className = "route-card";
       const stepsHtml = rp.steps.map(s => {
         const w = workById.get(s.work_id);
+        const titleHtml = w?.source?.url
+          ? `<a class="route-step__title route-step__title--link" href="${esc(w.source.url)}" target="_blank" rel="noreferrer">${esc(w.title)}</a>`
+          : `<div class="route-step__title">${esc(w?.title || s.work_id)}</div>`;
         return `
           <div class="route-step">
             <span class="route-step__num">${s.position}</span>
             <div class="route-step__body">
-              <div class="route-step__title">${esc(w?.title || s.work_id)}</div>
+              ${titleHtml}
               ${getWorkMeta(w) ? `<div class="route-step__meta">${esc(getWorkMeta(w))}</div>` : ""}
               <div class="route-step__note">${esc(s.note)}</div>
+              ${w?.source?.url ? `<a class="route-step__link" href="${esc(w.source.url)}" target="_blank" rel="noreferrer">Abrir texto</a>` : ""}
             </div>
           </div>`;
       }).join("");
