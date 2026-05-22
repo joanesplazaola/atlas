@@ -85,6 +85,30 @@ test.describe("Atlas Marxista — sistema de tabs", () => {
     await expect(page.locator(".route-card").first()).toBeVisible();
   });
 
+  test("el launcher de estudio genera un recorrido con enlaces a Marxists.org", async ({ page }) => {
+    await page.goto("/#tema/estado");
+    await page.locator(".tab-btn", { hasText: /Rutas/ }).click();
+    await expect(page.locator(".study-launcher")).toBeVisible();
+    await expect(page.locator(".study-plan")).toBeVisible();
+    await expect(page.locator(".study-plan__step").first()).toBeVisible();
+    await expect(page.locator(".study-plan__step-link").first()).toHaveAttribute("href", /marxists\.org/);
+  });
+
+  test("el launcher permite cambiar a modo debate", async ({ page }) => {
+    await page.goto("/#tema/partido");
+    await page.locator(".tab-btn", { hasText: /Rutas/ }).click();
+    await page.locator('.study-toggle[data-goal="debate"]').click();
+    await expect(page.locator(".study-plan__eyebrow")).toContainText(/debate/i);
+    await expect(page.locator(".study-plan__title")).toContainText(/debate/i);
+  });
+
+  test("el CTA de Presentación abre el launcher de estudio", async ({ page }) => {
+    await page.goto("/#tema/imperialismo");
+    await page.locator("#open-study-launcher").click();
+    await expect(page.locator("#tab-routes")).toHaveClass(/tab-panel--active/);
+    await expect(page.locator(".study-launcher")).toBeVisible();
+  });
+
   test("cambiar al tab Debates muestra los debates", async ({ page }) => {
     await page.locator(".tab-btn", { hasText: /Debates/ }).click();
     await expect(page.locator("#tab-debates")).toHaveClass(/tab-panel--active/);
@@ -301,5 +325,4 @@ test.describe("Atlas Marxista — UX móvil", () => {
     await expect(page.locator(".sidebar")).toBeVisible();
   });
 });
-
 
