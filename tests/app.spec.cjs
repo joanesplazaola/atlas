@@ -256,6 +256,38 @@ test.describe("Atlas Marxista — vista de autores", () => {
     await expect(page.locator(".author-detail__ext-link")).toBeVisible();
   });
 
+  test("el detalle del autor permite scroll vertical cuando el contenido crece", async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 720 });
+    await page.goto("/#autor/lenin-vi");
+    await expect(page.locator(".author-detail__name")).toContainText(/Lenin/);
+
+    const metrics = await page.locator("#detail-content").evaluate(el => {
+      const computed = getComputedStyle(el);
+      const before = el.scrollTop;
+      el.scrollTop = 220;
+      return {
+        overflowY: computed.overflowY,
+        clientHeight: el.clientHeight,
+        scrollHeight: el.scrollHeight,
+        scrollTopBefore: before,
+        scrollTopAfter: el.scrollTop,
+      };
+    });
+
+    expect(metrics.overflowY).toBe("auto");
+    expect(metrics.scrollHeight).toBeGreaterThan(metrics.clientHeight);
+    expect(metrics.scrollTopAfter).toBeGreaterThan(metrics.scrollTopBefore);
+  });
+
+  test("el detalle del autor muestra una cronología con textos y contexto histórico", async ({ page }) => {
+    await page.goto("/#autor/lenin-vi");
+    await expect(page.locator(".author-timeline")).toBeVisible();
+    await expect(page.locator(".author-timeline__item--context").first()).toBeVisible();
+    await expect(page.locator(".author-timeline__item--work .author-timeline__title--link").first()).toHaveAttribute("href", /marxists\.org/);
+    const years = await page.locator(".author-timeline__year").allTextContents();
+    expect(years).toEqual(expect.arrayContaining(["1870", "1914", "1924"]));
+  });
+
   test("el botón 'Ver todos los temas' en el detalle del autor filtra la vista de temas", async ({ page }) => {
     await page.goto("/");
     await page.locator("#nav-autores").click();

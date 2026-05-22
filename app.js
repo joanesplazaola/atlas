@@ -74,6 +74,24 @@ function buildSearchText(t) {
   ].join(" "));
 }
 
+const HISTORICAL_CONTEXT_EVENTS = [
+  { year: 1848, label: "Revoluciones de 1848", note: "Crisis revolucionaria europea que marca el horizonte político de Marx y Engels.", tags: ["estado", "revolucion", "teoria-del-valor"] },
+  { year: 1871, label: "Comuna de París", note: "Primera experiencia de poder obrero; clave para entender Estado y revolución.", tags: ["estado", "revolucion", "partido"] },
+  { year: 1905, label: "Revolución rusa de 1905", note: "Laboratorio de huelga de masas, soviets y organización revolucionaria.", tags: ["partido", "revolucion", "movimiento-obrero", "estado"] },
+  { year: 1914, label: "Estalla la I Guerra Mundial", note: "Punto de ruptura para la Segunda Internacional y para los debates sobre imperialismo.", tags: ["imperialismo", "partido", "cuestion-nacional", "estado"] },
+  { year: 1917, label: "Revoluciones de Febrero y Octubre", note: "Condensan el debate sobre partido, Estado, guerra e insurrección.", tags: ["estado", "partido", "imperialismo", "revolucion"] },
+  { year: 1919, label: "Fundación de la Internacional Comunista", note: "Nuevo intento de coordinación estratégica del comunismo internacional.", tags: ["partido", "revolucion", "imperialismo"] },
+  { year: 1933, label: "Hitler llega al poder", note: "Momento decisivo para entender el fracaso del movimiento obrero alemán y el ascenso del fascismo.", tags: ["fascismo", "partido", "movimiento-obrero"] },
+  { year: 1935, label: "Giro del Frente Popular", note: "Reorientación estratégica del comunismo internacional frente al fascismo.", tags: ["fascismo", "partido"] },
+  { year: 1949, label: "Revolución china", note: "Nuevo ciclo revolucionario que reabre debates sobre partido, imperialismo y campesinado.", tags: ["imperialismo", "partido", "cuestion-nacional", "dialectica"] },
+];
+
+function parseYearRange(years) {
+  if (!years) return {};
+  const nums = String(years).match(/\d{4}/g)?.map(Number) ?? [];
+  return { start: nums[0] ?? null, end: nums[1] ?? nums[0] ?? null };
+}
+
 /* ─── Concept chip factory ─────────────────────────────────────── */
 
 function conceptChip(label) {
@@ -337,6 +355,7 @@ function renderAuthorList() {
 function renderLandingPanel() {
   detailEmpty.hidden = true;
   detailContent.hidden = false;
+  detailContent.classList.remove("detail-content--author");
 
   const works   = state.themes.reduce((n, t) => n + (t.work_count ?? t.essential_works?.length ?? 0), 0);
   const authors = getAllAuthors().length;
@@ -433,6 +452,7 @@ function renderLandingPanel() {
 }
 
 async function renderDetail() {
+  detailContent.classList.remove("detail-content--author");
   if (state.view === "autores") {
     await renderAuthorDetail();
     return;
@@ -922,12 +942,14 @@ async function renderAuthorDetail() {
     }
 
     // Filter to works by this author
-    const authorWorks = allWorkRefs
-      .filter(ref => {
-        const w = state.worksCache.get(ref.work_id);
-        return w && (w.author_ids || []).includes(author.id);
-      })
-      .map(ref => ({ ...state.worksCache.get(ref.work_id), ...ref, id: ref.work_id }));
+    const authorWorks = Array.from(new Map(
+      allWorkRefs
+        .filter(ref => {
+          const w = state.worksCache.get(ref.work_id);
+          return w && (w.author_ids || []).includes(author.id);
+        })
+        .map(ref => [ref.work_id, { ...state.worksCache.get(ref.work_id), ...ref, id: ref.work_id }])
+    ).values()).sort((a, b) => (a.year || 0) - (b.year || 0));
 
     // Related authors: others that share themes with this author
     const relatedIds = new Set();
@@ -935,9 +957,64 @@ async function renderAuthorDetail() {
       (t.key_author_ids ?? []).forEach(id => { if (id !== author.id) relatedIds.add(id); });
     });
     const relatedAuthors = state.authors.filter(a => relatedIds.has(a.id));
+    const themeSlugs = new Set(authorThemes.map(t => t.slug).concat(author.themes || []));
+    const { start: birthYear, end: deathYear } = parseYearRange(author.years);
+    const workYears = authorWorks.map(w => w.year).filter(Boolean);
+    const timelineStart = birthYear ?? (workYears[0] || null);
+    const timelineEnd = deathYear ?? (workYears[workYears.length - 1] || null);
+    const timelineItems = [];
+
+    if (birthYear) {
+      timelineItems.push({
+        type: "life",
+        year: birthYear,
+        title: `Nacimiento de ${author.name}`,
+        note: author.nationality ? `${author.nationality}` : "Inicio de la trayectoria del autor.",
+      });
+    }
+
+    HISTORICAL_CONTEXT_EVENTS
+      .filter(event =>
+        (!timelineStart || event.year >= timelineStart) &&
+        (!timelineEnd || event.year <= timelineEnd) &&
+        event.tags.some(tag => themeSlugs.has(tag))
+      )
+      .forEach(event => {
+        timelineItems.push({
+          type: "context",
+          year: event.year,
+          title: event.label,
+          note: event.note,
+        });
+      });
+
+    authorWorks.forEach(work => {
+      timelineItems.push({
+        type: "work",
+        year: work.year,
+        title: work.title,
+        note: work.reason_to_read || "",
+        work,
+      });
+    });
+
+    if (deathYear && deathYear !== birthYear) {
+      timelineItems.push({
+        type: "life",
+        year: deathYear,
+        title: `Muerte de ${author.name}`,
+        note: "Cierre de su trayectoria política e intelectual.",
+      });
+    }
+
+    timelineItems.sort((a, b) => {
+      const typeOrder = { life: 0, context: 1, work: 2 };
+      return (a.year - b.year) || ((typeOrder[a.type] ?? 9) - (typeOrder[b.type] ?? 9));
+    });
 
     // ── Build DOM ──────────────────────────────────────────────────
     detailContent.innerHTML = "";
+    detailContent.classList.add("detail-content--author");
 
     // Header
     const header = document.createElement("header");
@@ -975,6 +1052,37 @@ async function renderAuthorDetail() {
       bioSection.className = "author-detail__bio-section";
       bioSection.innerHTML = `<p class="author-detail__bio">${esc(author.short_bio)}</p>`;
       detailContent.appendChild(bioSection);
+    }
+
+    if (timelineItems.length) {
+      const timelineSection = document.createElement("div");
+      timelineSection.className = "author-detail__section";
+      const h3 = document.createElement("h3");
+      h3.className = "author-detail__section-title";
+      h3.textContent = "Cronología";
+      timelineSection.appendChild(h3);
+
+      const timeline = document.createElement("div");
+      timeline.className = "author-timeline";
+      timelineItems.forEach(item => {
+        const entry = document.createElement("article");
+        entry.className = `author-timeline__item author-timeline__item--${item.type}`;
+        const label = item.type === "work" ? "Texto" : item.type === "context" ? "Contexto" : "Vida";
+        const titleHtml = item.work?.source?.url
+          ? `<a class="author-timeline__title author-timeline__title--link" href="${esc(item.work.source.url)}" target="_blank" rel="noreferrer">${esc(item.title)}</a>`
+          : `<div class="author-timeline__title">${esc(item.title)}</div>`;
+        entry.innerHTML = `
+          <div class="author-timeline__year">${esc(String(item.year))}</div>
+          <div class="author-timeline__dot"></div>
+          <div class="author-timeline__body">
+            <div class="author-timeline__type">${label}</div>
+            ${titleHtml}
+            ${item.note ? `<p class="author-timeline__note">${esc(item.note)}</p>` : ""}
+          </div>`;
+        timeline.appendChild(entry);
+      });
+      timelineSection.appendChild(timeline);
+      detailContent.appendChild(timelineSection);
     }
 
     // Themes section
