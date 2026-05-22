@@ -17,6 +17,26 @@
       "description": "Luxemburgo cuestiona el centralismo leninista y defiende la espontaneidad y el autodesarrollo de la clase obrera. Su debate con Lenin es uno de los más fructíferos de la historia marxista."
     }
   ],
+  "study_guidance": {
+    "question": "Empieza por el problema organizativo más duro: ¿la clase necesita una dirección centralizada o se forma políticamente en su propia lucha?",
+    "start_here": {
+      "work_id": "que-hacer-lenin",
+      "why": "Fija el modelo bolchevique de partido y pone sobre la mesa la definición más influyente del problema.",
+      "focus": "Sigue las nociones de economismo, conciencia de clase, prensa y organización profesional de revolucionarios."
+    },
+    "assumes": [
+      "Ayuda tener presente el contexto ruso, pero no es imprescindible para captar la arquitectura del argumento.",
+      "Lo decisivo al empezar es distinguir partido, sindicato y espontaneidad."
+    ],
+    "after_this": {
+      "work_id": "huelga-masas-luxemburgo",
+      "reason": "Léelo enseguida para que el problema no quede cerrado por Lenin: Luxemburgo abre la crítica central."
+    },
+    "debate_to_watch": {
+      "debate_id": "debate-centralismo-espontaneidad",
+      "reason": "Es el nudo estratégico del tema y sigue reapareciendo en casi toda discusión sobre organización."
+    }
+  },
   "key_authors": [
     {
       "id": "lenin-vi",

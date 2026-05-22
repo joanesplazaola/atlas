@@ -12,6 +12,26 @@
       "description": "Empieza por como Marx y Lenin discuten si la clase trabajadora puede limitarse a ocupar el aparato estatal existente o necesita transformarlo radicalmente."
     }
   ],
+  "study_guidance": {
+    "question": "Empieza por la pregunta decisiva: ¿la clase trabajadora puede tomar el Estado existente o tiene que romperlo?",
+    "start_here": {
+      "work_id": "lenin-state-and-revolution",
+      "why": "Es el texto más nítido para fijar el problema político central del tema sin perderse todavía en genealogías largas.",
+      "focus": "Sigue de cerca la diferencia entre democracia burguesa, destrucción del aparato estatal y dictadura del proletariado."
+    },
+    "assumes": [
+      "No hace falta haber leído El Capital para entrar aquí.",
+      "Ayuda saber que la Comuna de París es el trasfondo histórico, pero el propio recorrido te lleva hasta ella."
+    ],
+    "after_this": {
+      "work_id": "marx-civil-war-in-france",
+      "reason": "Después de Lenin conviene volver a Marx para ver la experiencia histórica concreta que sostiene ese argumento."
+    },
+    "debate_to_watch": {
+      "debate_id": "tomar-o-destruir-la-maquina-estatal",
+      "reason": "Ahí aparece la fractura estratégica que organiza todo el tema."
+    }
+  },
   "key_authors": [
     {
       "id": "marx-karl",

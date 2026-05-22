@@ -675,6 +675,15 @@ async function renderDetail() {
         return [id, { ...work, ...(workRefById.get(id) || {}) }];
       })
     );
+    const guidance = theme.study_guidance ?? null;
+    const startHereWorkId = guidance?.start_here?.work_id ?? null;
+    const afterThisWorkId = guidance?.after_this?.work_id ?? null;
+    const getWorkMeta = (work) => {
+      const authors = (work?.author_ids ?? []).map(id => authorById.get(id)?.name).filter(Boolean).join(", ");
+      return [authors, work?.year, work?.estimated_effort ? `lectura ${effortLabel[work.estimated_effort] || work.estimated_effort}` : ""]
+        .filter(Boolean)
+        .join(" · ");
+    };
 
     const tabs = [
       { id: "overview",  label: "Presentación" },
@@ -760,15 +769,53 @@ async function renderDetail() {
 
     /* ── Overview tab ── */
     const overviewEl = detailContent.querySelector("#tab-overview");
-    overviewEl.innerHTML += `
-      <section class="study-cta">
-        <div>
-          <div class="study-cta__eyebrow">Empieza a estudiar</div>
-          <div class="study-cta__title">Genera una ruta compacta para este tema</div>
-          <p class="study-cta__desc">El launcher cruza rutas, debates y temas conectados para decirte qué leer primero y por dónde seguir.</p>
-        </div>
-        <button type="button" class="study-cta__btn" id="open-study-launcher">Abrir launcher</button>
-      </section>`;
+    if (guidance) {
+      const startWork = workById.get(guidance.start_here.work_id);
+      const nextWork = workById.get(guidance.after_this.work_id);
+      const nextWorkLink = nextWork?.source?.url
+        ? `<a class="start-here__next-link" href="${esc(nextWork.source.url)}" target="_blank" rel="noreferrer">${esc(nextWork.title)}</a>`
+        : `<span class="start-here__next-link">${esc(nextWork?.title || guidance.after_this.work_id)}</span>`;
+      const debate = theme.historical_debates.find(d => d.id === guidance.debate_to_watch?.debate_id);
+
+      overviewEl.innerHTML += `
+        <section class="start-here" aria-label="Dónde empezar">
+          <div class="start-here__eyebrow">Dónde empezar</div>
+          <h3 class="start-here__title">${esc(guidance.question)}</h3>
+          <div class="start-here__grid">
+            <article class="start-here__primary">
+              <div class="start-here__label">Lee primero</div>
+              ${startWork?.source?.url
+                ? `<a class="start-here__work" href="${esc(startWork.source.url)}" target="_blank" rel="noreferrer">${esc(startWork.title)}</a>`
+                : `<div class="start-here__work">${esc(startWork?.title || guidance.start_here.work_id)}</div>`}
+              ${getWorkMeta(startWork) ? `<div class="start-here__meta">${esc(getWorkMeta(startWork))}</div>` : ""}
+              <p class="start-here__why">${esc(guidance.start_here.why)}</p>
+              <p class="start-here__focus"><strong>Fíjate en:</strong> ${esc(guidance.start_here.focus)}</p>
+            </article>
+            <div class="start-here__secondary">
+              ${guidance.assumes?.length ? `
+                <div class="start-here__block">
+                  <div class="start-here__block-title">Antes de leer</div>
+                  <ul class="start-here__list">
+                    ${guidance.assumes.map(item => `<li>${esc(item)}</li>`).join("")}
+                  </ul>
+                </div>` : ""}
+              <div class="start-here__block">
+                <div class="start-here__block-title">Qué leer después</div>
+                <p class="start-here__next">${nextWorkLink}</p>
+                <p class="start-here__next-note">${esc(guidance.after_this.reason)}</p>
+              </div>
+              ${debate ? `
+                <div class="start-here__block">
+                  <div class="start-here__block-title">Debate que abre</div>
+                  <button type="button" class="start-here__debate-btn" id="open-guidance-debate">
+                    <span class="start-here__debate-name">${esc(debate.label)}</span>
+                    <span class="start-here__debate-note">${esc(guidance.debate_to_watch.reason)}</span>
+                  </button>
+                </div>` : ""}
+            </div>
+          </div>
+        </section>`;
+    }
 
     if (theme.editorial_intent) {
       overviewEl.innerHTML += `
@@ -827,7 +874,7 @@ async function renderDetail() {
         });
       }
     }
-    overviewEl.querySelector("#open-study-launcher")?.addEventListener("click", () => activateTab("routes"));
+    overviewEl.querySelector("#open-guidance-debate")?.addEventListener("click", () => activateTab("debates"));
 
     /* ── Works tab ── */
     const worksEl = detailContent.querySelector("#tab-works");
@@ -837,17 +884,26 @@ async function renderDetail() {
     mergedWorks.forEach(w => {
       const authors = (w.author_ids ?? []).map(id => authorById.get(id)?.name).filter(Boolean).join(", ");
       const c = document.createElement("article");
-      c.className = "work-card";
+      const isStartHere = startHereWorkId === w.id;
+      const isNextRead = afterThisWorkId === w.id;
+      c.className = `work-card${isStartHere ? " work-card--start-here" : ""}${isNextRead ? " work-card--next-read" : ""}`;
       c.innerHTML =
-        `<div>
-           <div class="work-card__title">${esc(w.title)}</div>
-           <div class="work-card__author">${esc(authors)} · ${esc(String(w.year))}</div>
+        `<div class="work-card__header">
+           <div>
+             <div class="work-card__title">${esc(w.title)}</div>
+            <div class="work-card__author">${esc(authors)} · ${esc(String(w.year))}</div>
+           </div>
+           ${(isStartHere || isNextRead) ? `
+             <div class="work-card__signals">
+               ${isStartHere ? `<span class="badge badge--start">Empieza aquí</span>` : ""}
+               ${isNextRead ? `<span class="badge badge--next">Sigue con esto</span>` : ""}
+             </div>` : ""}
          </div>
          <div class="work-card__meta">
-           <span class="badge ${levelBadge[w.level] || ""}">${levelLabel[w.level] || w.level}</span>
-           <span class="badge badge--kind">${esc(kindLabel[w.kind] || w.kind)}</span>
-           <span class="badge badge--effort">Lectura ${esc(effortLabel[w.estimated_effort] || w.estimated_effort)}</span>
-         </div>
+            <span class="badge ${levelBadge[w.level] || ""}">${levelLabel[w.level] || w.level}</span>
+            <span class="badge badge--kind">${esc(kindLabel[w.kind] || w.kind)}</span>
+            <span class="badge badge--effort">Lectura ${esc(effortLabel[w.estimated_effort] || w.estimated_effort)}</span>
+          </div>
          <p class="work-card__reason">${esc(w.reason_to_read)}</p>
          <a class="work-card__link" href="${esc(w.source?.url ?? "#")}" target="_blank" rel="noreferrer">
            Leer en ${esc(w.source?.provider ?? "fuente")}
@@ -888,13 +944,6 @@ async function renderDetail() {
     const studyPlanEl = routesEl.querySelector("#study-plan");
     const routesInner = routesEl.querySelector("#routes-inner");
     const studySelection = { goal: "start", budget: "quick" };
-
-    const getWorkMeta = (work) => {
-      const authors = (work?.author_ids ?? []).map(id => authorById.get(id)?.name).filter(Boolean).join(", ");
-      return [authors, work?.year, work?.estimated_effort ? `lectura ${effortLabel[work.estimated_effort] || work.estimated_effort}` : ""]
-        .filter(Boolean)
-        .join(" · ");
-    };
 
     const renderStudyPlan = () => {
       const plan = buildStudyPlan(theme, workById, studySelection.goal, studySelection.budget);

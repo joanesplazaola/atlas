@@ -17,6 +17,26 @@
       "description": "Marx arranca del análisis de la mercancía porque es la forma elemental de la riqueza capitalista. En ella está encerrado el secreto de la explotación: el valor de uso y el valor de cambio no coinciden, y esa tensión revela la plusvalía."
     }
   ],
+  "study_guidance": {
+    "question": "Empieza por la pregunta más concreta: ¿de dónde sale la ganancia capitalista si en el mercado parece haber intercambio entre iguales?",
+    "start_here": {
+      "work_id": "salario-precio-ganancia",
+      "why": "Es el texto más claro y corto para entrar en la teoría del valor sin necesitar formación económica previa.",
+      "focus": "Sigue la relación entre salario, jornada de trabajo, plusvalor y beneficio: ahí se abre la crítica de la explotación."
+    },
+    "assumes": [
+      "No hace falta formación económica previa.",
+      "Conviene leer despacio los ejemplos sobre salario, precio y beneficio porque ahí está la pedagogía del texto."
+    ],
+    "after_this": {
+      "work_id": "trabajo-asalariado-capital",
+      "reason": "Después vuelve a la relación capital-trabajo en un texto todavía más elemental, para fijar el vocabulario sin perder densidad."
+    },
+    "debate_to_watch": {
+      "debate_id": "debate-valor-trabajo",
+      "reason": "Sitúa por qué el marxismo insiste en el trabajo como fuente del valor frente a las teorías subjetivas."
+    }
+  },
   "key_authors": [
     {
       "id": "marx-karl",

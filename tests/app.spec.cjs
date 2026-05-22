@@ -102,11 +102,26 @@ test.describe("Atlas Marxista — sistema de tabs", () => {
     await expect(page.locator(".study-plan__title")).toContainText(/debate/i);
   });
 
-  test("el CTA de Presentación abre el launcher de estudio", async ({ page }) => {
-    await page.goto("/#tema/imperialismo");
-    await page.locator("#open-study-launcher").click();
-    await expect(page.locator("#tab-routes")).toHaveClass(/tab-panel--active/);
-    await expect(page.locator(".study-launcher")).toBeVisible();
+  test("la presentación muestra una guía explícita de dónde empezar", async ({ page }) => {
+    await page.goto("/#tema/teoria-del-valor");
+    await expect(page.locator(".start-here")).toBeVisible();
+    await expect(page.locator(".start-here__title")).toContainText(/ganancia capitalista/i);
+    await expect(page.locator(".start-here__work")).toContainText(/Salario, precio y ganancia/i);
+    await expect(page.locator(".start-here__work")).toHaveAttribute("href", /marxists\.org/);
+  });
+
+  test("la guía puede abrir el debate clave del tema", async ({ page }) => {
+    await page.goto("/#tema/partido");
+    await page.locator("#open-guidance-debate").click();
+    await expect(page.locator("#tab-debates")).toHaveClass(/tab-panel--active/);
+    await expect(page.locator(".debate-card").first()).toBeVisible();
+  });
+
+  test("la tab Obras marca por dónde empezar y qué leer después", async ({ page }) => {
+    await page.goto("/#tema/estado");
+    await page.locator(".tab-btn", { hasText: /Obras/ }).click();
+    await expect(page.locator(".badge--start")).toContainText(/Empieza aquí/);
+    await expect(page.locator(".badge--next")).toContainText(/Sigue con esto/);
   });
 
   test("cambiar al tab Debates muestra los debates", async ({ page }) => {
@@ -325,4 +340,3 @@ test.describe("Atlas Marxista — UX móvil", () => {
     await expect(page.locator(".sidebar")).toBeVisible();
   });
 });
-

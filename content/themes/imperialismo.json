@@ -12,6 +12,26 @@
       "description": "Empieza con una vision general del problema antes de entrar en debates teoricos mas densos."
     }
   ],
+  "study_guidance": {
+    "question": "Empieza por la pregunta práctica: ¿qué vuelve imperialista al capitalismo moderno?",
+    "start_here": {
+      "work_id": "lenin-imperialism-highest-stage",
+      "why": "Es breve, panorámico y te da el vocabulario mínimo antes de entrar en discusiones más técnicas.",
+      "focus": "Fíjate en monopolio, capital financiero, exportación de capitales y reparto del mundo como piezas de un mismo cuadro."
+    },
+    "assumes": [
+      "Basta con una idea general de qué es el capitalismo.",
+      "No hace falta entrar todavía en debates técnicos sobre acumulación o realización."
+    ],
+    "after_this": {
+      "work_id": "bukharin-imperialism-and-world-economy",
+      "reason": "Una vez fijadas las categorías básicas, Bujarin amplía la escala hacia la economía mundial y la rivalidad entre Estados."
+    },
+    "debate_to_watch": {
+      "debate_id": "monopolio-y-capital-financiero",
+      "reason": "Te obliga a decidir dónde sitúas el centro explicativo: monopolio, Estado o mercado mundial."
+    }
+  },
   "key_authors": [
     {
       "id": "lenin-vi",

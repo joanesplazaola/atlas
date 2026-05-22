@@ -54,6 +54,9 @@
         "$ref": "#/$defs/entryPoint"
       }
     },
+    "study_guidance": {
+      "$ref": "#/$defs/studyGuidance"
+    },
     "key_authors": {
       "type": "array",
       "minItems": 1,
@@ -123,6 +126,96 @@
           "minLength": 1
         },
         "description": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "studyGuidance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "question",
+        "start_here",
+        "after_this"
+      ],
+      "properties": {
+        "question": {
+          "type": "string",
+          "minLength": 1
+        },
+        "start_here": {
+          "$ref": "#/$defs/studyWorkPointer"
+        },
+        "assumes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "after_this": {
+          "$ref": "#/$defs/studyNextStep"
+        },
+        "debate_to_watch": {
+          "$ref": "#/$defs/studyDebatePointer"
+        }
+      }
+    },
+    "studyWorkPointer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "work_id",
+        "why",
+        "focus"
+      ],
+      "properties": {
+        "work_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$"
+        },
+        "why": {
+          "type": "string",
+          "minLength": 1
+        },
+        "focus": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "studyNextStep": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "work_id",
+        "reason"
+      ],
+      "properties": {
+        "work_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$"
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "studyDebatePointer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "debate_id",
+        "reason"
+      ],
+      "properties": {
+        "debate_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$"
+        },
+        "reason": {
           "type": "string",
           "minLength": 1
         }
