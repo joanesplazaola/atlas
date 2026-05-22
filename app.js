@@ -1317,10 +1317,15 @@ function renderMap() {
 
     // Hover: highlight connected nodes + edges
     el.addEventListener("mouseenter", () => {
-      const neighbors = new Set(node.neighbors);
+      // Derive neighbors from rendered edges — handles bidirectional links correctly
+      const connectedSlugs = new Set();
+      svg.querySelectorAll(".map-edge").forEach(e => {
+        if (e.dataset.a === node.slug) connectedSlugs.add(e.dataset.b);
+        if (e.dataset.b === node.slug) connectedSlugs.add(e.dataset.a);
+      });
       stage.querySelectorAll(".map-node").forEach(n => {
         n.classList.toggle("map-node--dim",
-          n.dataset.slug !== node.slug && !neighbors.has(n.dataset.slug));
+          n.dataset.slug !== node.slug && !connectedSlugs.has(n.dataset.slug));
       });
       svg.querySelectorAll(".map-edge").forEach(e => {
         const connected = e.dataset.a === node.slug || e.dataset.b === node.slug;
@@ -1350,7 +1355,7 @@ if (_mapCanvas && "ResizeObserver" in window) {
 /* ─── Data loading ─────────────────────────────────────────────── */
 
 async function fetchJson(path) {
-  const r = await fetch(path);
+  const r = await fetch(path, { cache: "no-cache" });
   if (!r.ok) throw new Error(`No se pudo cargar ${path}`);
   return r.json();
 }

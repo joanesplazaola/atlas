@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-21",
+  "generated_at": "2026-05-22",
   "themes": [
     {
       "slug": "estado",
@@ -75,7 +75,9 @@
       "related_themes": [
         "estado",
         "partido",
-        "imperialismo"
+        "imperialismo",
+        "movimiento-obrero",
+        "reforma-revolucion"
       ],
       "work_count": 4
     },
@@ -360,7 +362,8 @@
       ],
       "related_themes": [
         "teoria-del-valor",
-        "dialectica"
+        "dialectica",
+        "movimiento-obrero"
       ],
       "work_count": 5
     },
@@ -399,7 +402,9 @@
       "related_themes": [
         "partido",
         "vivienda",
-        "reforma-revolucion"
+        "reforma-revolucion",
+        "alienacion",
+        "fascismo"
       ],
       "work_count": 6
     },
@@ -437,7 +442,8 @@
         "partido",
         "revolucion",
         "movimiento-obrero",
-        "estado"
+        "estado",
+        "fascismo"
       ],
       "work_count": 5
     }
