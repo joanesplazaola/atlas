@@ -1080,16 +1080,31 @@ async function renderDetail() {
     theme.historical_debates.forEach(d => {
       const participants = d.participant_author_ids.map(id => authorById.get(id)?.name).filter(Boolean).join(", ");
       const works = d.related_work_ids.map(id => workById.get(id)?.title).filter(Boolean).join("; ");
+      const positionsHtml = (d.positions ?? []).map(position => {
+        const author = authorById.get(position.author_id);
+        const work = workById.get(position.work_id);
+        const workTitle = work?.title || position.work_id;
+        const workLink = work?.source?.url
+          ? `<a class="debate-position__work" href="${esc(work.source.url)}" target="_blank" rel="noreferrer">${esc(workTitle)}</a>`
+          : `<span class="debate-position__work">${esc(workTitle)}</span>`;
+        return `
+          <article class="debate-position">
+            <div class="debate-position__author">${esc(author?.name || position.author_id)}</div>
+            <p class="debate-position__claim">${esc(position.claim)}</p>
+            <div class="debate-position__source">${workLink}</div>
+          </article>`;
+      }).join("");
       const c = document.createElement("div");
       c.className = "debate-card";
       c.innerHTML =
         `<div class="debate-card__title">${esc(d.label)}</div>
          <p class="debate-card__desc">${esc(d.description)}</p>
+         ${positionsHtml ? `<div class="debate-card__positions">${positionsHtml}</div>` : ""}
          <div class="debate-card__meta">
-           <div class="debate-card__meta-row">
-             <span class="debate-card__meta-label">Autores:</span>
-             <span class="debate-card__meta-value">${esc(participants)}</span>
-           </div>
+            <div class="debate-card__meta-row">
+              <span class="debate-card__meta-label">Autores:</span>
+              <span class="debate-card__meta-value">${esc(participants)}</span>
+            </div>
            <div class="debate-card__meta-row">
              <span class="debate-card__meta-label">Obras:</span>
              <span class="debate-card__meta-value">${esc(works)}</span>

@@ -112,6 +112,18 @@
       "related_work_ids": [
         "marx-civil-war-in-france",
         "lenin-state-and-revolution"
+      ],
+      "positions": [
+        {
+          "author_id": "marx-karl",
+          "work_id": "marx-civil-war-in-france",
+          "claim": "La clase trabajadora no puede servirse sin más de la maquinaria estatal existente; la Comuna apunta a una forma política distinta."
+        },
+        {
+          "author_id": "lenin-vi",
+          "work_id": "lenin-state-and-revolution",
+          "claim": "La lección de Marx obliga a destruir el Estado burgués y sustituirlo por un Estado-Comuna de transición."
+        }
       ]
     },
     {
@@ -127,6 +139,23 @@
         "engels-origin-family-state",
         "marx-civil-war-in-france",
         "lenin-state-and-revolution"
+      ],
+      "positions": [
+        {
+          "author_id": "engels-friedrich",
+          "work_id": "engels-origin-family-state",
+          "claim": "El Estado nace con la división en clases y no es una institución eterna ni neutral."
+        },
+        {
+          "author_id": "marx-karl",
+          "work_id": "marx-civil-war-in-france",
+          "claim": "La forma estatal solo se entiende plenamente a la luz de luchas históricas concretas como la Comuna."
+        },
+        {
+          "author_id": "lenin-vi",
+          "work_id": "lenin-state-and-revolution",
+          "claim": "Comprender el origen histórico del Estado importa porque define también su liquidación revolucionaria."
+        }
       ]
     }
   ],

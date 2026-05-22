@@ -112,6 +112,18 @@
       "related_work_ids": [
         "lenin-imperialism-highest-stage",
         "bukharin-imperialism-and-world-economy"
+      ],
+      "positions": [
+        {
+          "author_id": "lenin-vi",
+          "work_id": "lenin-imperialism-highest-stage",
+          "claim": "El imperialismo se define por el monopolio, el capital financiero, la exportación de capitales y el reparto del mundo."
+        },
+        {
+          "author_id": "bukharin",
+          "work_id": "bukharin-imperialism-and-world-economy",
+          "claim": "El fenómeno solo se entiende plenamente desde la economía mundial y la competencia entre bloques estatales capitalistas."
+        }
       ]
     },
     {
@@ -127,6 +139,23 @@
         "luxemburg-accumulation-of-capital",
         "lenin-imperialism-highest-stage",
         "bukharin-imperialism-and-world-economy"
+      ],
+      "positions": [
+        {
+          "author_id": "luxemburg-rosa",
+          "work_id": "luxemburg-accumulation-of-capital",
+          "claim": "El capitalismo necesita expandirse hacia espacios no capitalistas para realizar la acumulación y resolver sus límites internos."
+        },
+        {
+          "author_id": "lenin-vi",
+          "work_id": "lenin-imperialism-highest-stage",
+          "claim": "La clave explicativa está en la fase monopolista y financiera del capital, no en una necesidad externa permanente de mercados no capitalistas."
+        },
+        {
+          "author_id": "bukharin",
+          "work_id": "bukharin-imperialism-and-world-economy",
+          "claim": "La expansión debe leerse ante todo como dinámica de la economía mundial y rivalidad interestatal, no solo como problema de realización."
+        }
       ]
     }
   ],

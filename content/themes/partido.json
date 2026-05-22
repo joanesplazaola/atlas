@@ -149,6 +149,18 @@
       "related_work_ids": [
         "que-hacer-lenin",
         "huelga-masas-luxemburgo"
+      ],
+      "positions": [
+        {
+          "author_id": "lenin-vi",
+          "work_id": "que-hacer-lenin",
+          "claim": "Sin una vanguardia organizada, el movimiento obrero queda encerrado en una conciencia sindical y necesita una dirección política centralizada."
+        },
+        {
+          "author_id": "luxemburg-rosa",
+          "work_id": "huelga-masas-luxemburgo",
+          "claim": "La lucha de masas educa y organiza a la clase por sí misma; el partido no debe sustituir ese proceso vivo."
+        }
       ]
     },
     {
@@ -162,6 +174,18 @@
       "related_work_ids": [
         "moderno-principe-gramsci",
         "que-hacer-lenin"
+      ],
+      "positions": [
+        {
+          "author_id": "lenin-vi",
+          "work_id": "que-hacer-lenin",
+          "claim": "La centralización del partido permite coherencia estratégica, disciplina y capacidad de intervención revolucionaria."
+        },
+        {
+          "author_id": "gramsci-antonio",
+          "work_id": "moderno-principe-gramsci",
+          "claim": "En Occidente el partido debe actuar como intelectual colectivo y constructor de hegemonía, no solo como mando insurreccional."
+        }
       ]
     }
   ],

@@ -129,6 +129,14 @@ test.describe("Atlas Marxista — sistema de tabs", () => {
     await expect(page.locator("#tab-debates")).toHaveClass(/tab-panel--active/);
     await expect(page.locator(".debate-card").first()).toBeVisible();
   });
+
+  test("los debates muestran posiciones concretas ligadas a autores y obras", async ({ page }) => {
+    await page.goto("/#tema/partido");
+    await page.locator(".tab-btn", { hasText: /Debates/ }).click();
+    await expect(page.locator(".debate-position").first()).toBeVisible();
+    await expect(page.locator(".debate-position__author").first()).toContainText(/Lenin|Luxemburgo/);
+    await expect(page.locator(".debate-position__work").first()).toHaveAttribute("href", /marxists\.org/);
+  });
 });
 
 test.describe("Atlas Marxista — búsqueda y filtros", () => {

@@ -401,6 +401,35 @@
             "type": "string",
             "pattern": "^[a-z0-9-]+$"
           }
+        },
+        "positions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/debatePosition"
+          }
+        }
+      }
+    },
+    "debatePosition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "author_id",
+        "work_id",
+        "claim"
+      ],
+      "properties": {
+        "author_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$"
+        },
+        "work_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$"
+        },
+        "claim": {
+          "type": "string",
+          "minLength": 1
         }
       }
     },

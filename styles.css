@@ -1378,6 +1378,46 @@ button.chip:focus-visible {
   margin-bottom: 12px;
 }
 
+.debate-card__positions {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.debate-position {
+  padding: 13px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--surface-raise);
+}
+
+.debate-position__author {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent-fg);
+  margin-bottom: 6px;
+}
+
+.debate-position__claim {
+  margin: 0 0 8px;
+  font-size: 0.84rem;
+  line-height: 1.58;
+  color: var(--text);
+}
+
+.debate-position__source {
+  font-size: 0.78rem;
+}
+
+.debate-position__work {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.debate-position__work:hover {
+  color: var(--accent);
+}
+
 .debate-card__meta {
   display: flex;
   flex-direction: column;
