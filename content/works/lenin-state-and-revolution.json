@@ -24,6 +24,30 @@
         "why_it_matters": "Busca mostrar que la cuestión democrática no se resuelve ampliando el parlamentarismo existente, sino transformando la forma del poder político."
       }
     ],
+    "reading_entry": {
+      "start_here": {
+        "label": "Empieza por el capítulo I y vuelve varias veces sobre la definición de Estado.",
+        "why": "Ahí Lenin fija el terreno: si no se entiende qué es el Estado como máquina de clase, el resto del libro se vuelve una sucesión de consignas."
+      },
+      "key_sections": [
+        {
+          "label": "Capítulos I-II: clase, Estado y experiencia de la Comuna",
+          "why": "Son la base histórica y teórica del argumento; ordenan todo el debate posterior."
+        },
+        {
+          "label": "Capítulo III: destrucción del aparato estatal y democracia obrera",
+          "why": "Aquí aparece el problema estratégico central: qué significa sustituir el viejo Estado por nuevas formas de poder."
+        }
+      ],
+      "focus_points": [
+        "Distingue siempre entre abolir el Estado como horizonte y destruir el aparato estatal burgués en una coyuntura concreta.",
+        "Fíjate en cómo la Comuna de París funciona como prueba histórica y no solo como cita de autoridad."
+      ],
+      "if_short_on_time": [
+        "Lee primero los capítulos I y III.",
+        "Deja para una segunda vuelta las polémicas más minuciosas con oportunistas de la Segunda Internacional."
+      ]
+    },
     "timeline": [
       {
         "year": 1871,

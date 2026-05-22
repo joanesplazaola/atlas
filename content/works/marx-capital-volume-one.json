@@ -24,6 +24,30 @@
         "why_it_matters": "La obra intenta mostrar que la ganancia no surge del comercio ni del fraude, sino de la extracción de plusvalor en la producción."
       }
     ],
+    "reading_entry": {
+      "start_here": {
+        "label": "Si entras por primera vez, combina el capítulo sobre la mercancía con los capítulos sobre jornada laboral y acumulación originaria.",
+        "why": "Así alternas el nivel más abstracto con capítulos históricos y concretos que hacen visible para qué sirve la teoría."
+      },
+      "key_sections": [
+        {
+          "label": "Capítulos I-III: mercancía, valor y dinero",
+          "why": "Son difíciles, pero ahí se fija el problema de fondo: cómo se organiza socialmente el trabajo en el capitalismo."
+        },
+        {
+          "label": "Capítulos VIII y XXIV: jornada laboral y acumulación originaria",
+          "why": "Permiten aterrizar explotación y violencia histórica sin quedar atrapado en la pura abstracción."
+        }
+      ],
+      "focus_points": [
+        "No leas cada capítulo como si todos tuvieran el mismo nivel de dificultad: alterna exposición abstracta y capítulos históricos.",
+        "Pregunta siempre qué problema resuelve cada categoría, no solo qué significa en definición."
+      ],
+      "if_short_on_time": [
+        "Empieza por jornada laboral y acumulación originaria.",
+        "Vuelve luego a mercancía y valor con más calma, idealmente apoyándote en una lectura paralela más corta."
+      ]
+    },
     "timeline": [
       {
         "year": 1857,

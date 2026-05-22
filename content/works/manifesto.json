@@ -25,6 +25,30 @@
         "why_it_matters": "La obra busca ofrecer lenguaje común, horizonte estratégico y posición internacionalista."
       }
     ],
+    "reading_entry": {
+      "start_here": {
+        "label": "Empieza por las secciones I y II, y solo después vuelve a la crítica de otros socialismos.",
+        "why": "Es la forma más clara de captar primero la visión histórica y el programa político antes de entrar en la parte más polémica."
+      },
+      "key_sections": [
+        {
+          "label": "Sección I: burgueses y proletarios",
+          "why": "Condensa la lectura histórica del capitalismo y de la lucha de clases."
+        },
+        {
+          "label": "Sección II: proletarios y comunistas",
+          "why": "Es la sección donde se aclara qué distingue políticamente a los comunistas."
+        }
+      ],
+      "focus_points": [
+        "Lee el texto como manifiesto de intervención, no como tratado completo del marxismo.",
+        "Fíjate en la relación entre internacionalismo, programa inmediato y dinámica histórica del capital."
+      ],
+      "if_short_on_time": [
+        "Lee entera la sección II aunque dejes para después la III.",
+        "Usa la sección III solo cuando quieras precisar contra quiénes polemiza exactamente."
+      ]
+    },
     "timeline": [
       {
         "year": 1848,

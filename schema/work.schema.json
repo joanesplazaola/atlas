@@ -58,6 +58,41 @@
             }
           }
         },
+        "reading_entry": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "start_here": {
+              "type": "object",
+              "required": ["label", "why"],
+              "additionalProperties": false,
+              "properties": {
+                "label": { "type": "string" },
+                "why": { "type": "string" }
+              }
+            },
+            "key_sections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["label", "why"],
+                "additionalProperties": false,
+                "properties": {
+                  "label": { "type": "string" },
+                  "why": { "type": "string" }
+                }
+              }
+            },
+            "focus_points": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "if_short_on_time": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        },
         "timeline": {
           "type": "array",
           "items": {

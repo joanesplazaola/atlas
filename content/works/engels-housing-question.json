@@ -24,6 +24,30 @@
         "why_it_matters": "El texto obliga a conectar alquiler, urbanización, salario y especulación."
       }
     ],
+    "reading_entry": {
+      "start_here": {
+        "label": "Empieza por los pasajes en que Engels polemiza contra convertir la vivienda en un problema aislado.",
+        "why": "Ahí se entiende por qué este texto sigue siendo útil hoy: conecta ciudad, propiedad y relación salarial."
+      },
+      "key_sections": [
+        {
+          "label": "La crítica a las soluciones proudhonianas de propiedad",
+          "why": "Ordena contra qué tipo de salida simplista está escribiendo Engels."
+        },
+        {
+          "label": "Los pasajes que vinculan renta, salario y urbanización",
+          "why": "Son los más fértiles para usar el texto en debates contemporáneos sobre vivienda."
+        }
+      ],
+      "focus_points": [
+        "No busques un plan urbanístico acabado: el valor del texto está en cómo politiza la cuestión de vivienda.",
+        "Observa cuándo Engels discute ideologías de propietarios y cuándo habla de estructura capitalista."
+      ],
+      "if_short_on_time": [
+        "Lee primero la polémica contra la pequeña propiedad como falsa salida.",
+        "Deja para después las vueltas más largas de la discusión con autores concretos."
+      ]
+    },
     "timeline": [
       {
         "year": 1872,

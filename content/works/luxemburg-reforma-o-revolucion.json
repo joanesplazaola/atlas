@@ -24,6 +24,30 @@
         "why_it_matters": "Sostiene que las reformas solo tienen sentido estratégico si se inscriben en una perspectiva de poder."
       }
     ],
+    "reading_entry": {
+      "start_here": {
+        "label": "Empieza por los pasajes donde Luxemburg contrapone reforma cotidiana y objetivo final.",
+        "why": "Ahí está el corazón del libro: no rechaza las reformas, sino su conversión en sustituto de la revolución."
+      },
+      "key_sections": [
+        {
+          "label": "La crítica a Bernstein sobre crisis, crédito y adaptación del capitalismo",
+          "why": "Permite ver que el debate no es solo moral o táctico, sino también sobre cómo funciona el capitalismo."
+        },
+        {
+          "label": "Los pasajes sobre objetivo final y lucha por reformas",
+          "why": "Son los que siguen siendo más útiles para una lectura política contemporánea."
+        }
+      ],
+      "focus_points": [
+        "No la leas como un rechazo infantil de las reformas: la pregunta es qué estrategia organizan.",
+        "Fíjate en cómo teoría de la crisis y estrategia política aparecen unidas."
+      ],
+      "if_short_on_time": [
+        "Prioriza la parte donde contrapone objetivo final y reformas.",
+        "Vuelve después al detalle económico de la polémica con Bernstein."
+      ]
+    },
     "timeline": [
       {
         "year": 1899,

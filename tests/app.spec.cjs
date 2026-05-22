@@ -138,10 +138,11 @@ test.describe("Atlas Marxista — sistema de tabs", () => {
   test("hacer clic en una obra abre su ficha contextual", async ({ page }) => {
     await page.goto("/#tema/estado");
     await page.locator(".tab-btn", { hasText: /Obras/ }).click();
-    await page.locator(".work-card__title--link").first().click();
+    await page.locator(".work-card__title--link", { hasText: /State and Revolution/i }).click();
     await expect(page).toHaveURL(/#obra\//);
     await expect(page.locator(".work-detail__body")).toBeVisible();
     await expect(page.locator(".detail__eyebrow")).toHaveText(/Obra/);
+    await expect(page.locator(".work-reading-guide")).toBeVisible();
   });
 });
 
@@ -212,8 +213,16 @@ test.describe("Atlas Marxista — navegación por hash", () => {
     await page.goto("/#obra/lenin-state-and-revolution");
     await expect(page.locator("#detail-title")).toHaveText(/State and Revolution/i);
     const sectionTitles = await page.locator(".work-detail__section-title").allTextContents();
-    expect(sectionTitles).toEqual(expect.arrayContaining(["Contexto de escritura", "Cronología de la obra", "Críticas y debates"]));
+    expect(sectionTitles).toEqual(expect.arrayContaining(["Cómo entrar en esta obra", "Contexto de escritura", "Cronología de la obra", "Críticas y debates"]));
     await expect(page.locator(".author-detail__ext-link")).toHaveAttribute("href", /marxists\.org/);
+  });
+
+  test("la ficha de obra muestra una guía de entrada con secciones y foco de lectura", async ({ page }) => {
+    await page.goto("/#obra/manifesto");
+    await expect(page.locator(".work-reading-guide__label")).toContainText(/Empieza aquí/);
+    const blockTitles = await page.locator(".work-reading-guide__block-title").allTextContents();
+    expect(blockTitles).toEqual(expect.arrayContaining(["Secciones clave", "Fíjate en", "Si vas justo de tiempo"]));
+    await expect(page.locator(".work-reading-guide__start")).toContainText(/secciones I y II/i);
   });
 
   test("un hash inválido muestra el estado vacío del detalle", async ({ page }) => {

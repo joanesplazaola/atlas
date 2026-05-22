@@ -1024,6 +1024,11 @@ button.chip:focus-visible {
   padding: 18px 18px 16px;
 }
 
+.work-detail__section--reading {
+  background: linear-gradient(180deg, rgba(232,82,74,0.06) 0%, var(--surface) 100%);
+  border-color: rgba(232,82,74,0.18);
+}
+
 .work-detail__section-title {
   font-family: "Inter", sans-serif;
   font-size: 0.72rem;
@@ -1049,6 +1054,50 @@ button.chip:focus-visible {
 .work-theme-grid {
   display: grid;
   gap: 12px;
+}
+
+.work-reading-guide {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 16px;
+}
+
+.work-reading-guide__primary,
+.work-reading-guide__block {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface-raise);
+}
+
+.work-reading-guide__primary {
+  padding: 16px;
+}
+
+.work-reading-guide__label,
+.work-reading-guide__block-title {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+  font-weight: 700;
+}
+
+.work-reading-guide__start {
+  margin: 10px 0 8px;
+  font-family: var(--font-heading);
+  font-size: 1.06rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--text);
+}
+
+.work-reading-guide__secondary {
+  display: grid;
+  gap: 12px;
+}
+
+.work-reading-guide__block {
+  padding: 14px;
 }
 
 .work-detail__list-item,
@@ -1104,6 +1153,11 @@ button.chip:focus-visible {
   color: var(--text-muted);
   font-size: 0.86rem;
   line-height: 1.6;
+}
+
+.work-detail__bullets--compact {
+  margin-top: 10px;
+  gap: 6px;
 }
 
 .work-timeline {
@@ -1176,6 +1230,12 @@ button.chip:focus-visible {
   font-size: 0.92rem;
   color: var(--text);
   font-weight: 600;
+}
+
+@media (max-width: 860px) {
+  .work-reading-guide {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ─── Route cards ─────────────────────────────────────────────── */

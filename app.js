@@ -1008,6 +1008,49 @@ async function renderWorkDetail() {
       body.appendChild(section);
     };
 
+    if (guide?.reading_entry) {
+      appendSection(
+        "Cómo entrar en esta obra",
+        `
+          <div class="work-reading-guide">
+            <article class="work-reading-guide__primary">
+              <div class="work-reading-guide__label">Empieza aquí</div>
+              <div class="work-reading-guide__start">${esc(guide.reading_entry.start_here.label)}</div>
+              <p class="work-detail__text">${esc(guide.reading_entry.start_here.why)}</p>
+            </article>
+            <div class="work-reading-guide__secondary">
+              ${guide.reading_entry.key_sections?.length ? `
+                <div class="work-reading-guide__block">
+                  <div class="work-reading-guide__block-title">Secciones clave</div>
+                  <div class="work-detail__list">
+                    ${guide.reading_entry.key_sections.map(item => `
+                      <article class="work-detail__list-item">
+                        <div class="work-detail__list-title">${esc(item.label)}</div>
+                        <p class="work-detail__text">${esc(item.why)}</p>
+                      </article>`).join("")}
+                  </div>
+                </div>` : ""}
+              ${guide.reading_entry.focus_points?.length ? `
+                <div class="work-reading-guide__block">
+                  <div class="work-reading-guide__block-title">Fíjate en</div>
+                  <ul class="work-detail__bullets work-detail__bullets--compact">
+                    ${guide.reading_entry.focus_points.map(item => `<li>${esc(item)}</li>`).join("")}
+                  </ul>
+                </div>` : ""}
+              ${guide.reading_entry.if_short_on_time?.length ? `
+                <div class="work-reading-guide__block">
+                  <div class="work-reading-guide__block-title">Si vas justo de tiempo</div>
+                  <ul class="work-detail__bullets work-detail__bullets--compact">
+                    ${guide.reading_entry.if_short_on_time.map(item => `<li>${esc(item)}</li>`).join("")}
+                  </ul>
+                </div>` : ""}
+            </div>
+          </div>
+        `,
+        "work-detail__section--reading"
+      );
+    }
+
     if (guide?.historical_context) {
       appendSection("Contexto de escritura", `<p class="work-detail__text">${esc(guide.historical_context)}</p>`);
     }

@@ -24,6 +24,30 @@
         "why_it_matters": "El texto muestra que la lucha económica es necesaria, pero debe abrir a una crítica del sistema salarial en su conjunto."
       }
     ],
+    "reading_entry": {
+      "start_here": {
+        "label": "Empieza por la polémica sobre salarios y precios, y luego ve a los pasajes sobre plusvalor.",
+        "why": "Es la secuencia más pedagógica: primero desmonta una objeción sindical inmediata y después abre la lógica general de la explotación."
+      },
+      "key_sections": [
+        {
+          "label": "Los pasajes contra la idea de que subir salarios sube automáticamente precios",
+          "why": "Son la puerta de entrada más clara y concreta del texto."
+        },
+        {
+          "label": "La explicación de plusvalor y trabajo asalariado",
+          "why": "Ahí se ve por qué la lucha económica remite a una crítica más amplia del capital."
+        }
+      ],
+      "focus_points": [
+        "Fíjate en el tono de intervención militante: Marx está argumentando ante obreros organizados.",
+        "No te quedes en la defensa sindical; mira cómo el texto empuja más allá del salario."
+      ],
+      "if_short_on_time": [
+        "Lee primero la refutación del argumento precios-salarios.",
+        "Vuelve luego a los pasajes donde Marx define valor de la fuerza de trabajo y plusvalor."
+      ]
+    },
     "timeline": [
       {
         "year": 1865,

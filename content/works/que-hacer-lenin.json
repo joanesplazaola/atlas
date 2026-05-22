@@ -24,6 +24,30 @@
         "why_it_matters": "La obra busca justificar un partido con continuidad, prensa y coordinación a escala nacional."
       }
     ],
+    "reading_entry": {
+      "start_here": {
+        "label": "Entra por los capítulos I y IV antes de ir a las polémicas más técnicas entre corrientes rusas.",
+        "why": "Ahí aparece la tesis fuerte sobre conciencia socialista, organización y prensa sin exigir todavía conocer todos los nombres del debate."
+      },
+      "key_sections": [
+        {
+          "label": "Capítulo I: espontaneidad y conciencia",
+          "why": "Es el pasaje clásico para entender por qué Lenin no identifica experiencia inmediata con política revolucionaria suficiente."
+        },
+        {
+          "label": "Capítulo IV: la prensa y la organización",
+          "why": "Muestra que el partido no es solo aparato jerárquico, sino red estable de intervención, formación y coordinación."
+        }
+      ],
+      "focus_points": [
+        "No reduzcas el texto a una defensa abstracta del centralismo: mira qué problema concreto intenta resolver.",
+        "Fíjate en cómo la forma de organización aparece ligada al tipo de lucha política que se quiere librar."
+      ],
+      "if_short_on_time": [
+        "Lee primero los capítulos I y IV.",
+        "Deja para una segunda lectura los pasajes más pegados a la coyuntura interna de la socialdemocracia rusa."
+      ]
+    },
     "timeline": [
       {
         "year": 1898,

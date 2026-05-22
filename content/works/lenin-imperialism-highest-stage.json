@@ -24,6 +24,30 @@
         "why_it_matters": "La obra sostiene que la concentración, el capital financiero y la lucha por colonias alteran radicalmente el terreno político mundial."
       }
     ],
+    "reading_entry": {
+      "start_here": {
+        "label": "Empieza por el esquema general de los rasgos del imperialismo y vuelve después a los capítulos sobre monopolio y capital financiero.",
+        "why": "El libro es breve pero muy condensado; entrar por la arquitectura general evita perderse en la acumulación de ejemplos."
+      },
+      "key_sections": [
+        {
+          "label": "Capítulos I-III: concentración, monopolio y bancos",
+          "why": "Ahí Lenin define el núcleo económico de la fase imperialista."
+        },
+        {
+          "label": "Capítulos VI-VII: reparto del mundo y guerras",
+          "why": "Son los capítulos que conectan economía mundial con conflicto interestatal."
+        }
+      ],
+      "focus_points": [
+        "No leas la lista de rasgos como un catecismo cerrado: observa qué conexiones establece entre monopolio, finanzas y expansión geopolítica.",
+        "Distingue cuándo Lenin describe tendencias del capital y cuándo interviene en una polémica política sobre la guerra."
+      ],
+      "if_short_on_time": [
+        "Lee primero la introducción, los capítulos I y VII.",
+        "Vuelve luego a los pasajes estadísticos como apoyo, no como puerta de entrada."
+      ]
+    },
     "timeline": [
       {
         "year": 1914,
