@@ -1508,6 +1508,12 @@ button.chip:focus-visible {
 
 /* ─── Responsive ──────────────────────────────────────────────── */
 @media (max-width: 860px) {
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
   .app {
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
@@ -1522,12 +1528,37 @@ button.chip:focus-visible {
     overflow: visible;
   }
 
+  /* Keep the search input reachable when scrolling down the list */
+  .sidebar__search {
+    position: sticky;
+    top: var(--topbar-h);
+    z-index: 10;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+  }
+
   .theme-list {
     overflow: visible;
     max-height: none;
   }
 
-  .detail { min-height: 70vh; }
+  /* Allow the detail panel and its content to grow naturally —
+     body scroll handles paging, so internal clip must be removed */
+  .detail {
+    overflow: visible;
+    min-height: 60vh;
+  }
+
+  #detail-content {
+    overflow: visible;
+    flex: unset;
+    min-height: 0;
+  }
+
+  /* Author detail had its own internal scroll; disable on mobile */
+  #detail-content.detail-content--author {
+    overflow: visible;
+  }
 
   .tab-panels { overflow: visible; }
 
@@ -1552,6 +1583,16 @@ button.chip:focus-visible {
   .routes-intro { padding: 16px; }
   .work-card__header { flex-direction: column; }
   .work-card__signals { justify-content: flex-start; }
+}
+
+/* ─── Topbar overflow prevention on small phones ───────────────── */
+/* At ≤480px the brand subtitle + theme switcher push the topbar over   */
+/* its width. Hide non-essential elements to keep nav buttons visible.  */
+@media (max-width: 480px) {
+  .topbar__inner { padding: 0 10px; gap: 8px; }
+  .topbar__title em { display: none; }      /* hide "de lectura" */
+  .topbar__nav-btn  { padding: 5px 8px; font-size: 0.78rem; }
+  .theme-switcher   { display: none; }      /* hide colour dots  */
 }
 
 

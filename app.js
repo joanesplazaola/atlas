@@ -1900,16 +1900,21 @@ async function init() {
       state.selectedSlug = null;
       applyFilters();
       switchView("temas");
+      switchMobileView("detail");
     } else if (authorId) {
       state.selectedAuthorId = authorId;
       state.selectedWorkId = null;
       state.selectedSlug = null;
       applyFilters();
       switchView("autores");
+      switchMobileView("detail");
     } else {
       state.selectedWorkId = null;
       state.selectedSlug = getSlugFromHash() || null;
-      if (state.selectedSlug) setHash(state.selectedSlug);
+      if (state.selectedSlug) {
+        setHash(state.selectedSlug);
+        switchMobileView("detail");
+      }
       applyFilters();
     }
 
@@ -1949,6 +1954,7 @@ window.addEventListener("hashchange", () => {
     state.activeTab = "overview";
     if (state.view !== "temas") switchView("temas");
     else renderDetail();
+    switchMobileView("detail");
     return;
   }
 
@@ -1959,12 +1965,14 @@ window.addEventListener("hashchange", () => {
     state.selectedAuthorId = authorId;
     if (state.view !== "autores") switchView("autores");
     else { renderAuthorList(); renderDetail(); }
+    switchMobileView("detail");
     return;
   }
 
   const slug = getSlugFromHash();
   if (!slug) {
     state.selectedWorkId = null;
+    switchMobileView("list");
     return;
   }
   if (slug === state.selectedSlug && !state.selectedWorkId) return;
@@ -1974,6 +1982,7 @@ window.addEventListener("hashchange", () => {
   if (state.view !== "temas") switchView("temas");
   renderList();
   renderDetail();
+  switchMobileView("detail");
 });
 
 /* ─── Works search modal (Pagefind) ─────────────────────────────── */
