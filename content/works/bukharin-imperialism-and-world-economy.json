@@ -10,5 +10,84 @@
     "provider": "Marxists Internet Archive",
     "url": "https://www.marxists.org/archive/bukharin/works/1917/imperial/",
     "attribution_label": "Bukharin, Imperialism and World Economy (Marxists.org)"
+  },
+  "study_guide": {
+    "hook": "La base teórica sobre la que Lenin construyó su propio análisis del imperialismo: la primera elaboración marxista sistemática del capitalismo como economía-mundo.",
+    "historical_context": "Escrito en 1915, publicado en 1917 con un prólogo de Lenin. Bujarin analiza la Primera Guerra Mundial como producto necesario de la fase imperialista del capitalismo y la formación de los trusts y monopolios internacionales.",
+    "responds_to": [
+      {
+        "label": "Las explicaciones coyunturales de la guerra como accidente diplomático o ambición de dirigentes",
+        "why_it_matters": "Bujarin insiste en que la guerra imperialista es el resultado necesario de la competencia entre capitales nacionales en la fase monopolista."
+      },
+      {
+        "label": "La Kautsky y la idea de un 'ultraimperialismo' cooperativo como alternativa a la guerra",
+        "why_it_matters": "Bujarin rechaza la hipótesis de un capitalismo mundial pacífico y predice que la competencia interimperialista es inevitable."
+      }
+    ],
+    "reading_entry": {
+      "start_here": {
+        "label": "Empieza por los capítulos sobre el capitalismo monopolista y los trusts internacionales.",
+        "why": "Ahí se construye la base económica del análisis: la concentración del capital y la formación de bloques nacionales de capital financiero."
+      },
+      "key_sections": [
+        {
+          "label": "Los capítulos sobre la contradicción entre economía mundial y Estados nacionales",
+          "why": "La tesis central de Bujarin: el capitalismo genera una economía mundial, pero los Estados nacionales son el instrumento de competencia entre capitales."
+        },
+        {
+          "label": "La polémica con Kautsky sobre el ultraimperialismo",
+          "why": "Relevante para entender el debate marxista sobre si la cooperación imperialista es posible o si la guerra es inevitable."
+        }
+      ],
+      "focus_points": [
+        "Lee el texto junto al de Lenin: los dos se complementan y responden al mismo problema político.",
+        "Pon en relación el análisis económico con el contexto de la Primera Guerra Mundial."
+      ],
+      "if_short_on_time": [
+        "Lee la introducción de Lenin y los capítulos sobre monopolios y rivalidad interimperialista.",
+        "Los capítulos más técnicos sobre finanzas pueden dejarse para una segunda lectura."
+      ]
+    },
+    "timeline": [
+      {
+        "year": 1914,
+        "kind": "context",
+        "label": "Estalla la Primera Guerra Mundial",
+        "note": "El texto es una respuesta teórica a la guerra: ¿por qué el capitalismo produce guerras entre potencias?"
+      },
+      {
+        "year": 1915,
+        "kind": "writing",
+        "label": "Bujarin escribe el texto en el exilio (Nueva York)",
+        "note": "Bujarin tiene 27 años y está en el pico de su producción teórica."
+      },
+      {
+        "year": 1916,
+        "kind": "context",
+        "label": "Lenin lee el manuscrito y escribe el prólogo",
+        "note": "El texto influye directamente en la elaboración leninista del imperialismo."
+      },
+      {
+        "year": 1917,
+        "kind": "writing",
+        "label": "Publicación simultánea con el Imperialismo de Lenin",
+        "note": "Los dos textos forman el corpus marxista central sobre el imperialismo en la era de los monopolios."
+      }
+    ],
+    "criticisms": [
+      {
+        "from": "Luxemburgo: crítica desde la acumulación",
+        "claim": "Luxemburgo argumentó que la teoría imperialista necesita explicar no solo la rivalidad entre capitales sino la necesidad de expansión hacia zonas no capitalistas para realizar la plusvalía."
+      },
+      {
+        "from": "Debates posteriores sobre imperialismo",
+        "claim": "Los debates de los años 70 (Poulantzas, Warren) pusieron en cuestión si el modelo de rivalidad interimperialista sigue siendo válido o si hay formas de imperialismo cooperativo."
+      }
+    ],
+    "legacy": "Abrió la teoría marxista del imperialismo como sistema económico global y como causa estructural de las guerras; sigue siendo una referencia en los debates sobre globalización y geopolítica.",
+    "questions_opened": [
+      "¿Sigue siendo válido el modelo de rivalidad entre potencias imperialistas?",
+      "¿Cómo se articula la competencia entre capitales con la cooperación de los Estados imperialistas?"
+    ]
   }
 }

@@ -10,5 +10,78 @@
     "provider": "Marxists.org",
     "url": "https://www.marxists.org/espanol/e-m/1880s/utopico/index.htm",
     "attribution_label": "Engels, Friedrich. Del socialismo utópico al socialismo científico (1880). Marxists.org."
+  },
+  "study_guide": {
+    "hook": "El texto de iniciación al marxismo más leído durante casi un siglo: en ochenta páginas, Engels distingue el socialismo científico del utópico y explica el materialismo histórico sin tecnicismos.",
+    "historical_context": "Extraído del Anti-Dühring (1878) como folleto de divulgación (1880), a petición del movimiento obrero francés. Diseñado explícitamente para ser accesible: el propio Engels renunció a los tecnicismos del libro mayor para llegar a los trabajadores.",
+    "responds_to": [
+      {
+        "label": "Los socialismos utópicos (Owen, Saint-Simon, Fourier) que proyectan un orden social ideal sin comprender las leyes del movimiento histórico",
+        "why_it_matters": "Engels insiste en que el socialismo necesita una base científica, no moral: la comprensión de las leyes de la historia."
+      },
+      {
+        "label": "La crítica antidialéctica de Dühring",
+        "why_it_matters": "Engels defiende la dialéctica como método y muestra su fertilidad frente al positivismo mecanicista."
+      }
+    ],
+    "reading_entry": {
+      "start_here": {
+        "label": "Empieza por la parte II: del socialismo utópico al científico.",
+        "why": "Es el núcleo del folleto y el más directamente instructivo para entender qué distingue el marxismo de otros socialismos."
+      },
+      "key_sections": [
+        {
+          "label": "La exposición del materialismo histórico en la parte II",
+          "why": "La explicación más clara que Engels escribió de cómo las condiciones materiales de producción determinan las formas políticas e ideológicas."
+        },
+        {
+          "label": "La parte III: materialismo dialéctico y leyes del desarrollo histórico",
+          "why": "Introduce la dialéctica materialista y la teoría de la contradicción entre fuerzas productivas y relaciones de producción."
+        }
+      ],
+      "focus_points": [
+        "Lee el texto como un manual de introducción, no como el desarrollo más matizado del pensamiento marxista.",
+        "Compara las tesis sobre los utópicos con la lectura directa de algún fragmento de Owen o Fourier."
+      ],
+      "if_short_on_time": [
+        "Basta con la parte II y la conclusión de la parte III.",
+        "La parte I (crítica a los utópicos históricos) tiene valor pero puede leerse después."
+      ]
+    },
+    "timeline": [
+      {
+        "year": 1878,
+        "kind": "writing",
+        "label": "El Anti-Dühring se publica en la prensa del partido alemán",
+        "note": "El libro completo que contiene los capítulos que luego se publicarán como folleto independiente."
+      },
+      {
+        "year": 1880,
+        "kind": "writing",
+        "label": "Del socialismo utópico al científico se publica en francés",
+        "note": "La primera edición es traducida por Paul Lafargue; el texto es revisado por Marx antes de su publicación."
+      },
+      {
+        "year": 1885,
+        "kind": "reception",
+        "label": "El folleto se traduce a doce idiomas en quince años",
+        "note": "Se convierte en el texto de iniciación al marxismo por excelencia para generaciones de militantes obreros."
+      }
+    ],
+    "criticisms": [
+      {
+        "from": "Lecturas del Marx joven contra el Engels maduro",
+        "claim": "Algunos han contrapuesto el 'marxismo humanista' de los Manuscritos del 44 al 'positivismo científico' del Engels del Anti-Dühring, una oposición que simplifica ambos textos."
+      },
+      {
+        "from": "Lectura determinista del materialismo histórico",
+        "claim": "La exposición de Engels puede leerse en clave determinista, como si el socialismo fuera el resultado inevitable del desarrollo histórico; esta lectura fue luego criticada por el marxismo dialéctico."
+      }
+    ],
+    "legacy": "Formó políticamente a generaciones enteras de militantes obreros y sigue siendo el punto de entrada más claro al marxismo de Marx y Engels.",
+    "questions_opened": [
+      "¿Qué distingue una crítica científica del capitalismo de una crítica moral?",
+      "¿Puede el materialismo histórico dar cuenta de procesos que parecen contradecir la dirección del desarrollo capitalista?"
+    ]
   }
 }

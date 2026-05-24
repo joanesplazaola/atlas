@@ -10,5 +10,78 @@
     "provider": "Marxists.org",
     "url": "https://www.marxists.org/espanol/e-m/1870s/anti-duhring/index.htm",
     "attribution_label": "Engels, Friedrich. Anti-Dühring (1878). Marxists.org."
+  },
+  "study_guide": {
+    "hook": "La exposición más sistemática del marxismo filosófico de Engels: polémica contra Dühring, defensa de la dialéctica y desarrollo de la teoría del socialismo científico.",
+    "historical_context": "Publicado entre 1877 y 1878 en la prensa del SPD alemán como respuesta al filósofo Eugen Dühring, cuyas ideas estaban ganando influencia en el movimiento obrero. Marx leyó los capítulos de economía política antes de su publicación.",
+    "responds_to": [
+      {
+        "label": "La filosofía sistemática de Dühring que pretendía superar el marxismo con un sistema completo propio",
+        "why_it_matters": "Engels responde en todos los terrenos: ontología, dialéctica, economía, socialismo; muestra que Dühring no supera el idealismo que pretende criticar."
+      },
+      {
+        "label": "El eclecticismo filosófico en el movimiento obrero",
+        "why_it_matters": "Engels insiste en que el socialismo necesita una base filosófica sólida para no quedar a merced de cualquier sistema ideológico bien presentado."
+      }
+    ],
+    "reading_entry": {
+      "start_here": {
+        "label": "Empieza por la parte II (Economía política) o por las secciones de la parte I sobre filosofía y dialéctica.",
+        "why": "Son las secciones más relevantes para el marxismo: la parte sobre economía conecta directamente con El Capital y la parte filosófica desarrolla la dialéctica materialista."
+      },
+      "key_sections": [
+        {
+          "label": "Los capítulos sobre la dialéctica de la naturaleza y el materialismo dialéctico",
+          "why": "Engels extiende la dialéctica marxista al ámbito de las ciencias naturales: una extensión que ha sido muy debatida."
+        },
+        {
+          "label": "La parte III: Socialismo (de donde se extrajo Del socialismo utópico al socialismo científico)",
+          "why": "La exposición más ordenada del marxismo como sistema: historia, economía y perspectiva política."
+        }
+      ],
+      "focus_points": [
+        "El Anti-Dühring es largo y desigual: lee selectivamente según tu interés.",
+        "Las partes de filosofía dialéctica son las más controvertidas y las que más debate han generado en el marxismo posterior."
+      ],
+      "if_short_on_time": [
+        "Lee directamente Del socialismo utópico al socialismo científico (la parte III extraída como folleto).",
+        "Si tienes interés filosófico, los capítulos sobre dialéctica son el punto de acceso más productivo."
+      ]
+    },
+    "timeline": [
+      {
+        "year": 1875,
+        "kind": "context",
+        "label": "Las ideas de Dühring empiezan a ganar influencia en el SPD",
+        "note": "Bebel y Bernstein piden a Engels que responda; la intervención es a petición del partido."
+      },
+      {
+        "year": 1877,
+        "kind": "writing",
+        "label": "El Anti-Dühring se publica en entregas en el Vorwärts",
+        "note": "Marx lee los capítulos de economía y escribe la sección sobre historia económica."
+      },
+      {
+        "year": 1880,
+        "kind": "reception",
+        "label": "Los capítulos del socialismo se publican como folleto independiente en Francia",
+        "note": "El folleto se convierte en el texto de divulgación marxista más leído del siglo XIX."
+      }
+    ],
+    "criticisms": [
+      {
+        "from": "Crítica de la extensión de la dialéctica a la naturaleza",
+        "claim": "Muchos marxistas (Lukács, Korsch) han criticado que Engels extiende la dialéctica a la naturaleza sin base sólida: la dialéctica es una lógica de las relaciones sociales, no una ley del universo."
+      },
+      {
+        "from": "Sartre y el existencialismo marxista",
+        "claim": "Sartre señaló que la dialéctica de Engels convierte al marxismo en determinismo naturalista, vaciando la categoría de praxis."
+      }
+    ],
+    "legacy": "Formuló el marxismo como sistema filosófico completo y preparó al movimiento obrero europeo con una base teórica sólida, aunque a costa de simplificaciones que el marxismo posterior ha tenido que corregir.",
+    "questions_opened": [
+      "¿Puede la dialéctica aplicarse a la naturaleza o es específica de las relaciones sociales?",
+      "¿Hasta qué punto el marxismo de Engels es la misma cosa que el marxismo de Marx?"
+    ]
   }
 }

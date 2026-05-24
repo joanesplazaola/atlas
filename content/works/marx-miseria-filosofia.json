@@ -10,5 +10,78 @@
     "provider": "Marxists.org",
     "url": "https://www.marxists.org/espanol/m-e/1840s/miseria/index.htm",
     "attribution_label": "Marx, Karl. Miseria de la filosofía (1847). Marxists.org."
+  },
+  "study_guide": {
+    "hook": "La primera gran polémica marxista: Marx desmonta a Proudhon y sienta las bases del análisis económico-histórico que luego desarrollará en El Capital.",
+    "historical_context": "Publicado en 1847 como respuesta a La filosofía de la miseria de Proudhon. Marx argumenta que Proudhon no comprende ni la dialéctica hegeliana ni la economía política: produce una combinación que idealiza las relaciones de mercado mientras las critica.",
+    "responds_to": [
+      {
+        "label": "El 'socialismo' de Proudhon que quiere conservar el mercado pero eliminar el dinero y el beneficio",
+        "why_it_matters": "Marx muestra que Proudhon no entiende que las categorías económicas expresan relaciones sociales históricas: cambiar las formas sin cambiar las relaciones es idealismo."
+      },
+      {
+        "label": "La filosofía de la historia de Proudhon que divide las categorías económicas en 'buenas' y 'malas'",
+        "why_it_matters": "Marx critica la ahistoricidad de Proudhon: trata como eternas categorías que son producto de un momento histórico específico."
+      }
+    ],
+    "reading_entry": {
+      "start_here": {
+        "label": "Empieza por los capítulos sobre valor y trabajo.",
+        "why": "Ahí se ve mejor la diferencia entre el análisis histórico de Marx y el moralismo económico de Proudhon."
+      },
+      "key_sections": [
+        {
+          "label": "El capítulo sobre la dialéctica y el método",
+          "why": "Marx explica su propio método por contraste con el pseudodialéctico de Proudhon."
+        },
+        {
+          "label": "Los capítulos sobre la huelga y los sindicatos",
+          "why": "Marx defiende la lucha sindical como necesaria, contra la ilusión proudhoniana de que bastaría con reformar el dinero."
+        }
+      ],
+      "focus_points": [
+        "Lee el texto como obra polémica, no como tratado sistemático.",
+        "Presta atención a cómo Marx usa la historia económica para refutar los argumentos abstractos de Proudhon."
+      ],
+      "if_short_on_time": [
+        "Los capítulos sobre valor, trabajo y el método son los más importantes teóricamente.",
+        "Los capítulos sobre competencia y monopolio son más específicos y pueden dejarse para después."
+      ]
+    },
+    "timeline": [
+      {
+        "year": 1846,
+        "kind": "context",
+        "label": "Proudhon publica La filosofía de la miseria",
+        "note": "Proudhon era entonces el principal teórico del socialismo francés; Marx lo había respetado y correspondido con él."
+      },
+      {
+        "year": 1847,
+        "kind": "writing",
+        "label": "Marx publica Miseria de la filosofía en francés",
+        "note": "El título es el exacto negativo del de Proudhon. La ruptura es definitiva."
+      },
+      {
+        "year": 1848,
+        "kind": "context",
+        "label": "El Manifiesto Comunista: el mismo año, Marx formula en positivo lo que en Miseria formuló por negativo",
+        "note": "Los dos textos juntos muestran a Marx en el momento de consolidar su propio sistema frente a las tendencias rivales del socialismo."
+      }
+    ],
+    "criticisms": [
+      {
+        "from": "Tradición proudhoniana y anarquista",
+        "claim": "La polémica con Proudhon ha sido vista como excesivamente agresiva y como el inicio de un centralismo en el marxismo que el anarquismo rechazará."
+      },
+      {
+        "from": "Lecturas que señalan límites del Marx del 47",
+        "claim": "El análisis del valor en Miseria es todavía preliminar: hay que esperar a El Capital para la teoría completa."
+      }
+    ],
+    "legacy": "Fijó la diferencia entre el marxismo y el socialismo utópico/anarquista y estableció el análisis histórico de las categorías económicas como método propio del marxismo.",
+    "questions_opened": [
+      "¿Puede una forma diferente de mercado (sin dinero, sin beneficio) resolver las contradicciones del capitalismo?",
+      "¿Qué distingue la crítica marxista de la economía política de la crítica moral?"
+    ]
   }
 }

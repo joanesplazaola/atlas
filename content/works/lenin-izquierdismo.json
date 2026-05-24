@@ -10,5 +10,78 @@
     "provider": "Marxists.org",
     "url": "https://www.marxists.org/espanol/lenin/obras/1920s/izquier.htm",
     "attribution_label": "Lenin, V. I. El «izquierdismo», enfermedad infantil del comunismo (1920). Marxists.org."
+  },
+  "study_guide": {
+    "hook": "Lenin debate con la izquierda radical europea su propia experiencia estratégica: un texto que no busca tener razón en abstracto sino enseñar a pensar las contradicciones tácticas.",
+    "historical_context": "Escrito en abril de 1920 para el II Congreso de la Internacional Comunista. Lenin responde a las corrientes 'izquierdistas' alemanas, holandesas y británicas que rechazaban el trabajo en parlamentos y sindicatos reformistas como táctica revolucionaria.",
+    "responds_to": [
+      {
+        "label": "El 'izquierdismo' que rechaza trabajar en parlamentos burgueses y sindicatos reformistas",
+        "why_it_matters": "Lenin insiste en que el revolucionario debe ir donde están las masas, aunque eso sea en organizaciones que no comparte."
+      },
+      {
+        "label": "La tendencia a absolutizar la experiencia rusa como modelo universal",
+        "why_it_matters": "El propio Lenin avisa contra la exportación mecánica del bolchevismo: cada situación nacional tiene sus propias condiciones."
+      }
+    ],
+    "reading_entry": {
+      "start_here": {
+        "label": "Empieza por los capítulos que explican por qué los bolcheviques conquistaron el poder y los capítulos sobre tácticas parlamentarias.",
+        "why": "Ahí está el núcleo del argumento: la dialéctica entre principios estratégicos y flexibilidad táctica."
+      },
+      "key_sections": [
+        {
+          "label": "El capítulo sobre compromisos",
+          "why": "El argumento más importante: no todos los compromisos son capitulación; hay que distinguir capitulación táctica de traición estratégica."
+        },
+        {
+          "label": "El capítulo sobre la táctica bolchevique en 1917",
+          "why": "Lenin usa la propia historia del partido para mostrar que el éxito vino de saber adaptar la táctica a cada momento concreto."
+        }
+      ],
+      "focus_points": [
+        "Lee el texto como intervención política concreta, no como manual de táctica universal.",
+        "Presta atención a los momentos en que Lenin matiza o limita sus propias tesis."
+      ],
+      "if_short_on_time": [
+        "Prioriza los capítulos sobre compromisos, táctica parlamentaria y el análisis de la situación inglesa.",
+        "El prefacio y los capítulos biográficos sobre el bolchevismo son también accesibles."
+      ]
+    },
+    "timeline": [
+      {
+        "year": 1919,
+        "kind": "context",
+        "label": "Fracasan las revoluciones en Alemania, Hungría y Finlandia",
+        "note": "El contexto que hace urgente el debate sobre táctica: las derrotas llevan a Lenin a examinar los errores estratégicos."
+      },
+      {
+        "year": 1920,
+        "kind": "writing",
+        "label": "Lenin escribe el texto en pocas semanas, en preparación para el II Congreso de la Comintern",
+        "note": "El libro se edita en varias lenguas antes del Congreso para ser debatido directamente allí."
+      },
+      {
+        "year": 1920,
+        "kind": "reception",
+        "label": "II Congreso de la Internacional Comunista: el texto es el punto de referencia del debate sobre táctica",
+        "note": "Las '21 condiciones' de admisión a la Comintern están directamente influidas por el diagnóstico del izquierdismo."
+      }
+    ],
+    "criticisms": [
+      {
+        "from": "Izquierda comunista (Pannekoek, Bordiga)",
+        "claim": "Respondieron directamente que Lenin sobrevaloraba la táctica y que su flexibilismo táctica acabaría produciendo partidos subordinados a intereses ajenos a la revolución."
+      },
+      {
+        "from": "Lectura esclerótica",
+        "claim": "El texto fue convertido por el estalinismo en argumento contra toda crítica 'de izquierda' al partido, cuando el propio Lenin lo escribió contra una desviación concreta, no contra toda crítica radical."
+      }
+    ],
+    "legacy": "Formuló el problema de la táctica revolucionaria con una claridad que sigue siendo insuperable: cómo distinguir principio estratégico de dogmatismo, y compromiso táctico de capitulación.",
+    "questions_opened": [
+      "¿Dónde está el límite entre flexibilidad táctica y traición estratégica?",
+      "¿Puede una izquierda trabajar en instituciones burguesas sin ser absorbida por ellas?"
+    ]
   }
 }

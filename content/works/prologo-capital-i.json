@@ -10,5 +10,77 @@
     "provider": "Marxists.org",
     "url": "https://www.marxists.org/espanol/m-e/1860s/palp67s.htm",
     "attribution_label": "Karl Marx (1867). Marxists Internet Archive."
+  },
+  "study_guide": {
+    "hook": "Marx presenta su método, su objeto y su intención: la clave para entrar en El Capital y entender por qué es distinto de la economía política clásica.",
+    "historical_context": "Publicado en 1867 como presentación de la primera edición alemana de El Capital. Marx habla de método, de audiencia y de por qué la ciencia no puede conciliar con el poder.",
+    "responds_to": [
+      {
+        "label": "La economía política burguesa que trata las relaciones capitalistas como eternas y naturales",
+        "why_it_matters": "Marx anuncia que su objeto no es la naturaleza del capital sino su forma histórica específica: analizar cómo las categorías económicas expresan relaciones sociales históricas."
+      },
+      {
+        "label": "La dificultad de la lectura de El Capital para el lector medio",
+        "why_it_matters": "Marx explica su método: procede de lo abstracto a lo concreto, y ese camino exige esfuerzo inicial que se recompensa al llegar al análisis concreto."
+      }
+    ],
+    "reading_entry": {
+      "start_here": {
+        "label": "Lee el prólogo antes de empezar El Capital: es la guía de lectura que el propio Marx dejó.",
+        "why": "Explica el método, las limitaciones del texto y la audiencia a la que se dirige, lo que prepara para leer el primer capítulo."
+      },
+      "key_sections": [
+        {
+          "label": "El párrafo sobre el método: de lo abstracto a lo concreto",
+          "why": "Explica por qué El Capital empieza con la mercancía (la forma más abstracta) antes de llegar al análisis concreto del capitalismo."
+        },
+        {
+          "label": "La declaración sobre ciencia y conciencia",
+          "why": "'En la entrada a la ciencia, como en la entrada al infierno, debe exigirse: aquí hay que renunciar a toda cobardía.'"
+        }
+      ],
+      "focus_points": [
+        "Lee el prólogo como instrucciones de uso: qué esperar del texto y qué tipo de lectura requiere.",
+        "Presta atención a la diferencia que establece entre su método y el de la economía política clásica."
+      ],
+      "if_short_on_time": [
+        "Son pocas páginas: léelo completo antes de empezar el primer capítulo de El Capital."
+      ]
+    },
+    "timeline": [
+      {
+        "year": 1859,
+        "kind": "context",
+        "label": "Prólogo a la Contribución: primer balance del método",
+        "note": "El prólogo de El Capital retoma y amplía el balance del Prólogo de 1859."
+      },
+      {
+        "year": 1867,
+        "kind": "writing",
+        "label": "Se publica el primer volumen de El Capital",
+        "note": "Veinte años después del Manifiesto, Marx publica su obra principal. El prólogo es la única parte de acceso fácil."
+      },
+      {
+        "year": 1872,
+        "kind": "writing",
+        "label": "Marx escribe el prólogo a la segunda edición alemana",
+        "note": "Ahí habla con más detalle del método dialéctico y su diferencia con Hegel."
+      }
+    ],
+    "criticisms": [
+      {
+        "from": "Lecturas positivistas",
+        "claim": "Han querido ver en El Capital una ciencia económica neutral; el propio prólogo muestra que Marx era consciente de que la ciencia tiene consecuencias políticas."
+      },
+      {
+        "from": "Lecturas que separan método de contenido",
+        "claim": "Algunos han tomado el método de El Capital sin su crítica: la dialéctica marxista no es un método aplicable a cualquier contenido sino que está ligado al objeto específico del capital."
+      }
+    ],
+    "legacy": "La presentación más clara del proyecto de El Capital: qué es, para qué sirve y cómo leerlo.",
+    "questions_opened": [
+      "¿Por qué Marx empieza El Capital con la mercancía y no con el capital directamente?",
+      "¿Qué significa para Marx que las categorías económicas expresan relaciones sociales históricas?"
+    ]
   }
 }

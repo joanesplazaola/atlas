@@ -10,5 +10,77 @@
     "provider": "Marxists.org",
     "url": "https://www.marxists.org/espanol/m-e/1843/noviembre/apuntes.htm",
     "attribution_label": "Friedrich Engels (1843). Marxists Internet Archive."
+  },
+  "study_guide": {
+    "hook": "El primer texto marxista sobre economía política: Engels tiene 22 años y desmonta la economía clásica con argumentos que prefiguran toda la crítica posterior de Marx.",
+    "historical_context": "Publicado en 1844 en los Anales Franco-Alemanes que dirigía Marx. Engels escribe desde Manchester, donde trabaja en la fábrica de su padre y observa directamente las condiciones del proletariado inglés. El texto influye decisivamente en los Manuscritos del 44 de Marx.",
+    "responds_to": [
+      {
+        "label": "La economía política clásica (Smith, Ricardo, Malthus) que trata las categorías capitalistas como naturales y eternas",
+        "why_it_matters": "Engels señala que la competencia, el valor y el trabajo asalariado son relaciones históricas, no leyes de la naturaleza."
+      },
+      {
+        "label": "La teoría malthusiana de la población como causa de la pobreza",
+        "why_it_matters": "Engels invierte el argumento: la pobreza no es resultado de la sobrepoblación natural sino de la organización social del trabajo."
+      }
+    ],
+    "reading_entry": {
+      "start_here": {
+        "label": "El texto es breve: léelo completo.",
+        "why": "Como primer texto marxista sobre economía, su valor es también histórico: ver dónde empezó la crítica que culmina en El Capital."
+      },
+      "key_sections": [
+        {
+          "label": "Los pasajes sobre la contradicción entre valor de uso y valor de cambio",
+          "why": "Primera formulación de una tensión que Marx desarrollará durante veinte años."
+        },
+        {
+          "label": "La crítica a la ley de la oferta y la demanda",
+          "why": "Engels muestra que la competencia no produce equilibrio sino crisis: un argumento que el marxismo seguirá elaborando."
+        }
+      ],
+      "focus_points": [
+        "Lee el texto como obra de juventud que no tiene la madurez de El Capital pero sí su punto de partida.",
+        "Compara con los Manuscritos del 44 de Marx: el texto de Engels es una de las fuentes directas."
+      ],
+      "if_short_on_time": [
+        "El texto es tan breve que no necesita estrategia de lectura: léelo entero."
+      ]
+    },
+    "timeline": [
+      {
+        "year": 1842,
+        "kind": "context",
+        "label": "Engels llega a Manchester para trabajar en la empresa familiar",
+        "note": "La experiencia directa del capitalismo industrial inglés es la base empírica de este texto."
+      },
+      {
+        "year": 1843,
+        "kind": "writing",
+        "label": "Engels escribe los Apuntes en Barmen (Alemania) antes de volver a Inglaterra",
+        "note": "El texto es una síntesis de lo que ha observado y aprendido en Manchester."
+      },
+      {
+        "year": 1844,
+        "kind": "reception",
+        "label": "Marx lee el texto y escribe a Engels: 'Has hecho más en este texto que todos los economistas juntos'",
+        "note": "El texto inicia la colaboración intelectual entre Marx y Engels que durará cuarenta años."
+      }
+    ],
+    "criticisms": [
+      {
+        "from": "Posterioridad del propio Engels",
+        "claim": "Engels era consciente de que sus Apuntes eran un texto juvenil; no los reeditó él mismo, dejando que hablaran como obra de iniciación."
+      },
+      {
+        "from": "Lectura que sobreestima la influencia de Engels sobre Marx",
+        "claim": "Algunos han querido ver en los Apuntes la fuente de todo el marxismo posterior; la influencia fue real pero Marx desarrolló una crítica mucho más elaborada."
+      }
+    ],
+    "legacy": "El primer texto del corpus marxista sobre economía política, relevante tanto como antecedente intelectual de El Capital como para entender la formación del pensamiento de Marx y Engels.",
+    "questions_opened": [
+      "¿En qué medida la economía clásica describe el capitalismo o lo legitima ideológicamente?",
+      "¿Qué diferencia el concepto marxista de 'trabajo' del de la economía política clásica?"
+    ]
   }
 }

@@ -10,5 +10,78 @@
     "provider": "Marxists.org",
     "url": "https://www.marxists.org/espanol/trotsky/indice.htm",
     "attribution_label": "Trotsky, León. Escritos sobre Alemania (1930-33). Marxists.org."
+  },
+  "study_guide": {
+    "hook": "El texto donde Trotsky predice con dos años de antelación el camino al nazismo: si la izquierda alemana no construye frente único contra Hitler, el fascismo llegará al poder.",
+    "historical_context": "Escrito en 1931, cuando el nazismo era ya la segunda fuerza electoral alemana pero aún no había llegado al poder. Trotsky escribe desde el exilio contra la política del KPD (Partido Comunista Alemán) que bajo dirección estalinista calificaba a la socialdemocracia de 'socialfascismo' y rechazaba el frente único.",
+    "responds_to": [
+      {
+        "label": "La política de 'socialfascismo' del KPD bajo dirección de la Comintern estalinista",
+        "why_it_matters": "Trotsky argumenta que tratar a la socialdemocracia como 'fascismo social' es un suicidio político que divide al movimiento obrero frente a Hitler."
+      },
+      {
+        "label": "La política de 'tercero período' de la Comintern que rechazaba alianzas con partidos reformistas",
+        "why_it_matters": "Trotsky insiste en que frente al fascismo el frente único obrero es una necesidad de supervivencia, no una traición de principios."
+      }
+    ],
+    "reading_entry": {
+      "start_here": {
+        "label": "Empieza con el análisis de las fuerzas sociales del nazismo y la crítica a la política del KPD.",
+        "why": "Ahí está la tesis central: el fascismo no es solo una ideología sino una movilización de masas pequeñoburguesas que solo puede derrotarse con unidad obrera."
+      },
+      "key_sections": [
+        {
+          "label": "El análisis sociológico de la base social del nazismo",
+          "why": "Trotsky muestra qué clases y sectores sostienen a Hitler y por qué: un análisis que sigue siendo relevante para pensar el fascismo contemporáneo."
+        },
+        {
+          "label": "La propuesta de frente único obrero",
+          "why": "La tesis táctica central: comunistas y socialdemócratas deben unirse para resistir al fascismo, aunque tengan profundas diferencias políticas."
+        }
+      ],
+      "focus_points": [
+        "Lee el texto como intervención política urgente, no como análisis académico.",
+        "Compara el análisis de Trotsky con lo que realmente ocurrió en 1933: la precisión de la predicción es escalofriante."
+      ],
+      "if_short_on_time": [
+        "El texto es corto y puede leerse completo sin dificultad.",
+        "Prioriza los pasajes sobre la base social del nazismo y la crítica a la política comunista."
+      ]
+    },
+    "timeline": [
+      {
+        "year": 1930,
+        "kind": "context",
+        "label": "El NSDAP se convierte en segunda fuerza electoral: 18% en las elecciones",
+        "note": "La amenaza fascista es ya electoral y masiva; Trotsky empieza su serie de escritos sobre Alemania."
+      },
+      {
+        "year": 1931,
+        "kind": "writing",
+        "label": "Trotsky escribe 'Alemania, la clave de la situación internacional'",
+        "note": "Uno de varios textos de urgencia que escribe sobre Alemania, suplicando a la izquierda que cambie de política."
+      },
+      {
+        "year": 1933,
+        "kind": "context",
+        "label": "Hitler llega al poder sin resistencia organizada del movimiento obrero",
+        "note": "La predicción de Trotsky se cumple. El KPD y el SPD no construyeron frente único. La derrota fue sin lucha."
+      }
+    ],
+    "criticisms": [
+      {
+        "from": "El KPD y la Comintern estalinista",
+        "claim": "Rechazaron las advertencias de Trotsky tachándolas de 'capitulación ante la socialdemocracia'. Esta posición contribuyó directamente a la derrota sin combate de enero de 1933."
+      },
+      {
+        "from": "Revisiones historiográficas",
+        "claim": "Algunos historiadores señalan que la política del frente único tampoco garantizaba la derrota del nazismo, dadas las contradicciones del movimiento obrero alemán."
+      }
+    ],
+    "legacy": "El texto más lucido del periodo sobre el fascismo como fenómeno político concreto; su análisis de la base social del nazismo y la crítica al sectarismo de izquierda sigue siendo una referencia para pensar el fascismo contemporáneo.",
+    "questions_opened": [
+      "¿Cuándo es legítimo el frente único con fuerzas que uno considera reformistas o insuficientemente revolucionarias?",
+      "¿Cuál es la base social del fascismo contemporáneo y qué estrategia le corresponde?"
+    ]
   }
 }

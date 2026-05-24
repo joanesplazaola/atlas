@@ -10,5 +10,78 @@
     "provider": "Marxists.org",
     "url": "https://www.marxists.org/espanol/e-m/1880s/feuerbach/index.htm",
     "attribution_label": "Engels, Friedrich. Ludwig Feuerbach y el fin de la filosofía clásica alemana (1888). Marxists.org."
+  },
+  "study_guide": {
+    "hook": "Engels explica cómo Marx y él rompieron con Hegel y Feuerbach para fundar el materialismo histórico: la síntesis más clara de cómo el marxismo construyó su base filosófica.",
+    "historical_context": "Publicado en 1888, cuatro años después de la muerte de Marx, a partir de una reseña del libro de Starcke sobre Feuerbach. Engels aprovecha para hacer balance de la influencia de la filosofía alemana en el marxismo y distinguir el materialismo dialéctico del materialismo vulgar.",
+    "responds_to": [
+      {
+        "label": "El idealismo hegeliano que subordina la materia al espíritu",
+        "why_it_matters": "Engels explica cómo Marx 'puso a Hegel de pie': la dialéctica es un método válido, pero aplicado a la materia y no al espíritu."
+      },
+      {
+        "label": "El materialismo contemplativo de Feuerbach que no llega a la praxis",
+        "why_it_matters": "Feuerbach vio que la religión es proyección humana, pero no entendió que la transformación requiere práctica material, no solo corrección del pensamiento."
+      }
+    ],
+    "reading_entry": {
+      "start_here": {
+        "label": "Empieza con los capítulos sobre la distinción entre Marx y Feuerbach.",
+        "why": "Ahí se ve con más claridad la especificidad del materialismo histórico frente a otros materialismos."
+      },
+      "key_sections": [
+        {
+          "label": "Los capítulos sobre la dialéctica hegeliana y su transformación materialista",
+          "why": "Engels explica con más claridad que en ningún otro texto cómo el marxismo hereda y transforma la dialéctica hegeliana."
+        },
+        {
+          "label": "Los pasajes sobre moral, religión e ideología",
+          "why": "Engels desarrolla la teoría de la superestructura en terrenos que el Prólogo de 1859 solo enuncia."
+        }
+      ],
+      "focus_points": [
+        "Lee el texto como obra de vejez de Engels: es un balance, no una exposición técnica.",
+        "Pon el texto en relación con las Tesis sobre Feuerbach: son la versión condensada de lo que aquí se desarrolla."
+      ],
+      "if_short_on_time": [
+        "Los capítulos sobre la ruptura con Feuerbach y la dialéctica hegeliana son los más densos e importantes.",
+        "Los capítulos sobre moral y religión pueden leerse después."
+      ]
+    },
+    "timeline": [
+      {
+        "year": 1841,
+        "kind": "context",
+        "label": "Feuerbach publica La esencia del cristianismo: impacto en Marx y Engels jóvenes",
+        "note": "El libro de Feuerbach fue un impacto filosófico que el marxismo tuvo que superar."
+      },
+      {
+        "year": 1845,
+        "kind": "context",
+        "label": "Las Tesis sobre Feuerbach: la ruptura formulada en apuntes personales",
+        "note": "Ludwig Feuerbach es la versión desarrollada y pública de esa ruptura."
+      },
+      {
+        "year": 1888,
+        "kind": "writing",
+        "label": "Engels publica Ludwig Feuerbach con las Tesis como apéndice",
+        "note": "La publicación de las Tesis es parte de este libro: Engels las juzga esenciales para entender la ruptura con el idealismo."
+      }
+    ],
+    "criticisms": [
+      {
+        "from": "Lecturas que privilegian las Tesis sobre Feuerbach",
+        "claim": "Algunos consideran que las Tesis dicen lo mismo que este libro pero con más densidad y que Engels aquí lo diluye."
+      },
+      {
+        "from": "Althusser",
+        "claim": "Criticó que Engels presenta la dialéctica como ley natural universal, lo que convierte el marxismo en una variante del positivismo naturalista."
+      }
+    ],
+    "legacy": "El texto donde el marxismo filosófico explica su propia genealogía: cómo nació de la crítica del idealismo alemán y qué lo distingue de todos los materialismos anteriores.",
+    "questions_opened": [
+      "¿Qué queda válido de la dialéctica hegeliana una vez que se pasa al materialismo?",
+      "¿Es el 'materialismo histórico' un materialismo filosófico o una teoría social?"
+    ]
   }
 }

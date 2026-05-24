@@ -10,5 +10,87 @@
     "provider": "Marxists.org",
     "url": "https://www.marxists.org/espanol/m-e/1840s/45-feuer.htm",
     "attribution_label": "Marx, Karl. Tesis sobre Feuerbach (1845). Marxists.org."
+  },
+  "study_guide": {
+    "hook": "Once tesis cortas donde Marx reformula la filosofía en pocas páginas: el pensamiento no como contemplación sino como práctica. La tesis 11 es la frase más citada de toda la tradición marxista.",
+    "historical_context": "Escritas en 1845 como apuntes personales de Marx, sin intención de publicación. Engels las publicó póstumamente en 1888. Fueron escritas en el proceso de ruptura con el hegelianismo de izquierda y el humanismo de Feuerbach.",
+    "responds_to": [
+      {
+        "label": "El materialismo contemplativo de Feuerbach que se limita a 'interpretar' el mundo",
+        "why_it_matters": "Marx introduce la praxis como criterio de la verdad: el conocimiento se verifica en la transformación, no en la contemplación."
+      },
+      {
+        "label": "El idealismo hegeliano que reduce la realidad a pensamiento",
+        "why_it_matters": "Marx invierte la relación: no es la idea la que determina la realidad, sino la práctica material la que produce el pensamiento."
+      }
+    ],
+    "reading_entry": {
+      "start_here": {
+        "label": "Lee las once tesis de corrido, en diez minutos.",
+        "why": "El texto es tan breve que no necesita estrategia de lectura: léelo entero primero y luego vuelve a las que más te impacten."
+      },
+      "key_sections": [
+        {
+          "label": "Tesis 1: sobre el materialismo contemplativo vs. la praxis",
+          "why": "La ruptura filosófica central: la realidad no se entiende solo pensándola sino transformándola."
+        },
+        {
+          "label": "Tesis 3: sobre el cambio de circunstancias y la autotransformación",
+          "why": "El argumento contra el determinismo: los seres humanos cambian las circunstancias y a la vez se cambian a sí mismos en esa práctica."
+        },
+        {
+          "label": "Tesis 11: 'Los filósofos han interpretado el mundo de distintas maneras; de lo que se trata es de transformarlo'",
+          "why": "La formulación más concisa del proyecto marxista: la teoría al servicio de la práctica emancipadora."
+        }
+      ],
+      "focus_points": [
+        "No te quedes solo con la tesis 11: las demás desarrollan el argumento filosófico que la sostiene.",
+        "Lee el texto como ruptura filosófica, no como programa político."
+      ],
+      "if_short_on_time": [
+        "El texto es brevísimo: léelo completo. No hay secciones prescindibles."
+      ]
+    },
+    "timeline": [
+      {
+        "year": 1841,
+        "kind": "context",
+        "label": "Marx lee La esencia del cristianismo de Feuerbach",
+        "note": "El texto de Feuerbach impacta a Marx: ve en él el materialismo que necesita para romper con Hegel."
+      },
+      {
+        "year": 1843,
+        "kind": "context",
+        "label": "Marx empieza a distanciarse de Feuerbach: la abstracción humanista no basta",
+        "note": "Las Tesis cristalizan una ruptura que ha venido preparándose desde la crítica a la filosofía del derecho de Hegel."
+      },
+      {
+        "year": 1845,
+        "kind": "writing",
+        "label": "Marx escribe las Tesis en sus cuadernos personales",
+        "note": "Son apuntes, no un texto elaborado para publicación."
+      },
+      {
+        "year": 1888,
+        "kind": "reception",
+        "label": "Engels las publica en el apéndice de Ludwig Feuerbach",
+        "note": "Su publicación tardía las convierte en texto de referencia filosófica del marxismo."
+      }
+    ],
+    "criticisms": [
+      {
+        "from": "Lectura pragmatista",
+        "claim": "Algunos han leído la tesis 11 como un elogio del activismo por encima del pensamiento, cuando Marx no opone práctica a teoría sino que las vincula."
+      },
+      {
+        "from": "Lectura de Althusser",
+        "claim": "Althusser consideraba las Tesis parte del 'periodo humanista' de Marx, anterior a la ruptura epistemológica hacia el materialismo científico."
+      }
+    ],
+    "legacy": "Reformularon la función de la filosofía con una brevedad sin igual y situaron la praxis como categoría central del marxismo.",
+    "questions_opened": [
+      "¿Puede el conocimiento ser verdadero sin ser al mismo tiempo transformador?",
+      "¿Qué significa que las circunstancias cambian a los seres humanos y los seres humanos cambian las circunstancias?"
+    ]
   }
 }

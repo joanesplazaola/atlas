@@ -10,5 +10,78 @@
     "provider": "Marxists.org",
     "url": "https://www.marxists.org/espanol/gramsci/index.htm",
     "attribution_label": "Gramsci, Antonio. Cuadernos de la cárcel: El moderno príncipe (c. 1933). Marxists.org."
+  },
+  "study_guide": {
+    "hook": "La refundición marxista del Príncipe de Maquiavelo: el partido comunista como organismo colectivo que debe construir voluntad histórica nacional-popular, no solo representar a la clase obrera.",
+    "historical_context": "Sección central de los Cuadernos de la cárcel (c. 1933), escrita bajo el régimen fascista. Gramsci usa a Maquiavelo como código: donde Maquiavelo habla del príncipe, Gramsci piensa en el partido revolucionario moderno.",
+    "responds_to": [
+      {
+        "label": "La concepción sindicalista o economicista del partido obrero como simple representante de intereses de clase",
+        "why_it_matters": "Gramsci insiste en que el partido debe construir una hegemonía que vincule a la clase obrera con otros sectores populares."
+      },
+      {
+        "label": "La lectura mecanicista del marxismo que espera que las condiciones económicas produzcan automáticamente la revolución",
+        "why_it_matters": "El partido existe precisamente para construir la voluntad política que no emerge sola de las condiciones materiales."
+      }
+    ],
+    "reading_entry": {
+      "start_here": {
+        "label": "Empieza con los pasajes sobre el partido como 'intelectual colectivo' y sobre la función del partido en la construcción de voluntad colectiva.",
+        "why": "Ahí está la originalidad de Gramsci respecto al leninismo clásico: no solo el partido de vanguardia sino el partido como organismo hegemónico."
+      },
+      "key_sections": [
+        {
+          "label": "Los pasajes sobre el príncipe-partido y la relación entre líderes, cuadros medios y bases",
+          "why": "Gramsci piensa el partido como estructura de tres niveles con funciones distintas, no como jerarquía simple."
+        },
+        {
+          "label": "Los pasajes sobre voluntad colectiva nacional-popular",
+          "why": "Clave para entender por qué Gramsci cree que el socialismo debe articular demandas nacionales y populares, no solo de clase."
+        }
+      ],
+      "focus_points": [
+        "Lee el texto como reflexión sobre la derrota: Gramsci analiza por qué el partido comunista no pudo hacer en Italia lo que hizo en Rusia.",
+        "Pon en relación el texto con los conceptos de hegemonía y bloque histórico desarrollados en otros cuadernos."
+      ],
+      "if_short_on_time": [
+        "Los pasajes más densos sobre historia italiana pueden dejarse para después.",
+        "Prioriza los fragmentos sobre el partido como organismo colectivo y la función de los cuadros medios."
+      ]
+    },
+    "timeline": [
+      {
+        "year": 1922,
+        "kind": "context",
+        "label": "Mussolini llega al poder: derrota del movimiento obrero italiano",
+        "note": "La pregunta de fondo de El moderno príncipe es: ¿por qué no pudo la clase obrera italiana construir una dirección hegemónica alternativa?"
+      },
+      {
+        "year": 1926,
+        "kind": "context",
+        "label": "Gramsci es detenido: comienzo del encarcelamiento",
+        "note": "Escribe los Cuadernos sin posibilidad de consultar con el partido ni de publicar."
+      },
+      {
+        "year": 1933,
+        "kind": "writing",
+        "label": "Gramsci escribe los pasajes centrales del Moderno Príncipe",
+        "note": "El deterioro de su salud en este periodo hace estos cuadernos particularmente intensos."
+      }
+    ],
+    "criticisms": [
+      {
+        "from": "Lecturas eurocomunistas de los años 70",
+        "claim": "El eurocomunismo usó a Gramsci para justificar el 'compromiso histórico' con la democracia cristiana, vaciando la noción gramsciana de hegemonía de su dimensión de ruptura."
+      },
+      {
+        "from": "Lecturas posmarxistas",
+        "claim": "Laclau y Mouffe tomaron el concepto gramsciano de hegemonía pero abandonaron la centralidad de clase, transformando el análisis gramsciano en algo ajeno al marxismo."
+      }
+    ],
+    "legacy": "El texto que vinculó partido y hegemonía cultural de forma más sofisticada que el leninismo clásico, y que sigue siendo referencia para las discusiones sobre estrategia, partido y construcción de mayorías.",
+    "questions_opened": [
+      "¿Puede una clase subalterna construir hegemonía sin tener partido?",
+      "¿Cómo se construye una 'voluntad colectiva nacional-popular' sin caer en el populismo abstracto?"
+    ]
   }
 }

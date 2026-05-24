@@ -10,5 +10,96 @@
     "provider": "Marxists.org",
     "url": "https://www.marxists.org/espanol/gramsci/index.htm",
     "attribution_label": "Gramsci, Antonio. Cuadernos de la cárcel (1929-1935). Marxists.org."
+  },
+  "study_guide": {
+    "hook": "El lugar donde Gramsci forja el vocabulario que aún usamos: hegemonía, bloque histórico, intelectual orgánico, guerra de posición. Escritos bajo censura fascista, en condiciones de salud devastadoras.",
+    "historical_context": "Escritos durante el encarcelamiento de Gramsci entre 1926 y 1937, tras su condena por el régimen de Mussolini. El contexto de censura obligó a un lenguaje oblicuo que enriqueció el pensamiento en lugar de simplemente ocultarlo.",
+    "responds_to": [
+      {
+        "label": "El economicismo que reduce la política a reflejo mecánico de la economía",
+        "why_it_matters": "Gramsci insiste en la autonomía relativa de la superestructura y en el papel activo de la cultura, la educación y las instituciones civiles."
+      },
+      {
+        "label": "La derrota del movimiento obrero europeo ante el fascismo",
+        "why_it_matters": "Los Cuadernos son en buena parte un intento de entender por qué la revolución no ocurrió en Occidente y qué estrategia necesita una izquierda hegemónica."
+      }
+    ],
+    "reading_entry": {
+      "start_here": {
+        "label": "Empieza por los cuadernos sobre hegemonía, bloque histórico e intelectuales orgánicos.",
+        "why": "Son los núcleos conceptuales más influyentes y los más accesibles como punto de entrada al pensamiento gramsciano."
+      },
+      "key_sections": [
+        {
+          "label": "Los pasajes sobre el Estado ampliado: sociedad política + sociedad civil",
+          "why": "La innovación teórica más importante de Gramsci respecto al marxismo anterior: el poder burgués no es solo coerción, es también consenso."
+        },
+        {
+          "label": "Los cuadernos sobre el Resurgimiento italiano y los intelectuales",
+          "why": "Ahí Gramsci aplica sus conceptos a la historia concreta italiana, lo que los hace más comprensibles."
+        }
+      ],
+      "focus_points": [
+        "Lee el concepto de hegemonía como análisis de cómo se produce el consentimiento, no solo como 'dominación cultural'.",
+        "Toma nota del contexto de escritura: cada formulación cargaba el riesgo del lector carcelero."
+      ],
+      "if_short_on_time": [
+        "Prioriza las selecciones sobre hegemonía, intelectuales orgánicos y guerra de posición vs. guerra de movimiento.",
+        "Deja los cuadernos históricos sobre Italia para cuando tengas el marco conceptual."
+      ]
+    },
+    "timeline": [
+      {
+        "year": 1919,
+        "kind": "context",
+        "label": "El bienio rosso: ocupaciones de fábricas en Italia",
+        "note": "Gramsci dirige L'Ordine Nuovo y teoriza los consejos de fábrica como embrión de poder obrero."
+      },
+      {
+        "year": 1922,
+        "kind": "context",
+        "label": "Mussolini toma el poder: la marcha sobre Roma",
+        "note": "El fascismo derrota al movimiento obrero sin que este pudiera organizarse con la suficiente fuerza hegemónica."
+      },
+      {
+        "year": 1926,
+        "kind": "writing",
+        "label": "Gramsci es detenido y comienza su encarcelamiento",
+        "note": "El fiscal fascista pide que 'detengamos este cerebro durante veinte años'."
+      },
+      {
+        "year": 1929,
+        "kind": "writing",
+        "label": "Gramsci obtiene permiso para escribir y empieza los Cuadernos",
+        "note": "Escribirá 33 cuadernos y más de 3.000 páginas hasta 1935, cuando la enfermedad le impide seguir."
+      },
+      {
+        "year": 1937,
+        "kind": "writing",
+        "label": "Gramsci muere sin ver publicados sus escritos",
+        "note": "Los cuadernos son sacados clandestinamente de Italia por Piero Sraffa y Tatiana Schucht."
+      },
+      {
+        "year": 1947,
+        "kind": "reception",
+        "label": "Primera publicación parcial de los Cuadernos en Italia",
+        "note": "Su difusión masiva no llegará hasta los años 60-70, cuando se convierte en referencia de las nuevas izquierdas."
+      }
+    ],
+    "criticisms": [
+      {
+        "from": "Lecturas 'reformistas' de Gramsci",
+        "claim": "La noción de hegemonía ha sido usada para justificar el gradualismo y la renuncia a la ruptura, algo que el propio Gramsci no sostenía."
+      },
+      {
+        "from": "Lecturas posmarxistas",
+        "claim": "Algunos han convertido a Gramsci en un teórico del 'discurso' vaciando su análisis de base material y lucha de clases."
+      }
+    ],
+    "legacy": "El pensamiento gramsciano renovó el marxismo en los años 60-70 y sigue siendo herramienta indispensable para pensar hegemonía, partido, intelectuales y la larga lucha por la dirección cultural de la sociedad.",
+    "questions_opened": [
+      "¿Puede una clase subalterna construir hegemonía antes de tomar el poder?",
+      "¿Cómo se construye un bloque histórico capaz de articular diferentes clases y sectores populares?"
+    ]
   }
 }

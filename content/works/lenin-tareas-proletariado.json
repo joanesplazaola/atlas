@@ -10,5 +10,78 @@
     "provider": "Marxists.org",
     "url": "https://www.marxists.org/espanol/lenin/obras/1910s/tareas_proletariado.htm",
     "attribution_label": "Lenin, V. I. Las tareas del proletariado en nuestra revolución (1917). Marxists.org."
+  },
+  "study_guide": {
+    "hook": "Las Tesis de Abril desarrolladas: Lenin rompe con la línea provisional del partido bolchevique en 1917 y propone la revolución socialista directa, contra la posición de 'apoyo crítico' al Gobierno Provisional.",
+    "historical_context": "Escrito en septiembre de 1917, como desarrollo y justificación de las Tesis de Abril. El contexto es la fase final de la dualidad de poderes entre el Soviet y el Gobierno Provisional, cuando Lenin argumenta que el momento de la insurrección se acerca.",
+    "responds_to": [
+      {
+        "label": "La posición de Kamenev y Zinóviev que querían seguir apoyando críticamente al Gobierno Provisional",
+        "why_it_matters": "Lenin insiste en que el Gobierno Provisional está ligado al imperialismo y que no puede haber 'apoyo condicional': hay que pasar al poder soviético."
+      },
+      {
+        "label": "La idea de que Rusia necesitaba primero una revolución democrático-burguesa antes de plantearse el socialismo",
+        "why_it_matters": "Lenin argumenta que en la situación concreta de 1917, esa fase ya está superada por la dualidad de poderes."
+      }
+    ],
+    "reading_entry": {
+      "start_here": {
+        "label": "Empieza con el análisis de la dualidad de poderes y la posición respecto al Gobierno Provisional.",
+        "why": "Ahí se ve la lógica política que lleva a Lenin a proponer la insurrección: no como dogma sino como análisis de la correlación de fuerzas."
+      },
+      "key_sections": [
+        {
+          "label": "Los capítulos sobre el carácter de la revolución y las tareas del partido",
+          "why": "Lenin concreta qué significa 'todo el poder a los soviets' como consigna política en la situación concreta de 1917."
+        },
+        {
+          "label": "El análisis de las fracciones dentro del partido bolchevique",
+          "why": "Muestra que el partido no era monolítico y que la decisión de la insurrección fue una decisión política real y debatida."
+        }
+      ],
+      "focus_points": [
+        "Lee el texto como intervención política urgente en una situación en movimiento, no como teoría abstracta.",
+        "Pon el texto en relación con las Tesis de Abril: este texto las desarrolla y justifica."
+      ],
+      "if_short_on_time": [
+        "Los capítulos sobre dualidad de poderes y las tareas inmediatas son los más importantes.",
+        "Los capítulos más detallados sobre la situación de las diferentes fracciones del partido pueden dejarse para después."
+      ]
+    },
+    "timeline": [
+      {
+        "year": 1917,
+        "kind": "context",
+        "label": "Revolución de febrero: caída del zarismo y formación del Gobierno Provisional",
+        "note": "La dualidad de poderes (Soviet / Gobierno Provisional) es la situación política que el texto analiza."
+      },
+      {
+        "year": 1917,
+        "kind": "writing",
+        "label": "Lenin escribe el texto en septiembre, un mes antes de la insurrección",
+        "note": "El texto es parte de la preparación política de octubre: articula la justificación teórica de la insurrección inminente."
+      },
+      {
+        "year": 1917,
+        "kind": "context",
+        "label": "Revolución de octubre: los bolcheviques toman el poder",
+        "note": "El análisis del texto se verifica en el éxito de la insurrección."
+      }
+    ],
+    "criticisms": [
+      {
+        "from": "Kamenev y Zinóviev",
+        "claim": "Argumentaron que las condiciones no estaban maduras para la insurrección socialista y que el partido se aislaba de la mayoría del pueblo ruso."
+      },
+      {
+        "from": "Debates historiográficos posteriores",
+        "claim": "Algunos historiadores (especialmente de la tradición occidental) han discutido si la revolución de octubre fue realmente un movimiento de masas o una toma del poder por una minoría organizada."
+      }
+    ],
+    "legacy": "El texto que articula la justificación política de la revolución de octubre: cómo un partido decidió en condiciones de crisis que el momento de la insurrección había llegado.",
+    "questions_opened": [
+      "¿Cómo se decide el momento de la insurrección?",
+      "¿Qué significa 'dualidad de poderes' y qué consecuencias estratégicas tiene?"
+    ]
   }
 }

@@ -10,5 +10,90 @@
     "provider": "Marxists.org",
     "url": "https://www.marxists.org/espanol/trotsky/1932/hrr/index.htm",
     "attribution_label": "Trotsky, León. Historia de la revolución rusa (1930). Marxists.org."
+  },
+  "study_guide": {
+    "hook": "La revolución de 1917 narrada por uno de sus protagonistas con precisión histórica y profundidad analítica incomparables: un texto a la vez de historia y de teoría política.",
+    "historical_context": "Escrita en el exilio turco entre 1930 y 1932, cuando Trotsky había sido expulsado de la URSS por Stalin. El libro es a la vez un relato histórico monumental y una intervención política en el debate sobre la naturaleza y las perspectivas de la revolución soviética.",
+    "responds_to": [
+      {
+        "label": "La narrativa estalinista de la revolución que borraba el papel de Trotsky y del soviet de Petrogrado",
+        "why_it_matters": "Trotsky restituye el papel de los actores reales, comenzando por el papel de las masas organizadas."
+      },
+      {
+        "label": "Las lecturas liberales que explicaban la revolución como golpe conspirativo bolchevique",
+        "why_it_matters": "La obra insiste en que la revolución fue un movimiento de masas que los bolcheviques supieron dirigir, no una conjura de minorías."
+      }
+    ],
+    "reading_entry": {
+      "start_here": {
+        "label": "Empieza con el análisis de 'La singularidad del desarrollo ruso' y el concepto de desarrollo desigual y combinado.",
+        "why": "Ahí se encuentra la clave teórica del libro: por qué fue posible una revolución socialista en un país 'atrasado'."
+      },
+      "key_sections": [
+        {
+          "label": "Los capítulos sobre el doble poder: Soviet vs. Gobierno Provisional",
+          "why": "La mejor explicación existente de cómo coexisten dos poderes incompatibles y cómo uno tiene que vencer al otro."
+        },
+        {
+          "label": "Los capítulos de octubre: 'La conquista del poder'",
+          "why": "Trotsky muestra la insurrección no como golpe sino como acto político de masas organizado por el partido."
+        }
+      ],
+      "focus_points": [
+        "Lee el texto con atención al problema de la dirección: cómo el partido transforma la energía de las masas en acto político.",
+        "Presta atención a la teoría del desarrollo desigual y combinado como herramienta para pensar otros países."
+      ],
+      "if_short_on_time": [
+        "Lee la introducción teórica y los capítulos sobre el doble poder.",
+        "Los capítulos más narrativos de la preparación de octubre pueden leerse en una segunda vuelta."
+      ]
+    },
+    "timeline": [
+      {
+        "year": 1905,
+        "kind": "context",
+        "label": "Primera revolución rusa y primer soviet de Petrogrado",
+        "note": "Trotsky preside el soviet de 1905 y extrae de esa experiencia las bases de la teoría de la revolución permanente."
+      },
+      {
+        "year": 1917,
+        "kind": "context",
+        "label": "Revolución de febrero y revolución de octubre",
+        "note": "Los hechos que el libro analiza: desde la caída del zarismo hasta la toma del poder bolchevique."
+      },
+      {
+        "year": 1929,
+        "kind": "context",
+        "label": "Trotsky es expulsado de la URSS",
+        "note": "El exilio es el contexto de escritura: el libro es también una respuesta política al estalinismo triunfante."
+      },
+      {
+        "year": 1930,
+        "kind": "writing",
+        "label": "Trotsky escribe la Historia en Prinkipo (Turquía)",
+        "note": "Trabaja sin sus archivos originales, de memoria y con las fuentes disponibles en el exilio."
+      },
+      {
+        "year": 1932,
+        "kind": "writing",
+        "label": "El libro aparece en inglés y alemán simultáneamente",
+        "note": "La edición alemana corre el riesgo de ser quemada al año siguiente, con la llegada de Hitler al poder."
+      }
+    ],
+    "criticisms": [
+      {
+        "from": "Historiadores soviéticos",
+        "claim": "La obra fue prohibida en la URSS y sus protagonistas (Trotsky, Zinoviev) borrados de la historia oficial."
+      },
+      {
+        "from": "Críticas al presentismo del relato",
+        "claim": "Algunos historiadores señalan que Trotsky tiende a ver la revolución con los ojos del debate político de los años 30, proyectando retrospectivamente algunos análisis."
+      }
+    ],
+    "legacy": "Sigue siendo el relato más completo y político de la revolución de 1917: irremplazable como fuente histórica y como modelo de cómo hacer historia política marxista.",
+    "questions_opened": [
+      "¿Qué papel juega el partido en el momento de la insurrección?",
+      "¿En qué condiciones puede un país 'atrasado' pasar por encima de etapas del desarrollo burgués?"
+    ]
   }
 }

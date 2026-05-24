@@ -10,5 +10,78 @@
     "provider": "Marxists.org",
     "url": "https://www.marxists.org/espanol/lenin/obras/1900s/index.htm",
     "attribution_label": "Lenin, V. I. Un paso adelante, dos pasos atrás (1904). Marxists.org."
+  },
+  "study_guide": {
+    "hook": "El texto donde Lenin teoriza por primera vez su concepto de partido de vanguardia contra los mencheviques: el partido no como suma de miembros sino como organización de revolucionarios profesionales.",
+    "historical_context": "Escrito en 1904 como balance del II Congreso del POSDR (1903), donde la división entre bolcheviques y mencheviques sobre la organización del partido produjo la primera gran escisión del socialismo ruso.",
+    "responds_to": [
+      {
+        "label": "El concepto menchevique de partido como asociación amplia de simpatizantes",
+        "why_it_matters": "Lenin argumenta que en las condiciones de clandestinidad zarista, un partido de masas abierto es incapaz de funcionar y facilita la infiltración policial."
+      },
+      {
+        "label": "Las críticas de Luxemburgo y otros sobre el 'centralismo ultraviolento' de Lenin",
+        "why_it_matters": "Lenin responde que el centralismo democrático no es burocracia sino disciplina revolucionaria necesaria para la eficacia política."
+      }
+    ],
+    "reading_entry": {
+      "start_here": {
+        "label": "Empieza con el análisis del debate en el Congreso sobre el artículo 1 de los estatutos del partido.",
+        "why": "Ahí se ve cómo una diferencia aparentemente técnica (quién es miembro) expresa dos concepciones incompatibles del partido y la revolución."
+      },
+      "key_sections": [
+        {
+          "label": "Los capítulos sobre centralismo democrático y organización de vanguardia",
+          "why": "La teoría del partido que luego se aplicará en la revolución de 1917."
+        },
+        {
+          "label": "La respuesta a las críticas sobre el papel de los intelectuales en el partido",
+          "why": "Lenin defiende que la dirección política no puede dejarse a la espontaneidad: necesita intelectuales orgánicos comprometidos con la organización."
+        }
+      ],
+      "focus_points": [
+        "Lee el texto como intervención en una disputa organizativa muy concreta, no como manual universal de organización.",
+        "Pon el texto en relación con ¿Qué hacer?: son los dos momentos de la misma teoría del partido."
+      ],
+      "if_short_on_time": [
+        "Los capítulos centrales sobre centralismo y la distinción bolcheviques/mencheviques son lo esencial.",
+        "Las partes más detalladas sobre el Congreso pueden saltarse en una primera lectura."
+      ]
+    },
+    "timeline": [
+      {
+        "year": 1902,
+        "kind": "context",
+        "label": "¿Qué hacer?: Lenin formula por primera vez la teoría del partido de vanguardia",
+        "note": "Un paso adelante es la continuación organizativa de lo que ¿Qué hacer? planteó teóricamente."
+      },
+      {
+        "year": 1903,
+        "kind": "context",
+        "label": "II Congreso del POSDR: escisión bolcheviques/mencheviques",
+        "note": "El hecho que da lugar al texto: el congreso termina en ruptura sobre la definición del miembro del partido."
+      },
+      {
+        "year": 1904,
+        "kind": "writing",
+        "label": "Lenin escribe el balance del Congreso",
+        "note": "El texto es polémico y autodefensivo: Lenin está en minoría dentro de la dirección del partido."
+      }
+    ],
+    "criticisms": [
+      {
+        "from": "Luxemburgo: Problemas de organización de la socialdemocracia rusa (1904)",
+        "claim": "Luxemburgo respondió directamente: el centralismo leninista sofoca la iniciativa de las masas y convierte al partido en sustituto del proletariado."
+      },
+      {
+        "from": "Lecturas del estalinismo",
+        "claim": "El modelo organizativo de Lenin fue luego usado para justificar el partido-estado estalinista, algo que Lenin no podría haber previsto ni querido."
+      }
+    ],
+    "legacy": "Definió el partido leninista como forma organizativa de la vanguardia revolucionaria; sigue siendo el punto de referencia para los debates sobre organización política de la izquierda.",
+    "questions_opened": [
+      "¿Qué forma de organización necesita la izquierda en condiciones de legalidad y no de clandestinidad?",
+      "¿Es el centralismo democrático compatible con la democracia interna real?"
+    ]
   }
 }

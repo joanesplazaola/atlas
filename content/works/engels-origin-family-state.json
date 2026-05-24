@@ -10,5 +10,78 @@
     "provider": "Marxists Internet Archive",
     "url": "https://www.marxists.org/archive/marx/works/1884/origin-family/",
     "attribution_label": "Friedrich Engels, The Origin of the Family, Private Property and the State (Marxists.org)"
+  },
+  "study_guide": {
+    "hook": "El texto que vincula opresión de género, propiedad privada y Estado en una sola historia estructural: la subordinación de la mujer como consecuencia de la apropiación privada, no como hecho natural.",
+    "historical_context": "Escrito en 1884, basándose en las notas de Marx sobre la obra de Morgan (Ancient Society). El contexto es el debate darwinista y evolucionista: Engels quiere demostrar que la familia patriarcal y el Estado no son eternos sino formas históricas con origen y posibilidad de fin.",
+    "responds_to": [
+      {
+        "label": "Las teorías naturalistas sobre la familia y los roles de género",
+        "why_it_matters": "Engels insiste en que la familia monogámica patriarcal tiene un origen histórico ligado a la propiedad privada y al control de la herencia."
+      },
+      {
+        "label": "Las teorías del Estado como contrato social o institución neutral",
+        "why_it_matters": "El Estado surge con la propiedad privada para defender el interés de la clase dominante, no como árbitro imparcial."
+      }
+    ],
+    "reading_entry": {
+      "start_here": {
+        "label": "Empieza con los capítulos sobre la familia y la 'derrota histórico-mundial del sexo femenino'.",
+        "why": "Ahí se encuentra la tesis central: la subordinación de la mujer coincide con la aparición de la propiedad privada y la herencia patrilineal."
+      },
+      "key_sections": [
+        {
+          "label": "Los capítulos sobre el origen del Estado",
+          "why": "Plantean la conexión entre clase dominante y aparato estatal, que será central para toda la teoría marxista del Estado."
+        },
+        {
+          "label": "La distinción entre familia, propiedad privada y Estado como instituciones ligadas",
+          "why": "Permite ver estas instituciones no como naturales sino como históricas y por tanto transformables."
+        }
+      ],
+      "focus_points": [
+        "Lee las tesis sobre el género con conciencia de sus límites: Engels trabaja con la antropología de su época, que tiene importantes errores.",
+        "El análisis del Estado es más sólido que el de la familia; separa ambas lecturas."
+      ],
+      "if_short_on_time": [
+        "Prioriza la introducción y los capítulos sobre el Estado.",
+        "El análisis de Morgan y la etnografía puede saltarse en una primera lectura."
+      ]
+    },
+    "timeline": [
+      {
+        "year": 1877,
+        "kind": "context",
+        "label": "Morgan publica Ancient Society",
+        "note": "La antropología de Morgan es la base empírica que Engels utiliza; hoy está muy superada, pero el andamiaje analítico propio de Engels sigue teniendo valor."
+      },
+      {
+        "year": 1882,
+        "kind": "context",
+        "label": "Marx muere dejando notas sobre Morgan",
+        "note": "Engels toma esas notas como punto de partida y escribe el libro en parte como homenaje póstumo."
+      },
+      {
+        "year": 1884,
+        "kind": "writing",
+        "label": "Engels escribe y publica El origen en Zúrich",
+        "note": "Escrito en menos de dos meses: un récord que se nota en la densidad desigual de los capítulos."
+      }
+    ],
+    "criticisms": [
+      {
+        "from": "Feminismo socialista contemporáneo",
+        "claim": "El análisis de Engels sobre género sigue siendo reduccionista: subordina la opresión de la mujer a la propiedad privada sin atender las formas específicas del patriarcado que preceden o persisten más allá de ella."
+      },
+      {
+        "from": "Antropología moderna",
+        "claim": "Las bases empíricas del libro (la obra de Morgan) han sido superadas; el evolucionismo lineal que asume es problemático."
+      }
+    ],
+    "legacy": "Sigue siendo el texto fundador de la tradición marxista sobre género y Estado; plantea preguntas que el feminismo socialista ha seguido trabajando durante un siglo.",
+    "questions_opened": [
+      "¿La emancipación de la mujer requiere necesariamente la abolición de la propiedad privada?",
+      "¿En qué medida el patriarcado tiene dinámicas propias que no se reducen a la base económica?"
+    ]
   }
 }

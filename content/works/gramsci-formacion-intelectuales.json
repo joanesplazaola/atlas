@@ -10,5 +10,78 @@
     "provider": "Marxists.org",
     "url": "https://www.marxists.org/espanol/gramsci/cuadernos.htm",
     "attribution_label": "Gramsci, Antonio. La formación de los intelectuales (selección de los Cuadernos de la cárcel, 1932). Marxists.org."
+  },
+  "study_guide": {
+    "hook": "El concepto gramsciano de intelectual orgánico: todo grupo social produce sus propios intelectuales que le dan conciencia y homogeneidad, pero el marxismo necesita construir los suyos.",
+    "historical_context": "Selección de los Cuadernos de la cárcel (c. 1932), donde Gramsci analiza el papel de los intelectuales en la historia italiana y su función en la construcción de hegemonía. El texto es también una reflexión sobre la formación política del partido.",
+    "responds_to": [
+      {
+        "label": "La idea de que los intelectuales son una capa autónoma separada de los intereses de clase",
+        "why_it_matters": "Gramsci argumenta que todos los intelectuales están orgánicamente vinculados a una clase social, aunque esa vinculación no sea siempre explícita."
+      },
+      {
+        "label": "La distinción entre intelectuales 'tradicionales' y 'orgánicos'",
+        "why_it_matters": "Los intelectuales tradicionales parecen autónomos pero en realidad reproducen la hegemonía de la clase dominante; los orgánicos construyen una hegemonía alternativa."
+      }
+    ],
+    "reading_entry": {
+      "start_here": {
+        "label": "Empieza con la distinción entre intelectuales orgánicos y tradicionales.",
+        "why": "Es la tesis central del texto y la más inmediatamente aplicable para pensar la función política de intelectuales, periodistas, educadores."
+      },
+      "key_sections": [
+        {
+          "label": "Los pasajes sobre la escuela y la formación cultural como aparato hegemónico",
+          "why": "Gramsci anticipa el análisis de los aparatos ideológicos del Estado que sistematizará Althusser."
+        },
+        {
+          "label": "Los pasajes sobre los intelectuales italianos y su función histórica nacional",
+          "why": "Muestran cómo aplica la categoría a un caso concreto, lo que hace más claro el análisis abstracto."
+        }
+      ],
+      "focus_points": [
+        "Aplica el concepto de intelectual orgánico a tus propias instituciones: universidad, medios, escuela.",
+        "Lee el texto en relación con El moderno príncipe: el partido y los intelectuales orgánicos son parte del mismo proyecto hegemónico."
+      ],
+      "if_short_on_time": [
+        "Basta con los primeros fragmentos sobre la distinción orgánico/tradicional y la función de los intelectuales.",
+        "Los pasajes sobre la historia italiana pueden dejarse para después."
+      ]
+    },
+    "timeline": [
+      {
+        "year": 1919,
+        "kind": "context",
+        "label": "Gramsci dirige L'Ordine Nuovo: el periódico como instrumento hegemónico",
+        "note": "Antes de los Cuadernos, Gramsci ya piensa el periodismo y la cultura como instrumentos de formación política obrera."
+      },
+      {
+        "year": 1926,
+        "kind": "context",
+        "label": "Gramsci es detenido",
+        "note": "La cárcel lo aleja de la práctica política directa y lo lleva a sistematizar sus reflexiones teóricas."
+      },
+      {
+        "year": 1932,
+        "kind": "writing",
+        "label": "Gramsci escribe los cuadernos sobre intelectuales",
+        "note": "El texto responde implícitamente al fracaso de la izquierda italiana: no supo construir una hegemonía cultural alternativa al fascismo."
+      }
+    ],
+    "criticisms": [
+      {
+        "from": "Lecturas elitistas del concepto",
+        "claim": "La noción de 'intelectual orgánico' ha sido usada para legitimar el papel dirigente de élites cultivadas dentro del movimiento obrero, frente a la propia autonomía de las clases subalternas."
+      },
+      {
+        "from": "Lecturas culturalistas",
+        "claim": "El concepto ha sido absorbido por los Estudios Culturales de forma que pierde su vinculación con la lucha de clases y la construcción política."
+      }
+    ],
+    "legacy": "El concepto de intelectual orgánico renovó el debate sobre la función de los intelectuales en los movimientos sociales y sigue siendo referencia en los debates sobre pedagogía crítica, medios y cultura política.",
+    "questions_opened": [
+      "¿Puede el movimiento obrero construir sus propios intelectuales sin reproducir las jerarquías culturales burguesas?",
+      "¿Qué significa hoy la función de 'intelectual orgánico' en una sociedad mediática?"
+    ]
   }
 }

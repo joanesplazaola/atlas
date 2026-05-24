@@ -10,5 +10,77 @@
     "provider": "Marxists.org",
     "url": "https://www.marxists.org/espanol/m-e/1850s/criteconpol.htm",
     "attribution_label": "Karl Marx (1859). Marxists Internet Archive."
+  },
+  "study_guide": {
+    "hook": "El prefacio de tres páginas donde Marx formula la tesis del materialismo histórico con la mayor claridad que escribió: cómo la base económica determina la superestructura jurídica e ideológica.",
+    "historical_context": "Publicado en 1859 como prefacio a la Contribución a la Crítica de la Economía Política. Es el texto donde Marx hace explícito por primera vez y de forma sistemática el método que ha venido aplicando desde los años 40.",
+    "responds_to": [
+      {
+        "label": "El idealismo jurídico y político que trata el derecho y el Estado como fuente primera de la vida social",
+        "why_it_matters": "Marx invierte la relación: son las relaciones de producción las que determinan el derecho, la política y la ideología, no al revés."
+      },
+      {
+        "label": "La necesidad de un balance autobiográfico-teórico del recorrido intelectual propio",
+        "why_it_matters": "Marx presenta su método como resultado de un proceso de investigación, no como sistema a priori."
+      }
+    ],
+    "reading_entry": {
+      "start_here": {
+        "label": "Lee el texto completo, de una sentada: son tres páginas.",
+        "why": "Es tan breve y denso que no hay forma de fragmentarlo: la unidad del argumento solo se aprecia leyéndolo entero."
+      },
+      "key_sections": [
+        {
+          "label": "El párrafo central sobre base y superestructura",
+          "why": "La formulación clásica: las relaciones de producción forman la base real sobre la que se levanta la superestructura jurídica y política."
+        },
+        {
+          "label": "El párrafo sobre las épocas de revolución social",
+          "why": "Marx explica cuándo se producen las transformaciones históricas: cuando las fuerzas productivas entran en contradicción con las relaciones de producción."
+        }
+      ],
+      "focus_points": [
+        "No leas el texto como dogma: es una hipótesis de investigación formulada con voluntad de precisión.",
+        "Pon el texto en relación con debates concretos: ¿determina realmente la base económica la política y la ideología?"
+      ],
+      "if_short_on_time": [
+        "El texto es brevísimo: tres páginas. Léelo completo."
+      ]
+    },
+    "timeline": [
+      {
+        "year": 1844,
+        "kind": "context",
+        "label": "Los Manuscritos filosóficos: primer intento de articular filosofía y economía",
+        "note": "El Prólogo de 1859 es la formulación madura de lo que los Manuscritos intentaron decir por primera vez."
+      },
+      {
+        "year": 1848,
+        "kind": "context",
+        "label": "El Manifiesto Comunista: primera aplicación histórico-política del método",
+        "note": "El Prólogo formula teóricamente el método que el Manifiesto aplica a la lucha de clases contemporánea."
+      },
+      {
+        "year": 1859,
+        "kind": "writing",
+        "label": "Marx publica la Contribución y su prólogo",
+        "note": "El libro en sí fue menos influyente que su prólogo, que se convirtió en el texto de referencia del materialismo histórico."
+      }
+    ],
+    "criticisms": [
+      {
+        "from": "Lecturas deterministas",
+        "claim": "El texto ha sido leído como si dijera que la economía 'determina' mecánicamente la política y la ideología; hoy se prefiere hablar de 'determinación en última instancia' para evitar este reduccionismo."
+      },
+      {
+        "from": "Postestructuralismo y postmarxismo",
+        "claim": "La distinción base/superestructura ha sido criticada como demasiado rígida: la ideología no es solo efecto de la economía sino también productora de relaciones materiales."
+      }
+    ],
+    "legacy": "El texto de referencia para el materialismo histórico; formuló el marco conceptual que toda la tradición marxista posterior ha tenido que aceptar, criticar o matizar.",
+    "questions_opened": [
+      "¿Determina la economía la política y la ideología o hay determinaciones recíprocas entre todos los niveles de la vida social?",
+      "¿Cuándo entra en contradicción una fuerza productiva con la relación de producción que le corresponde?"
+    ]
   }
 }

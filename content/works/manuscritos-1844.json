@@ -10,5 +10,84 @@
     "provider": "Marxists.org",
     "url": "https://www.marxists.org/espanol/m-e/1840s/manuscritos/index.htm",
     "attribution_label": "Karl Marx (1844). Marxists Internet Archive."
+  },
+  "study_guide": {
+    "hook": "El texto donde el joven Marx forja los conceptos de alienación, trabajo enajenado y emancipación humana: el fundamento humanista que sostiene toda la crítica posterior de la economía política.",
+    "historical_context": "Manuscritos inacabados escritos en París en 1844, cuando Marx tenía 26 años y aún estaba en diálogo con Hegel y Feuerbach. Permanecieron inéditos hasta 1932, lo que explica que el marxismo se desarrollara sin estos textos durante casi un siglo.",
+    "responds_to": [
+      {
+        "label": "La economía política clásica (Smith, Ricardo) que trata el trabajo como mercancía sin preguntarse qué hace eso al trabajador",
+        "why_it_matters": "Marx introduce la pregunta por la experiencia del trabajo: qué significa que el trabajador se aliena en el producto de su propio esfuerzo."
+      },
+      {
+        "label": "El humanismo abstracto de Feuerbach que sitúa la alienación en la religión",
+        "why_it_matters": "Marx mueve el análisis de la alienación desde la conciencia a las relaciones materiales de producción."
+      }
+    ],
+    "reading_entry": {
+      "start_here": {
+        "label": "Empieza con la sección sobre el trabajo enajenado, los cuatro aspectos de la alienación.",
+        "why": "Ahí está la innovación conceptual central: la alienación como hecho económico, no solo filosófico."
+      },
+      "key_sections": [
+        {
+          "label": "Los pasajes sobre la relación del trabajador con el producto y con el acto de producir",
+          "why": "Permiten entender la alienación como ruptura concreta entre actividad humana y su resultado."
+        },
+        {
+          "label": "Los pasajes sobre dinero y necesidades humanas",
+          "why": "Anticipa la crítica del fetichismo que desplegará en El Capital."
+        }
+      ],
+      "focus_points": [
+        "Lee el texto como un primer intento de articular filosofía y economía, no como marxismo maduro.",
+        "Presta atención a cómo el concepto de 'trabajo' cambia de la economía política clásica a Marx."
+      ],
+      "if_short_on_time": [
+        "Prioriza la sección del 'Trabajo enajenado'.",
+        "El contexto filosófico con Hegel y Feuerbach puede explorarse en una segunda lectura."
+      ]
+    },
+    "timeline": [
+      {
+        "year": 1843,
+        "kind": "context",
+        "label": "Marx llega a París y entra en contacto con el movimiento obrero francés",
+        "note": "La experiencia directa del proletariado transforma el marxismo de crítica filosófica en teoría política."
+      },
+      {
+        "year": 1844,
+        "kind": "writing",
+        "label": "Marx escribe los Manuscritos en París",
+        "note": "Textos inacabados, escritos con urgencia, que no llegará a preparar para publicación."
+      },
+      {
+        "year": 1844,
+        "kind": "context",
+        "label": "Primera reunión entre Marx y Engels en París",
+        "note": "El inicio de una colaboración que durará cuarenta años y que llevará el pensamiento de estos manuscritos hacia El Capital."
+      },
+      {
+        "year": 1932,
+        "kind": "reception",
+        "label": "Primera publicación de los Manuscritos",
+        "note": "Su aparición coincide con el auge del humanismo marxista y reorienta parte del debate sobre el 'verdadero Marx'."
+      }
+    ],
+    "criticisms": [
+      {
+        "from": "Althusser y el marxismo estructuralista",
+        "claim": "Althusser propuso una 'ruptura epistemológica' entre el 'joven Marx humanista' de los Manuscritos y el 'Marx maduro científico' de El Capital, para negar relevancia teórica a estos textos."
+      },
+      {
+        "from": "Lectura ideologizada",
+        "claim": "Los Manuscritos fueron usados tanto por marxistas humanistas como por liberales para construir un 'Marx bueno' (humanista) contra un 'Marx malo' (científico), una oposición que oscurece más que aclara."
+      }
+    ],
+    "legacy": "Introdujeron el concepto de alienación en el marxismo y abrieron la vía al debate sobre el humanismo marxista, la emancipación humana y la diferencia entre Marx joven y maduro.",
+    "questions_opened": [
+      "¿Puede una persona emanciparse individualmente de la alienación sin transformar las relaciones de producción?",
+      "¿Hasta qué punto el concepto de alienación es central en el marxismo maduro de El Capital?"
+    ]
   }
 }

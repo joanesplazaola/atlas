@@ -10,5 +10,84 @@
     "provider": "Marxists.org",
     "url": "https://www.marxists.org/espanol/m-e/1850s/brumaire/brum1.htm",
     "attribution_label": "Marx, Karl. El 18 Brumario de Luis Bonaparte (1852). Marxists.org."
+  },
+  "study_guide": {
+    "hook": "El texto que enseña cómo la lucha de clases toma forma histórica concreta: no en abstracciones, sino en alianzas, traiciones, golpes y máscaras políticas.",
+    "historical_context": "Escrito entre diciembre de 1851 y marzo de 1852, como reacción analítica inmediata al golpe de Estado de Luis Napoleón Bonaparte. Contextualiza la derrota de las revoluciones europeas de 1848 y explica por qué el proletariado no pudo sostenerse.",
+    "responds_to": [
+      {
+        "label": "La ilusión de que el republicanismo burgués era un aliado progresista",
+        "why_it_matters": "Marx analiza cómo cada fracción burguesa sacrificó la república en cuanto vio amenazada su propiedad."
+      },
+      {
+        "label": "La idea de que la historia avanza automáticamente hacia adelante",
+        "why_it_matters": "La 'farsa' del 18 Brumario muestra que la historia puede retroceder y que las clases dominantes pueden restaurar formas arcaicas de dominación."
+      }
+    ],
+    "reading_entry": {
+      "start_here": {
+        "label": "Empieza por el famoso párrafo de apertura sobre tragedia y farsa, y luego el análisis de la pequeña burguesía.",
+        "why": "Ahí se concentra el método: la lucha de clases no como idea general sino como análisis político concreto de quién hace qué y por qué."
+      },
+      "key_sections": [
+        {
+          "label": "El análisis de las fracciones burguesas y sus representantes políticos",
+          "why": "Marx muestra cómo las ideas políticas de cada partido reflejan intereses de clase concretos, no principios abstractos."
+        },
+        {
+          "label": "El análisis del aparato estatal bonapartista",
+          "why": "Sienta las bases del debate marxista sobre burocracia y autonomía relativa del Estado."
+        }
+      ],
+      "focus_points": [
+        "Lee cada movimiento político como expresión de un interés de clase antes de leerlo como intriga personal.",
+        "Presta atención a cómo Marx explica las derrotas: no como errores individuales, sino como correlaciones de fuerzas."
+      ],
+      "if_short_on_time": [
+        "Lee el primer capítulo y el análisis de la pequeña burguesía.",
+        "Deja para una segunda lectura los capítulos más narrativos sobre la secuencia parlamentaria de 1849-1851."
+      ]
+    },
+    "timeline": [
+      {
+        "year": 1848,
+        "kind": "context",
+        "label": "Revoluciones europeas: Francia, Alemania, Italia, Austria",
+        "note": "El ciclo revolucionario que este texto analiza en retrospectiva."
+      },
+      {
+        "year": 1851,
+        "kind": "context",
+        "label": "Golpe de Estado de Luis Napoleón Bonaparte (2 de diciembre)",
+        "note": "El hecho que provoca el texto, analizado como síntoma de la derrota obrera."
+      },
+      {
+        "year": 1852,
+        "kind": "writing",
+        "label": "Marx publica el texto en entregas en la revista Die Revolution (Nueva York)",
+        "note": "Escrito a 3.000 km del escenario, con la lucidez de quien no participó del pánico."
+      },
+      {
+        "year": 1871,
+        "kind": "reception",
+        "label": "La experiencia de la Comuna confirma el análisis del Estado",
+        "note": "El texto adquiere nueva relevancia como antecedente del diagnóstico político sobre el aparato estatal."
+      }
+    ],
+    "criticisms": [
+      {
+        "from": "Lectura determinista",
+        "claim": "Se ha leído el texto como si Marx dijera que la derrota era inevitable; en realidad analiza causas concretas, no leyes mecánicas."
+      },
+      {
+        "from": "Lectura psicologista",
+        "claim": "Algunos se han centrado en el retrato de Bonaparte como 'aventurero', perdiendo el análisis estructural de clase que le da sentido."
+      }
+    ],
+    "legacy": "Inauguró la tradición marxista del análisis político concreto: cada situación histórica como un campo de fuerzas de clase, no como escenario de ideas.",
+    "questions_opened": [
+      "¿Puede la clase dominante gobernar contra sus propias representaciones políticas?",
+      "¿Qué condiciones permiten a una burocracia o un caudillo presentarse como 'árbitro' entre clases?"
+    ]
   }
 }

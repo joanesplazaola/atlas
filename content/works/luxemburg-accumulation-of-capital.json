@@ -10,5 +10,78 @@
     "provider": "Marxists Internet Archive",
     "url": "https://www.marxists.org/archive/luxemburg/1913/accumulation-capital/",
     "attribution_label": "Rosa Luxemburg, The Accumulation of Capital (Marxists.org)"
+  },
+  "study_guide": {
+    "hook": "La teoría de Luxemburgo sobre por qué el capitalismo necesita un 'exterior' permanente para reproducirse: el imperialismo como necesidad económica, no solo como política de expansión.",
+    "historical_context": "Publicado en 1913, como respuesta a un problema que Luxemburgo encontró enseñando economía marxista: ¿dónde encuentra el capitalismo los compradores para la plusvalía que no puede realizarse en el mercado capitalista mismo?",
+    "responds_to": [
+      {
+        "label": "Los esquemas de reproducción ampliada de Marx (El Capital, tomo II): el capitalismo puede reproducirse sin necesidad de un exterior no capitalista",
+        "why_it_matters": "Luxemburgo argumenta que esos esquemas son una abstracción insostenible: el capitalismo histórico siempre ha necesitado mercados externos y zonas de expansión."
+      },
+      {
+        "label": "Las teorías del imperialismo como política voluntaria y evitable",
+        "why_it_matters": "Luxemburgo argumenta que la expansión imperialista no es opcional sino estructuralmente necesaria para la supervivencia del capitalismo."
+      }
+    ],
+    "reading_entry": {
+      "start_here": {
+        "label": "Empieza con la introducción y los capítulos sobre el problema de la realización.",
+        "why": "Ahí se plantea el problema central: ¿dónde se realiza la plusvalía si los trabajadores no pueden comprar todo lo que producen?"
+      },
+      "key_sections": [
+        {
+          "label": "Los capítulos sobre la acumulación primitiva continua y el imperialismo",
+          "why": "La tesis más original: el imperialismo no es solo exportación de capital sino destrucción activa de las economías precapitalistas."
+        },
+        {
+          "label": "La crítica a los esquemas de reproducción de Marx",
+          "why": "Luxemburgo entra en debate directo con El Capital; aunque su crítica es discutida, el debate es instructivo."
+        }
+      ],
+      "focus_points": [
+        "Lee el texto como un intento de resolver un problema económico concreto, no solo como polémica política.",
+        "Pon en relación la teoría con la historia del colonialismo: Luxemburgo reconstruye casos históricos concretos."
+      ],
+      "if_short_on_time": [
+        "Lee la introducción y los capítulos centrales sobre imperialismo y acumulación primitiva continua.",
+        "La discusión técnica con los esquemas de Marx puede reservarse para lectores con base en El Capital."
+      ]
+    },
+    "timeline": [
+      {
+        "year": 1905,
+        "kind": "context",
+        "label": "Luxemburgo empieza a enseñar economía política en la escuela del SPD",
+        "note": "El problema teórico surge en el aula: los esquemas de reproducción ampliada de Marx no cuadran con la historia real del capitalismo."
+      },
+      {
+        "year": 1913,
+        "kind": "writing",
+        "label": "Publica La acumulación del capital",
+        "note": "El libro provoca una polémica interna con Kautsky y otros dirigentes socialdemócratas."
+      },
+      {
+        "year": 1914,
+        "kind": "reception",
+        "label": "Estalla la guerra: la teoría se verifica trágicamente",
+        "note": "La Primera Guerra Mundial confirma para Luxemburgo que el imperialismo es la forma contemporánea de la acumulación capitalista."
+      }
+    ],
+    "criticisms": [
+      {
+        "from": "Lenin y Bujarin",
+        "claim": "Criticaron que Luxemburgo sobreestimaba el problema de la realización y que la necesidad de mercados exteriores no explica por sí sola el imperialismo."
+      },
+      {
+        "from": "Bukharin específicamente",
+        "claim": "Argumentó que los esquemas de Marx son perfectamente coherentes y que el problema que Luxemburgo ve no es un problema de realización sino de distribución."
+      }
+    ],
+    "legacy": "Aportó la base para pensar el imperialismo como acumulación por desposesión: su influencia reaparece en autores como Harvey y en los debates sobre extractivismo y economías del sur.",
+    "questions_opened": [
+      "¿Puede el capitalismo sobrevivir sin expandirse hacia nuevos territorios o formas de producción no capitalistas?",
+      "¿Qué significa hoy 'acumulación primitiva continua' cuando ya no quedan economías precapitalistas extensas?"
+    ]
   }
 }
