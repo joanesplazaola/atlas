@@ -12,6 +12,26 @@
       "description": "Empieza por cómo la clase trabajadora pasa de experiencias dispersas de explotación a formas duraderas de organización, lucha y aprendizaje político."
     }
   ],
+  "study_guidance": {
+    "question": "Empieza por la pregunta elemental: ¿por qué la explotación capitalista empuja a la organización colectiva y qué límites tiene quedarse solo ahí?",
+    "start_here": {
+      "work_id": "salario-precio-ganancia",
+      "why": "Es breve, muy claro y te sitúa de inmediato en el cruce entre lucha salarial necesaria y límites del sindicalismo puramente defensivo.",
+      "focus": "Fíjate en cómo Marx defiende la lucha inmediata y, al mismo tiempo, la empuja más allá del horizonte estrictamente sindical."
+    },
+    "assumes": [
+      "No hace falta entrar todavía en debates complejos sobre partido o hegemonía.",
+      "Conviene empezar por la experiencia obrera inmediata y solo después abrir los problemas de dirección, espontaneidad y organización política."
+    ],
+    "after_this": {
+      "work_id": "huelga-masas-luxemburgo",
+      "reason": "Después de Marx conviene ver cómo la acción de masas transforma organización, aprendizaje político y relación entre sindicato y partido."
+    },
+    "debate_to_watch": {
+      "debate_id": "espontaneidad-y-direccion",
+      "reason": "Es el nudo que organiza la relación entre autoactividad obrera, conciencia y formas de dirección política."
+    }
+  },
   "key_authors": [
     {
       "id": "marx-karl",
@@ -125,6 +145,23 @@
         "salario-precio-ganancia",
         "huelga-masas-luxemburgo",
         "que-hacer-lenin"
+      ],
+      "positions": [
+        {
+          "author_id": "marx-karl",
+          "work_id": "salario-precio-ganancia",
+          "claim": "La lucha sindical es necesaria para defender condiciones de vida, pero no puede convertirse en horizonte político suficiente."
+        },
+        {
+          "author_id": "luxemburg-rosa",
+          "work_id": "huelga-masas-luxemburgo",
+          "claim": "La lucha de masas desborda el sindicalismo rutinario y obliga a pensar formas de organización más abiertas y dinámicas."
+        },
+        {
+          "author_id": "lenin-vi",
+          "work_id": "que-hacer-lenin",
+          "claim": "Sin organización política consciente, la lucha económica por sí sola no alcanza una estrategia socialista consistente."
+        }
       ]
     },
     {
@@ -140,6 +177,23 @@
         "huelga-masas-luxemburgo",
         "que-hacer-lenin",
         "moderno-principe-gramsci"
+      ],
+      "positions": [
+        {
+          "author_id": "luxemburg-rosa",
+          "work_id": "huelga-masas-luxemburgo",
+          "claim": "La autoactividad de las masas no es residuo caótico, sino una fuente real de aprendizaje político y organización."
+        },
+        {
+          "author_id": "lenin-vi",
+          "work_id": "que-hacer-lenin",
+          "claim": "La experiencia espontánea necesita mediaciones organizativas y teóricas para convertirse en política revolucionaria duradera."
+        },
+        {
+          "author_id": "gramsci-antonio",
+          "work_id": "moderno-principe-gramsci",
+          "claim": "La dirección no puede pensarse solo como mando, sino como construcción de hegemonía y organización de una voluntad colectiva."
+        }
       ]
     }
   ],

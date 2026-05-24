@@ -12,6 +12,26 @@
       "description": "Empieza por la pregunta sobre si las reformas dentro del capitalismo pueden acumularse hasta el socialismo o si este exige una ruptura política y social cualitativa."
     }
   ],
+  "study_guidance": {
+    "question": "Empieza por la pregunta estratégica decisiva: ¿las reformas son un camino al socialismo o un terreno subordinado a una ruptura más amplia?",
+    "start_here": {
+      "work_id": "luxemburg-reforma-o-revolucion",
+      "why": "Es la entrada más clara porque formula el problema en términos directos y obliga a distinguir entre táctica reformista y estrategia socialista.",
+      "focus": "Fíjate en que Luxemburg no rechaza las reformas: discute qué pasa cuando se convierten en sustituto del objetivo de poder."
+    },
+    "assumes": [
+      "No hace falta empezar con toda la historia de la Segunda Internacional.",
+      "Conviene fijar primero la fractura entre acumulación de reformas y ruptura antes de abrir el problema de organización."
+    ],
+    "after_this": {
+      "work_id": "critica-programa-gotha",
+      "reason": "Después de Luxemburg conviene volver a Marx para pensar programa, transición y las ambigüedades que alimentan soluciones centristas o gradualistas."
+    },
+    "debate_to_watch": {
+      "debate_id": "bernstein-vs-luxemburg",
+      "reason": "Ahí se condensa la disputa clásica sobre si el capitalismo puede evolucionar gradualmente hacia el socialismo."
+    }
+  },
   "key_authors": [
     {
       "id": "luxemburg-rosa",
@@ -105,11 +125,24 @@
       "description": "Debate sobre si el socialismo puede alcanzarse mediante una ampliación continua de reformas democráticas y sindicales o si ese camino termina integrando al movimiento obrero en el orden capitalista.",
       "participant_author_ids": [
         "bernstein-eduard",
-        "luxemburg-rosa"
+        "luxemburg-rosa",
+        "marx-karl"
       ],
       "related_work_ids": [
         "luxemburg-reforma-o-revolucion",
         "critica-programa-gotha"
+      ],
+      "positions": [
+        {
+          "author_id": "luxemburg-rosa",
+          "work_id": "luxemburg-reforma-o-revolucion",
+          "claim": "Las reformas son indispensables, pero si se las convierte en estrategia autosuficiente el socialismo queda disuelto en adaptación al orden existente."
+        },
+        {
+          "author_id": "marx-karl",
+          "work_id": "critica-programa-gotha",
+          "claim": "Las ambigüedades programáticas y la renuncia a pensar la transición política real terminan vaciando el horizonte comunista."
+        }
       ]
     },
     {
@@ -122,9 +155,27 @@
         "luxemburg-rosa"
       ],
       "related_work_ids": [
+        "luxemburg-reforma-o-revolucion",
         "que-hacer-lenin",
         "un-paso-adelante-lenin",
         "moderno-principe-gramsci"
+      ],
+      "positions": [
+        {
+          "author_id": "luxemburg-rosa",
+          "work_id": "luxemburg-reforma-o-revolucion",
+          "claim": "La lucha parcial solo conserva filo si permanece orientada a una ruptura con el Estado y el orden capitalista."
+        },
+        {
+          "author_id": "lenin-vi",
+          "work_id": "que-hacer-lenin",
+          "claim": "La estrategia revolucionaria exige organización, claridad política y capacidad de intervenir en coyunturas concretas sin rebajar el objetivo."
+        },
+        {
+          "author_id": "gramsci-antonio",
+          "work_id": "moderno-principe-gramsci",
+          "claim": "La mediación táctica importa, pero solo si organiza hegemonía y voluntad colectiva en una perspectiva de transformación del poder."
+        }
       ]
     }
   ],

@@ -10,5 +10,72 @@
     "provider": "Marxists.org",
     "url": "https://www.marxists.org/espanol/luxem/06Huelgademasaspartidoysindicatos_0.pdf",
     "attribution_label": "Luxemburgo, Rosa. Huelga de masas, partido y sindicatos (1906). Marxists.org."
+  },
+  "study_guide": {
+    "hook": "Luxemburg usa la revolución rusa de 1905 para discutir cómo las luchas de masas desbordan la separación rígida entre sindicato, partido y espontaneidad.",
+    "historical_context": "El texto se escribe tras la revolución rusa de 1905 y contra la rutina sindical-socialdemócrata alemana, que tendía a separar lucha económica, lucha política y acción de masas.",
+    "responds_to": [
+      {
+        "label": "La idea de que la huelga de masas puede decretarse o rechazarse administrativamente",
+        "why_it_matters": "Luxemburg insiste en que la huelga de masas no es una técnica aislada, sino una forma histórica de ascenso político y aprendizaje colectivo."
+      },
+      {
+        "label": "La rígida división entre organización previa y acción espontánea",
+        "why_it_matters": "El texto discute que la conciencia política solo aparezca después de una organización ya cerrada y estable."
+      }
+    ],
+    "reading_entry": {
+      "start_here": {
+        "label": "Empieza por los pasajes donde Luxemburg describe la revolución rusa como escuela de huelga de masas.",
+        "why": "Ahí se entiende mejor que el texto no propone una táctica aislada, sino una manera de pensar la relación entre lucha, organización y conciencia."
+      },
+      "key_sections": [
+        {
+          "label": "La explicación de la huelga de masas como proceso",
+          "why": "Es el núcleo del libro y rompe con la visión de la huelga como simple herramienta técnica."
+        },
+        {
+          "label": "Los pasajes sobre relación entre sindicatos y partido",
+          "why": "Son esenciales para leer el texto más allá del elogio genérico de la espontaneidad."
+        }
+      ],
+      "focus_points": [
+        "No la leas como rechazo de toda organización; lee cómo la organización se transforma dentro del ascenso de lucha.",
+        "Fíjate en la relación entre experiencia rusa y crítica a la rutina alemana."
+      ],
+      "if_short_on_time": [
+        "Prioriza la definición de huelga de masas y los pasajes sobre aprendizaje político de las masas.",
+        "Deja para una segunda lectura las polémicas más situadas con el sindicalismo alemán."
+      ]
+    },
+    "timeline": [
+      {
+        "year": 1905,
+        "kind": "context",
+        "label": "La revolución rusa de 1905 reabre el problema de la huelga política de masas",
+        "note": "La experiencia rusa funciona como base empírica y política del argumento luxemburguista."
+      },
+      {
+        "year": 1906,
+        "kind": "publication",
+        "label": "Luxemburg sistematiza el debate en forma de folleto",
+        "note": "El texto interviene contra la rigidez organizativa y la prudencia sindical de la socialdemocracia alemana."
+      }
+    ],
+    "criticisms": [
+      {
+        "from": "Lecturas leninistas más centralistas",
+        "claim": "Se le ha reprochado subestimar la necesidad de dirección política coherente y de organización centralizada."
+      },
+      {
+        "from": "Lecturas espontaneístas posteriores",
+        "claim": "A veces se la cita mutilada, como si defendiera una autoactividad sin mediaciones organizativas, cosa que el propio texto no sostiene."
+      }
+    ],
+    "legacy": "Sigue siendo el texto clásico para pensar cómo las luchas de masas producen organización y conciencia en vez de limitarse a expresarlas.",
+    "questions_opened": [
+      "¿Cómo se articulan autoactividad de masas y dirección política?",
+      "¿Qué cambia en sindicatos y partidos cuando la lucha se generaliza?"
+    ]
   }
 }

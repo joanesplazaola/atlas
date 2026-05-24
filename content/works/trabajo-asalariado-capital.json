@@ -10,5 +10,68 @@
     "provider": "Marxists.org",
     "url": "https://www.marxists.org/espanol/m-e/1840s/49-trab2.htm",
     "attribution_label": "Karl Marx (1849). Marxists Internet Archive."
+  },
+  "study_guide": {
+    "hook": "Es uno de los accesos más claros a la relación salarial: Marx muestra por qué el salario no paga el trabajo en abstracto, sino una relación social específica entre capital y fuerza de trabajo.",
+    "historical_context": "El texto proviene de conferencias pronunciadas en el clima posterior a 1848, cuando Marx busca intervenir pedagógicamente en la formación política obrera con una explicación accesible de la explotación capitalista.",
+    "responds_to": [
+      {
+        "label": "La apariencia de que salario y trabajo son un intercambio justo entre equivalentes",
+        "why_it_matters": "Marx quiere mostrar que la relación salarial no es una simple compra neutral, sino una forma de subordinación social."
+      },
+      {
+        "label": "Las explicaciones morales o superficiales de la explotación",
+        "why_it_matters": "El texto empuja a pensar la explotación como una relación estructural del capital y no solo como abuso individual."
+      }
+    ],
+    "reading_entry": {
+      "start_here": {
+        "label": "Empieza por la definición de salario y por la relación entre trabajo asalariado y capital.",
+        "why": "Ahí se fija el problema básico que luego reaparece con más complejidad en El Capital."
+      },
+      "key_sections": [
+        {
+          "label": "La definición de capital como relación social",
+          "why": "Es el pasaje más importante para no leer el capital como simple conjunto de cosas o dinero."
+        },
+        {
+          "label": "La relación entre salario, competencia y reproducción obrera",
+          "why": "Permite ver por qué la cuestión salarial está unida al conjunto del sistema."
+        }
+      ],
+      "focus_points": [
+        "Léelo como texto de iniciación: su valor está en la claridad con la que abre problemas que luego Marx reelaborará.",
+        "Fíjate en cómo salario y capital se definen mutuamente."
+      ],
+      "if_short_on_time": [
+        "Prioriza la definición de capital y la explicación de la relación salarial.",
+        "Vuelve después a los pasajes sobre competencia y salarios relativos."
+      ]
+    },
+    "timeline": [
+      {
+        "year": 1849,
+        "kind": "publication",
+        "label": "Marx publica una explicación pedagógica de la relación salarial",
+        "note": "Funciona como puerta de entrada temprana a la crítica de la economía política."
+      },
+      {
+        "year": 1865,
+        "kind": "reception",
+        "label": "Se relee a la luz de Salario, precio y ganancia",
+        "note": "Su recepción posterior lo convierte en texto preparatorio para estudios más sistemáticos del salario y el plusvalor."
+      }
+    ],
+    "criticisms": [
+      {
+        "from": "Lecturas posteriores de Marx",
+        "claim": "Se ha señalado que algunas formulaciones pertenecen a un momento todavía temprano de su elaboración económica y deben leerse junto a desarrollos posteriores."
+      }
+    ],
+    "legacy": "Sigue siendo una puerta de entrada excelente para quien necesita entender por qué el movimiento obrero nace de la relación salarial misma.",
+    "questions_opened": [
+      "¿Qué compra realmente el capital cuando compra fuerza de trabajo?",
+      "¿Por qué el salario no elimina la explotación sino que la organiza?"
+    ]
   }
 }

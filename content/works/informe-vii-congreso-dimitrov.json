@@ -10,5 +10,68 @@
     "provider": "Marxists.org",
     "url": "https://www.marxists.org/espanol/dimitrov/1935.htm",
     "attribution_label": "Dimitrov, Georgi. La ofensiva del fascismo y las tareas de la IC (1935). Marxists.org."
+  },
+  "study_guide": {
+    "hook": "Texto central para entender el giro estratégico de la Internacional Comunista hacia el frente popular como respuesta al avance fascista.",
+    "historical_context": "Dimitrov interviene en 1935, después de la derrota alemana y de la bancarrota de la línea del socialfascismo, cuando la cuestión ya no es solo definir el fascismo sino reorganizar una respuesta internacional.",
+    "responds_to": [
+      {
+        "label": "La política anterior del socialfascismo",
+        "why_it_matters": "El informe presupone que esa línea ha fracasado y que hace falta una nueva orientación táctica."
+      },
+      {
+        "label": "La insuficiencia de respuestas puramente obreras aisladas",
+        "why_it_matters": "Dimitrov intenta justificar alianzas más amplias sin abandonar el lenguaje de clase."
+      }
+    ],
+    "reading_entry": {
+      "start_here": {
+        "label": "Empieza por la definición de fascismo y pasa enseguida a la propuesta de frente único y frente popular.",
+        "why": "Así se entiende que el texto no es solo diagnóstico, sino sobre todo una reorientación estratégica."
+      },
+      "key_sections": [
+        {
+          "label": "La definición del fascismo como dictadura terrorista abierta",
+          "why": "Es la formulación por la que más se recuerda el informe y organiza toda su lectura política."
+        },
+        {
+          "label": "Los pasajes sobre frente único y frente popular",
+          "why": "Son el corazón estratégico del texto y la base de las polémicas posteriores."
+        }
+      ],
+      "focus_points": [
+        "No lo leas solo como definición del fascismo: léelo como balance de una derrota y propuesta de nueva táctica.",
+        "Fíjate en qué problemas intenta resolver y qué riesgos introduce la amplitud de alianzas."
+      ],
+      "if_short_on_time": [
+        "Prioriza la definición de fascismo y la parte dedicada a la táctica antifascista.",
+        "Deja para después los pasajes más generales sobre la situación internacional."
+      ]
+    },
+    "timeline": [
+      {
+        "year": 1933,
+        "kind": "context",
+        "label": "La victoria de Hitler fuerza un balance estratégico",
+        "note": "El informe de 1935 se apoya en esa derrota para justificar un cambio de línea."
+      },
+      {
+        "year": 1935,
+        "kind": "publication",
+        "label": "Dimitrov presenta el informe en el VII Congreso de la IC",
+        "note": "Se convierte en texto canónico del frente popular."
+      }
+    ],
+    "criticisms": [
+      {
+        "from": "León Trotsky y otras corrientes revolucionarias",
+        "claim": "Se le reprocha que la amplitud del frente popular puede subordinar a la clase obrera a sectores burgueses supuestamente democráticos."
+      }
+    ],
+    "legacy": "Es imprescindible para estudiar por qué el antifascismo comunista del siglo XX tomó forma de alianzas amplias y qué costes estratégicos podía implicar eso.",
+    "questions_opened": [
+      "¿Hasta dónde puede ampliarse una alianza antifascista sin vaciar la independencia obrera?",
+      "¿Qué diferencia hay entre frente único obrero y frente popular?"
+    ]
   }
 }

@@ -10,5 +10,68 @@
     "provider": "Marxists.org",
     "url": "https://www.marxists.org/espanol/m-e/1870s/gotha.htm",
     "attribution_label": "Marx, Karl. Crítica del Programa de Gotha (1875). Marxists.org."
+  },
+  "study_guide": {
+    "hook": "Texto breve pero muy denso en el que Marx ataca ambigüedades programáticas que luego reaparecen una y otra vez en debates sobre transición, Estado y socialismo.",
+    "historical_context": "Marx lo escribe como crítica al programa de unificación de la socialdemocracia alemana, irritado por las concesiones teóricas hechas para sellar la unidad entre corrientes distintas del movimiento obrero.",
+    "responds_to": [
+      {
+        "label": "Las fórmulas programáticas vagas sobre Estado y distribución",
+        "why_it_matters": "Marx discute que un programa socialista pueda apoyarse en consignas ambiguas sin precisar clase, transición y forma de poder."
+      },
+      {
+        "label": "La idea de un socialismo entendido solo como reparto justo",
+        "why_it_matters": "El texto obliga a ir más allá del problema distributivo y pensar relaciones sociales, trabajo y transición histórica."
+      }
+    ],
+    "reading_entry": {
+      "start_here": {
+        "label": "Empieza por los pasajes sobre fase inferior y fase superior del comunismo y vuelve luego a la crítica del Estado libre popular.",
+        "why": "Ahí están concentrados los problemas que más veces se citan del texto: transición, igualdad, derecho y forma estatal."
+      },
+      "key_sections": [
+        {
+          "label": "La crítica al 'Estado libre popular'",
+          "why": "Muestra que Marx no tolera fórmulas programáticas que oculten el carácter de clase del Estado."
+        },
+        {
+          "label": "El pasaje sobre las dos fases del comunismo",
+          "why": "Es central para pensar transición, distribución y límites de la igualdad abstracta."
+        }
+      ],
+      "focus_points": [
+        "No leas el texto como catecismo sobre futuras etapas cerradas: es una crítica política a un programa concreto.",
+        "Fíjate en cómo Marx enlaza programa, lenguaje y estrategia."
+      ],
+      "if_short_on_time": [
+        "Prioriza la crítica al Estado libre popular y el tramo de las dos fases del comunismo.",
+        "Deja para una segunda lectura los detalles de polémica interna con Lassalle."
+      ]
+    },
+    "timeline": [
+      {
+        "year": 1875,
+        "kind": "writing",
+        "label": "Marx redacta la crítica al programa de unificación en Gotha",
+        "note": "El texto no nació como folleto público, sino como intervención dura dentro del movimiento socialista alemán."
+      },
+      {
+        "year": 1891,
+        "kind": "reception",
+        "label": "Engels impulsa su publicación póstuma",
+        "note": "Su difusión tardía agranda su importancia en debates posteriores sobre programa y transición."
+      }
+    ],
+    "criticisms": [
+      {
+        "from": "Lecturas dogmáticas posteriores",
+        "claim": "Se la ha usado como si fuera un esquema acabado del comunismo futuro, despegándola de su carácter polémico y programático."
+      }
+    ],
+    "legacy": "Es uno de los textos más importantes para estudiar cómo un desacuerdo aparentemente programático es en realidad un desacuerdo estratégico sobre Estado, transición y comunismo.",
+    "questions_opened": [
+      "¿Qué debe decir un programa socialista sin borrar el conflicto de clase?",
+      "¿Cómo pensar transición y distribución sin caer en fórmulas morales abstractas?"
+    ]
   }
 }

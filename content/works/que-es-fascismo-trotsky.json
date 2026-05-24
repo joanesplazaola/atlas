@@ -10,5 +10,68 @@
     "provider": "Marxists.org",
     "url": "https://www.marxists.org/espanol/trotsky/ceip/escritos/libro2/T02V234.htm",
     "attribution_label": "Trotsky, León. ¿Qué es el fascismo? (1931). Marxists.org."
+  },
+  "study_guide": {
+    "hook": "Uno de los textos más rápidos y eficaces para entender el fascismo como movimiento de masas contrarrevolucionario y no como simple autoritarismo genérico.",
+    "historical_context": "Trotsky escribe en el contexto de la crisis alemana de comienzos de los años treinta, intentando precisar por qué el fascismo supone un peligro cualitativamente distinto para el movimiento obrero.",
+    "responds_to": [
+      {
+        "label": "La confusión entre fascismo y cualquier forma de represión estatal",
+        "why_it_matters": "Trotsky insiste en que el fascismo tiene una base social y una función política específicas."
+      },
+      {
+        "label": "La línea del 'socialfascismo'",
+        "why_it_matters": "El texto sirve para desmontar una táctica que bloqueaba la unidad obrera frente al ascenso nazi."
+      }
+    ],
+    "reading_entry": {
+      "start_here": {
+        "label": "Empieza por la definición de fascismo y por los pasajes sobre pequeña burguesía y gran capital.",
+        "why": "Ahí se fija la tesis decisiva del texto y su utilidad política inmediata."
+      },
+      "key_sections": [
+        {
+          "label": "La definición del fascismo como movilización contrarrevolucionaria de masas",
+          "why": "Es lo que distingue este fenómeno de otras dictaduras o gobiernos reaccionarios."
+        },
+        {
+          "label": "La relación entre fascismo y derrota del movimiento obrero",
+          "why": "Permite entender por qué el problema es estratégico y no solo descriptivo."
+        }
+      ],
+      "focus_points": [
+        "Lee el texto como intervención táctica urgente, no como tratado sociológico largo.",
+        "Fíjate en cómo Trotsky une análisis social y propuesta política."
+      ],
+      "if_short_on_time": [
+        "Lee la definición general y los pasajes sobre frente único obrero.",
+        "Vuelve luego a los desarrollos más pegados a la coyuntura alemana."
+      ]
+    },
+    "timeline": [
+      {
+        "year": 1931,
+        "kind": "context",
+        "label": "La crisis alemana entra en una fase decisiva",
+        "note": "El texto nace para intervenir antes de la toma del poder por Hitler."
+      },
+      {
+        "year": 1931,
+        "kind": "publication",
+        "label": "Trotsky fija una definición breve del fascismo",
+        "note": "Su potencia reside en la síntesis política más que en la exhaustividad."
+      }
+    ],
+    "criticisms": [
+      {
+        "from": "Lecturas demasiado sociológicas del fascismo",
+        "claim": "A veces se le reprocha simplificar la dimensión ideológica y cultural en favor del análisis de clase y coyuntura."
+      }
+    ],
+    "legacy": "Sigue siendo probablemente la mejor puerta de entrada breve al problema del fascismo desde una perspectiva marxista.",
+    "questions_opened": [
+      "¿Qué relación hay entre crisis social, pequeña burguesía y reacción de masas?",
+      "¿Qué táctica obrera puede impedir una victoria fascista?"
+    ]
   }
 }

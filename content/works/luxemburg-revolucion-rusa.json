@@ -10,5 +10,68 @@
     "provider": "Marxists.org",
     "url": "https://www.marxists.org/espanol/luxemburg/1918-rev_rusa.htm",
     "attribution_label": "Luxemburg, Rosa. La revolución rusa (1918). Marxists.org."
+  },
+  "study_guide": {
+    "hook": "Luxemburg combina una defensa de Octubre como acontecimiento mundial con una crítica dura a los riesgos de burocratización y restricción de la democracia obrera.",
+    "historical_context": "Escrito en 1918, en medio del aislamiento de la revolución rusa y desde la experiencia carcelaria de Luxemburg, el texto busca intervenir en un proceso todavía abierto, no juzgarlo desde la distancia.",
+    "responds_to": [
+      {
+        "label": "Las lecturas liberales que reducían Octubre a dictadura arbitraria",
+        "why_it_matters": "Luxemburg insiste en que la revolución rusa abrió una experiencia histórica real de poder proletario."
+      },
+      {
+        "label": "La idea de que la necesidad justifica cualquier cierre de la democracia obrera",
+        "why_it_matters": "El texto convierte la relación entre revolución y democracia en problema estratégico central."
+      }
+    ],
+    "reading_entry": {
+      "start_here": {
+        "label": "Empieza por los pasajes donde Luxemburg afirma la grandeza histórica de Octubre y luego pasa a su crítica sobre democracia y libertad política.",
+        "why": "Así se evita leer el texto como simple ajuste de cuentas: primero aparece el apoyo de fondo, después la crítica estratégica."
+      },
+      "key_sections": [
+        {
+          "label": "La defensa de la revolución rusa como acontecimiento mundial",
+          "why": "Sitúa el tono general del texto y evita lecturas que lo convierten en crítica hostil sin más."
+        },
+        {
+          "label": "Los pasajes sobre libertad, democracia obrera y vida política soviética",
+          "why": "Son los que hacen del texto una referencia clásica sobre revolución y burocratización."
+        }
+      ],
+      "focus_points": [
+        "Lee juntas la defensa de Octubre y la crítica a sus límites: separar una de la otra empobrece el texto.",
+        "Fíjate en cómo Luxemburg piensa democracia obrera como condición de vitalidad revolucionaria, no como adorno liberal."
+      ],
+      "if_short_on_time": [
+        "Prioriza la introducción política y los pasajes sobre libertad y democracia soviética.",
+        "Deja para después las observaciones más puntuales sobre la coyuntura rusa."
+      ]
+    },
+    "timeline": [
+      {
+        "year": 1917,
+        "kind": "context",
+        "label": "La revolución de Octubre reabre el problema del poder obrero y de la transición",
+        "note": "El texto de Luxemburg es inseparable de esa irrupción histórica."
+      },
+      {
+        "year": 1918,
+        "kind": "writing",
+        "label": "Luxemburg interviene desde la cárcel sobre el curso de la revolución rusa",
+        "note": "La crítica se formula mientras el proceso sigue abierto y bajo presión extrema."
+      }
+    ],
+    "criticisms": [
+      {
+        "from": "Lecturas bolcheviques más cerradas",
+        "claim": "Se le ha reprochado subestimar el peso de la guerra civil, el aislamiento y las urgencias materiales del poder soviético."
+      }
+    ],
+    "legacy": "Sigue siendo un texto decisivo para pensar cómo sostener una revolución sin sofocar la iniciativa y la democracia de las masas.",
+    "questions_opened": [
+      "¿Qué relación debe haber entre defensa revolucionaria y libertad política de las masas?",
+      "¿Cómo evitar que la necesidad se convierta en burocratización permanente?"
+    ]
   }
 }

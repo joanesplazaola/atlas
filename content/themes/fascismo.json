@@ -17,6 +17,26 @@
       "description": "Los cuadernos de la cárcel, escritos bajo la dictadura fascista, elaboran las categorías de hegemonía, guerra de posición y bloque histórico como respuesta al problema de por qué el fascismo pudo triunfar."
     }
   ],
+  "study_guidance": {
+    "question": "Empieza por la pregunta práctica: ¿qué convierte al fascismo en algo más que una dictadura autoritaria clásica?",
+    "start_here": {
+      "work_id": "que-es-fascismo-trotsky",
+      "why": "Es el texto más directo para fijar base social, función política y peligro estratégico del fascismo sin perderte primero en elaboraciones más largas.",
+      "focus": "Fíjate en cómo Trotsky une pequeña burguesía arruinada, gran capital y destrucción de las organizaciones obreras."
+    },
+    "assumes": [
+      "No hace falta entrar de inicio en toda la teoría gramsciana de la hegemonía.",
+      "Conviene leer primero el fascismo como respuesta de clase y luego abrir el debate sobre táctica antifascista."
+    ],
+    "after_this": {
+      "work_id": "alemania-clave-situacion-internacional",
+      "reason": "Después de la definición conviene pasar al caso alemán para ver que la victoria fascista fue una posibilidad histórica concreta y no un destino inevitable."
+    },
+    "debate_to_watch": {
+      "debate_id": "debate-socialfascismo",
+      "reason": "Ahí aparece el error estratégico que desarmó al movimiento obrero frente a Hitler."
+    }
+  },
   "key_authors": [
     {
       "id": "trotsky-leon",
@@ -122,7 +142,20 @@
       ],
       "related_work_ids": [
         "que-es-fascismo-trotsky",
-        "alemania-clave-situacion-internacional"
+        "alemania-clave-situacion-internacional",
+        "informe-vii-congreso-dimitrov"
+      ],
+      "positions": [
+        {
+          "author_id": "trotsky-leon",
+          "work_id": "alemania-clave-situacion-internacional",
+          "claim": "Equiparar socialdemocracia y fascismo bloquea el frente único obrero y deja el terreno libre para la victoria fascista."
+        },
+        {
+          "author_id": "dimitrov-georgi",
+          "work_id": "informe-vii-congreso-dimitrov",
+          "claim": "La experiencia obliga a abandonar la línea del socialfascismo y a reconstruir la unidad antifascista sobre nuevas bases tácticas."
+        }
       ]
     },
     {
@@ -136,6 +169,18 @@
       "related_work_ids": [
         "informe-vii-congreso-dimitrov",
         "alemania-clave-situacion-internacional"
+      ],
+      "positions": [
+        {
+          "author_id": "dimitrov-georgi",
+          "work_id": "informe-vii-congreso-dimitrov",
+          "claim": "La amplitud del peligro fascista obliga a construir un frente popular capaz de unir a la clase obrera con sectores no proletarios contra la reacción."
+        },
+        {
+          "author_id": "trotsky-leon",
+          "work_id": "alemania-clave-situacion-internacional",
+          "claim": "La unidad obrera es imprescindible, pero subordinarse a la burguesía democrática desarma políticamente a la clase trabajadora."
+        }
       ]
     }
   ],

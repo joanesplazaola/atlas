@@ -10,5 +10,68 @@
     "provider": "Marxists.org",
     "url": "https://www.marxists.org/espanol/trotsky/1928/revperm/index.htm",
     "attribution_label": "Trotsky, León. La revolución permanente (1928). Marxists.org."
+  },
+  "study_guide": {
+    "hook": "Trotsky usa este libro para sistematizar una tesis estratégica: en países de desarrollo desigual, las tareas democráticas y socialistas tienden a encadenarse dentro de un mismo proceso revolucionario.",
+    "historical_context": "Escrito en el marco de las polémicas posteriores a Octubre y de los debates sobre estrategia revolucionaria internacional, el libro también funciona como intervención contra el etapismo y contra la consolidación burocrática del estalinismo.",
+    "responds_to": [
+      {
+        "label": "La separación rígida entre revolución democrática y socialista",
+        "why_it_matters": "Trotsky quiere mostrar que, en ciertas formaciones históricas, esa secuencia lineal rompe la dinámica real del proceso revolucionario."
+      },
+      {
+        "label": "La posibilidad de estabilizar la revolución dentro de un marco nacional aislado",
+        "why_it_matters": "El texto insiste en que la revolución moderna tiene una dinámica internacional que afecta su supervivencia."
+      }
+    ],
+    "reading_entry": {
+      "start_here": {
+        "label": "Empieza por los pasajes donde Trotsky define desarrollo desigual y combinado y conecta tareas democráticas con transición socialista.",
+        "why": "Es la puerta más clara para no perderse en polémicas históricas secundarias."
+      },
+      "key_sections": [
+        {
+          "label": "La definición de revolución permanente",
+          "why": "Condensa la tesis central del libro y organiza el resto de la lectura."
+        },
+        {
+          "label": "Los pasajes sobre dimensión internacional del proceso",
+          "why": "Son claves para entender por qué el debate no se limita a política nacional."
+        }
+      ],
+      "focus_points": [
+        "No reduzcas el texto a una discusión sobre velocidad revolucionaria: trata sobre articulación entre etapas, poder y escala internacional.",
+        "Fíjate en cómo teoría histórica y polémica política van unidas."
+      ],
+      "if_short_on_time": [
+        "Prioriza la definición general y la parte sobre desarrollo desigual y combinado.",
+        "Vuelve luego a las polémicas más detalladas con el etapismo."
+      ]
+    },
+    "timeline": [
+      {
+        "year": 1905,
+        "kind": "context",
+        "label": "La revolución rusa abre el problema de la articulación entre tareas democráticas y socialistas",
+        "note": "Ese trasfondo sigue organizando el libro de 1928."
+      },
+      {
+        "year": 1928,
+        "kind": "publication",
+        "label": "Trotsky sistematiza la teoría de la revolución permanente",
+        "note": "La obra combina balance histórico y combate político contra líneas rivales."
+      }
+    ],
+    "criticisms": [
+      {
+        "from": "Lecturas etapistas y estalinistas",
+        "claim": "Se le reprocha subestimar la autonomía de las tareas democráticas y la posibilidad de consolidación nacional del proceso revolucionario."
+      }
+    ],
+    "legacy": "Sigue siendo la referencia central para estudiar desarrollo desigual, articulación de etapas e internacionalización de la revolución.",
+    "questions_opened": [
+      "¿Puede una revolución detenerse en una fase democrática estable?",
+      "¿Qué implica pensar la revolución a escala internacional y no solo nacional?"
+    ]
   }
 }

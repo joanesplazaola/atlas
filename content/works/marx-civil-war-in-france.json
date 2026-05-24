@@ -10,5 +10,78 @@
     "provider": "Marxists Internet Archive",
     "url": "https://www.marxists.org/archive/marx/works/1871/civil-war-france/",
     "attribution_label": "Karl Marx, The Civil War in France (Marxists.org)"
+  },
+  "study_guide": {
+    "hook": "No es solo una crónica de la Comuna: es el texto donde Marx relee una experiencia concreta de poder obrero y extrae de ella consecuencias estratégicas sobre el Estado.",
+    "historical_context": "Escrito inmediatamente después de la derrota de la Comuna de París de 1871, el texto responde a la necesidad de defender aquella experiencia frente a la campaña de demonización burguesa y de precisar qué había mostrado sobre revolución y poder.",
+    "responds_to": [
+      {
+        "label": "La lectura liberal de la Comuna como caos o desviación criminal",
+        "why_it_matters": "Marx insiste en que la Comuna debe leerse como una forma histórica de autogobierno obrero y no como una simple explosión destructiva."
+      },
+      {
+        "label": "La idea de que bastaría con ocupar el aparato estatal existente",
+        "why_it_matters": "El texto obliga a pensar que la revolución no hereda sin más la maquinaria del Estado burgués."
+      }
+    ],
+    "reading_entry": {
+      "start_here": {
+        "label": "Empieza por la caracterización general de la Comuna y por los pasajes donde Marx describe sus medidas políticas.",
+        "why": "Ahí se ve mejor por qué este texto importa: no por cada detalle histórico, sino por la forma de poder que Marx cree reconocer en la experiencia comunera."
+      },
+      "key_sections": [
+        {
+          "label": "Los pasajes sobre destrucción de la máquina estatal",
+          "why": "Son el punto de apoyo para todo el debate posterior sobre Estado y revolución."
+        },
+        {
+          "label": "La descripción de la Comuna como gobierno de la clase obrera",
+          "why": "Permite ver cómo Marx conecta democracia obrera, representación revocable y transformación del poder."
+        }
+      ],
+      "focus_points": [
+        "Lee el texto como balance estratégico de una derrota, no como simple homenaje político.",
+        "Fíjate en cómo la experiencia concreta corrige formulaciones más abstractas del marxismo anterior."
+      ],
+      "if_short_on_time": [
+        "Prioriza la introducción y los pasajes donde Marx define qué fue la Comuna.",
+        "Deja para una segunda lectura la polémica más circunstancial con Versalles y la prensa burguesa."
+      ]
+    },
+    "timeline": [
+      {
+        "year": 1871,
+        "kind": "context",
+        "label": "La Comuna de París gobierna durante setenta y dos días",
+        "note": "La experiencia sirve a Marx como laboratorio real para pensar poder obrero y forma estatal."
+      },
+      {
+        "year": 1871,
+        "kind": "writing",
+        "label": "Marx redacta el balance para el Consejo General de la AIT",
+        "note": "El texto nace como intervención urgente y defensa política de la Comuna derrotada."
+      },
+      {
+        "year": 1917,
+        "kind": "reception",
+        "label": "Lenin lo relee como texto clave sobre el Estado",
+        "note": "Su recepción posterior lo convierte en una pieza central del debate revolucionario del siglo XX."
+      }
+    ],
+    "criticisms": [
+      {
+        "from": "Lecturas socialdemócratas posteriores",
+        "claim": "Se ha intentado leer la Comuna como simple antecedente democrático, debilitando su dimensión de ruptura con el Estado burgués."
+      },
+      {
+        "from": "Críticas anarquistas y consejistas",
+        "claim": "Algunas lecturas señalan que Marx aún no extrae todas las consecuencias posibles sobre centralización, partido y autoorganización."
+      }
+    ],
+    "legacy": "Sigue siendo el texto indispensable para que la revolución deje de ser una consigna abstracta y aparezca como problema concreto de forma estatal y poder obrero.",
+    "questions_opened": [
+      "¿Qué significa gobernar sin reproducir la vieja máquina estatal?",
+      "¿Qué instituciones vuelven visible una democracia obrera real?"
+    ]
   }
 }

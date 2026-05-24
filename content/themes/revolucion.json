@@ -12,6 +12,26 @@
       "description": "Empieza por cómo la tradición marxista piensa el paso de la lucha social a la conquista del poder y a la transformación del Estado."
     }
   ],
+  "study_guidance": {
+    "question": "Empieza por la pregunta decisiva: ¿cómo pasa una crisis social a convertirse en problema de poder?",
+    "start_here": {
+      "work_id": "manifesto",
+      "why": "Es la entrada más breve para fijar revolución, lucha de clases y horizonte comunista antes de entrar en experiencias, derrotas y debates estratégicos más densos.",
+      "focus": "No lo leas como catecismo: fíjate en cómo conecta dinámica histórica del capitalismo, formación del proletariado y necesidad de organización política."
+    },
+    "assumes": [
+      "No hace falta dominar todavía el debate sobre partido o Estado.",
+      "Conviene entrar primero con la pregunta por el poder y solo después con los debates sobre transición."
+    ],
+    "after_this": {
+      "work_id": "marx-civil-war-in-france",
+      "reason": "Después del Manifiesto conviene ver una experiencia concreta de poder obrero para que la revolución deje de ser una abstracción histórica."
+    },
+    "debate_to_watch": {
+      "debate_id": "via-pacifica-o-ruptura",
+      "reason": "Ahí aparece la fractura estratégica sobre si la revolución es ruptura política o acumulación gradual dentro del Estado existente."
+    }
+  },
   "key_authors": [
     {
       "id": "marx-karl",
@@ -110,6 +130,18 @@
       "related_work_ids": [
         "lenin-tareas-proletariado",
         "trotsky-revolucion-permanente"
+      ],
+      "positions": [
+        {
+          "author_id": "lenin-vi",
+          "work_id": "lenin-tareas-proletariado",
+          "claim": "La revolución debe pensarse desde la alianza de clases y desde el problema concreto de qué tareas democráticas y socialistas puede asumir el proletariado en una coyuntura desigual."
+        },
+        {
+          "author_id": "trotsky-leon",
+          "work_id": "trotsky-revolucion-permanente",
+          "claim": "En países de desarrollo desigual no hay muralla estable entre revolución democrática y socialista: el proceso tiende a prolongarse e internacionalizarse."
+        }
       ]
     },
     {
@@ -124,7 +156,25 @@
       "related_work_ids": [
         "marx-civil-war-in-france",
         "critica-programa-gotha",
-        "luxemburg-reforma-o-revolucion"
+        "luxemburg-reforma-o-revolucion",
+        "lenin-state-and-revolution"
+      ],
+      "positions": [
+        {
+          "author_id": "marx-karl",
+          "work_id": "marx-civil-war-in-france",
+          "claim": "La experiencia de la Comuna muestra que la clase trabajadora no puede limitarse a heredar la máquina estatal existente."
+        },
+        {
+          "author_id": "luxemburg-rosa",
+          "work_id": "luxemburg-reforma-o-revolucion",
+          "claim": "Las reformas son terreno de lucha, pero si se convierten en estrategia suficiente terminan integrando al movimiento obrero en el orden burgués."
+        },
+        {
+          "author_id": "lenin-vi",
+          "work_id": "lenin-state-and-revolution",
+          "claim": "La revolución exige ruptura con el aparato estatal burgués y construcción de nuevas formas de poder de clase."
+        }
       ]
     }
   ],
