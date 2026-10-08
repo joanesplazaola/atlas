@@ -8,8 +8,12 @@
   },
   "type": "module",
   "scripts": {
+    "validate": "node scripts/validate.mjs",
+    "prebuild": "npm run validate",
     "build": "node build.js",
+    "pretest": "npm run build",
     "test": "playwright test",
+    "pretest:ui": "npm run build",
     "test:ui": "playwright test --ui"
   },
   "repository": {

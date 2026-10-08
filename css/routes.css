@@ -1,0 +1,358 @@
+/* ─── Route cards ─────────────────────────────────────────────── */
+.routes-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.routes-intro {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 22px;
+  padding: 18px 20px;
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) + 2px);
+  background: var(--surface);
+}
+
+.routes-intro__eyebrow {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent-fg);
+  font-weight: 700;
+}
+
+.routes-intro__title {
+  margin: -4px 0 0;
+  font-family: var(--font-heading);
+  font-size: 1.08rem;
+  font-weight: 600;
+}
+
+.routes-intro__desc {
+  margin: 8px 0 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  max-width: 68ch;
+}
+
+.routes-intro__flow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  font-size: 0.84rem;
+  color: var(--text-muted);
+}
+
+.routes-intro__link {
+  color: var(--accent-fg);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.routes-intro__link:hover {
+  color: var(--accent);
+}
+
+.route-step__meta {
+  margin-top: 4px;
+  font-size: 0.78rem;
+  color: var(--text-dim);
+}
+
+.route-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+}
+
+.route-card__level {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.route-card__title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.route-card__goal {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin-bottom: 16px;
+}
+
+.route-steps {
+  display: grid;
+  gap: 0;
+}
+
+.route-step {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 10px;
+  position: relative;
+}
+
+.route-step + .route-step {
+  margin-top: 12px;
+}
+
+.route-step + .route-step::before {
+  content: "";
+  position: absolute;
+  left: 11px;
+  top: -12px;
+  height: 12px;
+  width: 1px;
+  background: var(--border-strong);
+}
+
+.route-step__num {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--accent-dim);
+  border: 1px solid rgba(232,82,74,0.3);
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.route-step__body {}
+
+.route-step__title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 3px;
+}
+
+.route-step__title--link {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.route-step__title--link:hover {
+  color: var(--accent);
+}
+
+.route-step__note {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.route-step__link {
+  display: inline-flex;
+  margin-top: 8px;
+  color: var(--accent-fg);
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.route-step__link:hover {
+  color: var(--accent);
+}
+
+/* ─── Debates & Concepts ──────────────────────────────────────── */
+.debates-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.debate-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+}
+
+.debate-card__title {
+  font-size: 0.95rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.debate-card__desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.debate-card__positions {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.debate-position {
+  padding: 13px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--surface-raise);
+}
+
+.debate-position__author {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent-fg);
+  margin-bottom: 6px;
+}
+
+.debate-position__claim {
+  margin: 0 0 8px;
+  font-size: 0.84rem;
+  line-height: 1.58;
+  color: var(--text);
+}
+
+.debate-position__source {
+  font-size: 0.78rem;
+}
+
+.debate-position__work {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.debate-position__work:hover {
+  color: var(--accent);
+}
+
+.debate-card__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.debate-card__meta-row {
+  display: flex;
+  gap: 6px;
+  align-items: baseline;
+  font-size: 0.8rem;
+}
+
+.debate-card__meta-label {
+  color: var(--text-dim);
+  flex-shrink: 0;
+}
+
+.debate-card__meta-value {
+  color: var(--text-muted);
+}
+
+.concepts-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+/* ─── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .app {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    overflow: visible;
+  }
+
+  body { overflow: auto; }
+
+  .sidebar {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    overflow: visible;
+  }
+
+  /* Keep the search input reachable when scrolling down the list */
+  .sidebar__search {
+    position: sticky;
+    top: var(--topbar-h);
+    z-index: 10;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .theme-list {
+    overflow: visible;
+    max-height: none;
+  }
+
+  /* Allow the detail panel and its content to grow naturally —
+     body scroll handles paging, so internal clip must be removed */
+  .detail {
+    overflow: visible;
+    min-height: 60vh;
+  }
+
+  #detail-content {
+    overflow: visible;
+    flex: unset;
+    min-height: 0;
+  }
+
+  /* Author detail had its own internal scroll; disable on mobile */
+  #detail-content.detail-content--author {
+    overflow: visible;
+  }
+
+  .tab-panels { overflow: visible; }
+
+  /* Mobile view switching */
+  .app[data-view="detail"] .sidebar  { display: none; }
+  .app[data-view="list"]   .detail   { display: none; }
+
+  .detail__back { display: flex; }
+
+  .start-here__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 580px) {
+  .detail__header { padding: 18px 18px 0; }
+  .tab-panels     { padding: 18px 18px 32px; }
+  .routes-grid    { grid-template-columns: 1fr; }
+  .detail__stats  { gap: 6px; }
+  .topbar__nav-btn { padding: 5px 10px; font-size: 0.8rem; }
+  .start-here,
+  .routes-intro { padding: 16px; }
+  .work-card__header { flex-direction: column; }
+  .work-card__signals { justify-content: flex-start; }
+}
+
+/* ─── Topbar overflow prevention on small phones ───────────────── */
+/* At ≤480px the brand subtitle + theme switcher push the topbar over   */
+/* its width. Hide non-essential elements to keep nav buttons visible.  */
+@media (max-width: 480px) {
+  .topbar__inner { padding: 0 10px; gap: 8px; }
+  .topbar__title em { display: none; }      /* hide "de lectura" */
+  .topbar__nav-btn  { padding: 5px 8px; font-size: 0.78rem; }
+  .theme-switcher   { display: none; }      /* hide colour dots  */
+}
+
+

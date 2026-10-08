@@ -35,31 +35,26 @@
   "key_authors": [
     {
       "id": "luxemburg-rosa",
-      "name": "Rosa Luxemburg",
       "role": "critica del revisionismo y defensa de la ruptura revolucionaria",
       "why_relevant": "Su intervención condensa de manera ejemplar el debate contra el reformismo de la Segunda Internacional."
     },
     {
       "id": "lenin-vi",
-      "name": "V. I. Lenin",
       "role": "estrategia revolucionaria, partido y tactica",
       "why_relevant": "Ayuda a traducir el debate general en problemas de organización, coyuntura y lucha por la hegemonía."
     },
     {
       "id": "gramsci-antonio",
-      "name": "Antonio Gramsci",
       "role": "hegemonia, guerra de posicion y direccion politica",
       "why_relevant": "Permite pensar mediaciones, alianzas y temporalidades sin disolver la necesidad de una ruptura con el orden existente."
     },
     {
       "id": "bernstein-eduard",
-      "name": "Eduard Bernstein",
       "role": "revision del marxismo y socialismo gradualista",
       "why_relevant": "Su obra 'Las premisas del socialismo y las tareas de la socialdemocracia' es el texto fundacional del reformismo socialista, imprescindible para entender el debate que define la tradición marxista."
     },
     {
       "id": "kautsky-karl",
-      "name": "Karl Kautsky",
       "role": "marxismo ortodoxo de la Segunda Internacional",
       "why_relevant": "Encarna la posición centrista que pretendía mantener la ortodoxia marxista sin comprometerse con la acción revolucionaria, criticado tanto por Luxemburg como por Lenin."
     }

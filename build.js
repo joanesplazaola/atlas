@@ -91,7 +91,7 @@ async function main() {
 
   // Index each theme as a record too
   for (const theme of themes) {
-    const authorNames = theme.key_authors.map(a => a.name).join(', ');
+    const authorNames = theme.key_authors.map(a => authorMap.get(a.id)?.name ?? a.id).join(', ');
     const concepts = theme.connected_concepts?.map(c => c.label).join(', ') ?? '';
 
     const content = [
@@ -114,7 +114,7 @@ async function main() {
       language: 'es',
       filters: {
         type: ['theme'],
-        author: theme.key_authors.map(a => a.name),
+        author: theme.key_authors.map(a => authorMap.get(a.id)?.name ?? a.id),
       },
     });
     indexed++;
@@ -140,7 +140,7 @@ async function main() {
     title: d.title,
     summary: d.summary,
     key_author_ids:   d.key_authors.map(a => a.id),
-    key_author_names: d.key_authors.map(a => a.name),
+    key_author_names: d.key_authors.map(a => authorMap.get(a.id)?.name ?? a.id),
     concept_labels:   (d.connected_concepts ?? []).map(c => c.label),
     concept_ids:      (d.connected_concepts ?? []).map(c => c.id),
     related_themes:   d.related_themes ?? [],

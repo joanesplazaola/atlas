@@ -40,13 +40,11 @@
   "key_authors": [
     {
       "id": "marx-karl",
-      "name": "Karl Marx",
       "role": "fundador del análisis del valor-trabajo moderno",
       "why_relevant": "Marx transforma la teoría del valor ricardiana en una crítica del modo de producción capitalista: demuestra que el valor no es una propiedad natural de las cosas sino una relación social cristalizada en la mercancía."
     },
     {
       "id": "engels-friedrich",
-      "name": "Friedrich Engels",
       "role": "divulgador y sistematizador",
       "why_relevant": "Engels edita los tomos II y III de El Capital tras la muerte de Marx y escribe introducciones que orientan la lectura. Su 'Apuntes para una crítica de la economía política' (1843) es un precursor directo del método marxiano."
     }
@@ -87,6 +85,12 @@
       "level": "advanced",
       "estimated_effort": "medium",
       "reason_to_read": "El texto que impresionó al propio Marx y le impulsó a estudiar economía. Engels critica a Smith y Ricardo y prefigura la crítica del fetichismo: la propiedad privada y la competencia como determinantes del valor."
+    },
+    {
+      "work_id": "marx-miseria-filosofia",
+      "level": "advanced",
+      "estimated_effort": "medium",
+      "reason_to_read": "La primera gran polémica económica de Marx: contra Proudhon, muestra que las categorías económicas son relaciones sociales históricas y no formas eternas. Antecede y prepara el análisis del valor de El Capital."
     }
   ],
   "connected_concepts": [

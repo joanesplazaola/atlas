@@ -1,0 +1,58 @@
+{
+  "events": [
+    {
+      "year": 1848,
+      "label": "Revoluciones de 1848",
+      "note": "Crisis revolucionaria europea que marca el horizonte político de Marx y Engels.",
+      "tags": ["estado", "revolucion", "teoria-del-valor"]
+    },
+    {
+      "year": 1871,
+      "label": "Comuna de París",
+      "note": "Primera experiencia de poder obrero; clave para entender Estado y revolución.",
+      "tags": ["estado", "revolucion", "partido"]
+    },
+    {
+      "year": 1905,
+      "label": "Revolución rusa de 1905",
+      "note": "Laboratorio de huelga de masas, soviets y organización revolucionaria.",
+      "tags": ["partido", "revolucion", "movimiento-obrero", "estado"]
+    },
+    {
+      "year": 1914,
+      "label": "Estalla la I Guerra Mundial",
+      "note": "Punto de ruptura para la Segunda Internacional y para los debates sobre imperialismo.",
+      "tags": ["imperialismo", "partido", "cuestion-nacional", "estado"]
+    },
+    {
+      "year": 1917,
+      "label": "Revoluciones de Febrero y Octubre",
+      "note": "Condensan el debate sobre partido, Estado, guerra e insurrección.",
+      "tags": ["estado", "partido", "imperialismo", "revolucion"]
+    },
+    {
+      "year": 1919,
+      "label": "Fundación de la Internacional Comunista",
+      "note": "Nuevo intento de coordinación estratégica del comunismo internacional.",
+      "tags": ["partido", "revolucion", "imperialismo"]
+    },
+    {
+      "year": 1933,
+      "label": "Hitler llega al poder",
+      "note": "Momento decisivo para entender el fracaso del movimiento obrero alemán y el ascenso del fascismo.",
+      "tags": ["fascismo", "partido", "movimiento-obrero"]
+    },
+    {
+      "year": 1935,
+      "label": "Giro del Frente Popular",
+      "note": "Reorientación estratégica del comunismo internacional frente al fascismo.",
+      "tags": ["fascismo", "partido"]
+    },
+    {
+      "year": 1949,
+      "label": "Revolución china",
+      "note": "Nuevo ciclo revolucionario que reabre debates sobre partido, imperialismo y campesinado.",
+      "tags": ["imperialismo", "partido", "cuestion-nacional", "dialectica"]
+    }
+  ]
+}

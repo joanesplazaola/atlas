@@ -1,0 +1,39 @@
+{
+  "categories": {
+    "order": [
+      "politica",
+      "economia",
+      "historia",
+      "social",
+      "filosofia"
+    ],
+    "labels": {
+      "politica": "Política y Estado",
+      "historia": "Historia",
+      "economia": "Economía política",
+      "social": "Cuestión social",
+      "filosofia": "Filosofía"
+    },
+    "colors": {
+      "politica": "#4f9cf9",
+      "historia": "#f97316",
+      "economia": "#22c55e",
+      "social": "#06b6d4",
+      "filosofia": "#a78bfa"
+    }
+  },
+  "themes": {
+    "estado": "politica",
+    "partido": "politica",
+    "reforma-revolucion": "politica",
+    "revolucion": "politica",
+    "fascismo": "historia",
+    "cuestion-nacional": "historia",
+    "imperialismo": "economia",
+    "teoria-del-valor": "economia",
+    "alienacion": "economia",
+    "vivienda": "social",
+    "movimiento-obrero": "social",
+    "dialectica": "filosofia"
+  }
+}

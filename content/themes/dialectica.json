@@ -15,25 +15,21 @@
   "key_authors": [
     {
       "id": "marx-karl",
-      "name": "Karl Marx",
       "role": "praxis y critica del idealismo",
       "why_relevant": "Reformula la filosofía como crítica práctica de las condiciones materiales y no como contemplación abstracta del mundo."
     },
     {
       "id": "engels-friedrich",
-      "name": "Friedrich Engels",
       "role": "sistematizacion del materialismo dialectico",
       "why_relevant": "Ordena y populariza los problemas de método, historia y contradicción en textos de gran valor pedagógico."
     },
     {
       "id": "lenin-vi",
-      "name": "V. I. Lenin",
       "role": "lectura revolucionaria del metodo dialectico",
       "why_relevant": "Su obra política ayuda a ver que la dialéctica no es un adorno filosófico sino una herramienta para el análisis de coyunturas y rupturas."
     },
     {
       "id": "mao-zedong",
-      "name": "Mao Zedong",
       "role": "dialectica materialista y teoria de la contradiccion",
       "why_relevant": "En 'Sobre la contradicción' y 'Sobre la práctica' desarrolló una lectura propia de la dialéctica materialista aplicada a la realidad política concreta."
     }
@@ -68,6 +64,12 @@
       "level": "intermediate",
       "estimated_effort": "short",
       "reason_to_read": "Fija una formulación clásica sobre estructura, superestructura e historia útil para releer el resto del tema."
+    },
+    {
+      "work_id": "marx-miseria-filosofia",
+      "level": "advanced",
+      "estimated_effort": "medium",
+      "reason_to_read": "El capítulo sobre el método expone la dialéctica de Marx por contraste con la pseudodialéctica de Proudhon: sirve para ver la dialéctica como análisis histórico y no como fórmula abstracta."
     }
   ],
   "connected_concepts": [

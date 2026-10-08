@@ -15,13 +15,11 @@
   "key_authors": [
     {
       "id": "marx-karl",
-      "name": "Karl Marx",
       "role": "trabajo enajenado, fetichismo y critica de la economia politica",
       "why_relevant": "Permite seguir el problema desde la alienación del trabajo hasta el fetichismo de la mercancía y la dominación abstracta del capital."
     },
     {
       "id": "engels-friedrich",
-      "name": "Friedrich Engels",
       "role": "condiciones materiales de la vida obrera",
       "why_relevant": "Aporta un contrapunto empírico y social que ayuda a leer la alienación no solo como concepto filosófico sino como experiencia histórica."
     }

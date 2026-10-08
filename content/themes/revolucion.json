@@ -35,25 +35,21 @@
   "key_authors": [
     {
       "id": "marx-karl",
-      "name": "Karl Marx",
       "role": "analisis historico de la lucha de clases y del poder",
       "why_relevant": "Permite estudiar la revolución como proceso real, inscrito en conflictos de clase, formas estatales y experiencias como la Comuna."
     },
     {
       "id": "lenin-vi",
-      "name": "V. I. Lenin",
       "role": "estrategia revolucionaria y problema del poder",
       "why_relevant": "Ayuda a ordenar la discusión sobre dualidad de poderes, insurrección, partido y transición revolucionaria."
     },
     {
       "id": "trotsky-leon",
-      "name": "León Trotsky",
       "role": "teoria de la revolucion permanente",
       "why_relevant": "Su trabajo permite seguir la articulación entre revolución democrática, revolución socialista y dinámica internacional."
     },
     {
       "id": "luxemburg-rosa",
-      "name": "Rosa Luxemburg",
       "role": "espontaneidad, democracia obrera y critica del reformismo",
       "why_relevant": "Aporta una mirada sobre la iniciativa de masas, la democracia revolucionaria y los peligros de una transición burocrática."
     }
@@ -94,6 +90,18 @@
       "level": "intermediate",
       "estimated_effort": "medium",
       "reason_to_read": "Ofrece una lectura histórica de las derrotas, de la coyuntura y de las formas políticas que atraviesan los procesos revolucionarios."
+    },
+    {
+      "work_id": "lenin-tareas-proletariado",
+      "level": "intermediate",
+      "estimated_effort": "short",
+      "reason_to_read": "Desarrollo de las Tesis de Abril: analiza la dualidad de poderes y justifica el paso a la revolución socialista, mostrando cómo un partido decide el momento de la insurrección."
+    },
+    {
+      "work_id": "trotsky-historia-revolucion-rusa",
+      "level": "advanced",
+      "estimated_effort": "long",
+      "reason_to_read": "El relato de 1917 por uno de sus protagonistas: muestra la revolución como movimiento de masas dirigido por el partido y desarrolla la teoría del desarrollo desigual y combinado."
     }
   ],
   "connected_concepts": [

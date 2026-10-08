@@ -1,0 +1,54 @@
+/* ─── Tokens ──────────────────────────────────────────────────── */
+:root {
+  --bg:            #0c0e14;
+  --surface:       #12151e;
+  --surface-raise: #181c28;
+  --surface-hover: #1e2333;
+  --border:        rgba(255,255,255,0.07);
+  --border-strong: rgba(255,255,255,0.12);
+  --text:          #e8edf5;
+  --text-muted:    #7a8799;
+  --text-dim:      #4e5a6a;
+  --accent:        #e8524a;
+  --accent-dim:    rgba(232,82,74,0.15);
+  --accent-glow:   rgba(232,82,74,0.08);
+  --green:         #3ecf8e;
+  --green-dim:     rgba(62,207,142,0.12);
+  --yellow:        #f9c846;
+  --yellow-dim:    rgba(249,200,70,0.12);
+  --red:           #e8524a;
+  --red-dim:       rgba(232,82,74,0.12);
+  --sidebar-w:     320px;
+  --topbar-h:      52px;
+  --radius:        14px;
+  --radius-sm:     8px;
+  --shadow:        0 8px 32px rgba(0,0,0,0.4);
+  --topbar-bg:     rgba(18,21,30,0.92);
+  --map-header-bg: rgba(18,21,30,0.70);
+  --font-heading:  "Lora", Georgia, serif;
+  --font-body:     "Inter", system-ui, -apple-system, sans-serif;
+  --accent-fg:     #ffb8b5;
+  --accent-border: rgba(232,82,74,0.35);
+  font-family: var(--font-body);
+  font-size: 15px;
+}
+
+/* ─── Reset ───────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+h1,h2,h3,h4 { margin: 0; font-family: var(--font-heading); }
+p  { margin: 0; }
+a  { color: inherit; }
+button, input { font: inherit; }
+button { cursor: pointer; }
+

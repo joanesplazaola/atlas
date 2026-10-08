@@ -40,25 +40,21 @@
   "key_authors": [
     {
       "id": "trotsky-leon",
-      "name": "León Trotsky",
       "role": "análisis de la base social y la dinámica política del fascismo",
       "why_relevant": "Sus textos de 1930-1933 sobre Alemania son el análisis más preciso del fascismo como movimiento de masas de la pequeña burguesía movilizada por el gran capital contra el movimiento obrero. Critica duramente el oportunismo de la socialdemocracia y el sectarismo del KPD."
     },
     {
       "id": "gramsci-antonio",
-      "name": "Antonio Gramsci",
       "role": "hegemonía, cultura y crisis del Estado burgués ante el fascismo",
       "why_relevant": "Analiza el fascismo como respuesta a la crisis orgánica del capitalismo italiano: cuando la clase dominante no puede mantener el consenso, recurre a la coerción. Sus categorías (hegemonía, bloque histórico, guerra de posición) son indispensables para entender por qué el fascismo no es un accidente sino un síntoma."
     },
     {
       "id": "dimitrov-georgi",
-      "name": "Georgi Dimitrov",
       "role": "estrategia antifascista: el frente popular",
       "why_relevant": "Su informe al VII Congreso de la Internacional Comunista (1935) define el fascismo como la dictadura terrorista abierta de los sectores más reaccionarios del capital financiero y propone la estrategia del frente popular. Texto central para el debate estratégico, aunque también muy discutido."
     },
     {
       "id": "zetkin-clara",
-      "name": "Clara Zetkin",
       "role": "primer analisis del fascismo como movimiento de masas",
       "why_relevant": "Su discurso de 1923 en el Reichstag es uno de los primeros análisis marxistas del fascismo como fenómeno social antes de que consolidara el poder en Alemania."
     }

@@ -224,9 +224,9 @@
     "author": {
       "type": "object",
       "additionalProperties": false,
+      "description": "Reference to content/authors.json. Names are resolved from the registry at build/render time.",
       "required": [
         "id",
-        "name",
         "role",
         "why_relevant"
       ],
@@ -234,10 +234,6 @@
         "id": {
           "type": "string",
           "pattern": "^[a-z0-9-]+$"
-        },
-        "name": {
-          "type": "string",
-          "minLength": 1
         },
         "role": {
           "type": "string",

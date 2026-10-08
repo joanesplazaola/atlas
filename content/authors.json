@@ -5,8 +5,7 @@
     "years": "1818–1883",
     "nationality": "alemán",
     "marxists_org_url": "https://www.marxists.org/espanol/m-e/index.htm",
-    "short_bio": "Filósofo, economista y revolucionario alemán. Fundador junto a Engels del materialismo histórico y del socialismo científico. Autor de El Capital y del Manifiesto Comunista.",
-    "themes": ["estado", "teoria-del-valor", "vivienda"]
+    "short_bio": "Filósofo, economista y revolucionario alemán. Fundador junto a Engels del materialismo histórico y del socialismo científico. Autor de El Capital y del Manifiesto Comunista."
   },
   {
     "id": "engels-friedrich",
@@ -14,8 +13,7 @@
     "years": "1820–1895",
     "nationality": "alemán",
     "marxists_org_url": "https://www.marxists.org/espanol/m-e/index.htm",
-    "short_bio": "Filósofo y revolucionario alemán. Colaborador permanente de Marx. Autor de El origen de la familia, la propiedad privada y el Estado, y del Antidühring.",
-    "themes": ["estado", "teoria-del-valor", "vivienda"]
+    "short_bio": "Filósofo y revolucionario alemán. Colaborador permanente de Marx. Autor de El origen de la familia, la propiedad privada y el Estado, y del Antidühring."
   },
   {
     "id": "lenin-vi",
@@ -23,8 +21,7 @@
     "years": "1870–1924",
     "nationality": "ruso",
     "marxists_org_url": "https://www.marxists.org/espanol/lenin/index.htm",
-    "short_bio": "Revolucionario ruso y dirigente de la Revolución de Octubre. Desarrolló la teoría del partido revolucionario, el imperialismo como fase superior del capitalismo y la cuestión del Estado.",
-    "themes": ["estado", "imperialismo", "partido"]
+    "short_bio": "Revolucionario ruso y dirigente de la Revolución de Octubre. Desarrolló la teoría del partido revolucionario, el imperialismo como fase superior del capitalismo y la cuestión del Estado."
   },
   {
     "id": "luxemburg-rosa",
@@ -32,8 +29,7 @@
     "years": "1871–1919",
     "nationality": "polaca-alemana",
     "marxists_org_url": "https://www.marxists.org/espanol/luxem/index.htm",
-    "short_bio": "Revolucionaria polaca-alemana. Teorizó la huelga de masas, criticó el oportunismo y el centralismo burocrático, y analizó la acumulación del capital a escala mundial.",
-    "themes": ["imperialismo", "partido"]
+    "short_bio": "Revolucionaria polaca-alemana. Teorizó la huelga de masas, criticó el oportunismo y el centralismo burocrático, y analizó la acumulación del capital a escala mundial."
   },
   {
     "id": "gramsci-antonio",
@@ -41,8 +37,7 @@
     "years": "1891–1937",
     "nationality": "italiano",
     "marxists_org_url": "https://www.marxists.org/espanol/gramsci/index.htm",
-    "short_bio": "Marxista italiano, fundador del PCI. Elaboró los conceptos de hegemonía, bloque histórico, guerra de posición y el partido como intelectual colectivo desde la cárcel fascista.",
-    "themes": ["fascismo", "partido"]
+    "short_bio": "Marxista italiano, fundador del PCI. Elaboró los conceptos de hegemonía, bloque histórico, guerra de posición y el partido como intelectual colectivo desde la cárcel fascista."
   },
   {
     "id": "trotsky-leon",
@@ -50,8 +45,7 @@
     "years": "1879–1940",
     "nationality": "ruso-ucraniano",
     "marxists_org_url": "https://www.marxists.org/espanol/trotsky/index.htm",
-    "short_bio": "Revolucionario ruso y dirigente del Ejército Rojo. Teorizó la revolución permanente y fue el principal marxista que analizó el fascismo como movimiento de masas pequeñoburgués.",
-    "themes": ["fascismo"]
+    "short_bio": "Revolucionario ruso y dirigente del Ejército Rojo. Teorizó la revolución permanente y fue el principal marxista que analizó el fascismo como movimiento de masas pequeñoburgués."
   },
   {
     "id": "dimitrov-georgi",
@@ -59,8 +53,7 @@
     "years": "1882–1949",
     "nationality": "búlgaro",
     "marxists_org_url": "https://www.marxists.org/espanol/dimitrov/index.htm",
-    "short_bio": "Dirigente comunista búlgaro y secretario general de la Komintern. Formuló la estrategia del Frente Popular contra el fascismo en el VII Congreso de la IC (1935).",
-    "themes": ["fascismo"]
+    "short_bio": "Dirigente comunista búlgaro y secretario general de la Komintern. Formuló la estrategia del Frente Popular contra el fascismo en el VII Congreso de la IC (1935)."
   },
   {
     "id": "bukharin",
@@ -68,8 +61,7 @@
     "years": "1888–1938",
     "nationality": "ruso",
     "marxists_org_url": "https://www.marxists.org/espanol/bujarin/index.htm",
-    "short_bio": "Economista y teórico marxista ruso. Analizó el imperialismo como economía mundial y el capitalismo de Estado, convirtiéndose en una de las figuras centrales del debate sobre el imperialismo.",
-    "themes": ["imperialismo"]
+    "short_bio": "Economista y teórico marxista ruso. Analizó el imperialismo como economía mundial y el capitalismo de Estado, convirtiéndose en una de las figuras centrales del debate sobre el imperialismo."
   },
   {
     "id": "kautsky-karl",
@@ -77,8 +69,7 @@
     "years": "1854–1938",
     "nationality": "alemán-checo",
     "marxists_org_url": "https://www.marxists.org/espanol/kautsky/index.htm",
-    "short_bio": "Principal teórico de la Segunda Internacional y editor de las obras de Marx y Engels. Defensor del marxismo ortodoxo frente al revisionismo de Bernstein, pero criticado posteriormente por Lenin y Luxemburg por su posición ante la revolución rusa y su oposición al bolchevismo.",
-    "themes": ["reforma-revolucion"]
+    "short_bio": "Principal teórico de la Segunda Internacional y editor de las obras de Marx y Engels. Defensor del marxismo ortodoxo frente al revisionismo de Bernstein, pero criticado posteriormente por Lenin y Luxemburg por su posición ante la revolución rusa y su oposición al bolchevismo."
   },
   {
     "id": "bernstein-eduard",
@@ -86,8 +77,7 @@
     "years": "1850–1932",
     "nationality": "alemán",
     "marxists_org_url": "https://www.marxists.org/espanol/bernstein/index.htm",
-    "short_bio": "Teórico del revisionismo socialista. Sostuvo que el capitalismo podía transformarse gradualmente sin revolución y que el marxismo debía ser revisado a la luz del desarrollo capitalista. Sus tesis fueron el blanco central de la crítica de Rosa Luxemburg en Reforma o revolución.",
-    "themes": ["reforma-revolucion"]
+    "short_bio": "Teórico del revisionismo socialista. Sostuvo que el capitalismo podía transformarse gradualmente sin revolución y que el marxismo debía ser revisado a la luz del desarrollo capitalista. Sus tesis fueron el blanco central de la crítica de Rosa Luxemburg en Reforma o revolución."
   },
   {
     "id": "zetkin-clara",
@@ -95,8 +85,7 @@
     "years": "1857–1933",
     "nationality": "alemana",
     "marxists_org_url": "https://www.marxists.org/espanol/zetkin/index.htm",
-    "short_bio": "Revolucionaria y teórica socialista alemana. Pionera del movimiento socialista de mujeres, fundadora del Día Internacional de la Mujer y autora del análisis marxista de la opresión de género como producto del capitalismo. Cofundadora del Partido Comunista de Alemania (KPD) junto a Luxemburg y Liebknecht.",
-    "themes": ["movimiento-obrero", "partido", "fascismo"]
+    "short_bio": "Revolucionaria y teórica socialista alemana. Pionera del movimiento socialista de mujeres, fundadora del Día Internacional de la Mujer y autora del análisis marxista de la opresión de género como producto del capitalismo. Cofundadora del Partido Comunista de Alemania (KPD) junto a Luxemburg y Liebknecht."
   },
   {
     "id": "kollontai-alexandra",
@@ -104,8 +93,7 @@
     "years": "1872–1952",
     "nationality": "rusa",
     "marxists_org_url": "https://www.marxists.org/espanol/kollontai/index.htm",
-    "short_bio": "Revolucionaria rusa, primera mujer nombrada ministra y primera embajadora del mundo. Teorizó la emancipación de la mujer desde el socialismo: la nueva moral sexual, el amor libre y la reorganización de la vida doméstica como condición de la liberación femenina. Integró la cuestión de género en el programa bolchevique.",
-    "themes": ["movimiento-obrero", "estado"]
+    "short_bio": "Revolucionaria rusa, primera mujer nombrada ministra y primera embajadora del mundo. Teorizó la emancipación de la mujer desde el socialismo: la nueva moral sexual, el amor libre y la reorganización de la vida doméstica como condición de la liberación femenina. Integró la cuestión de género en el programa bolchevique."
   },
   {
     "id": "mao-zedong",
@@ -113,7 +101,6 @@
     "years": "1893–1976",
     "nationality": "chino",
     "marxists_org_url": "https://www.marxists.org/espanol/mao/index.htm",
-    "short_bio": "Dirigente de la Revolución China y fundador de la República Popular China. Desarrolló la teoría de la guerra popular prolongada, la nueva democracia y la contradicción como método de análisis. Adaptó el marxismo-leninismo a las condiciones semicoloniales de China, situando al campesinado como fuerza revolucionaria central.",
-    "themes": ["imperialismo", "cuestion-nacional", "partido", "dialectica"]
+    "short_bio": "Dirigente de la Revolución China y fundador de la República Popular China. Desarrolló la teoría de la guerra popular prolongada, la nueva democracia y la contradicción como método de análisis. Adaptó el marxismo-leninismo a las condiciones semicoloniales de China, situando al campesinado como fuerza revolucionaria central."
   }
 ]

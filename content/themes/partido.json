@@ -40,31 +40,26 @@
   "key_authors": [
     {
       "id": "lenin-vi",
-      "name": "V. I. Lenin",
       "role": "teoría del partido de vanguardia",
       "why_relevant": "Define el partido como el instrumento consciente que organiza la vanguardia obrera e introduce la conciencia socialista en el movimiento espontáneo. Su modelo de partido centralizado y disciplinado es el eje del debate sobre organización en el siglo XX."
     },
     {
       "id": "luxemburg-rosa",
-      "name": "Rosa Luxemburgo",
       "role": "crítica del centralismo y defensa de la espontaneidad",
       "why_relevant": "En su polémica con Lenin critica el riesgo de que el centralismo del partido sustituya la iniciativa de la clase obrera. Su análisis de la huelga de masas como forma de autoorganización es una alternativa estratégica de primer orden."
     },
     {
       "id": "gramsci-antonio",
-      "name": "Antonio Gramsci",
       "role": "partido como intelectual colectivo y constructor de hegemonía",
       "why_relevant": "Reelabora el problema del partido: no es solo una herramienta de poder sino un organismo que construye hegemonía cultural, forma cuadros intelectuales y elabora una visión del mundo alternativa a la dominante."
     },
     {
       "id": "zetkin-clara",
-      "name": "Clara Zetkin",
       "role": "organizacion de las mujeres en el partido socialista",
       "why_relevant": "Construyó la organización femenina del SPD y later del KPD, pensando cómo integrar la lucha de las mujeres trabajadoras en la estructura del partido."
     },
     {
       "id": "mao-zedong",
-      "name": "Mao Zedong",
       "role": "linea de masas y nueva democracia",
       "why_relevant": "Desarrolló la teoría de la línea de masas y del partido adaptado a condiciones semicoloniales, ampliando el debate sobre la relación entre partido y pueblo."
     }
@@ -93,6 +88,18 @@
       "level": "advanced",
       "estimated_effort": "medium",
       "reason_to_read": "Gramsci relee a Maquiavelo para definir el partido revolucionario de masas: no como máquina burocrática sino como intelectual colectivo que construye una nueva voluntad colectiva y hegemonía cultural."
+    },
+    {
+      "work_id": "gramsci-formacion-intelectuales",
+      "level": "advanced",
+      "estimated_effort": "short",
+      "reason_to_read": "Desarrolla el concepto de intelectual orgánico: todo grupo social produce sus propios intelectuales y el partido debe formar los suyos para construir hegemonía. Complementa directamente El moderno príncipe."
+    },
+    {
+      "work_id": "lenin-izquierdismo",
+      "level": "advanced",
+      "estimated_effort": "medium",
+      "reason_to_read": "Intervención sobre la táctica revolucionaria: cómo distinguir el compromiso táctico de la capitulación estratégica y por qué el partido debe trabajar donde están las masas, incluso en parlamentos y sindicatos reformistas."
     }
   ],
   "connected_concepts": [

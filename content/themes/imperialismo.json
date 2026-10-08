@@ -35,25 +35,21 @@
   "key_authors": [
     {
       "id": "lenin-vi",
-      "name": "V. I. Lenin",
       "role": "sintesis politica y economica",
       "why_relevant": "Ofrece una formulacion panoramica del imperialismo ligada al monopolio, el capital financiero y el reparto del mundo."
     },
     {
       "id": "luxemburg-rosa",
-      "name": "Rosa Luxemburg",
       "role": "debate sobre acumulacion y expansion capitalista",
       "why_relevant": "Su trabajo permite entrar en las discusiones sobre acumulacion, expansion hacia espacios no capitalistas y contradicciones del sistema."
     },
     {
       "id": "bukharin",
-      "name": "Nikolai Bukharin",
       "role": "analisis del mercado mundial y la competencia interestatal",
       "why_relevant": "Conecta la economia mundial, la concentracion del capital y la rivalidad entre Estados en una misma lectura del imperialismo."
     },
     {
       "id": "mao-zedong",
-      "name": "Mao Zedong",
       "role": "antiimperialismo y contradiccion principal",
       "why_relevant": "Ofrece la perspectiva de un país semicolonial que enfrenta el imperialismo, ampliando el análisis más allá de Europa hacia Asia, África y América Latina."
     }

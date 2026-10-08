@@ -15,13 +15,11 @@
   "key_authors": [
     {
       "id": "engels-friedrich",
-      "name": "Friedrich Engels",
       "role": "critica socialista de la vivienda bajo el capitalismo",
       "why_relevant": "Es la referencia mas directa para estudiar la cuestion de la vivienda como problema estructural y no meramente moral."
     },
     {
       "id": "marx-karl",
-      "name": "Karl Marx",
       "role": "contexto de la acumulacion y reproduccion capitalista",
       "why_relevant": "Aporta el marco mas amplio para situar la vivienda dentro de la explotacion, la reproduccion de la fuerza de trabajo y la urbanizacion capitalista."
     }
