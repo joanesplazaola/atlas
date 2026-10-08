@@ -2,6 +2,7 @@
 
 const state = {
   manifest: null,
+  beginnerTrack: null, // cross-theme "Primeros pasos" track (content/beginner-track.json)
   themes: [], // light theme objects from index-light.json (fast sidebar)
   authors: [], // canonical authors registry
   filteredThemes: [],
@@ -28,6 +29,7 @@ const activeFilter = /** @type {HTMLElement} */ (document.querySelector("#active
 const navTemas = /** @type {HTMLElement} */ (document.querySelector("#nav-temas"));
 const navAutores = /** @type {HTMLElement} */ (document.querySelector("#nav-autores"));
 const navMapa = /** @type {HTMLElement} */ (document.querySelector("#nav-mapa"));
+const navEmpezar = /** @type {HTMLElement} */ (document.querySelector("#nav-empezar"));
 const mapViewEl = /** @type {HTMLElement} */ (document.querySelector("#map-view"));
 /* ─── Helpers ──────────────────────────────────────────────────── */
 
@@ -163,6 +165,7 @@ export {
   navTemas,
   navAutores,
   navMapa,
+  navEmpezar,
   mapViewEl,
   getSlugFromHash,
   getAuthorFromHash,

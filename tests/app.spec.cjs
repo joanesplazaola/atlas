@@ -21,6 +21,35 @@ test.describe("Atlas Marxista — carga inicial", () => {
   });
 });
 
+test.describe("Atlas Marxista — primeros pasos", () => {
+  test("la portada muestra la ruta de primeros pasos", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.locator(".landing__section--track")).toBeVisible();
+    const steps = page.locator(".track__step");
+    expect(await steps.count()).toBeGreaterThanOrEqual(5);
+  });
+
+  test("cada paso enlaza a una obra de la biblioteca", async ({ page }) => {
+    await page.goto("/");
+    const link = page.locator(".track__work").first();
+    await expect(link).toHaveAttribute("href", /#obra\//);
+  });
+
+  test("hacer clic en un paso abre el detalle de la obra", async ({ page }) => {
+    await page.goto("/");
+    await page.locator(".track__work").first().click();
+    await expect(page.locator("#detail-content")).toBeVisible();
+    await expect(page).toHaveURL(/#obra\//);
+  });
+
+  test("el botón Empezar vuelve a la ruta desde otra vista", async ({ page }) => {
+    await page.goto("/");
+    await page.locator("#nav-mapa").click();
+    await page.locator("#nav-empezar").click();
+    await expect(page.locator(".landing__section--track")).toBeVisible();
+  });
+});
+
 test.describe("Atlas Marxista — selección de tema", () => {
   test("hacer clic en un tema muestra el panel de detalle", async ({ page }) => {
     await page.goto("/");
@@ -177,6 +206,7 @@ test.describe("Atlas Marxista — búsqueda y filtros", () => {
 
   test("limpiar la búsqueda restaura todos los temas", async ({ page }) => {
     await page.goto("/");
+    await expect(page.locator(".theme-card").first()).toBeVisible();
     await page.locator("#search-input").fill("imperialismo");
     await page.locator("#search-input").fill("");
     const count = await page.locator(".theme-card").count();

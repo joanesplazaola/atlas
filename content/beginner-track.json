@@ -1,0 +1,65 @@
+{
+  "id": "primeros-pasos",
+  "title": "Primeros pasos",
+  "subtitle": "Una semana para orientarte en el marxismo",
+  "intro": "Siete lecturas breves, en orden, para pasar de cero a una primera comprensión del marxismo: qué es, cómo analiza la explotación, cómo piensa la historia y qué debates abre sobre el Estado y la revolución. Ninguna exige formación previa.",
+  "next_step": "Con esto tienes el mapa básico. El siguiente paso natural es «El partido revolucionario» (¿Qué hacer?, de Lenin) y «El imperialismo», para entrar en la organización política y en la economía mundial.",
+  "steps": [
+    {
+      "position": 1,
+      "work_id": "manifesto",
+      "theme_slug": "revolucion",
+      "minutes": 45,
+      "why": "El punto de partida clásico: la lucha de clases, la crítica al capitalismo y el horizonte comunista en un texto breve y polémico.",
+      "focus": "Fíjate en cómo conecta la dinámica histórica del capitalismo con la necesidad de organización política; no lo leas como un catecismo."
+    },
+    {
+      "position": 2,
+      "work_id": "trabajo-asalariado-capital",
+      "theme_slug": "teoria-del-valor",
+      "minutes": 40,
+      "why": "Explica con lenguaje llano la relación básica entre quien trabaja y quien posee el capital: de dónde sale el salario y por qué no es un intercambio entre iguales.",
+      "focus": "Sigue la diferencia entre el trabajo y la fuerza de trabajo: ahí está el germen de toda la teoría de la explotación."
+    },
+    {
+      "position": 3,
+      "work_id": "salario-precio-ganancia",
+      "theme_slug": "teoria-del-valor",
+      "minutes": 60,
+      "why": "La mejor puerta de entrada a la economía marxista: Marx expone para obreros sin formación económica qué determina el salario y de dónde viene el beneficio.",
+      "focus": "Fíjate en la relación entre jornada de trabajo, plusvalor y ganancia: es el núcleo de la crítica de la explotación."
+    },
+    {
+      "position": 4,
+      "work_id": "tesis-feuerbach",
+      "theme_slug": "dialectica",
+      "minutes": 20,
+      "why": "Once tesis brevísimas que condensan la idea de praxis: la filosofía deja de contemplar el mundo y pasa a transformarlo.",
+      "focus": "Lee despacio la tesis sobre Feuerbach y pregúntate qué cambia cuando el criterio de verdad es la práctica."
+    },
+    {
+      "position": 5,
+      "work_id": "engels-socialismo-cientifico",
+      "theme_slug": "dialectica",
+      "minutes": 45,
+      "why": "Una síntesis accesible de cómo el materialismo histórico y la economía política convierten el socialismo en una teoría de la historia y no en un ideal moral.",
+      "focus": "Fíjate en el paso del socialismo «utópico» al «científico»: qué gana y qué pierde el socialismo al volverse análisis."
+    },
+    {
+      "position": 6,
+      "work_id": "marx-civil-war-in-france",
+      "theme_slug": "estado",
+      "minutes": 60,
+      "why": "La experiencia de la Comuna de París: la primera vez que la clase trabajadora toma el poder y muestra que el Estado existente no sirve tal cual.",
+      "focus": "Fíjate en la idea de que la clase obrera no puede limitarse a heredar la máquina estatal: hay que transformarla."
+    },
+    {
+      "position": 7,
+      "work_id": "luxemburg-reforma-o-revolucion",
+      "theme_slug": "reforma-revolucion",
+      "minutes": 75,
+      "why": "El debate que ordena toda la estrategia posterior: ¿basta con reformas dentro del sistema o hace falta una ruptura revolucionaria?",
+      "focus": "Fíjate en cómo Luxemburgo distingue usar las reformas como terreno de lucha de convertirlas en la estrategia entera."
+    }
+  ]
+}

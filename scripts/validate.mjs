@@ -172,6 +172,27 @@ for (const ev of timeline.events) {
   for (const tag of ev.tags ?? []) checkTheme("content/timeline.json", `event "${ev.label}"`, tag);
 }
 
+/* ── 4b. Beginner track ────────────────────────────────────────── */
+
+const track = read("content/beginner-track.json");
+if (!track.id) error("content/beginner-track.json: missing id");
+if (!track.title) error("content/beginner-track.json: missing title");
+if (!Array.isArray(track.steps) || !track.steps.length) {
+  error("content/beginner-track.json: steps must be a non-empty array");
+}
+const themeBySlug = new Map(themes.map((t) => [t.data.slug, t.data]));
+(track.steps ?? []).forEach((step, i) => {
+  const where = `content/beginner-track.json: step ${i + 1}`;
+  if (step.position !== i + 1) error(`${where}: position should be ${i + 1}`);
+  checkWork(where, "work_id", step.work_id);
+  checkTheme(where, "theme_slug", step.theme_slug);
+  if (!Number.isInteger(step.minutes) || step.minutes <= 0) error(`${where}: minutes must be a positive integer`);
+  const theme = themeBySlug.get(step.theme_slug);
+  if (theme && !(theme.essential_works ?? []).some((ref) => ref.work_id === step.work_id)) {
+    warn(`${where}: "${step.work_id}" is not an essential work of theme "${step.theme_slug}"`);
+  }
+});
+
 /* ── 5. Warnings ───────────────────────────────────────────────── */
 
 const referencedWorks = new Set();

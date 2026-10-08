@@ -30,6 +30,7 @@ import {
   navTemas,
   navAutores,
   navMapa,
+  navEmpezar,
   appEl,
   mapViewEl,
   searchInput,
@@ -297,10 +298,17 @@ function renderAuthorList() {
 }
 /* ─── Detail panel ─────────────────────────────────────────────── */
 
-function renderLandingPanel() {
+async function renderLandingPanel() {
   detailEmpty.hidden = true;
   detailContent.hidden = false;
   detailContent.classList.remove("detail-content--author");
+
+  // On the unfiltered home landing, highlight "Empezar" rather than "Temas".
+  const isHome = !state.activeAuthor && !state.activeConcept && !state.activeCategory && !state.query;
+  if (isHome) {
+    navEmpezar.classList.add("topbar__nav-btn--active");
+    navTemas.classList.remove("topbar__nav-btn--active");
+  }
 
   const works = state.themes.reduce((n, t) => n + (t.work_count ?? t.essential_works?.length ?? 0), 0);
   const authors = getAllAuthors().length;
@@ -311,6 +319,17 @@ function renderLandingPanel() {
     if (!byCategory[cat]) byCategory[cat] = [];
     byCategory[cat].push(t);
   });
+
+  const track = state.beginnerTrack;
+  const trackSection = track
+    ? `<section class="landing__section landing__section--track">
+        <h3 class="landing__section-title">${esc(track.title)}</h3>
+        <p class="track__subtitle">${esc(track.subtitle)}</p>
+        <p class="track__intro">${esc(track.intro)}</p>
+        <div class="track" id="landing-track"></div>
+        <p class="track__next">${esc(track.next_step)}</p>
+      </section>`
+    : "";
 
   detailContent.innerHTML = `
     <div class="landing">
@@ -323,6 +342,8 @@ function renderLandingPanel() {
           <div class="landing__stat"><span class="landing__stat-num">${authors}</span><span class="landing__stat-label">autores</span></div>
         </div>
       </header>
+
+      ${trackSection}
 
       <section class="landing__section">
         <h3 class="landing__section-title">Explorar por área temática</h3>
@@ -404,6 +425,37 @@ function renderLandingPanel() {
       });
       startersEl.appendChild(card);
     });
+
+  // Beginner track: ordered cross-theme reading path
+  if (track) {
+    await ensureWorksLoaded(track.steps.map((s) => s.work_id));
+    const trackEl = detailContent.querySelector("#landing-track");
+    track.steps.forEach((step) => {
+      const work = state.worksCache.get(step.work_id);
+      const theme = state.themes.find((t) => t.slug === step.theme_slug);
+      const item = document.createElement("article");
+      item.className = "track__step";
+      item.innerHTML = `
+        <div class="track__day">
+          <span class="track__day-num">${step.position}</span>
+          <span class="track__day-label">Día ${step.position}</span>
+        </div>
+        <div class="track__body">
+          <div class="track__top">
+            ${work ? workDetailLink(work, "track__work") : `<span class="track__work">${esc(step.work_id)}</span>`}
+            <span class="track__time">${step.minutes} min</span>
+          </div>
+          <p class="track__why">${esc(step.why)}</p>
+          <p class="track__focus"><strong>Fíjate en:</strong> ${esc(step.focus)}</p>
+        </div>`;
+      const themeChip = theme ? relatedThemeChip(theme.slug) : null;
+      if (themeChip) {
+        themeChip.classList.add("track__theme-chip");
+        item.querySelector(".track__top").appendChild(themeChip);
+      }
+      trackEl.appendChild(item);
+    });
+  }
 }
 async function renderDetail() {
   detailContent.classList.remove("detail-content--author");
@@ -417,7 +469,7 @@ async function renderDetail() {
   }
 
   if (!state.selectedSlug) {
-    renderLandingPanel();
+    await renderLandingPanel();
     return;
   }
 
@@ -845,7 +897,7 @@ async function renderDetail() {
 
 async function renderWorkDetail() {
   if (!state.selectedWorkId) {
-    renderLandingPanel();
+    await renderLandingPanel();
     return;
   }
 
@@ -1512,6 +1564,7 @@ function switchView(view) {
   navTemas.classList.toggle("topbar__nav-btn--active", view === "temas");
   navAutores.classList.toggle("topbar__nav-btn--active", view === "autores");
   navMapa.classList.toggle("topbar__nav-btn--active", view === "mapa");
+  navEmpezar.classList.remove("topbar__nav-btn--active");
 
   // Show/hide main app vs map view
   appEl.hidden = view === "mapa";

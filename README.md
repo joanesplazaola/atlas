@@ -47,6 +47,7 @@ content/
   themes/                 Una ficha por tema + index.json (manifiesto)
   taxonomy.json           Categorías (orden, etiquetas, colores) y su asignación a temas
   timeline.json           Hitos históricos usados en las cronologías de autor
+  beginner-track.json     Ruta transversal de iniciación ("Primeros pasos")
 schema/                   JSON Schema de fichas y obras
 scripts/validate.mjs      Validador (estructura + integridad referencial)
 build.js                  Pipeline de build (Pagefind + índice ligero)
@@ -95,6 +96,10 @@ antes de publicar.
    añádelo a `content/themes/index.json` y asígnale una categoría en `content/taxonomy.json`.
 3. Ejecuta `npm run validate`: fallará si hay referencias rotas, ids duplicados o nombres
    de archivo que no coinciden. Corrige y vuelve a ejecutar.
+
+La ruta «Primeros pasos» (`content/beginner-track.json`) es una secuencia ordenada de
+obras de varios temas; el validador comprueba que cada `work_id`/`theme_slug` exista y que
+los pasos estén numerados consecutivamente.
 
 El validador también avisa (sin fallar) de obras no incluidas en ninguna ficha.
 

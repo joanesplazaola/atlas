@@ -1,0 +1,160 @@
+/* ─── Beginner track ("Primeros pasos") ────────────────────────── */
+
+.landing__section--track {
+  margin: 1.5rem 2rem 0;
+  padding: 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-sm);
+}
+
+.landing__section--track .landing__section-title {
+  color: var(--accent);
+}
+
+.track__subtitle {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.track__intro {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 68ch;
+  margin-bottom: 1.25rem;
+}
+
+.track {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.track__step {
+  display: flex;
+  gap: 1rem;
+  padding: 0.9rem 1rem;
+  background: var(--surface-raise);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: border-color 0.15s;
+}
+
+.track__step:hover {
+  border-color: var(--border-strong);
+}
+
+.track__day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  flex: 0 0 auto;
+  width: 56px;
+}
+
+.track__day-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--accent-dim);
+  color: var(--accent-fg);
+  font-weight: 700;
+  font-family: var(--font-heading);
+}
+
+.track__day-label {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+}
+
+.track__body {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.track__top {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.4rem;
+}
+
+.track__work {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+a.track__work:hover,
+a.track__work:focus-visible {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.track__time {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  background: var(--surface-hover);
+  border-radius: 999px;
+  padding: 0.1rem 0.5rem;
+}
+
+.track__theme-chip {
+  font-size: 0.7rem;
+}
+
+.track__why {
+  font-size: 0.82rem;
+  color: var(--text);
+  line-height: 1.55;
+  margin-bottom: 0.3rem;
+}
+
+.track__focus {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+.track__focus strong {
+  color: var(--text);
+}
+
+.track__next {
+  margin-top: 1.1rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 580px) {
+  .landing__section--track {
+    margin: 1rem 1rem 0;
+    padding: 1rem;
+  }
+
+  .track__step {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .track__day {
+    flex-direction: row;
+    width: auto;
+  }
+}

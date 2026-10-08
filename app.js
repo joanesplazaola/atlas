@@ -15,6 +15,7 @@ import {
   navTemas,
   navAutores,
   navMapa,
+  navEmpezar,
   setTaxonomy,
   setTimeline,
 } from "./js/core.js";
@@ -26,17 +27,19 @@ import "./js/theme.js";
 async function init() {
   renderSkeleton();
   try {
-    const [lightIndex, authors, taxonomy, timeline] = await Promise.all([
+    const [lightIndex, authors, taxonomy, timeline, beginnerTrack] = await Promise.all([
       fetchJson("content/themes/index-light.json"),
       fetchJson("content/authors.json"),
       fetchJson("content/taxonomy.json"),
       fetchJson("content/timeline.json"),
+      fetchJson("content/beginner-track.json"),
     ]);
 
     setTaxonomy(taxonomy);
     setTimeline(timeline);
 
     state.authors = authors;
+    state.beginnerTrack = beginnerTrack;
     state.themes = lightIndex.themes.sort((a, b) => a.title.localeCompare(b.title, "es"));
 
     const workId = getWorkFromHash();
@@ -75,6 +78,15 @@ async function init() {
 searchInput.addEventListener("input", (e) => {
   state.query = /** @type {HTMLInputElement} */ (e.target).value;
   applyFilters();
+});
+
+navEmpezar.addEventListener("click", () => {
+  state.selectedWorkId = null;
+  state.selectedSlug = null;
+  state.selectedAuthorId = null;
+  window.history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
+  switchView("temas");
+  renderDetail();
 });
 
 navTemas.addEventListener("click", () => {
