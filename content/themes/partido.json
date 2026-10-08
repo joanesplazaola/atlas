@@ -55,12 +55,12 @@
     },
     {
       "id": "zetkin-clara",
-      "role": "organizacion de las mujeres en el partido socialista",
+      "role": "organización de las mujeres en el partido socialista",
       "why_relevant": "Construyó la organización femenina del SPD y later del KPD, pensando cómo integrar la lucha de las mujeres trabajadoras en la estructura del partido."
     },
     {
       "id": "mao-zedong",
-      "role": "linea de masas y nueva democracia",
+      "role": "línea de masas y nueva democracia",
       "why_relevant": "Desarrolló la teoría de la línea de masas y del partido adaptado a condiciones semicoloniales, ampliando el debate sobre la relación entre partido y pueblo."
     }
   ],
@@ -249,13 +249,5 @@
     "estado",
     "fascismo",
     "imperialismo"
-  ],
-  "source_policy": {
-    "primary_source_name": "Marxists Internet Archive",
-    "link_only": true,
-    "allow_excerpt": true,
-    "excerpt_max_words": 120,
-    "attribution_required": true,
-    "notes": "Esta ficha funciona como orientación editorial. No debe republicar textos completos ni reemplazar la lectura de las obras enlazadas."
-  }
+  ]
 }

@@ -55,7 +55,7 @@
     },
     {
       "id": "zetkin-clara",
-      "role": "primer analisis del fascismo como movimiento de masas",
+      "role": "primer análisis del fascismo como movimiento de masas",
       "why_relevant": "Su discurso de 1923 en el Reichstag es uno de los primeros análisis marxistas del fascismo como fenómeno social antes de que consolidara el poder en Alemania."
     }
   ],
@@ -235,13 +235,5 @@
     "imperialismo",
     "movimiento-obrero",
     "reforma-revolucion"
-  ],
-  "source_policy": {
-    "primary_source_name": "Marxists Internet Archive",
-    "link_only": true,
-    "allow_excerpt": true,
-    "excerpt_max_words": 120,
-    "attribution_required": true,
-    "notes": "Esta ficha funciona como orientación editorial. No debe republicar textos completos ni reemplazar la lectura de las obras enlazadas."
-  }
+  ]
 }

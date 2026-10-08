@@ -122,7 +122,7 @@
   height: 24px;
   border-radius: 50%;
   background: var(--accent-dim);
-  border: 1px solid rgba(232,82,74,0.3);
+  border: 1px solid rgba(232, 82, 74, 0.3);
   color: var(--accent);
   font-size: 0.72rem;
   font-weight: 700;
@@ -133,7 +133,8 @@
   margin-top: 1px;
 }
 
-.route-step__body {}
+.route-step__body {
+}
 
 .route-step__title {
   font-size: 0.88rem;
@@ -280,7 +281,9 @@
     overflow: visible;
   }
 
-  body { overflow: auto; }
+  body {
+    overflow: auto;
+  }
 
   .sidebar {
     border-right: none;
@@ -320,13 +323,21 @@
     overflow: visible;
   }
 
-  .tab-panels { overflow: visible; }
+  .tab-panels {
+    overflow: visible;
+  }
 
   /* Mobile view switching */
-  .app[data-view="detail"] .sidebar  { display: none; }
-  .app[data-view="list"]   .detail   { display: none; }
+  .app[data-view="detail"] .sidebar {
+    display: none;
+  }
+  .app[data-view="list"] .detail {
+    display: none;
+  }
 
-  .detail__back { display: flex; }
+  .detail__back {
+    display: flex;
+  }
 
   .start-here__grid {
     grid-template-columns: 1fr;
@@ -334,25 +345,50 @@
 }
 
 @media (max-width: 580px) {
-  .detail__header { padding: 18px 18px 0; }
-  .tab-panels     { padding: 18px 18px 32px; }
-  .routes-grid    { grid-template-columns: 1fr; }
-  .detail__stats  { gap: 6px; }
-  .topbar__nav-btn { padding: 5px 10px; font-size: 0.8rem; }
+  .detail__header {
+    padding: 18px 18px 0;
+  }
+  .tab-panels {
+    padding: 18px 18px 32px;
+  }
+  .routes-grid {
+    grid-template-columns: 1fr;
+  }
+  .detail__stats {
+    gap: 6px;
+  }
+  .topbar__nav-btn {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+  }
   .start-here,
-  .routes-intro { padding: 16px; }
-  .work-card__header { flex-direction: column; }
-  .work-card__signals { justify-content: flex-start; }
+  .routes-intro {
+    padding: 16px;
+  }
+  .work-card__header {
+    flex-direction: column;
+  }
+  .work-card__signals {
+    justify-content: flex-start;
+  }
 }
 
 /* ─── Topbar overflow prevention on small phones ───────────────── */
 /* At ≤480px the brand subtitle + theme switcher push the topbar over   */
 /* its width. Hide non-essential elements to keep nav buttons visible.  */
 @media (max-width: 480px) {
-  .topbar__inner { padding: 0 10px; gap: 8px; }
-  .topbar__title em { display: none; }      /* hide "de lectura" */
-  .topbar__nav-btn  { padding: 5px 8px; font-size: 0.78rem; }
-  .theme-switcher   { display: none; }      /* hide colour dots  */
+  .topbar__inner {
+    padding: 0 10px;
+    gap: 8px;
+  }
+  .topbar__title em {
+    display: none;
+  } /* hide "de lectura" */
+  .topbar__nav-btn {
+    padding: 5px 8px;
+    font-size: 0.78rem;
+  }
+  .theme-switcher {
+    display: none;
+  } /* hide colour dots  */
 }
-
-

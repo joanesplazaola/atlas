@@ -35,8 +35,8 @@
       "required": ["url", "provider"],
       "additionalProperties": false,
       "properties": {
-        "url":               { "type": "string", "format": "uri" },
-        "provider":          { "type": "string" },
+        "url": { "type": "string", "format": "uri" },
+        "provider": { "type": "string" },
         "attribution_label": { "type": "string" }
       }
     },

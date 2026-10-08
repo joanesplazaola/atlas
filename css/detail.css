@@ -18,10 +18,19 @@
   padding: 40px;
 }
 
-.detail__empty[hidden] { display: none; }
+.detail__empty[hidden] {
+  display: none;
+}
 
-.detail__empty svg { color: var(--text-dim); opacity: 0.4; }
-.detail__empty p { font-size: 0.9rem; max-width: 28ch; line-height: 1.6; }
+.detail__empty svg {
+  color: var(--text-dim);
+  opacity: 0.4;
+}
+.detail__empty p {
+  font-size: 0.9rem;
+  max-width: 28ch;
+  line-height: 1.6;
+}
 
 #detail-content {
   flex: 1;
@@ -31,7 +40,9 @@
   min-height: 0;
 }
 
-#detail-content[hidden] { display: none; }
+#detail-content[hidden] {
+  display: none;
+}
 
 #detail-content.detail-content--author {
   overflow-y: auto;
@@ -121,11 +132,15 @@
   border-bottom: 2px solid transparent;
   font-size: 0.88rem;
   font-weight: 500;
-  transition: color 120ms, border-color 120ms;
+  transition:
+    color 120ms,
+    border-color 120ms;
   margin-bottom: -1px;
 }
 
-.tab-btn:hover { color: var(--text); }
+.tab-btn:hover {
+  color: var(--text);
+}
 
 .tab-btn--active {
   color: var(--text);
@@ -141,8 +156,12 @@
   scrollbar-color: var(--border) transparent;
 }
 
-.tab-panel { display: none; }
-.tab-panel--active { display: block; }
+.tab-panel {
+  display: none;
+}
+.tab-panel--active {
+  display: block;
+}
 
 /* ─── Section title inside tabs ──────────────────────────────── */
 .section-title {
@@ -155,7 +174,9 @@
 }
 
 .tab-panel > .section-title:first-child,
-.section-title:first-child { margin-top: 0; }
+.section-title:first-child {
+  margin-top: 0;
+}
 
 /* ─── Editorial note callout ──────────────────────────────────── */
 .editorial-note {
@@ -181,8 +202,13 @@
 
 /* ─── Skeleton loading cards ──────────────────────────────────── */
 @keyframes skeleton-pulse {
-  0%, 100% { opacity: 0.4; }
-  50%       { opacity: 0.8; }
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
 }
 
 .theme-card--skeleton {
@@ -197,8 +223,13 @@
   margin-bottom: 8px;
 }
 
-.skeleton-line--title { height: 16px; width: 70%; }
-.skeleton-line--short { width: 45%; }
+.skeleton-line--title {
+  height: 16px;
+  width: 70%;
+}
+.skeleton-line--short {
+  width: 45%;
+}
 
 /* ─── Author list cards (sidebar autores view) ────────────────── */
 .author-list-card {
@@ -214,11 +245,18 @@
   padding: 12px 16px;
   color: var(--text);
   cursor: pointer;
-  transition: background 120ms, border-color 120ms;
+  transition:
+    background 120ms,
+    border-color 120ms;
 }
 
-.author-list-card:hover { background: var(--surface-hover); }
-.author-list-card:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.author-list-card:hover {
+  background: var(--surface-hover);
+}
+.author-list-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
 
 .author-list-card--active {
   background: var(--surface-hover);
@@ -236,7 +274,9 @@
   background: var(--accent);
 }
 
-.author-list-card { position: relative; }
+.author-list-card {
+  position: relative;
+}
 
 .author-list-card__name {
   font-family: var(--font-heading);
@@ -261,14 +301,14 @@
 .chip--theme {
   background: var(--accent-dim);
   color: var(--accent-fg);
-  border-color: rgba(232,82,74,0.25);
+  border-color: rgba(232, 82, 74, 0.25);
   font-family: var(--font-heading);
 }
 
 .chip--theme:hover,
 .chip--theme:focus-visible {
-  background: rgba(232,82,74,0.25);
-  border-color: rgba(232,82,74,0.5);
+  background: rgba(232, 82, 74, 0.25);
+  border-color: rgba(232, 82, 74, 0.5);
   color: var(--text);
 }
 
@@ -286,7 +326,9 @@
   transition: color 120ms;
 }
 
-.detail__back:hover { color: var(--text); }
+.detail__back:hover {
+  color: var(--text);
+}
 .overview-grid {
   display: grid;
   gap: 16px;
@@ -297,7 +339,9 @@
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 16px 18px;
-  transition: border-color 120ms, background 120ms;
+  transition:
+    border-color 120ms,
+    background 120ms;
 }
 
 .entry-card:hover {
@@ -328,7 +372,9 @@
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 16px 18px;
-  transition: border-color 120ms, background 120ms;
+  transition:
+    border-color 120ms,
+    background 120ms;
 }
 
 .author-card:hover {
@@ -360,10 +406,15 @@
   color: var(--text-dim);
   flex-shrink: 0;
   opacity: 0.6;
-  transition: opacity 120ms, color 120ms;
+  transition:
+    opacity 120ms,
+    color 120ms;
 }
 
-.author-card__link:hover { opacity: 1; color: var(--accent); }
+.author-card__link:hover {
+  opacity: 1;
+  color: var(--accent);
+}
 
 .author-card__role {
   font-size: 0.78rem;
@@ -392,9 +443,7 @@
   padding: 20px;
   border: 1px solid var(--border);
   border-radius: calc(var(--radius) + 2px);
-  background:
-    linear-gradient(180deg, rgba(232,82,74,0.08), rgba(232,82,74,0.03)),
-    var(--surface);
+  background: linear-gradient(180deg, rgba(232, 82, 74, 0.08), rgba(232, 82, 74, 0.03)), var(--surface);
 }
 
 .start-here__eyebrow {
@@ -511,7 +560,10 @@
   text-align: left;
   color: inherit;
   cursor: pointer;
-  transition: border-color 120ms, background 120ms, transform 120ms;
+  transition:
+    border-color 120ms,
+    background 120ms,
+    transform 120ms;
 }
 
 .start-here__debate-btn:hover {
@@ -538,7 +590,9 @@
   padding: 18px 20px;
   display: grid;
   gap: 10px;
-  transition: border-color 120ms, background 120ms;
+  transition:
+    border-color 120ms,
+    background 120ms;
 }
 
 .work-card:hover {
@@ -547,12 +601,12 @@
 }
 
 .work-card--start-here {
-  border-color: rgba(232,82,74,0.4);
-  box-shadow: 0 0 0 1px rgba(232,82,74,0.12) inset;
+  border-color: rgba(232, 82, 74, 0.4);
+  box-shadow: 0 0 0 1px rgba(232, 82, 74, 0.12) inset;
 }
 
 .work-card--next-read {
-  border-color: rgba(221,173,72,0.38);
+  border-color: rgba(221, 173, 72, 0.38);
 }
 
 .work-card__header {
@@ -593,13 +647,38 @@
   white-space: nowrap;
 }
 
-.badge--intro    { background: var(--green-dim);  color: var(--green); }
-.badge--inter    { background: var(--yellow-dim); color: var(--yellow); }
-.badge--advanced { background: var(--red-dim);    color: var(--red); }
-.badge--kind     { background: var(--surface-raise); color: var(--text-muted); border: 1px solid var(--border); }
-.badge--effort   { background: var(--surface-raise); color: var(--text-muted); border: 1px solid var(--border); }
-.badge--start    { background: var(--accent-dim); color: var(--accent-fg); border: 1px solid rgba(232,82,74,0.25); }
-.badge--next     { background: var(--yellow-dim); color: var(--yellow); border: 1px solid rgba(221,173,72,0.25); }
+.badge--intro {
+  background: var(--green-dim);
+  color: var(--green);
+}
+.badge--inter {
+  background: var(--yellow-dim);
+  color: var(--yellow);
+}
+.badge--advanced {
+  background: var(--red-dim);
+  color: var(--red);
+}
+.badge--kind {
+  background: var(--surface-raise);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+.badge--effort {
+  background: var(--surface-raise);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+.badge--start {
+  background: var(--accent-dim);
+  color: var(--accent-fg);
+  border: 1px solid rgba(232, 82, 74, 0.25);
+}
+.badge--next {
+  background: var(--yellow-dim);
+  color: var(--yellow);
+  border: 1px solid rgba(221, 173, 72, 0.25);
+}
 
 .work-card__author {
   font-size: 0.82rem;
@@ -626,18 +705,20 @@
   padding: 9px 16px;
   border-radius: var(--radius-sm);
   background: var(--accent-dim);
-  border: 1px solid rgba(232,82,74,0.25);
+  border: 1px solid rgba(232, 82, 74, 0.25);
   color: var(--accent-fg);
   text-decoration: none;
   font-size: 0.85rem;
   font-weight: 600;
-  transition: background 120ms, border-color 120ms;
+  transition:
+    background 120ms,
+    border-color 120ms;
   width: fit-content;
 }
 
 .work-card__link:hover {
-  background: rgba(232,82,74,0.25);
-  border-color: rgba(232,82,74,0.5);
+  background: rgba(232, 82, 74, 0.25);
+  border-color: rgba(232, 82, 74, 0.5);
 }
 
 .work-card__link svg {
@@ -674,8 +755,8 @@
 }
 
 .work-detail__section--reading {
-  background: linear-gradient(180deg, rgba(232,82,74,0.06) 0%, var(--surface) 100%);
-  border-color: rgba(232,82,74,0.18);
+  background: linear-gradient(180deg, rgba(232, 82, 74, 0.06) 0%, var(--surface) 100%);
+  border-color: rgba(232, 82, 74, 0.18);
 }
 
 .work-detail__section-title {
@@ -886,4 +967,3 @@
     grid-template-columns: 1fr;
   }
 }
-

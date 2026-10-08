@@ -4,34 +4,34 @@
 
 /* ─── Tema: Editorial Archivo ────────────────────────────────── */
 [data-theme="editorial"] {
-  --bg:            #f7f3ea;
-  --surface:       #eee8d8;
+  --bg: #f7f3ea;
+  --surface: #eee8d8;
   --surface-raise: #e6dfc8;
   --surface-hover: #dbd4bc;
-  --border:        rgba(26,16,8,0.12);
-  --border-strong: rgba(26,16,8,0.24);
-  --text:          #1a1008;
-  --text-muted:    #5a4838;
-  --text-dim:      #9a8878;
-  --accent:        #7a1c1c;
-  --accent-fg:     #7a1c1c;
-  --accent-border: rgba(122,28,28,0.35);
-  --accent-dim:    rgba(122,28,28,0.08);
-  --accent-glow:   rgba(122,28,28,0.04);
-  --green:         #2e5c2e;
-  --green-dim:     rgba(46,92,46,0.12);
-  --yellow:        #7a5a00;
-  --yellow-dim:    rgba(122,90,0,0.12);
-  --red:           #7a1c1c;
-  --red-dim:       rgba(122,28,28,0.10);
-  --topbar-bg:     #f7f3ea;
-  --map-header-bg: rgba(247,243,234,0.95);
-  --font-heading:  "IM Fell English", Georgia, "Times New Roman", serif;
-  --font-body:     "IM Fell English", Georgia, "Times New Roman", serif;
-  --radius:        2px;
-  --radius-sm:     1px;
-  --shadow:        0 1px 6px rgba(0,0,0,0.12);
-  scrollbar-color: rgba(26,16,8,0.15) transparent;
+  --border: rgba(26, 16, 8, 0.12);
+  --border-strong: rgba(26, 16, 8, 0.24);
+  --text: #1a1008;
+  --text-muted: #5a4838;
+  --text-dim: #9a8878;
+  --accent: #7a1c1c;
+  --accent-fg: #7a1c1c;
+  --accent-border: rgba(122, 28, 28, 0.35);
+  --accent-dim: rgba(122, 28, 28, 0.08);
+  --accent-glow: rgba(122, 28, 28, 0.04);
+  --green: #2e5c2e;
+  --green-dim: rgba(46, 92, 46, 0.12);
+  --yellow: #7a5a00;
+  --yellow-dim: rgba(122, 90, 0, 0.12);
+  --red: #7a1c1c;
+  --red-dim: rgba(122, 28, 28, 0.1);
+  --topbar-bg: #f7f3ea;
+  --map-header-bg: rgba(247, 243, 234, 0.95);
+  --font-heading: "IM Fell English", Georgia, "Times New Roman", serif;
+  --font-body: "IM Fell English", Georgia, "Times New Roman", serif;
+  --radius: 2px;
+  --radius-sm: 1px;
+  --shadow: 0 1px 6px rgba(0, 0, 0, 0.12);
+  scrollbar-color: rgba(26, 16, 8, 0.15) transparent;
 }
 
 [data-theme="editorial"] .topbar {
@@ -123,34 +123,34 @@
 
 /* ─── Tema: Constructivista ───────────────────────────────────── */
 [data-theme="constructivista"] {
-  --bg:            #f0e6d0;
-  --surface:       #e4d8be;
+  --bg: #f0e6d0;
+  --surface: #e4d8be;
   --surface-raise: #d8ccb0;
   --surface-hover: #ccc09e;
-  --border:        rgba(13,5,0,0.18);
-  --border-strong: rgba(13,5,0,0.40);
-  --text:          #0d0500;
-  --text-muted:    #3d2200;
-  --text-dim:      #8a6840;
-  --accent:        #c41e00;
-  --accent-fg:     #c41e00;
-  --accent-border: rgba(196,30,0,0.5);
-  --accent-dim:    rgba(196,30,0,0.10);
-  --accent-glow:   rgba(196,30,0,0.05);
-  --green:         #1a4a1a;
-  --green-dim:     rgba(26,74,26,0.12);
-  --yellow:        #8a5500;
-  --yellow-dim:    rgba(138,85,0,0.12);
-  --red:           #c41e00;
-  --red-dim:       rgba(196,30,0,0.10);
-  --topbar-bg:     #0d0500;
-  --map-header-bg: rgba(13,5,0,0.9);
-  --font-heading:  "Oswald", "Impact", Arial Narrow, sans-serif;
-  --font-body:     "Inter", system-ui, sans-serif;
-  --radius:        0px;
-  --radius-sm:     0px;
-  --shadow:        3px 3px 0 rgba(13,5,0,0.4);
-  scrollbar-color: rgba(196,30,0,0.4) transparent;
+  --border: rgba(13, 5, 0, 0.18);
+  --border-strong: rgba(13, 5, 0, 0.4);
+  --text: #0d0500;
+  --text-muted: #3d2200;
+  --text-dim: #8a6840;
+  --accent: #c41e00;
+  --accent-fg: #c41e00;
+  --accent-border: rgba(196, 30, 0, 0.5);
+  --accent-dim: rgba(196, 30, 0, 0.1);
+  --accent-glow: rgba(196, 30, 0, 0.05);
+  --green: #1a4a1a;
+  --green-dim: rgba(26, 74, 26, 0.12);
+  --yellow: #8a5500;
+  --yellow-dim: rgba(138, 85, 0, 0.12);
+  --red: #c41e00;
+  --red-dim: rgba(196, 30, 0, 0.1);
+  --topbar-bg: #0d0500;
+  --map-header-bg: rgba(13, 5, 0, 0.9);
+  --font-heading: "Oswald", "Impact", Arial Narrow, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --radius: 0px;
+  --radius-sm: 0px;
+  --shadow: 3px 3px 0 rgba(13, 5, 0, 0.4);
+  scrollbar-color: rgba(196, 30, 0, 0.4) transparent;
 }
 
 /* Dark topbar — text must be light */
@@ -163,32 +163,32 @@
 [data-theme="constructivista"] .topbar__title,
 [data-theme="constructivista"] .topbar__nav-btn,
 [data-theme="constructivista"] .topbar__claim {
-  color: rgba(240,230,208,0.9);
+  color: rgba(240, 230, 208, 0.9);
 }
 
 [data-theme="constructivista"] .topbar__title em {
-  color: rgba(240,230,208,0.55);
+  color: rgba(240, 230, 208, 0.55);
 }
 
 [data-theme="constructivista"] .topbar__nav-btn {
-  border-color: rgba(240,230,208,0.15);
-  color: rgba(240,230,208,0.7);
+  border-color: rgba(240, 230, 208, 0.15);
+  color: rgba(240, 230, 208, 0.7);
 }
 
 [data-theme="constructivista"] .topbar__nav-btn:hover {
-  color: rgba(240,230,208,1);
-  background: rgba(240,230,208,0.08);
-  border-color: rgba(240,230,208,0.3);
+  color: rgba(240, 230, 208, 1);
+  background: rgba(240, 230, 208, 0.08);
+  border-color: rgba(240, 230, 208, 0.3);
 }
 
 [data-theme="constructivista"] .topbar__nav-btn--active {
   background: var(--accent);
   border-color: var(--accent);
-  color: rgba(240,230,208,1);
+  color: rgba(240, 230, 208, 1);
 }
 
 [data-theme="constructivista"] .topbar__claim {
-  color: rgba(240,230,208,0.4);
+  color: rgba(240, 230, 208, 0.4);
 }
 
 [data-theme="constructivista"] h1,
@@ -214,7 +214,7 @@
 
 [data-theme="constructivista"] .chip--theme {
   background: var(--accent);
-  color: rgba(240,230,208,1);
+  color: rgba(240, 230, 208, 1);
   border-color: var(--accent);
   border-radius: 0;
   font-family: var(--font-heading);
@@ -226,7 +226,7 @@
 [data-theme="constructivista"] .chip--theme:hover {
   background: #a01800;
   border-color: #a01800;
-  color: rgba(240,230,208,1);
+  color: rgba(240, 230, 208, 1);
 }
 
 [data-theme="constructivista"] .chip--selected {
@@ -282,7 +282,7 @@
 }
 
 [data-theme="constructivista"] .landing__hero {
-  background: linear-gradient(180deg, rgba(196,30,0,0.08) 0%, transparent 100%);
+  background: linear-gradient(180deg, rgba(196, 30, 0, 0.08) 0%, transparent 100%);
   border-bottom: 2px solid var(--border-strong);
 }
 
@@ -297,18 +297,18 @@
 
 /* Map edge overrides for light themes */
 [data-theme="editorial"] .map-edge {
-  stroke: rgba(26,16,8,0.18);
+  stroke: rgba(26, 16, 8, 0.18);
 }
 [data-theme="editorial"] .map-edge--active {
-  stroke: rgba(122,28,28,0.55);
-  filter: drop-shadow(0 0 4px rgba(122,28,28,0.25));
+  stroke: rgba(122, 28, 28, 0.55);
+  filter: drop-shadow(0 0 4px rgba(122, 28, 28, 0.25));
 }
 [data-theme="constructivista"] .map-edge {
-  stroke: rgba(13,5,0,0.15);
+  stroke: rgba(13, 5, 0, 0.15);
 }
 [data-theme="constructivista"] .map-edge--active {
-  stroke: rgba(196,30,0,0.6);
-  filter: drop-shadow(0 0 4px rgba(196,30,0,0.3));
+  stroke: rgba(196, 30, 0, 0.6);
+  filter: drop-shadow(0 0 4px rgba(196, 30, 0, 0.3));
 }
 
 /* ─── Theme switcher ──────────────────────────────────────────── */
@@ -329,34 +329,54 @@
   border-radius: 50%;
   border: none;
   cursor: pointer;
-  transition: transform 140ms, box-shadow 140ms;
+  transition:
+    transform 140ms,
+    box-shadow 140ms;
   flex-shrink: 0;
   position: relative;
   outline: none;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
-.theme-btn:hover   { transform: scale(1.18); }
-.theme-btn:focus-visible { box-shadow: 0 0 0 3px var(--accent); }
+.theme-btn:hover {
+  transform: scale(1.18);
+}
+.theme-btn:focus-visible {
+  box-shadow: 0 0 0 3px var(--accent);
+}
 
-.theme-btn--oscuro         { background: #0c0e14; box-shadow: 0 1px 3px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(232,82,74,0.5); }
-.theme-btn--editorial      { background: #f7f3ea; box-shadow: 0 1px 3px rgba(0,0,0,0.3), inset 0 0 0 1px rgba(122,28,28,0.3); }
+.theme-btn--oscuro {
+  background: #0c0e14;
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.5),
+    inset 0 0 0 1px rgba(232, 82, 74, 0.5);
+}
+.theme-btn--editorial {
+  background: #f7f3ea;
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.3),
+    inset 0 0 0 1px rgba(122, 28, 28, 0.3);
+}
 .theme-btn--constructivista {
   background: conic-gradient(#0d0500 180deg, #c41e00 180deg);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 .theme-btn--active {
-  box-shadow: 0 0 0 2px var(--bg, #0c0e14), 0 0 0 3.5px var(--accent) !important;
+  box-shadow:
+    0 0 0 2px var(--bg, #0c0e14),
+    0 0 0 3.5px var(--accent) !important;
   transform: scale(1.05);
 }
 
 /* Switcher adapts in dark topbars */
 [data-theme="constructivista"] .theme-switcher {
-  background: rgba(255,255,255,0.08);
-  border-color: rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
 [data-theme="constructivista"] .theme-btn--active {
-  box-shadow: 0 0 0 2px #0d0500, 0 0 0 3.5px rgba(240,230,208,0.9) !important;
+  box-shadow:
+    0 0 0 2px #0d0500,
+    0 0 0 3.5px rgba(240, 230, 208, 0.9) !important;
 }

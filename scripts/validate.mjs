@@ -8,45 +8,44 @@
  * Run: npm run validate
  */
 
-import Ajv from 'ajv';
-import Ajv2020 from 'ajv/dist/2020.js';
-import addFormats from 'ajv-formats';
-import { readFileSync } from 'fs';
-import { join, basename } from 'path';
+import Ajv from "ajv";
+import Ajv2020 from "ajv/dist/2020.js";
+import addFormats from "ajv-formats";
+import { readFileSync } from "fs";
+import { join, basename } from "path";
 
 const ROOT = process.cwd();
-const read = p => JSON.parse(readFileSync(join(ROOT, p), 'utf8'));
+const read = (p) => JSON.parse(readFileSync(join(ROOT, p), "utf8"));
 
 const errors = [];
 const warnings = [];
-const error = msg => errors.push(msg);
-const warn = msg => warnings.push(msg);
+const error = (msg) => errors.push(msg);
+const warn = (msg) => warnings.push(msg);
 
 /* ── Load schemas ──────────────────────────────────────────────── */
 
 const ajvWork = new Ajv({ allErrors: true, strict: false });
 addFormats(ajvWork);
-const validateWork = ajvWork.compile(read('schema/work.schema.json'));
+const validateWork = ajvWork.compile(read("schema/work.schema.json"));
 
 const ajvTheme = new Ajv2020({ allErrors: true, strict: false });
 addFormats(ajvTheme);
-const validateTheme = ajvTheme.compile(read('schema/theme-entry.schema.json'));
+const validateTheme = ajvTheme.compile(read("schema/theme-entry.schema.json"));
 
-const formatAjvErrors = errs =>
-  (errs ?? []).map(e => `    ${e.instancePath || '/'} ${e.message}`).join('\n');
+const formatAjvErrors = (errs) => (errs ?? []).map((e) => `    ${e.instancePath || "/"} ${e.message}`).join("\n");
 
 /* ── Load content ──────────────────────────────────────────────── */
 
-const authors = read('content/authors.json');
-const workFiles = read('content/works/index.json').work_files;
-const themeFiles = read('content/themes/index.json').theme_files;
+const authors = read("content/authors.json");
+const workFiles = read("content/works/index.json").work_files;
+const themeFiles = read("content/themes/index.json").theme_files;
 
-const works = workFiles.map(p => ({ path: p, data: read(p) }));
-const themes = themeFiles.map(p => ({ path: p, data: read(p) }));
+const works = workFiles.map((p) => ({ path: p, data: read(p) }));
+const themes = themeFiles.map((p) => ({ path: p, data: read(p) }));
 
-const authorIds = new Set(authors.map(a => a.id));
-const workIds = new Set(works.map(w => w.data.id));
-const themeSlugs = new Set(themes.map(t => t.data.slug));
+const authorIds = new Set(authors.map((a) => a.id));
+const workIds = new Set(works.map((w) => w.data.id));
+const themeSlugs = new Set(themes.map((t) => t.data.slug));
 
 /* ── 1. Structural validation ──────────────────────────────────── */
 
@@ -70,7 +69,7 @@ const seenWorkIds = new Set();
 for (const { path, data } of works) {
   if (seenWorkIds.has(data.id)) error(`${path}: duplicate work id "${data.id}"`);
   seenWorkIds.add(data.id);
-  if (basename(path, '.json') !== data.id) {
+  if (basename(path, ".json") !== data.id) {
     error(`${path}: file name does not match id "${data.id}"`);
   }
 }
@@ -79,7 +78,7 @@ const seenSlugs = new Set();
 for (const { path, data } of themes) {
   if (seenSlugs.has(data.slug)) error(`${path}: duplicate theme slug "${data.slug}"`);
   seenSlugs.add(data.slug);
-  if (basename(path, '.json') !== data.slug) {
+  if (basename(path, ".json") !== data.slug) {
     error(`${path}: file name does not match slug "${data.slug}"`);
   }
 }
@@ -97,23 +96,23 @@ const checkTheme = (file, where, slug) => {
 };
 
 for (const a of authors) {
-  for (const slug of a.themes ?? []) checkTheme('content/authors.json', `author "${a.id}"`, slug);
+  for (const slug of a.themes ?? []) checkTheme("content/authors.json", `author "${a.id}"`, slug);
 }
 
 for (const { path, data } of works) {
-  for (const id of data.author_ids ?? []) checkAuthor(path, 'author_ids', id);
+  for (const id of data.author_ids ?? []) checkAuthor(path, "author_ids", id);
 }
 
 for (const { path, data } of themes) {
-  for (const a of data.key_authors ?? []) checkAuthor(path, 'key_authors', a.id);
+  for (const a of data.key_authors ?? []) checkAuthor(path, "key_authors", a.id);
 
-  for (const ref of data.essential_works ?? []) checkWork(path, 'essential_works', ref.work_id);
+  for (const ref of data.essential_works ?? []) checkWork(path, "essential_works", ref.work_id);
 
   for (const c of data.connected_concepts ?? []) {
     if (c.id === data.slug) warn(`${path}: concept "${c.id}" shadows the theme slug`);
   }
 
-  for (const slug of data.related_themes ?? []) checkTheme(path, 'related_themes', slug);
+  for (const slug of data.related_themes ?? []) checkTheme(path, "related_themes", slug);
 
   const debateIds = new Set();
   for (const d of data.historical_debates ?? []) {
@@ -134,8 +133,8 @@ for (const { path, data } of themes) {
 
   const g = data.study_guidance;
   if (g) {
-    checkWork(path, 'study_guidance.start_here', g.start_here?.work_id);
-    checkWork(path, 'study_guidance.after_this', g.after_this?.work_id);
+    checkWork(path, "study_guidance.start_here", g.start_here?.work_id);
+    checkWork(path, "study_guidance.after_this", g.after_this?.work_id);
     const debate = g.debate_to_watch?.debate_id;
     if (debate && !debateIds.has(debate)) {
       error(`${path}: study_guidance.debate_to_watch references unknown debate "${debate}"`);
@@ -145,12 +144,12 @@ for (const { path, data } of themes) {
 
 /* ── 4. Taxonomy & timeline ────────────────────────────────────── */
 
-const taxonomy = read('content/taxonomy.json');
-const timeline = read('content/timeline.json');
+const taxonomy = read("content/taxonomy.json");
+const timeline = read("content/timeline.json");
 
 const categoryIds = new Set(taxonomy.categories.order);
 if (categoryIds.size !== taxonomy.categories.order.length) {
-  error('content/taxonomy.json: duplicate category in categories.order');
+  error("content/taxonomy.json: duplicate category in categories.order");
 }
 for (const [cat, label] of Object.entries(taxonomy.categories.labels)) {
   if (!categoryIds.has(cat)) error(`content/taxonomy.json: label for unknown category "${cat}"`);
@@ -170,7 +169,7 @@ for (const { data } of themes) {
 
 for (const ev of timeline.events) {
   if (!Number.isInteger(ev.year)) error(`content/timeline.json: event "${ev.label}" has non-integer year`);
-  for (const tag of ev.tags ?? []) checkTheme('content/timeline.json', `event "${ev.label}"`, tag);
+  for (const tag of ev.tags ?? []) checkTheme("content/timeline.json", `event "${ev.label}"`, tag);
 }
 
 /* ── 5. Warnings ───────────────────────────────────────────────── */
@@ -207,5 +206,5 @@ if (errors.length) {
 
 console.log(
   `✓ ${themes.length} fichas + ${works.length} obras + ${authors.length} autores validados` +
-  (warnings.length ? ` (${warnings.length} aviso(s))` : '')
+    (warnings.length ? ` (${warnings.length} aviso(s))` : ""),
 );

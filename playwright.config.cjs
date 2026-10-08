@@ -15,7 +15,5 @@ module.exports = defineConfig({
     reuseExistingServer: true,
     timeout: 10000,
   },
-  projects: [
-    { name: "chromium", use: { ...devices["Desktop Chrome"] } },
-  ],
+  projects: [{ name: "chromium", use: { ...devices["Desktop Chrome"] } }],
 });

@@ -1,0 +1,6 @@
+node_modules/
+pagefind/
+test-results/
+playwright-report/
+package-lock.json
+content/

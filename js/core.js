@@ -2,8 +2,8 @@
 
 const state = {
   manifest: null,
-  themes: [],           // light theme objects from index-light.json (fast sidebar)
-  authors: [],          // canonical authors registry
+  themes: [], // light theme objects from index-light.json (fast sidebar)
+  authors: [], // canonical authors registry
   filteredThemes: [],
   selectedSlug: null,
   selectedWorkId: null,
@@ -11,24 +11,24 @@ const state = {
   activeTab: "overview",
   query: "",
   activeConcept: null,
-  activeAuthor: null,   // author filter from author index view
+  activeAuthor: null, // author filter from author index view
   activeCategory: null, // category filter (politica|economia|historia|social|filosofia)
-  view: "temas",        // "temas" | "autores" | "mapa"
-  themeCache: new Map(),  // slug → full theme JSON (loaded on demand)
-  worksCache: new Map(),  // work_id → canonical work JSON (loaded on demand)
+  view: "temas", // "temas" | "autores" | "mapa"
+  themeCache: new Map(), // slug → full theme JSON (loaded on demand)
+  worksCache: new Map(), // work_id → canonical work JSON (loaded on demand)
 };
 
-const appEl        = document.querySelector(".app");
-const themeList    = document.querySelector("#theme-grid");
-const detailEmpty  = document.querySelector("#detail-empty");
-const detailContent = document.querySelector("#detail-content");
-const stats        = document.querySelector("#stats");
-const searchInput  = document.querySelector("#search-input");
-const activeFilter = document.querySelector("#active-filter");
-const navTemas     = document.querySelector("#nav-temas");
-const navAutores   = document.querySelector("#nav-autores");
-const navMapa      = document.querySelector("#nav-mapa");
-const mapViewEl    = document.querySelector("#map-view");
+const appEl = /** @type {HTMLElement} */ (document.querySelector(".app"));
+const themeList = /** @type {HTMLElement} */ (document.querySelector("#theme-grid"));
+const detailEmpty = /** @type {HTMLElement} */ (document.querySelector("#detail-empty"));
+const detailContent = /** @type {HTMLElement} */ (document.querySelector("#detail-content"));
+const stats = /** @type {HTMLElement} */ (document.querySelector("#stats"));
+const searchInput = /** @type {HTMLInputElement} */ (document.querySelector("#search-input"));
+const activeFilter = /** @type {HTMLElement} */ (document.querySelector("#active-filter"));
+const navTemas = /** @type {HTMLElement} */ (document.querySelector("#nav-temas"));
+const navAutores = /** @type {HTMLElement} */ (document.querySelector("#nav-autores"));
+const navMapa = /** @type {HTMLElement} */ (document.querySelector("#nav-mapa"));
+const mapViewEl = /** @type {HTMLElement} */ (document.querySelector("#map-view"));
 /* ─── Helpers ──────────────────────────────────────────────────── */
 
 function getSlugFromHash() {
@@ -63,35 +63,50 @@ function setWorkHash(id) {
 
 function esc(v) {
   return String(v)
-    .replaceAll("&", "&amp;").replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;").replaceAll('"', "&quot;")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
     .replaceAll("'", "&#39;");
 }
 
 function norm(v) {
-  return v.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  return v
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
 }
 
 // Author names live only in the canonical registry (content/authors.json).
 function authorName(id) {
-  return state.authors.find(a => a.id === id)?.name ?? id;
+  return state.authors.find((a) => a.id === id)?.name ?? id;
 }
 
 function keyAuthorNames(theme) {
-  return theme.key_author_names ?? (theme.key_authors ?? []).map(a => authorName(a.id));
+  return theme.key_author_names ?? (theme.key_authors ?? []).map((a) => authorName(a.id));
 }
 const levelLabel = { introductory: "Introductorio", intermediate: "Intermedio", advanced: "Avanzado" };
-const levelBadge = { introductory: "badge--intro",  intermediate: "badge--inter",  advanced: "badge--advanced" };
+const levelBadge = { introductory: "badge--intro", intermediate: "badge--inter", advanced: "badge--advanced" };
 const effortLabel = { short: "corto", medium: "medio", long: "largo" };
-const kindLabel   = { article: "artículo", chapter: "capítulo", book: "libro", pamphlet: "folleto", speech: "discurso", letter: "carta" };
+const kindLabel = {
+  article: "artículo",
+  chapter: "capítulo",
+  book: "libro",
+  pamphlet: "folleto",
+  speech: "discurso",
+  letter: "carta",
+};
 const routeAccent = { introductory: "var(--green)", intermediate: "var(--yellow)", advanced: "var(--red)" };
 function buildSearchText(t) {
-  const authorText = (t.key_authors ?? []).map(a => `${authorName(a.id)} ${a.role ?? ""} ${a.why_relevant ?? ""}`);
-  return norm([
-    t.title, t.summary,
-    ...(authorText.length ? authorText : keyAuthorNames(t)),
-    ...(t.concept_labels   ?? t.connected_concepts?.map(c => `${c.label} ${c.relation}`) ?? []),
-  ].join(" "));
+  const authorText = (t.key_authors ?? []).map((a) => `${authorName(a.id)} ${a.role ?? ""} ${a.why_relevant ?? ""}`);
+  return norm(
+    [
+      t.title,
+      t.summary,
+      ...(authorText.length ? authorText : keyAuthorNames(t)),
+      ...(t.concept_labels ?? t.connected_concepts?.map((c) => `${c.label} ${c.relation}`) ?? []),
+    ].join(" "),
+  );
 }
 
 function parseYearRange(years) {
@@ -138,10 +153,35 @@ export function setTimeline(timeline) {
 
 export {
   state,
-  appEl, themeList, detailEmpty, detailContent, stats, searchInput, activeFilter,
-  navTemas, navAutores, navMapa, mapViewEl,
-  getSlugFromHash, getAuthorFromHash, getWorkFromHash, setHash, setAuthorHash, setWorkHash,
-  esc, norm, authorName, keyAuthorNames,
-  levelLabel, levelBadge, effortLabel, kindLabel, routeAccent,
-  buildSearchText, parseYearRange, workDetailLink, switchMobileView, fetchJson,
+  appEl,
+  themeList,
+  detailEmpty,
+  detailContent,
+  stats,
+  searchInput,
+  activeFilter,
+  navTemas,
+  navAutores,
+  navMapa,
+  mapViewEl,
+  getSlugFromHash,
+  getAuthorFromHash,
+  getWorkFromHash,
+  setHash,
+  setAuthorHash,
+  setWorkHash,
+  esc,
+  norm,
+  authorName,
+  keyAuthorNames,
+  levelLabel,
+  levelBadge,
+  effortLabel,
+  kindLabel,
+  routeAccent,
+  buildSearchText,
+  parseYearRange,
+  workDetailLink,
+  switchMobileView,
+  fetchJson,
 };

@@ -1,12 +1,38 @@
 // ui.js — theme/work/author rendering and the filter pipeline.
 
 import {
-  state, esc, norm, keyAuthorNames, buildSearchText, parseYearRange,
-  getCategoryForTheme, CATEGORY_ORDER, CATEGORY_COLORS, CATEGORY_LABELS,
-  HISTORICAL_CONTEXT_EVENTS, levelLabel, levelBadge, effortLabel, kindLabel,
-  routeAccent, workDetailLink, setHash, setAuthorHash, switchMobileView, fetchJson,
-  detailContent, detailEmpty, themeList, stats, activeFilter,
-  navTemas, navAutores, navMapa, appEl, mapViewEl, searchInput,
+  state,
+  esc,
+  norm,
+  keyAuthorNames,
+  buildSearchText,
+  parseYearRange,
+  getCategoryForTheme,
+  CATEGORY_ORDER,
+  CATEGORY_COLORS,
+  CATEGORY_LABELS,
+  HISTORICAL_CONTEXT_EVENTS,
+  levelLabel,
+  levelBadge,
+  effortLabel,
+  kindLabel,
+  routeAccent,
+  workDetailLink,
+  setHash,
+  setAuthorHash,
+  switchMobileView,
+  fetchJson,
+  detailContent,
+  detailEmpty,
+  themeList,
+  stats,
+  activeFilter,
+  navTemas,
+  navAutores,
+  navMapa,
+  appEl,
+  mapViewEl,
+  searchInput,
 } from "./core.js";
 import { ensureWorksLoaded, ensureAllThemesLoaded, getAllAuthors } from "./data.js";
 import { renderMap } from "./map.js";
@@ -18,7 +44,7 @@ function conceptChip(label) {
   btn.type = "button";
   btn.className = `chip${state.activeConcept === label ? " chip--selected" : ""}`;
   btn.textContent = label;
-  btn.addEventListener("click", e => {
+  btn.addEventListener("click", (e) => {
     e.stopPropagation();
     state.activeConcept = state.activeConcept === label ? null : label;
     applyFilters();
@@ -29,7 +55,7 @@ function conceptChip(label) {
 /* ─── Related theme chip ────────────────────────────────────────── */
 
 function relatedThemeChip(slug) {
-  const theme = state.themes.find(t => t.slug === slug);
+  const theme = state.themes.find((t) => t.slug === slug);
   if (!theme) return null;
   const btn = document.createElement("button");
   btn.type = "button";
@@ -49,21 +75,21 @@ function relatedThemeChip(slug) {
 /* ─── Filter & render pipeline ─────────────────────────────────── */
 
 function applyFilters() {
-  const q  = norm(state.query.trim());
+  const q = norm(state.query.trim());
   const ac = state.activeConcept ? norm(state.activeConcept) : null;
-  const aa = state.activeAuthor  ? norm(state.activeAuthor)  : null;
+  const aa = state.activeAuthor ? norm(state.activeAuthor) : null;
   const cat = state.activeCategory;
 
-  state.filteredThemes = state.themes.filter(t => {
-    const mQ  = !q  || buildSearchText(t).includes(q);
-    const mC  = !ac || (t.concept_labels ?? t.connected_concepts?.map(c => c.label) ?? []).some(l => norm(l) === ac);
-    const mA  = !aa || keyAuthorNames(t).some(n => norm(n) === aa);
+  state.filteredThemes = state.themes.filter((t) => {
+    const mQ = !q || buildSearchText(t).includes(q);
+    const mC = !ac || (t.concept_labels ?? t.connected_concepts?.map((c) => c.label) ?? []).some((l) => norm(l) === ac);
+    const mA = !aa || keyAuthorNames(t).some((n) => norm(n) === aa);
     const mCat = !cat || getCategoryForTheme(t.slug) === cat;
     return mQ && mC && mA && mCat;
   });
 
   // Only auto-select when a previously-selected theme gets filtered out (not when landing)
-  if (state.selectedSlug && !state.filteredThemes.some(t => t.slug === state.selectedSlug)) {
+  if (state.selectedSlug && !state.filteredThemes.some((t) => t.slug === state.selectedSlug)) {
     state.selectedSlug = state.filteredThemes[0]?.slug || null;
   }
 
@@ -77,7 +103,7 @@ function applyFilters() {
   renderDetail();
 }
 function renderStats() {
-  const works   = state.themes.reduce((n, t) => n + (t.work_count ?? t.essential_works?.length ?? 0), 0);
+  const works = state.themes.reduce((n, t) => n + (t.work_count ?? t.essential_works?.length ?? 0), 0);
   const authors = getAllAuthors().length;
   if (state.view === "autores") {
     stats.innerHTML =
@@ -93,31 +119,64 @@ function renderStats() {
 
 function renderFilterBar() {
   const filters = [];
-  if (state.activeConcept)  filters.push({ key: "concept",  label: `Concepto: ${state.activeConcept}`, clear: () => { state.activeConcept = null; applyFilters(); } });
-  if (state.activeAuthor)   filters.push({ key: "author",   label: `Autor: ${state.activeAuthor}`,     clear: () => { state.activeAuthor = null;  applyFilters(); } });
-  if (state.activeCategory) filters.push({ key: "category", label: CATEGORY_LABELS[state.activeCategory] || state.activeCategory, clear: () => { state.activeCategory = null; applyFilters(); } });
+  if (state.activeConcept)
+    filters.push({
+      key: "concept",
+      label: `Concepto: ${state.activeConcept}`,
+      clear: () => {
+        state.activeConcept = null;
+        applyFilters();
+      },
+    });
+  if (state.activeAuthor)
+    filters.push({
+      key: "author",
+      label: `Autor: ${state.activeAuthor}`,
+      clear: () => {
+        state.activeAuthor = null;
+        applyFilters();
+      },
+    });
+  if (state.activeCategory)
+    filters.push({
+      key: "category",
+      label: CATEGORY_LABELS[state.activeCategory] || state.activeCategory,
+      clear: () => {
+        state.activeCategory = null;
+        applyFilters();
+      },
+    });
 
-  if (!filters.length) { activeFilter.hidden = true; activeFilter.innerHTML = ""; return; }
+  if (!filters.length) {
+    activeFilter.hidden = true;
+    activeFilter.innerHTML = "";
+    return;
+  }
   activeFilter.hidden = false;
-  activeFilter.innerHTML = filters.map(f =>
-    `<span class="filter-pill" data-key="${f.key}">
+  activeFilter.innerHTML = filters
+    .map(
+      (f) =>
+        `<span class="filter-pill" data-key="${f.key}">
        <strong>${esc(f.label)}</strong>
        <button type="button" aria-label="Quitar filtro">×</button>
-     </span>`
-  ).join("");
-  filters.forEach(f => {
+     </span>`,
+    )
+    .join("");
+  filters.forEach((f) => {
     activeFilter.querySelector(`[data-key="${f.key}"] button`).addEventListener("click", f.clear);
   });
 }
 /* ─── Theme list (sidebar temas) ────────────────────────────────── */
 
 function renderSkeleton() {
-  themeList.innerHTML = Array.from({ length: 3 }, () =>
-    `<div class="theme-card theme-card--skeleton" aria-hidden="true">
+  themeList.innerHTML = Array.from(
+    { length: 3 },
+    () =>
+      `<div class="theme-card theme-card--skeleton" aria-hidden="true">
        <div class="skeleton-line skeleton-line--title"></div>
        <div class="skeleton-line"></div>
        <div class="skeleton-line skeleton-line--short"></div>
-     </div>`
+     </div>`,
   ).join("");
 }
 
@@ -128,14 +187,13 @@ function buildThemeCard(t) {
   el.tabIndex = 0;
   el.setAttribute("aria-pressed", String(t.slug === state.selectedSlug));
 
-  el.innerHTML =
-    `<div class="theme-card__title">${esc(t.title)}</div>
+  el.innerHTML = `<div class="theme-card__title">${esc(t.title)}</div>
      <p class="theme-card__summary">${esc(t.summary)}</p>
      <div class="theme-card__chips"></div>`;
 
   const chips = el.querySelector(".theme-card__chips");
-  const conceptsToShow = t.concept_labels ?? t.connected_concepts?.map(c => c.label) ?? [];
-  conceptsToShow.slice(0, 4).forEach(label => chips.appendChild(conceptChip(label)));
+  const conceptsToShow = t.concept_labels ?? t.connected_concepts?.map((c) => c.label) ?? [];
+  conceptsToShow.slice(0, 4).forEach((label) => chips.appendChild(conceptChip(label)));
 
   const select = () => {
     state.selectedSlug = t.slug;
@@ -146,8 +204,15 @@ function buildThemeCard(t) {
     switchMobileView("detail");
   };
 
-  el.addEventListener("click", e => { if (!e.target.closest(".chip")) select(); });
-  el.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); select(); } });
+  el.addEventListener("click", (e) => {
+    if (!(/** @type {HTMLElement} */ (e.target).closest(".chip"))) select();
+  });
+  el.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      select();
+    }
+  });
   return el;
 }
 
@@ -159,17 +224,17 @@ function renderList() {
 
   // Group themes by category
   const byCategory = {};
-  state.filteredThemes.forEach(t => {
+  state.filteredThemes.forEach((t) => {
     const cat = getCategoryForTheme(t.slug);
     if (!byCategory[cat]) byCategory[cat] = [];
     byCategory[cat].push(t);
   });
 
-  const presentCategories = CATEGORY_ORDER.filter(cat => byCategory[cat]);
+  const presentCategories = CATEGORY_ORDER.filter((cat) => byCategory[cat]);
   const showHeaders = presentCategories.length > 1;
 
   themeList.innerHTML = "";
-  presentCategories.forEach(cat => {
+  presentCategories.forEach((cat) => {
     if (showHeaders) {
       const header = document.createElement("div");
       header.className = "theme-group__header";
@@ -177,7 +242,7 @@ function renderList() {
       header.innerHTML = `<span class="theme-group__dot"></span>${esc(CATEGORY_LABELS[cat] || cat)}`;
       themeList.appendChild(header);
     }
-    byCategory[cat].forEach(t => themeList.appendChild(buildThemeCard(t)));
+    byCategory[cat].forEach((t) => themeList.appendChild(buildThemeCard(t)));
   });
 }
 function renderAuthorList() {
@@ -185,10 +250,11 @@ function renderAuthorList() {
   const q = norm(state.query.trim());
 
   const filtered = q
-    ? authors.filter(a =>
-        norm(a.name).includes(q) ||
-        norm(a.short_bio || a.role || "").includes(q) ||
-        norm(a.nationality || "").includes(q)
+    ? authors.filter(
+        (a) =>
+          norm(a.name).includes(q) ||
+          norm(a.short_bio || a.role || "").includes(q) ||
+          norm(a.nationality || "").includes(q),
       )
     : authors;
 
@@ -198,15 +264,14 @@ function renderAuthorList() {
   }
 
   themeList.innerHTML = "";
-  filtered.forEach(a => {
+  filtered.forEach((a) => {
     const isActive = state.selectedAuthorId === a.id;
     const el = document.createElement("article");
     el.className = `author-list-card${isActive ? " author-list-card--active" : ""}`;
     el.setAttribute("role", "button");
     el.tabIndex = 0;
     el.setAttribute("aria-pressed", String(isActive));
-    el.innerHTML =
-      `<div>
+    el.innerHTML = `<div>
          <div class="author-list-card__name">${esc(a.name)}</div>
          ${a.years ? `<div class="author-list-card__years">${esc(a.years)}</div>` : ""}
        </div>
@@ -221,7 +286,12 @@ function renderAuthorList() {
     };
 
     el.addEventListener("click", select);
-    el.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); select(); } });
+    el.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        select();
+      }
+    });
     themeList.appendChild(el);
   });
 }
@@ -232,11 +302,11 @@ function renderLandingPanel() {
   detailContent.hidden = false;
   detailContent.classList.remove("detail-content--author");
 
-  const works   = state.themes.reduce((n, t) => n + (t.work_count ?? t.essential_works?.length ?? 0), 0);
+  const works = state.themes.reduce((n, t) => n + (t.work_count ?? t.essential_works?.length ?? 0), 0);
   const authors = getAllAuthors().length;
 
   const byCategory = {};
-  state.themes.forEach(t => {
+  state.themes.forEach((t) => {
     const cat = getCategoryForTheme(t.slug);
     if (!byCategory[cat]) byCategory[cat] = [];
     byCategory[cat].push(t);
@@ -267,7 +337,7 @@ function renderLandingPanel() {
 
   // Category cards
   const catContainer = detailContent.querySelector("#landing-categories");
-  CATEGORY_ORDER.filter(cat => byCategory[cat]).forEach(cat => {
+  CATEGORY_ORDER.filter((cat) => byCategory[cat]).forEach((cat) => {
     const themes = byCategory[cat];
     const card = document.createElement("div");
     card.className = "landing__cat-card";
@@ -280,29 +350,34 @@ function renderLandingPanel() {
         <span class="landing__cat-name">${esc(CATEGORY_LABELS[cat] || cat)}</span>
         <span class="landing__cat-count">${themes.length} tema${themes.length !== 1 ? "s" : ""}</span>
       </div>
-      <div class="landing__cat-chips">${themes.map(t => `<span class="landing__cat-chip">${esc(t.title)}</span>`).join("")}</div>`;
+      <div class="landing__cat-chips">${themes.map((t) => `<span class="landing__cat-chip">${esc(t.title)}</span>`).join("")}</div>`;
 
     const filter = () => {
       state.activeCategory = cat;
       applyFilters();
     };
     card.addEventListener("click", filter);
-    card.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); filter(); } });
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        filter();
+      }
+    });
     catContainer.appendChild(card);
   });
 
   // Suggested starter themes
   const starterSlugs = [
     { slug: "teoria-del-valor", note: "La base económica del marxismo" },
-    { slug: "estado",           note: "Teoría política fundamental" },
-    { slug: "imperialismo",     note: "El capitalismo en su fase monopolista" },
-    { slug: "revolucion",       note: "Estrategia y táctica del cambio social" },
+    { slug: "estado", note: "Teoría política fundamental" },
+    { slug: "imperialismo", note: "El capitalismo en su fase monopolista" },
+    { slug: "revolucion", note: "Estrategia y táctica del cambio social" },
   ];
 
   const startersEl = detailContent.querySelector("#landing-starters");
   starterSlugs
-    .map(s => ({ ...s, theme: state.themes.find(t => t.slug === s.slug) }))
-    .filter(s => s.theme)
+    .map((s) => ({ ...s, theme: state.themes.find((t) => t.slug === s.slug) }))
+    .filter((s) => s.theme)
     .forEach(({ theme, note }) => {
       const card = document.createElement("div");
       card.className = "landing__starter";
@@ -321,7 +396,12 @@ function renderLandingPanel() {
         switchMobileView("detail");
       };
       card.addEventListener("click", go);
-      card.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); } });
+      card.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          go();
+        }
+      });
       startersEl.appendChild(card);
     });
 }
@@ -360,16 +440,18 @@ async function renderDetail() {
 
     // ── Lazy-load canonical works for this theme ─────────────────
     const workRefs = theme.essential_works; // [{work_id, level, estimated_effort, reason_to_read}]
-    const workIds = Array.from(new Set([
-      ...workRefs.map(ref => ref.work_id),
-      ...(theme.reading_paths ?? []).flatMap(path => path.steps.map(step => step.work_id)),
-      ...(theme.historical_debates ?? []).flatMap(debate => debate.related_work_ids ?? []),
-    ]));
+    const workIds = Array.from(
+      new Set([
+        ...workRefs.map((ref) => ref.work_id),
+        ...(theme.reading_paths ?? []).flatMap((path) => path.steps.map((step) => step.work_id)),
+        ...(theme.historical_debates ?? []).flatMap((debate) => debate.related_work_ids ?? []),
+      ]),
+    );
     await ensureWorksLoaded(workIds);
 
     // Merge canonical work data with theme-specific ref overlay
-    const workRefById = new Map(workRefs.map(ref => [ref.work_id, ref]));
-    const mergedWorks = workRefs.map(ref => ({
+    const workRefById = new Map(workRefs.map((ref) => [ref.work_id, ref]));
+    const mergedWorks = workRefs.map((ref) => ({
       ...state.worksCache.get(ref.work_id),
       ...ref,
       id: ref.work_id,
@@ -377,31 +459,38 @@ async function renderDetail() {
 
     // ── Build lookup maps ────────────────────────────────────────
     // Canonical registry holds identity; theme key_authors add role/why_relevant.
-    const authorById = new Map(state.authors.map(a => [a.id, a]));
-    theme.key_authors.forEach(a => {
+    const authorById = new Map(state.authors.map((a) => [a.id, a]));
+    theme.key_authors.forEach((a) => {
       authorById.set(a.id, { ...authorById.get(a.id), ...a });
     });
     const workById = new Map(
-      workIds.map(id => {
+      workIds.map((id) => {
         const work = state.worksCache.get(id) || { id, title: id };
         return [id, { ...work, ...(workRefById.get(id) || {}) }];
-      })
+      }),
     );
     const guidance = theme.study_guidance ?? null;
     const startHereWorkId = guidance?.start_here?.work_id ?? null;
     const afterThisWorkId = guidance?.after_this?.work_id ?? null;
     const getWorkMeta = (work) => {
-      const authors = (work?.author_ids ?? []).map(id => authorById.get(id)?.name).filter(Boolean).join(", ");
-      return [authors, work?.year, work?.estimated_effort ? `lectura ${effortLabel[work.estimated_effort] || work.estimated_effort}` : ""]
+      const authors = (work?.author_ids ?? [])
+        .map((id) => authorById.get(id)?.name)
+        .filter(Boolean)
+        .join(", ");
+      return [
+        authors,
+        work?.year,
+        work?.estimated_effort ? `lectura ${effortLabel[work.estimated_effort] || work.estimated_effort}` : "",
+      ]
         .filter(Boolean)
         .join(" · ");
     };
 
     const tabs = [
-      { id: "overview",  label: "Presentación" },
-      { id: "works",     label: `Obras (${mergedWorks.length})` },
-      { id: "routes",    label: `Rutas (${theme.reading_paths.length})` },
-      { id: "debates",   label: "Debates" }
+      { id: "overview", label: "Presentación" },
+      { id: "works", label: `Obras (${mergedWorks.length})` },
+      { id: "routes", label: `Rutas (${theme.reading_paths.length})` },
+      { id: "debates", label: "Debates" },
     ];
 
     detailContent.innerHTML = `
@@ -451,12 +540,12 @@ async function renderDetail() {
 
     const activateTab = (id) => {
       state.activeTab = id;
-      tabsNav.querySelectorAll(".tab-btn").forEach(b => {
+      /** @type {NodeListOf<HTMLElement>} */ (tabsNav.querySelectorAll(".tab-btn")).forEach((b) => {
         const active = b.dataset.tabId === id;
         b.classList.toggle("tab-btn--active", active);
         b.setAttribute("aria-selected", String(active));
       });
-      detailContent.querySelectorAll(".tab-panel").forEach(p => {
+      detailContent.querySelectorAll(".tab-panel").forEach((p) => {
         p.classList.toggle("tab-panel--active", p.id === `tab-${id}`);
       });
     };
@@ -487,7 +576,7 @@ async function renderDetail() {
       const nextWorkLink = nextWork
         ? workDetailLink(nextWork, "start-here__next-link")
         : `<span class="start-here__next-link">${esc(guidance.after_this.work_id)}</span>`;
-      const debate = theme.historical_debates.find(d => d.id === guidance.debate_to_watch?.debate_id);
+      const debate = theme.historical_debates.find((d) => d.id === guidance.debate_to_watch?.debate_id);
 
       overviewEl.innerHTML += `
         <section class="start-here" aria-label="Dónde empezar">
@@ -496,34 +585,44 @@ async function renderDetail() {
           <div class="start-here__grid">
             <article class="start-here__primary">
               <div class="start-here__label">Lee primero</div>
-              ${startWork
-                ? workDetailLink(startWork, "start-here__work")
-                : `<div class="start-here__work">${esc(guidance.start_here.work_id)}</div>`}
+              ${
+                startWork
+                  ? workDetailLink(startWork, "start-here__work")
+                  : `<div class="start-here__work">${esc(guidance.start_here.work_id)}</div>`
+              }
               ${getWorkMeta(startWork) ? `<div class="start-here__meta">${esc(getWorkMeta(startWork))}</div>` : ""}
               <p class="start-here__why">${esc(guidance.start_here.why)}</p>
               <p class="start-here__focus"><strong>Fíjate en:</strong> ${esc(guidance.start_here.focus)}</p>
             </article>
             <div class="start-here__secondary">
-              ${guidance.assumes?.length ? `
+              ${
+                guidance.assumes?.length
+                  ? `
                 <div class="start-here__block">
                   <div class="start-here__block-title">Antes de leer</div>
                   <ul class="start-here__list">
-                    ${guidance.assumes.map(item => `<li>${esc(item)}</li>`).join("")}
+                    ${guidance.assumes.map((item) => `<li>${esc(item)}</li>`).join("")}
                   </ul>
-                </div>` : ""}
+                </div>`
+                  : ""
+              }
               <div class="start-here__block">
                 <div class="start-here__block-title">Qué leer después</div>
                 <p class="start-here__next">${nextWorkLink}</p>
                 <p class="start-here__next-note">${esc(guidance.after_this.reason)}</p>
               </div>
-              ${debate ? `
+              ${
+                debate
+                  ? `
                 <div class="start-here__block">
                   <div class="start-here__block-title">Debate que abre</div>
                   <button type="button" class="start-here__debate-btn" id="open-guidance-debate">
                     <span class="start-here__debate-name">${esc(debate.label)}</span>
                     <span class="start-here__debate-note">${esc(guidance.debate_to_watch.reason)}</span>
                   </button>
-                </div>` : ""}
+                </div>`
+                  : ""
+              }
             </div>
           </div>
         </section>`;
@@ -540,7 +639,7 @@ async function renderDetail() {
     if (theme.entry_points?.length) {
       overviewEl.innerHTML += `<p class="section-title">Puntos de entrada</p><div class="overview-grid" id="ov-entry"></div>`;
       const ovEntry = overviewEl.querySelector("#ov-entry");
-      theme.entry_points.forEach(ep => {
+      theme.entry_points.forEach((ep) => {
         const c = document.createElement("div");
         c.className = "entry-card";
         c.innerHTML = `<h3>${esc(ep.label)}</h3><p>${esc(ep.description)}</p>`;
@@ -550,19 +649,22 @@ async function renderDetail() {
 
     overviewEl.innerHTML += `<p class="section-title">Autores clave</p><div class="authors-grid" id="ov-authors"></div>`;
     const ovAuthors = overviewEl.querySelector("#ov-authors");
-    theme.key_authors.forEach(a => {
-      const canonical = state.authors.find(ca => ca.id === a.id);
+    theme.key_authors.forEach((a) => {
+      const canonical = state.authors.find((ca) => ca.id === a.id);
       const c = document.createElement("article");
       c.className = "author-card";
-      c.innerHTML =
-        `<div class="author-card__header">
+      c.innerHTML = `<div class="author-card__header">
            <div>
              <div class="author-card__name">${esc(canonical?.name ?? a.id)}</div>
              ${canonical?.years ? `<div class="author-card__years">${esc(canonical.years)}</div>` : ""}
            </div>
-           ${canonical?.marxists_org_url ? `<a class="author-card__link" href="${esc(canonical.marxists_org_url)}" target="_blank" rel="noreferrer" title="Marxists.org">
+           ${
+             canonical?.marxists_org_url
+               ? `<a class="author-card__link" href="${esc(canonical.marxists_org_url)}" target="_blank" rel="noreferrer" title="Marxists.org">
              <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-           </a>` : ""}
+           </a>`
+               : ""
+           }
          </div>
          <div class="author-card__role">${esc(a.role)}</div>
          <p class="author-card__why">${esc(a.why_relevant)}</p>`;
@@ -572,15 +674,15 @@ async function renderDetail() {
     if (theme.connected_concepts?.length) {
       overviewEl.innerHTML += `<p class="section-title">Conceptos relacionados</p><div class="concepts-cloud" id="ov-concepts"></div>`;
       const ovConcepts = overviewEl.querySelector("#ov-concepts");
-      theme.connected_concepts.forEach(c => ovConcepts.appendChild(conceptChip(c.label)));
+      theme.connected_concepts.forEach((c) => ovConcepts.appendChild(conceptChip(c.label)));
     }
 
     if (theme.related_themes?.length) {
-      const existingRelated = theme.related_themes.filter(slug => state.themes.some(t => t.slug === slug));
+      const existingRelated = theme.related_themes.filter((slug) => state.themes.some((t) => t.slug === slug));
       if (existingRelated.length) {
         overviewEl.innerHTML += `<p class="section-title">Temas relacionados</p><div class="related-themes-cloud" id="ov-related"></div>`;
         const ovRelated = overviewEl.querySelector("#ov-related");
-        existingRelated.forEach(slug => {
+        existingRelated.forEach((slug) => {
           const chip = relatedThemeChip(slug);
           if (chip) ovRelated.appendChild(chip);
         });
@@ -593,23 +695,29 @@ async function renderDetail() {
     worksEl.innerHTML = `<div class="works-grid" id="works-inner"></div>`;
     const worksInner = worksEl.querySelector("#works-inner");
 
-    mergedWorks.forEach(w => {
-      const authors = (w.author_ids ?? []).map(id => authorById.get(id)?.name).filter(Boolean).join(", ");
+    mergedWorks.forEach((w) => {
+      const authors = (w.author_ids ?? [])
+        .map((id) => authorById.get(id)?.name)
+        .filter(Boolean)
+        .join(", ");
       const c = document.createElement("article");
       const isStartHere = startHereWorkId === w.id;
       const isNextRead = afterThisWorkId === w.id;
       c.className = `work-card${isStartHere ? " work-card--start-here" : ""}${isNextRead ? " work-card--next-read" : ""}`;
-      c.innerHTML =
-        `<div class="work-card__header">
+      c.innerHTML = `<div class="work-card__header">
            <div>
              ${workDetailLink(w, "work-card__title work-card__title--link")}
             <div class="work-card__author">${esc(authors)} · ${esc(String(w.year))}</div>
            </div>
-           ${(isStartHere || isNextRead) ? `
+           ${
+             isStartHere || isNextRead
+               ? `
              <div class="work-card__signals">
                ${isStartHere ? `<span class="badge badge--start">Empieza aquí</span>` : ""}
                ${isNextRead ? `<span class="badge badge--next">Sigue con esto</span>` : ""}
-             </div>` : ""}
+             </div>`
+               : ""
+           }
          </div>
          <div class="work-card__meta">
             <span class="badge ${levelBadge[w.level] || ""}">${levelLabel[w.level] || w.level}</span>
@@ -641,24 +749,29 @@ async function renderDetail() {
         <div class="routes-intro__eyebrow">Rutas editoriales</div>
         <h3 class="routes-intro__title">Recorridos explícitos para estudiar ${esc(theme.title)}</h3>
         <p class="routes-intro__desc">Aquí no hay rutas generadas: cada itinerario está escrito como una propuesta editorial concreta para entrar, comparar o profundizar.</p>
-        ${guidance ? `
+        ${
+          guidance
+            ? `
           <div class="routes-intro__flow">
             <span>Si vienes de cero, empieza por ${routeStartHtml}.</span>
             ${routeNextWork ? `<span>Después sigue con ${routeNextHtml}.</span>` : ""}
-          </div>` : ""}
+          </div>`
+            : ""
+        }
       </section>
       <div class="routes-grid" id="routes-inner"></div>`;
     const routesInner = routesEl.querySelector("#routes-inner");
 
-    theme.reading_paths.forEach(rp => {
+    theme.reading_paths.forEach((rp) => {
       const c = document.createElement("article");
       c.className = "route-card";
-      const stepsHtml = rp.steps.map(s => {
-        const w = workById.get(s.work_id);
-        const titleHtml = w
-          ? workDetailLink(w, "route-step__title route-step__title--link")
-          : `<div class="route-step__title">${esc(s.work_id)}</div>`;
-        return `
+      const stepsHtml = rp.steps
+        .map((s) => {
+          const w = workById.get(s.work_id);
+          const titleHtml = w
+            ? workDetailLink(w, "route-step__title route-step__title--link")
+            : `<div class="route-step__title">${esc(s.work_id)}</div>`;
+          return `
           <div class="route-step">
             <span class="route-step__num">${s.position}</span>
             <div class="route-step__body">
@@ -668,9 +781,9 @@ async function renderDetail() {
               ${w?.source?.url ? `<a class="route-step__link" href="${esc(w.source.url)}" target="_blank" rel="noreferrer">Abrir texto</a>` : ""}
             </div>
           </div>`;
-      }).join("");
-      c.innerHTML =
-        `<div class="route-card__level" style="color:${routeAccent[rp.level] || "var(--accent)"}">${levelLabel[rp.level] || rp.level}</div>
+        })
+        .join("");
+      c.innerHTML = `<div class="route-card__level" style="color:${routeAccent[rp.level] || "var(--accent)"}">${levelLabel[rp.level] || rp.level}</div>
          <div class="route-card__title">${esc(rp.label)}</div>
          <p class="route-card__goal">${esc(rp.goal)}</p>
          <div class="route-steps">${stepsHtml}</div>`;
@@ -682,27 +795,34 @@ async function renderDetail() {
     debatesEl.innerHTML = `<div class="debates-grid" id="debates-inner"></div>`;
     const debatesInner = debatesEl.querySelector("#debates-inner");
 
-    theme.historical_debates.forEach(d => {
-      const participants = d.participant_author_ids.map(id => authorById.get(id)?.name).filter(Boolean).join(", ");
-      const works = d.related_work_ids.map(id => workById.get(id)?.title).filter(Boolean).join("; ");
-      const positionsHtml = (d.positions ?? []).map(position => {
-        const author = authorById.get(position.author_id);
-        const work = workById.get(position.work_id);
-        const workTitle = work?.title || position.work_id;
-        const workLink = work
-          ? workDetailLink(work, "debate-position__work", workTitle)
-          : `<span class="debate-position__work">${esc(workTitle)}</span>`;
-        return `
+    theme.historical_debates.forEach((d) => {
+      const participants = d.participant_author_ids
+        .map((id) => authorById.get(id)?.name)
+        .filter(Boolean)
+        .join(", ");
+      const works = d.related_work_ids
+        .map((id) => workById.get(id)?.title)
+        .filter(Boolean)
+        .join("; ");
+      const positionsHtml = (d.positions ?? [])
+        .map((position) => {
+          const author = authorById.get(position.author_id);
+          const work = workById.get(position.work_id);
+          const workTitle = work?.title || position.work_id;
+          const workLink = work
+            ? workDetailLink(work, "debate-position__work", workTitle)
+            : `<span class="debate-position__work">${esc(workTitle)}</span>`;
+          return `
           <article class="debate-position">
             <div class="debate-position__author">${esc(author?.name || position.author_id)}</div>
             <p class="debate-position__claim">${esc(position.claim)}</p>
             <div class="debate-position__source">${workLink}</div>
           </article>`;
-      }).join("");
+        })
+        .join("");
       const c = document.createElement("div");
       c.className = "debate-card";
-      c.innerHTML =
-        `<div class="debate-card__title">${esc(d.label)}</div>
+      c.innerHTML = `<div class="debate-card__title">${esc(d.label)}</div>
          <p class="debate-card__desc">${esc(d.description)}</p>
          ${positionsHtml ? `<div class="debate-card__positions">${positionsHtml}</div>` : ""}
          <div class="debate-card__meta">
@@ -717,7 +837,6 @@ async function renderDetail() {
          </div>`;
       debatesInner.appendChild(c);
     });
-
   } catch (err) {
     detailContent.innerHTML = `<div class="empty-state">Error al cargar el tema: ${esc(err.message)}</div>`;
   }
@@ -745,22 +864,20 @@ async function renderWorkDetail() {
     if (!work) throw new Error("La obra solicitada no existe en la biblioteca.");
 
     const guide = work.study_guide ?? null;
-    const authorById = new Map(state.authors.map(author => [author.id, author]));
-    const authors = (work.author_ids ?? []).map(id => authorById.get(id)).filter(Boolean);
+    const authorById = new Map(state.authors.map((author) => [author.id, author]));
+    const authors = (work.author_ids ?? []).map((id) => authorById.get(id)).filter(Boolean);
     const themeRefs = allThemes
-      .filter(theme => (theme.essential_works ?? []).some(ref => ref.work_id === work.id))
-      .map(theme => ({
+      .filter((theme) => (theme.essential_works ?? []).some((ref) => ref.work_id === work.id))
+      .map((theme) => ({
         theme,
-        ref: (theme.essential_works ?? []).find(ref => ref.work_id === work.id),
+        ref: (theme.essential_works ?? []).find((ref) => ref.work_id === work.id),
       }));
 
-    const relatedWorkIds = (guide?.criticisms ?? [])
-      .map(item => item.related_work_id)
-      .filter(Boolean);
+    const relatedWorkIds = (guide?.criticisms ?? []).map((item) => item.related_work_id).filter(Boolean);
     await ensureWorksLoaded(relatedWorkIds);
 
     const timelineItems = [...(guide?.timeline ?? [])];
-    if (!timelineItems.some(item => item.year === work.year && item.kind === "publication")) {
+    if (!timelineItems.some((item) => item.year === work.year && item.kind === "publication")) {
       timelineItems.push({
         year: work.year,
         kind: "publication",
@@ -770,7 +887,10 @@ async function renderWorkDetail() {
     }
     timelineItems.sort((a, b) => a.year - b.year);
 
-    const lead = guide?.hook || themeRefs[0]?.ref?.reason_to_read || `Entrada editorial para situar ${work.title} dentro del archivo.`;
+    const lead =
+      guide?.hook ||
+      themeRefs[0]?.ref?.reason_to_read ||
+      `Entrada editorial para situar ${work.title} dentro del archivo.`;
 
     detailContent.innerHTML = `
       <header class="detail__header work-detail__header">
@@ -785,21 +905,23 @@ async function renderWorkDetail() {
             <p class="detail__eyebrow">Obra</p>
             <h2 id="detail-title">${esc(work.title)}</h2>
             <div class="work-detail__meta">
-              ${authors.length ? `<span>${esc(authors.map(author => author.name).join(", "))}</span>` : ""}
+              ${authors.length ? `<span>${esc(authors.map((author) => author.name).join(", "))}</span>` : ""}
               ${authors.length ? `<span class="author-detail__sep">·</span>` : ""}
               <span>${esc(String(work.year))}</span>
               <span class="author-detail__sep">·</span>
               <span>${esc(kindLabel[work.kind] || work.kind)}</span>
             </div>
           </div>
-          ${work.source?.url
-            ? `<a class="author-detail__ext-link" href="${esc(work.source.url)}" target="_blank" rel="noreferrer">
+          ${
+            work.source?.url
+              ? `<a class="author-detail__ext-link" href="${esc(work.source.url)}" target="_blank" rel="noreferrer">
                  Abrir texto original
                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
                    <path d="M7 1h4v4M11 1 5.5 6.5M2 3H1v8h8V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                  </svg>
                </a>`
-            : ""}
+              : ""
+          }
         </div>
         <p class="detail__summary">${esc(lead)}</p>
         <div class="detail__stats">
@@ -858,35 +980,51 @@ async function renderWorkDetail() {
               <p class="work-detail__text">${esc(guide.reading_entry.start_here.why)}</p>
             </article>
             <div class="work-reading-guide__secondary">
-              ${guide.reading_entry.key_sections?.length ? `
+              ${
+                guide.reading_entry.key_sections?.length
+                  ? `
                 <div class="work-reading-guide__block">
                   <div class="work-reading-guide__block-title">Secciones clave</div>
                   <div class="work-detail__list">
-                    ${guide.reading_entry.key_sections.map(item => `
+                    ${guide.reading_entry.key_sections
+                      .map(
+                        (item) => `
                       <article class="work-detail__list-item">
                         <div class="work-detail__list-title">${esc(item.label)}</div>
                         <p class="work-detail__text">${esc(item.why)}</p>
-                      </article>`).join("")}
+                      </article>`,
+                      )
+                      .join("")}
                   </div>
-                </div>` : ""}
-              ${guide.reading_entry.focus_points?.length ? `
+                </div>`
+                  : ""
+              }
+              ${
+                guide.reading_entry.focus_points?.length
+                  ? `
                 <div class="work-reading-guide__block">
                   <div class="work-reading-guide__block-title">Fíjate en</div>
                   <ul class="work-detail__bullets work-detail__bullets--compact">
-                    ${guide.reading_entry.focus_points.map(item => `<li>${esc(item)}</li>`).join("")}
+                    ${guide.reading_entry.focus_points.map((item) => `<li>${esc(item)}</li>`).join("")}
                   </ul>
-                </div>` : ""}
-              ${guide.reading_entry.if_short_on_time?.length ? `
+                </div>`
+                  : ""
+              }
+              ${
+                guide.reading_entry.if_short_on_time?.length
+                  ? `
                 <div class="work-reading-guide__block">
                   <div class="work-reading-guide__block-title">Si vas justo de tiempo</div>
                   <ul class="work-detail__bullets work-detail__bullets--compact">
-                    ${guide.reading_entry.if_short_on_time.map(item => `<li>${esc(item)}</li>`).join("")}
+                    ${guide.reading_entry.if_short_on_time.map((item) => `<li>${esc(item)}</li>`).join("")}
                   </ul>
-                </div>` : ""}
+                </div>`
+                  : ""
+              }
             </div>
           </div>
         `,
-        "work-detail__section--reading"
+        "work-detail__section--reading",
       );
     }
 
@@ -898,12 +1036,16 @@ async function renderWorkDetail() {
       appendSection(
         "A qué responde",
         `<div class="work-detail__list">
-          ${guide.responds_to.map(item => `
+          ${guide.responds_to
+            .map(
+              (item) => `
             <article class="work-detail__list-item">
               <div class="work-detail__list-title">${esc(item.label)}</div>
               <p class="work-detail__text">${esc(item.why_it_matters)}</p>
-            </article>`).join("")}
-        </div>`
+            </article>`,
+            )
+            .join("")}
+        </div>`,
       );
     }
 
@@ -911,7 +1053,9 @@ async function renderWorkDetail() {
       appendSection(
         "Cronología de la obra",
         `<div class="work-timeline">
-          ${timelineItems.map(item => `
+          ${timelineItems
+            .map(
+              (item) => `
             <article class="work-timeline__item work-timeline__item--${esc(item.kind)}">
               <div class="work-timeline__year">${esc(String(item.year))}</div>
               <div class="work-timeline__dot"></div>
@@ -920,8 +1064,10 @@ async function renderWorkDetail() {
                 <div class="work-timeline__title">${esc(item.label)}</div>
                 ${item.note ? `<p class="work-timeline__note">${esc(item.note)}</p>` : ""}
               </div>
-            </article>`).join("")}
-        </div>`
+            </article>`,
+            )
+            .join("")}
+        </div>`,
       );
     }
 
@@ -929,17 +1075,19 @@ async function renderWorkDetail() {
       appendSection(
         "Críticas y debates",
         `<div class="work-detail__criticisms">
-          ${guide.criticisms.map(item => {
-            const relatedWork = item.related_work_id ? state.worksCache.get(item.related_work_id) : null;
-            return `
+          ${guide.criticisms
+            .map((item) => {
+              const relatedWork = item.related_work_id ? state.worksCache.get(item.related_work_id) : null;
+              return `
               <article class="work-critique">
                 <div class="work-critique__from">${esc(item.from)}</div>
                 <p class="work-critique__claim">${esc(item.claim)}</p>
                 ${item.note ? `<p class="work-critique__note">${esc(item.note)}</p>` : ""}
                 ${relatedWork ? `<div class="work-critique__link">Obra ligada: ${workDetailLink(relatedWork, "work-detail__inline-link")}</div>` : ""}
               </article>`;
-          }).join("")}
-        </div>`
+            })
+            .join("")}
+        </div>`,
       );
     }
 
@@ -948,11 +1096,15 @@ async function renderWorkDetail() {
         "Qué abrió después",
         `
           ${guide?.legacy ? `<p class="work-detail__text">${esc(guide.legacy)}</p>` : ""}
-          ${guide?.questions_opened?.length ? `
+          ${
+            guide?.questions_opened?.length
+              ? `
             <ul class="work-detail__bullets">
-              ${guide.questions_opened.map(item => `<li>${esc(item)}</li>`).join("")}
-            </ul>` : ""}
-        `
+              ${guide.questions_opened.map((item) => `<li>${esc(item)}</li>`).join("")}
+            </ul>`
+              : ""
+          }
+        `,
       );
     }
 
@@ -960,7 +1112,9 @@ async function renderWorkDetail() {
       appendSection(
         "Dónde aparece en este atlas",
         `<div class="work-theme-grid">
-          ${themeRefs.map(({ theme, ref }) => `
+          ${themeRefs
+            .map(
+              ({ theme, ref }) => `
             <article class="work-theme-card">
               <button type="button" class="work-theme-card__title" data-theme-slug="${esc(theme.slug)}">${esc(theme.title)}</button>
               <p class="work-theme-card__reason">${esc(ref?.reason_to_read || theme.summary)}</p>
@@ -968,11 +1122,13 @@ async function renderWorkDetail() {
                 ${ref?.level ? `<span class="badge ${levelBadge[ref.level] || ""}">${esc(levelLabel[ref.level] || ref.level)}</span>` : ""}
                 ${ref?.estimated_effort ? `<span class="badge badge--effort">Lectura ${esc(effortLabel[ref.estimated_effort] || ref.estimated_effort)}</span>` : ""}
               </div>
-            </article>`).join("")}
-        </div>`
+            </article>`,
+            )
+            .join("")}
+        </div>`,
       );
 
-      body.querySelectorAll("[data-theme-slug]").forEach(button => {
+      /** @type {NodeListOf<HTMLElement>} */ (body.querySelectorAll("[data-theme-slug]")).forEach((button) => {
         button.addEventListener("click", () => {
           const slug = button.dataset.themeSlug;
           state.selectedWorkId = null;
@@ -1003,7 +1159,7 @@ async function renderAuthorDetail() {
         <div class="author-landing__grid" id="author-landing-grid"></div>
       </div>`;
     const grid = detailContent.querySelector("#author-landing-grid");
-    authors.forEach(a => {
+    authors.forEach((a) => {
       const card = document.createElement("div");
       card.className = "author-landing__card";
       card.setAttribute("role", "button");
@@ -1020,13 +1176,18 @@ async function renderAuthorDetail() {
         switchMobileView("detail");
       };
       card.addEventListener("click", go);
-      card.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); } });
+      card.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          go();
+        }
+      });
       grid.appendChild(card);
     });
     return;
   }
 
-  const author = state.authors.find(a => a.id === state.selectedAuthorId);
+  const author = state.authors.find((a) => a.id === state.selectedAuthorId);
   if (!author) {
     detailEmpty.hidden = false;
     detailContent.hidden = true;
@@ -1043,25 +1204,25 @@ async function renderAuthorDetail() {
 
   try {
     // Themes this author appears in (using light index)
-    const authorThemes = state.themes.filter(t =>
-      (t.key_author_ids ?? []).includes(author.id)
-    );
+    const authorThemes = state.themes.filter((t) => (t.key_author_ids ?? []).includes(author.id));
 
     // Lazy-load full theme JSONs to collect work refs
-    await Promise.all(authorThemes.map(async t => {
-      if (!state.themeCache.has(t.slug)) {
-        const full = await fetchJson(`content/themes/${t.slug}.json`);
-        state.themeCache.set(t.slug, full);
-      }
-    }));
+    await Promise.all(
+      authorThemes.map(async (t) => {
+        if (!state.themeCache.has(t.slug)) {
+          const full = await fetchJson(`content/themes/${t.slug}.json`);
+          state.themeCache.set(t.slug, full);
+        }
+      }),
+    );
 
     // Collect deduplicated work refs from these themes
     const seenWorkIds = new Set();
     const allWorkRefs = [];
-    authorThemes.forEach(t => {
+    authorThemes.forEach((t) => {
       const full = state.themeCache.get(t.slug);
       if (!full) return;
-      (full.essential_works || []).forEach(ref => {
+      (full.essential_works || []).forEach((ref) => {
         if (!seenWorkIds.has(ref.work_id)) {
           seenWorkIds.add(ref.work_id);
           allWorkRefs.push(ref);
@@ -1070,27 +1231,31 @@ async function renderAuthorDetail() {
     });
 
     // Lazy-load canonical work data for missing works
-    await ensureWorksLoaded(allWorkRefs.map(r => r.work_id));
+    await ensureWorksLoaded(allWorkRefs.map((r) => r.work_id));
 
     // Filter to works by this author
-    const authorWorks = Array.from(new Map(
-      allWorkRefs
-        .filter(ref => {
-          const w = state.worksCache.get(ref.work_id);
-          return w && (w.author_ids || []).includes(author.id);
-        })
-        .map(ref => [ref.work_id, { ...state.worksCache.get(ref.work_id), ...ref, id: ref.work_id }])
-    ).values()).sort((a, b) => (a.year || 0) - (b.year || 0));
+    const authorWorks = Array.from(
+      new Map(
+        allWorkRefs
+          .filter((ref) => {
+            const w = state.worksCache.get(ref.work_id);
+            return w && (w.author_ids || []).includes(author.id);
+          })
+          .map((ref) => [ref.work_id, { ...state.worksCache.get(ref.work_id), ...ref, id: ref.work_id }]),
+      ).values(),
+    ).sort((a, b) => (a.year || 0) - (b.year || 0));
 
     // Related authors: others that share themes with this author
     const relatedIds = new Set();
-    authorThemes.forEach(t => {
-      (t.key_author_ids ?? []).forEach(id => { if (id !== author.id) relatedIds.add(id); });
+    authorThemes.forEach((t) => {
+      (t.key_author_ids ?? []).forEach((id) => {
+        if (id !== author.id) relatedIds.add(id);
+      });
     });
-    const relatedAuthors = state.authors.filter(a => relatedIds.has(a.id));
-    const themeSlugs = new Set(authorThemes.map(t => t.slug));
+    const relatedAuthors = state.authors.filter((a) => relatedIds.has(a.id));
+    const themeSlugs = new Set(authorThemes.map((t) => t.slug));
     const { start: birthYear, end: deathYear } = parseYearRange(author.years);
-    const workYears = authorWorks.map(w => w.year).filter(Boolean);
+    const workYears = authorWorks.map((w) => w.year).filter(Boolean);
     const timelineStart = birthYear ?? (workYears[0] || null);
     const timelineEnd = deathYear ?? (workYears[workYears.length - 1] || null);
     const timelineItems = [];
@@ -1104,22 +1269,21 @@ async function renderAuthorDetail() {
       });
     }
 
-    HISTORICAL_CONTEXT_EVENTS
-      .filter(event =>
+    HISTORICAL_CONTEXT_EVENTS.filter(
+      (event) =>
         (!timelineStart || event.year >= timelineStart) &&
         (!timelineEnd || event.year <= timelineEnd) &&
-        event.tags.some(tag => themeSlugs.has(tag))
-      )
-      .forEach(event => {
-        timelineItems.push({
-          type: "context",
-          year: event.year,
-          title: event.label,
-          note: event.note,
-        });
+        event.tags.some((tag) => themeSlugs.has(tag)),
+    ).forEach((event) => {
+      timelineItems.push({
+        type: "context",
+        year: event.year,
+        title: event.label,
+        note: event.note,
       });
+    });
 
-    authorWorks.forEach(work => {
+    authorWorks.forEach((work) => {
       timelineItems.push({
         type: "work",
         year: work.year,
@@ -1140,7 +1304,7 @@ async function renderAuthorDetail() {
 
     timelineItems.sort((a, b) => {
       const typeOrder = { life: 0, context: 1, work: 2 };
-      return (a.year - b.year) || ((typeOrder[a.type] ?? 9) - (typeOrder[b.type] ?? 9));
+      return a.year - b.year || (typeOrder[a.type] ?? 9) - (typeOrder[b.type] ?? 9);
     });
 
     // ── Build DOM ──────────────────────────────────────────────────
@@ -1165,14 +1329,16 @@ async function renderAuthorDetail() {
             ${author.nationality ? `<span class="author-detail__sep">·</span><span>${esc(author.nationality)}</span>` : ""}
           </div>
         </div>
-        ${author.marxists_org_url
-          ? `<a href="${esc(author.marxists_org_url)}" target="_blank" rel="noopener noreferrer" class="author-detail__ext-link">
+        ${
+          author.marxists_org_url
+            ? `<a href="${esc(author.marxists_org_url)}" target="_blank" rel="noopener noreferrer" class="author-detail__ext-link">
                Marxists.org
                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
                  <path d="M7 1h4v4M11 1 5.5 6.5M2 3H1v8h8V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                </svg>
              </a>`
-          : ""}
+            : ""
+        }
       </div>`;
     detailContent.appendChild(header);
     header.querySelector("#author-detail-back").addEventListener("click", () => switchMobileView("list"));
@@ -1195,7 +1361,7 @@ async function renderAuthorDetail() {
 
       const timeline = document.createElement("div");
       timeline.className = "author-timeline";
-      timelineItems.forEach(item => {
+      timelineItems.forEach((item) => {
         const entry = document.createElement("article");
         entry.className = `author-timeline__item author-timeline__item--${item.type}`;
         const label = item.type === "work" ? "Texto" : item.type === "context" ? "Contexto" : "Vida";
@@ -1227,7 +1393,7 @@ async function renderAuthorDetail() {
 
       const chips = document.createElement("div");
       chips.className = "author-detail__theme-chips";
-      authorThemes.forEach(t => {
+      authorThemes.forEach((t) => {
         const chip = document.createElement("button");
         chip.type = "button";
         chip.className = "chip chip--theme";
@@ -1267,7 +1433,7 @@ async function renderAuthorDetail() {
 
       const grid = document.createElement("div");
       grid.className = "works-grid";
-      authorWorks.forEach(w => {
+      authorWorks.forEach((w) => {
         const card = document.createElement("article");
         card.className = "work-card";
         card.innerHTML = `
@@ -1276,19 +1442,21 @@ async function renderAuthorDetail() {
             <div class="work-card__author">${esc(String(w.year || ""))}</div>
           </div>
           <div class="work-card__meta">
-            ${w.level    ? `<span class="badge ${levelBadge[w.level] || ""}">${esc(levelLabel[w.level] || w.level)}</span>` : ""}
-            ${w.kind     ? `<span class="badge badge--kind">${esc(kindLabel[w.kind] || w.kind)}</span>` : ""}
+            ${w.level ? `<span class="badge ${levelBadge[w.level] || ""}">${esc(levelLabel[w.level] || w.level)}</span>` : ""}
+            ${w.kind ? `<span class="badge badge--kind">${esc(kindLabel[w.kind] || w.kind)}</span>` : ""}
             ${w.estimated_effort ? `<span class="badge badge--effort">Lectura ${esc(effortLabel[w.estimated_effort] || w.estimated_effort)}</span>` : ""}
           </div>
           ${w.reason_to_read ? `<p class="work-card__reason">${esc(w.reason_to_read)}</p>` : ""}
-          ${w.source?.url
-            ? `<a class="work-card__link" href="${esc(w.source.url)}" target="_blank" rel="noopener noreferrer">
+          ${
+            w.source?.url
+              ? `<a class="work-card__link" href="${esc(w.source.url)}" target="_blank" rel="noopener noreferrer">
                  Leer en ${esc(w.source.provider ?? "fuente")}
                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                    <path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
                  </svg>
                </a>`
-            : ""}`;
+              : ""
+          }`;
         grid.appendChild(card);
       });
       worksSection.appendChild(grid);
@@ -1306,7 +1474,7 @@ async function renderAuthorDetail() {
 
       const relGrid = document.createElement("div");
       relGrid.className = "author-detail__related";
-      relatedAuthors.forEach(rel => {
+      relatedAuthors.forEach((rel) => {
         const card = document.createElement("div");
         card.className = "author-detail__related-card";
         card.setAttribute("role", "button");
@@ -1322,13 +1490,17 @@ async function renderAuthorDetail() {
           switchMobileView("detail");
         };
         card.addEventListener("click", goToAuthor);
-        card.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); goToAuthor(); } });
+        card.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            goToAuthor();
+          }
+        });
         relGrid.appendChild(card);
       });
       relSection.appendChild(relGrid);
       detailContent.appendChild(relSection);
     }
-
   } catch (err) {
     detailContent.innerHTML = `<div class="empty-state">Error al cargar el perfil: ${esc(err.message)}</div>`;
   }
@@ -1337,13 +1509,13 @@ async function renderAuthorDetail() {
 
 function switchView(view) {
   state.view = view;
-  navTemas.classList.toggle("topbar__nav-btn--active",   view === "temas");
+  navTemas.classList.toggle("topbar__nav-btn--active", view === "temas");
   navAutores.classList.toggle("topbar__nav-btn--active", view === "autores");
-  navMapa.classList.toggle("topbar__nav-btn--active",    view === "mapa");
+  navMapa.classList.toggle("topbar__nav-btn--active", view === "mapa");
 
   // Show/hide main app vs map view
-  appEl.hidden    = (view === "mapa");
-  mapViewEl.hidden = (view !== "mapa");
+  appEl.hidden = view === "mapa";
+  mapViewEl.hidden = view !== "mapa";
 
   searchInput.placeholder = view === "autores" ? "Buscar autor…" : "Tema, autor, concepto…";
   renderStats();
@@ -1358,7 +1530,18 @@ function switchView(view) {
 }
 
 export {
-  conceptChip, relatedThemeChip, applyFilters, renderStats, renderFilterBar,
-  renderSkeleton, buildThemeCard, renderList, renderAuthorList, renderLandingPanel,
-  renderDetail, renderWorkDetail, renderAuthorDetail, switchView,
+  conceptChip,
+  relatedThemeChip,
+  applyFilters,
+  renderStats,
+  renderFilterBar,
+  renderSkeleton,
+  buildThemeCard,
+  renderList,
+  renderAuthorList,
+  renderLandingPanel,
+  renderDetail,
+  renderWorkDetail,
+  renderAuthorDetail,
+  switchView,
 };

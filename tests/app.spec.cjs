@@ -157,7 +157,7 @@ test.describe("Atlas Marxista — búsqueda y filtros", () => {
     expect(countAfter).toBeLessThan(totalBefore);
     // At least one result should have "imperialismo" in the title
     const titles = await cards.locator(".theme-card__title").allTextContents();
-    expect(titles.some(t => /imperialismo/i.test(t))).toBe(true);
+    expect(titles.some((t) => /imperialismo/i.test(t))).toBe(true);
   });
 
   test("la búsqueda por nombre de autor filtra los temas", async ({ page }) => {
@@ -213,7 +213,14 @@ test.describe("Atlas Marxista — navegación por hash", () => {
     await page.goto("/#obra/lenin-state-and-revolution");
     await expect(page.locator("#detail-title")).toHaveText(/State and Revolution/i);
     const sectionTitles = await page.locator(".work-detail__section-title").allTextContents();
-    expect(sectionTitles).toEqual(expect.arrayContaining(["Cómo entrar en esta obra", "Contexto de escritura", "Cronología de la obra", "Críticas y debates"]));
+    expect(sectionTitles).toEqual(
+      expect.arrayContaining([
+        "Cómo entrar en esta obra",
+        "Contexto de escritura",
+        "Cronología de la obra",
+        "Críticas y debates",
+      ]),
+    );
     await expect(page.locator(".author-detail__ext-link")).toHaveAttribute("href", /marxists\.org/);
   });
 
@@ -287,7 +294,7 @@ test.describe("Atlas Marxista — vista de autores", () => {
     await page.goto("/#autor/lenin-vi");
     await expect(page.locator(".author-detail__name")).toContainText(/Lenin/);
 
-    const metrics = await page.locator("#detail-content").evaluate(el => {
+    const metrics = await page.locator("#detail-content").evaluate((el) => {
       const computed = getComputedStyle(el);
       const before = el.scrollTop;
       el.scrollTop = 220;
@@ -309,7 +316,10 @@ test.describe("Atlas Marxista — vista de autores", () => {
     await page.goto("/#autor/lenin-vi");
     await expect(page.locator(".author-timeline")).toBeVisible();
     await expect(page.locator(".author-timeline__item--context").first()).toBeVisible();
-    await expect(page.locator(".author-timeline__item--work .author-timeline__title--link").first()).toHaveAttribute("href", /#obra\//);
+    await expect(page.locator(".author-timeline__item--work .author-timeline__title--link").first()).toHaveAttribute(
+      "href",
+      /#obra\//,
+    );
     const years = await page.locator(".author-timeline__year").allTextContents();
     expect(years).toEqual(expect.arrayContaining(["1870", "1914", "1924"]));
   });

@@ -15,22 +15,22 @@
   "key_authors": [
     {
       "id": "marx-karl",
-      "role": "praxis y critica del idealismo",
+      "role": "praxis y crítica del idealismo",
       "why_relevant": "Reformula la filosofía como crítica práctica de las condiciones materiales y no como contemplación abstracta del mundo."
     },
     {
       "id": "engels-friedrich",
-      "role": "sistematizacion del materialismo dialectico",
+      "role": "sistematización del materialismo dialéctico",
       "why_relevant": "Ordena y populariza los problemas de método, historia y contradicción en textos de gran valor pedagógico."
     },
     {
       "id": "lenin-vi",
-      "role": "lectura revolucionaria del metodo dialectico",
+      "role": "lectura revolucionaria del método dialéctico",
       "why_relevant": "Su obra política ayuda a ver que la dialéctica no es un adorno filosófico sino una herramienta para el análisis de coyunturas y rupturas."
     },
     {
       "id": "mao-zedong",
-      "role": "dialectica materialista y teoria de la contradiccion",
+      "role": "dialéctica materialista y teoría de la contradicción",
       "why_relevant": "En 'Sobre la contradicción' y 'Sobre la práctica' desarrolló una lectura propia de la dialéctica materialista aplicada a la realidad política concreta."
     }
   ],
@@ -173,14 +173,6 @@
     }
   ],
   "related_editorial_articles": [],
-  "source_policy": {
-    "primary_source_name": "Marxists Internet Archive",
-    "link_only": true,
-    "allow_excerpt": true,
-    "excerpt_max_words": 120,
-    "attribution_required": true,
-    "notes": "Esta ficha funciona como orientacion editorial. No debe republicar textos completos ni reemplazar la lectura de las obras enlazadas."
-  },
   "related_themes": [
     "alienacion",
     "teoria-del-valor"

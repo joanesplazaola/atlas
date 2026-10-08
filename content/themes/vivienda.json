@@ -15,12 +15,12 @@
   "key_authors": [
     {
       "id": "engels-friedrich",
-      "role": "critica socialista de la vivienda bajo el capitalismo",
+      "role": "crítica socialista de la vivienda bajo el capitalismo",
       "why_relevant": "Es la referencia mas directa para estudiar la cuestion de la vivienda como problema estructural y no meramente moral."
     },
     {
       "id": "marx-karl",
-      "role": "contexto de la acumulacion y reproduccion capitalista",
+      "role": "contexto de la acumulación y reproducción capitalista",
       "why_relevant": "Aporta el marco mas amplio para situar la vivienda dentro de la explotacion, la reproduccion de la fuerza de trabajo y la urbanizacion capitalista."
     }
   ],
@@ -138,14 +138,6 @@
     }
   ],
   "related_editorial_articles": [],
-  "source_policy": {
-    "primary_source_name": "Marxists Internet Archive",
-    "link_only": true,
-    "allow_excerpt": true,
-    "excerpt_max_words": 120,
-    "attribution_required": true,
-    "notes": "La ficha debe orientar y atribuir. No debe copiar grandes fragmentos ni presentar la lectura editorial como sustituto del archivo original."
-  },
   "related_themes": [
     "teoria-del-valor",
     "estado"

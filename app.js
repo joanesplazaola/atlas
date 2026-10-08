@@ -1,13 +1,24 @@
 // app.js — entry point: data bootstrap, view switching and event wiring.
 
 import {
-  state, esc, getSlugFromHash, getAuthorFromHash, getWorkFromHash,
-  setHash, setAuthorHash, switchMobileView, fetchJson, themeList,
-  searchInput, navTemas, navAutores, navMapa, setTaxonomy, setTimeline,
+  state,
+  esc,
+  getSlugFromHash,
+  getAuthorFromHash,
+  getWorkFromHash,
+  setHash,
+  setAuthorHash,
+  switchMobileView,
+  fetchJson,
+  themeList,
+  searchInput,
+  navTemas,
+  navAutores,
+  navMapa,
+  setTaxonomy,
+  setTimeline,
 } from "./js/core.js";
-import {
-  applyFilters, switchView, renderDetail, renderList, renderAuthorList, renderSkeleton,
-} from "./js/ui.js";
+import { applyFilters, switchView, renderDetail, renderList, renderAuthorList, renderSkeleton } from "./js/ui.js";
 import { initMapInteraction } from "./js/map.js";
 import "./js/pagefind.js";
 import "./js/theme.js";
@@ -26,7 +37,7 @@ async function init() {
     setTimeline(timeline);
 
     state.authors = authors;
-    state.themes  = lightIndex.themes.sort((a, b) => a.title.localeCompare(b.title, "es"));
+    state.themes = lightIndex.themes.sort((a, b) => a.title.localeCompare(b.title, "es"));
 
     const workId = getWorkFromHash();
     const authorId = getAuthorFromHash();
@@ -61,7 +72,10 @@ async function init() {
 
 /* ─── Event listeners ──────────────────────────────────────────── */
 
-searchInput.addEventListener("input", e => { state.query = e.target.value; applyFilters(); });
+searchInput.addEventListener("input", (e) => {
+  state.query = /** @type {HTMLInputElement} */ (e.target).value;
+  applyFilters();
+});
 
 navTemas.addEventListener("click", () => {
   state.selectedWorkId = null;
@@ -99,7 +113,10 @@ window.addEventListener("hashchange", () => {
     state.selectedWorkId = null;
     state.selectedAuthorId = authorId;
     if (state.view !== "autores") switchView("autores");
-    else { renderAuthorList(); renderDetail(); }
+    else {
+      renderAuthorList();
+      renderDetail();
+    }
     switchMobileView("detail");
     return;
   }

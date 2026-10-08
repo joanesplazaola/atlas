@@ -9,38 +9,37 @@
  * Run: node build.js
  */
 
-import { createIndex } from 'pagefind';
-import { readFileSync, readdirSync, writeFileSync } from 'fs';
-import { join } from 'path';
+import { createIndex } from "pagefind";
+import { readFileSync, writeFileSync } from "fs";
+import { join } from "path";
 
 const ROOT = process.cwd();
 
 function readJson(path) {
-  return JSON.parse(readFileSync(join(ROOT, path), 'utf8'));
+  return JSON.parse(readFileSync(join(ROOT, path), "utf8"));
 }
 
 async function main() {
-  console.log('📖 Atlas Marxista — build');
+  console.log("📖 Atlas Marxista — build");
 
   // ── Load data ────────────────────────────────────────────────────
-  const authors = readJson('content/authors.json');
-  const authorMap = new Map(authors.map(a => [a.id, a]));
+  const authors = readJson("content/authors.json");
+  const authorMap = new Map(authors.map((a) => [a.id, a]));
 
   // Load all works
-  const worksIndex = readJson('content/works/index.json');
-  const works = worksIndex.work_files.map(p => readJson(p));
-  const workMap = new Map(works.map(w => [w.id, w]));
+  const worksIndex = readJson("content/works/index.json");
+  const works = worksIndex.work_files.map((p) => readJson(p));
   console.log(`  Loaded ${works.length} works`);
 
   // Load themes (full fichas for Pagefind indexing)
-  const themesIndex = readJson('content/themes/index.json');
-  const themes = themesIndex.theme_files.map(p => readJson(p));
+  const themesIndex = readJson("content/themes/index.json");
+  const themes = themesIndex.theme_files.map((p) => readJson(p));
   console.log(`  Loaded ${themes.length} themes`);
 
   // ── Build Pagefind index ─────────────────────────────────────────
-  console.log('🔍 Building Pagefind search index…');
+  console.log("🔍 Building Pagefind search index…");
   const { index } = await createIndex({
-    rootSelector: 'html',
+    rootSelector: "html",
     verbose: false,
   });
 
@@ -48,25 +47,17 @@ async function main() {
 
   // Index each work as an individual searchable record
   for (const work of works) {
-    const authorNames = work.author_ids
-      .map(id => authorMap.get(id)?.name ?? id)
-      .join(', ');
+    const authorNames = work.author_ids.map((id) => authorMap.get(id)?.name ?? id).join(", ");
 
     // Find which themes reference this work and what reason_to_read they give
     const themeRefs = themes
-      .filter(t => t.essential_works.some(r => r.work_id === work.id))
-      .map(t => {
-        const ref = t.essential_works.find(r => r.work_id === work.id);
+      .filter((t) => t.essential_works.some((r) => r.work_id === work.id))
+      .map((t) => {
+        const ref = t.essential_works.find((r) => r.work_id === work.id);
         return `[${t.title}] ${ref.reason_to_read}`;
       });
 
-    const content = [
-      work.title,
-      authorNames,
-      String(work.year),
-      work.kind,
-      ...themeRefs,
-    ].join(' — ');
+    const content = [work.title, authorNames, String(work.year), work.kind, ...themeRefs].join(" — ");
 
     await index.addCustomRecord({
       url: `/#obra/${work.id}`,
@@ -79,10 +70,10 @@ async function main() {
         work_id: work.id,
         source_url: work.source.url,
       },
-      language: 'es',
+      language: "es",
       filters: {
         kind: [work.kind],
-        author: work.author_ids.map(id => authorMap.get(id)?.name ?? id),
+        author: work.author_ids.map((id) => authorMap.get(id)?.name ?? id),
         year_range: [yearRange(work.year)],
       },
     });
@@ -91,8 +82,8 @@ async function main() {
 
   // Index each theme as a record too
   for (const theme of themes) {
-    const authorNames = theme.key_authors.map(a => authorMap.get(a.id)?.name ?? a.id).join(', ');
-    const concepts = theme.connected_concepts?.map(c => c.label).join(', ') ?? '';
+    const authorNames = theme.key_authors.map((a) => authorMap.get(a.id)?.name ?? a.id).join(", ");
+    const concepts = theme.connected_concepts?.map((c) => c.label).join(", ") ?? "";
 
     const content = [
       theme.title,
@@ -100,21 +91,21 @@ async function main() {
       theme.editorial_intent,
       authorNames,
       concepts,
-      ...theme.historical_debates.map(d => d.label + ' ' + d.description),
-    ].join(' — ');
+      ...theme.historical_debates.map((d) => d.label + " " + d.description),
+    ].join(" — ");
 
     await index.addCustomRecord({
       url: `/#tema/${theme.slug}`,
       content,
       meta: {
         title: theme.title,
-        type: 'theme',
+        type: "theme",
         theme_slug: theme.slug,
       },
-      language: 'es',
+      language: "es",
       filters: {
-        type: ['theme'],
-        author: theme.key_authors.map(a => authorMap.get(a.id)?.name ?? a.id),
+        type: ["theme"],
+        author: theme.key_authors.map((a) => authorMap.get(a.id)?.name ?? a.id),
       },
     });
     indexed++;
@@ -124,44 +115,47 @@ async function main() {
 
   // ── Write Pagefind index ─────────────────────────────────────────
   const { errors } = await index.writeFiles({
-    outputPath: join(ROOT, 'pagefind'),
+    outputPath: join(ROOT, "pagefind"),
   });
 
   if (errors.length) {
-    console.error('Pagefind errors:', errors);
+    console.error("Pagefind errors:", errors);
     process.exit(1);
   }
 
-  console.log('  ✓ Pagefind index written to pagefind/');
+  console.log("  ✓ Pagefind index written to pagefind/");
 
   // ── Regenerate index-light.json ──────────────────────────────────
-  const lightEntries = themes.map(d => ({
+  const lightEntries = themes.map((d) => ({
     slug: d.slug,
     title: d.title,
     summary: d.summary,
-    key_author_ids:   d.key_authors.map(a => a.id),
-    key_author_names: d.key_authors.map(a => authorMap.get(a.id)?.name ?? a.id),
-    concept_labels:   (d.connected_concepts ?? []).map(c => c.label),
-    concept_ids:      (d.connected_concepts ?? []).map(c => c.id),
-    related_themes:   d.related_themes ?? [],
-    work_count:       d.essential_works.length,
+    key_author_ids: d.key_authors.map((a) => a.id),
+    key_author_names: d.key_authors.map((a) => authorMap.get(a.id)?.name ?? a.id),
+    concept_labels: (d.connected_concepts ?? []).map((c) => c.label),
+    concept_ids: (d.connected_concepts ?? []).map((c) => c.id),
+    related_themes: d.related_themes ?? [],
+    work_count: d.essential_works.length,
   }));
 
   writeFileSync(
-    join(ROOT, 'content/themes/index-light.json'),
-    JSON.stringify({ generated_at: new Date().toISOString().slice(0, 10), themes: lightEntries }, null, 2)
+    join(ROOT, "content/themes/index-light.json"),
+    JSON.stringify({ generated_at: new Date().toISOString().slice(0, 10), themes: lightEntries }, null, 2),
   );
-  console.log('  ✓ content/themes/index-light.json updated');
+  console.log("  ✓ content/themes/index-light.json updated");
 
-  console.log('✅ Build complete');
+  console.log("✅ Build complete");
 }
 
 function yearRange(year) {
-  if (year < 1850) return 'antes de 1850';
-  if (year < 1900) return '1850–1899';
-  if (year < 1930) return '1900–1929';
-  if (year < 1960) return '1930–1959';
-  return '1960+';
+  if (year < 1850) return "antes de 1850";
+  if (year < 1900) return "1850–1899";
+  if (year < 1930) return "1900–1929";
+  if (year < 1960) return "1930–1959";
+  return "1960+";
 }
 
-main().catch(err => { console.error(err); process.exit(1); });
+main().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});

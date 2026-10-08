@@ -16,7 +16,9 @@
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* ─── Works search button ──────────────────────────────────────── */
@@ -36,7 +38,10 @@
   color: var(--text-muted);
   font-size: 0.82rem;
   cursor: pointer;
-  transition: background 120ms, border-color 120ms, color 120ms;
+  transition:
+    background 120ms,
+    border-color 120ms,
+    color 120ms;
 }
 
 .works-search-btn:hover {
@@ -61,7 +66,9 @@
   padding-top: 60px;
 }
 
-.works-modal[hidden] { display: none; }
+.works-modal[hidden] {
+  display: none;
+}
 
 .works-modal__overlay {
   position: absolute;
@@ -79,7 +86,7 @@
   width: min(640px, calc(100vw - 32px));
   max-height: calc(100vh - 100px);
   overflow-y: auto;
-  box-shadow: 0 24px 64px rgba(0,0,0,0.4);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);
 }
 
 .works-modal__header {
@@ -112,9 +119,14 @@
   transition: background 120ms;
 }
 
-.works-modal__close:hover { background: var(--surface-hover); color: var(--text); }
+.works-modal__close:hover {
+  background: var(--surface-hover);
+  color: var(--text);
+}
 
-body.modal-open { overflow: hidden; }
+body.modal-open {
+  overflow: hidden;
+}
 
 /* Pagefind UI overrides */
 #pagefind-search-ui {
@@ -134,7 +146,7 @@ body.modal-open { overflow: hidden; }
 
 #pagefind-search-ui .pagefind-ui__search-input:focus {
   border-color: var(--accent);
-  box-shadow: 0 0 0 2px rgba(241,92,92,0.2);
+  box-shadow: 0 0 0 2px rgba(241, 92, 92, 0.2);
 }
 
 #pagefind-search-ui .pagefind-ui__result {
@@ -150,8 +162,7 @@ body.modal-open { overflow: hidden; }
 }
 
 #pagefind-search-ui mark {
-  background: rgba(241,92,92,0.2);
+  background: rgba(241, 92, 92, 0.2);
   color: var(--accent);
   border-radius: 2px;
 }
-

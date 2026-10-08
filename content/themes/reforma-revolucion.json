@@ -35,22 +35,22 @@
   "key_authors": [
     {
       "id": "luxemburg-rosa",
-      "role": "critica del revisionismo y defensa de la ruptura revolucionaria",
+      "role": "crítica del revisionismo y defensa de la ruptura revolucionaria",
       "why_relevant": "Su intervención condensa de manera ejemplar el debate contra el reformismo de la Segunda Internacional."
     },
     {
       "id": "lenin-vi",
-      "role": "estrategia revolucionaria, partido y tactica",
+      "role": "estrategia revolucionaria, partido y táctica",
       "why_relevant": "Ayuda a traducir el debate general en problemas de organización, coyuntura y lucha por la hegemonía."
     },
     {
       "id": "gramsci-antonio",
-      "role": "hegemonia, guerra de posicion y direccion politica",
+      "role": "hegemonía, guerra de posición y dirección política",
       "why_relevant": "Permite pensar mediaciones, alianzas y temporalidades sin disolver la necesidad de una ruptura con el orden existente."
     },
     {
       "id": "bernstein-eduard",
-      "role": "revision del marxismo y socialismo gradualista",
+      "role": "revisión del marxismo y socialismo gradualista",
       "why_relevant": "Su obra 'Las premisas del socialismo y las tareas de la socialdemocracia' es el texto fundacional del reformismo socialista, imprescindible para entender el debate que define la tradición marxista."
     },
     {
@@ -218,14 +218,6 @@
     }
   ],
   "related_editorial_articles": [],
-  "source_policy": {
-    "primary_source_name": "Marxists Internet Archive",
-    "link_only": true,
-    "allow_excerpt": true,
-    "excerpt_max_words": 120,
-    "attribution_required": true,
-    "notes": "Esta ficha funciona como orientacion editorial. No debe republicar textos completos ni reemplazar la lectura de las obras enlazadas."
-  },
   "related_themes": [
     "partido",
     "revolucion",

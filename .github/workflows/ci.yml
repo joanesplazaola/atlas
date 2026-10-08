@@ -24,6 +24,29 @@ jobs:
       - name: Validar todas las fichas
         run: npm run validate
 
+  code-quality:
+    name: Lint, formato y tipos
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: ESLint
+        run: npm run lint
+
+      - name: Formato (Prettier)
+        run: npm run format:check
+
+      - name: Comprobación de tipos (tsc)
+        run: npm run typecheck
+
   e2e-tests:
     name: Tests Playwright
     runs-on: ubuntu-latest

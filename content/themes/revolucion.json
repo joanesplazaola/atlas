@@ -35,7 +35,7 @@
   "key_authors": [
     {
       "id": "marx-karl",
-      "role": "analisis historico de la lucha de clases y del poder",
+      "role": "análisis histórico de la lucha de clases y del poder",
       "why_relevant": "Permite estudiar la revolución como proceso real, inscrito en conflictos de clase, formas estatales y experiencias como la Comuna."
     },
     {
@@ -45,12 +45,12 @@
     },
     {
       "id": "trotsky-leon",
-      "role": "teoria de la revolucion permanente",
+      "role": "teoría de la revolución permanente",
       "why_relevant": "Su trabajo permite seguir la articulación entre revolución democrática, revolución socialista y dinámica internacional."
     },
     {
       "id": "luxemburg-rosa",
-      "role": "espontaneidad, democracia obrera y critica del reformismo",
+      "role": "espontaneidad, democracia obrera y crítica del reformismo",
       "why_relevant": "Aporta una mirada sobre la iniciativa de masas, la democracia revolucionaria y los peligros de una transición burocrática."
     }
   ],
@@ -235,14 +235,6 @@
     }
   ],
   "related_editorial_articles": [],
-  "source_policy": {
-    "primary_source_name": "Marxists Internet Archive",
-    "link_only": true,
-    "allow_excerpt": true,
-    "excerpt_max_words": 120,
-    "attribution_required": true,
-    "notes": "Esta ficha funciona como orientacion editorial. No debe republicar textos completos ni reemplazar la lectura de las obras enlazadas."
-  },
   "related_themes": [
     "estado",
     "partido",

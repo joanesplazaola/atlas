@@ -1,45 +1,77 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es" data-theme="oscuro">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Atlas marxista de lectura</title>
     <meta
       name="description"
-      content="Una capa de navegacion y estudio sobre Marxists.org."
-    >
-    <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&family=IM+Fell+English:ital@0;1&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/tokens.css">
-    <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" href="css/detail.css">
-    <link rel="stylesheet" href="css/routes.css">
-    <link rel="stylesheet" href="css/search.css">
-    <link rel="stylesheet" href="css/map.css">
-    <link rel="stylesheet" href="css/author.css">
-    <link rel="stylesheet" href="css/themes.css">
+      content="Capa de navegación y estudio sobre Marxists.org: temas, autores, obras, debates y rutas de lectura."
+    />
+    <meta name="theme-color" content="#0c0e14" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Atlas marxista de lectura" />
+    <meta
+      property="og:description"
+      content="Capa de navegación y estudio sobre Marxists.org: temas, autores, obras, debates y rutas de lectura."
+    />
+    <meta property="og:url" content="https://joanesplazaola.github.io/atlas/" />
+    <meta property="og:locale" content="es_ES" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/tokens.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/detail.css" />
+    <link rel="stylesheet" href="css/routes.css" />
+    <link rel="stylesheet" href="css/search.css" />
+    <link rel="stylesheet" href="css/map.css" />
+    <link rel="stylesheet" href="css/author.css" />
+    <link rel="stylesheet" href="css/themes.css" />
   </head>
   <body>
+    <a class="skip-link" href="#detail-content">Saltar al contenido</a>
     <header class="topbar">
       <div class="topbar__inner">
         <div class="topbar__brand">
           <svg class="topbar__logo" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-            <rect width="32" height="32" rx="8" fill="#f15c5c" fill-opacity="0.15"/>
-            <path d="M8 24 15 8h2l7 16h-3l-1.5-4h-7L11 24zm5.5-7h5L16 10z" fill="#f15c5c"/>
+            <rect width="32" height="32" rx="8" fill="#f15c5c" fill-opacity="0.15" />
+            <path d="M8 24 15 8h2l7 16h-3l-1.5-4h-7L11 24zm5.5-7h5L16 10z" fill="#f15c5c" />
           </svg>
           <span class="topbar__title">Atlas marxista<em> de lectura</em></span>
         </div>
         <nav class="topbar__nav" aria-label="Vistas principales">
-          <button type="button" id="nav-temas"   class="topbar__nav-btn topbar__nav-btn--active">Temas</button>
-          <button type="button" id="nav-autores"  class="topbar__nav-btn">Autores</button>
-          <button type="button" id="nav-mapa"     class="topbar__nav-btn">Mapa</button>
+          <button type="button" id="nav-temas" class="topbar__nav-btn topbar__nav-btn--active">Temas</button>
+          <button type="button" id="nav-autores" class="topbar__nav-btn">Autores</button>
+          <button type="button" id="nav-mapa" class="topbar__nav-btn">Mapa</button>
         </nav>
         <div class="theme-switcher" aria-label="Cambiar tema visual">
-          <button type="button" class="theme-btn theme-btn--oscuro theme-btn--active" data-theme-btn="oscuro"          title="Tema oscuro"          aria-label="Tema oscuro"></button>
-          <button type="button" class="theme-btn theme-btn--editorial"                data-theme-btn="editorial"       title="Tema editorial"       aria-label="Tema editorial"></button>
-          <button type="button" class="theme-btn theme-btn--constructivista"          data-theme-btn="constructivista" title="Tema constructivista" aria-label="Tema constructivista"></button>
+          <button
+            type="button"
+            class="theme-btn theme-btn--oscuro theme-btn--active"
+            data-theme-btn="oscuro"
+            title="Tema oscuro"
+            aria-label="Tema oscuro"
+          ></button>
+          <button
+            type="button"
+            class="theme-btn theme-btn--editorial"
+            data-theme-btn="editorial"
+            title="Tema editorial"
+            aria-label="Tema editorial"
+          ></button>
+          <button
+            type="button"
+            class="theme-btn theme-btn--constructivista"
+            data-theme-btn="constructivista"
+            title="Tema constructivista"
+            aria-label="Tema constructivista"
+          ></button>
         </div>
         <p class="topbar__claim">Navega Marxists.org. No lo sustituye.</p>
       </div>
@@ -49,16 +81,16 @@
       <aside class="sidebar">
         <div class="sidebar__search">
           <svg class="search-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-            <circle cx="8.5" cy="8.5" r="5.5" stroke="currentColor" stroke-width="1.6"/>
-            <path d="M13 13l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <circle cx="8.5" cy="8.5" r="5.5" stroke="currentColor" stroke-width="1.6" />
+            <path d="M13 13l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
           </svg>
-          <input id="search-input" type="search" placeholder="Tema, autor, concepto…" autocomplete="off">
+          <input id="search-input" type="search" placeholder="Tema, autor, concepto…" autocomplete="off" />
         </div>
         <div class="sidebar__works-search">
           <button type="button" id="open-works-search" class="works-search-btn">
             <svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-              <circle cx="8.5" cy="8.5" r="5.5" stroke="currentColor" stroke-width="1.6"/>
-              <path d="M13 13l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              <circle cx="8.5" cy="8.5" r="5.5" stroke="currentColor" stroke-width="1.6" />
+              <path d="M13 13l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
             </svg>
             Buscar en obras…
           </button>
@@ -75,8 +107,13 @@
       <section class="detail" aria-labelledby="detail-title">
         <div id="detail-empty" class="detail__empty">
           <svg viewBox="0 0 48 48" fill="none" aria-hidden="true" width="48" height="48">
-            <rect x="6" y="10" width="28" height="34" rx="3" stroke="currentColor" stroke-width="1.6"/>
-            <path d="M14 18h12M14 24h8M34 6v8M30 10h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <rect x="6" y="10" width="28" height="34" rx="3" stroke="currentColor" stroke-width="1.6" />
+            <path
+              d="M14 18h12M14 24h8M34 6v8M30 10h8"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+            />
           </svg>
           <p>Selecciona un tema para ver autores, obras, debates y rutas de lectura.</p>
         </div>
@@ -95,9 +132,17 @@
         </div>
         <div class="map-header__controls">
           <div class="map-zoom-controls" aria-label="Controles de zoom">
-            <button type="button" id="map-zoom-in"    class="map-zoom-btn" title="Acercar"           aria-label="Acercar">+</button>
-            <button type="button" id="map-zoom-reset" class="map-zoom-btn" title="Restablecer vista"  aria-label="Restablecer vista">⊙</button>
-            <button type="button" id="map-zoom-out"   class="map-zoom-btn" title="Alejar"             aria-label="Alejar">−</button>
+            <button type="button" id="map-zoom-in" class="map-zoom-btn" title="Acercar" aria-label="Acercar">+</button>
+            <button
+              type="button"
+              id="map-zoom-reset"
+              class="map-zoom-btn"
+              title="Restablecer vista"
+              aria-label="Restablecer vista"
+            >
+              ⊙
+            </button>
+            <button type="button" id="map-zoom-out" class="map-zoom-btn" title="Alejar" aria-label="Alejar">−</button>
           </div>
           <div class="map-legend" id="map-legend"></div>
         </div>
@@ -110,12 +155,21 @@
     </div>
 
     <!-- Works search modal (Pagefind) -->
-    <div id="works-search-modal" class="works-modal" hidden role="dialog" aria-modal="true" aria-label="Buscar en obras">
+    <div
+      id="works-search-modal"
+      class="works-modal"
+      hidden
+      role="dialog"
+      aria-modal="true"
+      aria-label="Buscar en obras"
+    >
       <div class="works-modal__overlay" id="works-modal-overlay"></div>
       <div class="works-modal__panel">
         <div class="works-modal__header">
           <h2 class="works-modal__title">Buscar en obras</h2>
-          <button type="button" class="works-modal__close" id="close-works-search" aria-label="Cerrar búsqueda">×</button>
+          <button type="button" class="works-modal__close" id="close-works-search" aria-label="Cerrar búsqueda">
+            ×
+          </button>
         </div>
         <div id="pagefind-search-ui"></div>
       </div>

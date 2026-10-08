@@ -35,22 +35,22 @@
   "key_authors": [
     {
       "id": "lenin-vi",
-      "role": "sintesis politica y economica",
+      "role": "síntesis política y económica",
       "why_relevant": "Ofrece una formulacion panoramica del imperialismo ligada al monopolio, el capital financiero y el reparto del mundo."
     },
     {
       "id": "luxemburg-rosa",
-      "role": "debate sobre acumulacion y expansion capitalista",
+      "role": "debate sobre acumulación y expansión capitalista",
       "why_relevant": "Su trabajo permite entrar en las discusiones sobre acumulacion, expansion hacia espacios no capitalistas y contradicciones del sistema."
     },
     {
       "id": "bukharin",
-      "role": "analisis del mercado mundial y la competencia interestatal",
+      "role": "análisis del mercado mundial y la competencia interestatal",
       "why_relevant": "Conecta la economia mundial, la concentracion del capital y la rivalidad entre Estados en una misma lectura del imperialismo."
     },
     {
       "id": "mao-zedong",
-      "role": "antiimperialismo y contradiccion principal",
+      "role": "antiimperialismo y contradicción principal",
       "why_relevant": "Ofrece la perspectiva de un país semicolonial que enfrenta el imperialismo, ampliando el análisis más allá de Europa hacia Asia, África y América Latina."
     }
   ],
@@ -199,14 +199,6 @@
     }
   ],
   "related_editorial_articles": [],
-  "source_policy": {
-    "primary_source_name": "Marxists Internet Archive",
-    "link_only": true,
-    "allow_excerpt": true,
-    "excerpt_max_words": 120,
-    "attribution_required": true,
-    "notes": "No republicar textos completos como propios. Esta ficha debe enlazar a la fuente original, atribuirla de forma visible y usar solo citas breves cuando proceda."
-  },
   "related_themes": [
     "estado",
     "teoria-del-valor",

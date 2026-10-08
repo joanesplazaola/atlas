@@ -15,7 +15,7 @@
   "key_authors": [
     {
       "id": "marx-karl",
-      "role": "trabajo enajenado, fetichismo y critica de la economia politica",
+      "role": "trabajo enajenado, fetichismo y crítica de la economía política",
       "why_relevant": "Permite seguir el problema desde la alienación del trabajo hasta el fetichismo de la mercancía y la dominación abstracta del capital."
     },
     {
@@ -151,14 +151,6 @@
     }
   ],
   "related_editorial_articles": [],
-  "source_policy": {
-    "primary_source_name": "Marxists Internet Archive",
-    "link_only": true,
-    "allow_excerpt": true,
-    "excerpt_max_words": 120,
-    "attribution_required": true,
-    "notes": "Esta ficha funciona como orientacion editorial. No debe republicar textos completos ni reemplazar la lectura de las obras enlazadas."
-  },
   "related_themes": [
     "teoria-del-valor",
     "dialectica",

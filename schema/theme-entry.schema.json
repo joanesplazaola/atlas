@@ -16,8 +16,7 @@
     "connected_concepts",
     "historical_debates",
     "reading_paths",
-    "related_editorial_articles",
-    "source_policy"
+    "related_editorial_articles"
   ],
   "properties": {
     "id": {
@@ -42,11 +41,7 @@
     },
     "status": {
       "type": "string",
-      "enum": [
-        "draft",
-        "reviewed",
-        "published"
-      ]
+      "enum": ["draft", "reviewed", "published"]
     },
     "entry_points": {
       "type": "array",
@@ -111,11 +106,7 @@
     "entryPoint": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "id",
-        "label",
-        "description"
-      ],
+      "required": ["id", "label", "description"],
       "properties": {
         "id": {
           "type": "string",
@@ -134,11 +125,7 @@
     "studyGuidance": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "question",
-        "start_here",
-        "after_this"
-      ],
+      "required": ["question", "start_here", "after_this"],
       "properties": {
         "question": {
           "type": "string",
@@ -165,11 +152,7 @@
     "studyWorkPointer": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "work_id",
-        "why",
-        "focus"
-      ],
+      "required": ["work_id", "why", "focus"],
       "properties": {
         "work_id": {
           "type": "string",
@@ -188,10 +171,7 @@
     "studyNextStep": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "work_id",
-        "reason"
-      ],
+      "required": ["work_id", "reason"],
       "properties": {
         "work_id": {
           "type": "string",
@@ -206,10 +186,7 @@
     "studyDebatePointer": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "debate_id",
-        "reason"
-      ],
+      "required": ["debate_id", "reason"],
       "properties": {
         "debate_id": {
           "type": "string",
@@ -225,11 +202,7 @@
       "type": "object",
       "additionalProperties": false,
       "description": "Reference to content/authors.json. Names are resolved from the registry at build/render time.",
-      "required": [
-        "id",
-        "role",
-        "why_relevant"
-      ],
+      "required": ["id", "role", "why_relevant"],
       "properties": {
         "id": {
           "type": "string",
@@ -304,30 +277,15 @@
         },
         "level": {
           "type": "string",
-          "enum": [
-            "introductory",
-            "intermediate",
-            "advanced"
-          ]
+          "enum": ["introductory", "intermediate", "advanced"]
         },
         "kind": {
           "type": "string",
-          "enum": [
-            "article",
-            "chapter",
-            "book",
-            "pamphlet",
-            "speech",
-            "letter"
-          ]
+          "enum": ["article", "chapter", "book", "pamphlet", "speech", "letter"]
         },
         "estimated_effort": {
           "type": "string",
-          "enum": [
-            "short",
-            "medium",
-            "long"
-          ]
+          "enum": ["short", "medium", "long"]
         },
         "reason_to_read": {
           "type": "string",
@@ -341,11 +299,7 @@
     "concept": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "id",
-        "label",
-        "relation"
-      ],
+      "required": ["id", "label", "relation"],
       "properties": {
         "id": {
           "type": "string",
@@ -364,13 +318,7 @@
     "debate": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "id",
-        "label",
-        "description",
-        "participant_author_ids",
-        "related_work_ids"
-      ],
+      "required": ["id", "label", "description", "participant_author_ids", "related_work_ids"],
       "properties": {
         "id": {
           "type": "string",
@@ -409,11 +357,7 @@
     "debatePosition": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "author_id",
-        "work_id",
-        "claim"
-      ],
+      "required": ["author_id", "work_id", "claim"],
       "properties": {
         "author_id": {
           "type": "string",
@@ -432,13 +376,7 @@
     "readingPath": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "id",
-        "label",
-        "level",
-        "goal",
-        "steps"
-      ],
+      "required": ["id", "label", "level", "goal", "steps"],
       "properties": {
         "id": {
           "type": "string",
@@ -450,11 +388,7 @@
         },
         "level": {
           "type": "string",
-          "enum": [
-            "introductory",
-            "intermediate",
-            "advanced"
-          ]
+          "enum": ["introductory", "intermediate", "advanced"]
         },
         "goal": {
           "type": "string",
@@ -472,11 +406,7 @@
     "readingStep": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "position",
-        "work_id",
-        "note"
-      ],
+      "required": ["position", "work_id", "note"],
       "properties": {
         "position": {
           "type": "integer",
@@ -495,11 +425,7 @@
     "editorialArticle": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "title",
-        "url",
-        "relation"
-      ],
+      "required": ["title", "url", "relation"],
       "properties": {
         "title": {
           "type": "string",
@@ -518,11 +444,7 @@
     "source": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "provider",
-        "url",
-        "attribution_label"
-      ],
+      "required": ["provider", "url", "attribution_label"],
       "properties": {
         "provider": {
           "type": "string",

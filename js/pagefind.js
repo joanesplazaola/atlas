@@ -2,11 +2,11 @@
 
 /* ─── Works search modal (Pagefind) ─────────────────────────────── */
 
-const worksModal    = document.querySelector("#works-search-modal");
-const openWorksBtn  = document.querySelector("#open-works-search");
-const closeWorksBtn = document.querySelector("#close-works-search");
-const modalOverlay  = document.querySelector("#works-modal-overlay");
-let pagefindLoaded  = false;
+const worksModal = /** @type {HTMLElement} */ (document.querySelector("#works-search-modal"));
+const openWorksBtn = /** @type {HTMLElement} */ (document.querySelector("#open-works-search"));
+const closeWorksBtn = /** @type {HTMLElement} */ (document.querySelector("#close-works-search"));
+const modalOverlay = /** @type {HTMLElement} */ (document.querySelector("#works-modal-overlay"));
+let pagefindLoaded = false;
 
 async function openWorksSearch() {
   worksModal.hidden = false;
@@ -15,10 +15,8 @@ async function openWorksSearch() {
   if (!pagefindLoaded) {
     pagefindLoaded = true;
     try {
-      const [{ PagefindUI }, _css] = await Promise.all([
-        import("../pagefind/pagefind-ui.js"),
-        loadPagefindCSS(),
-      ]);
+      const pagefindUrl = "../pagefind/pagefind-ui.js";
+      const [{ PagefindUI }, _css] = await Promise.all([import(pagefindUrl), loadPagefindCSS()]);
       new PagefindUI({
         element: "#pagefind-search-ui",
         showImages: false,
@@ -35,21 +33,21 @@ async function openWorksSearch() {
         },
       });
       // Auto-focus search input
-      const pfInput = worksModal.querySelector("input[type=text]");
+      const pfInput = /** @type {HTMLElement | null} */ (worksModal.querySelector("input[type=text]"));
       if (pfInput) pfInput.focus();
-    } catch (err) {
+    } catch {
       document.querySelector("#pagefind-search-ui").innerHTML =
         `<p class="empty-state">No se pudo cargar la búsqueda de obras. Asegúrate de ejecutar <code>npm run build</code> primero.</p>`;
     }
   } else {
-    const pfInput = worksModal.querySelector("input[type=text]");
+    const pfInput = /** @type {HTMLElement | null} */ (worksModal.querySelector("input[type=text]"));
     if (pfInput) pfInput.focus();
   }
 }
 
 function loadPagefindCSS() {
   if (document.querySelector('link[href*="pagefind-ui"]')) return Promise.resolve();
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     const link = document.createElement("link");
     link.rel = "stylesheet";
     link.href = "../pagefind/pagefind-ui.css";
@@ -68,4 +66,6 @@ function closeWorksSearch() {
 openWorksBtn.addEventListener("click", openWorksSearch);
 closeWorksBtn.addEventListener("click", closeWorksSearch);
 modalOverlay.addEventListener("click", closeWorksSearch);
-worksModal.addEventListener("keydown", e => { if (e.key === "Escape") closeWorksSearch(); });
+worksModal.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeWorksSearch();
+});

@@ -7,7 +7,9 @@
   overflow: hidden;
 }
 
-.map-view[hidden] { display: none; }
+.map-view[hidden] {
+  display: none;
+}
 
 .map-header {
   flex-shrink: 0;
@@ -19,7 +21,7 @@
   gap: 16px;
   flex-wrap: wrap;
   background: var(--map-header-bg);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
 }
 
 .map-header__controls {
@@ -47,7 +49,7 @@
   display: flex;
   align-items: center;
   gap: 2px;
-  background: rgba(255,255,255,0.06);
+  background: rgba(255, 255, 255, 0.06);
   border: 1px solid var(--border);
   border-radius: 6px;
   overflow: hidden;
@@ -66,11 +68,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 120ms, color 120ms;
+  transition:
+    background 120ms,
+    color 120ms;
 }
 
 .map-zoom-btn:hover {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
   color: var(--text);
 }
 
@@ -108,7 +112,7 @@
   position: relative;
   overflow: hidden;
   cursor: grab;
-  background-image: radial-gradient(rgba(255,255,255,0.045) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px);
   background-size: 28px 28px;
 }
 
@@ -137,15 +141,18 @@
 /* Edges */
 .map-edge {
   fill: none;
-  stroke: rgba(255,255,255,0.16);
+  stroke: rgba(255, 255, 255, 0.16);
   stroke-width: 1.5;
-  transition: stroke 200ms, stroke-width 200ms, opacity 200ms;
+  transition:
+    stroke 200ms,
+    stroke-width 200ms,
+    opacity 200ms;
 }
 
 .map-edge--active {
-  stroke: rgba(232,82,74,0.55);
+  stroke: rgba(232, 82, 74, 0.55);
   stroke-width: 2.5;
-  filter: drop-shadow(0 0 4px rgba(232,82,74,0.3));
+  filter: drop-shadow(0 0 4px rgba(232, 82, 74, 0.3));
 }
 
 .map-edge--dim {
@@ -157,7 +164,9 @@
   position: absolute;
   transform: translate(-50%, -50%);
   cursor: pointer;
-  transition: transform 150ms ease, opacity 200ms;
+  transition:
+    transform 150ms ease,
+    opacity 200ms;
   z-index: 1;
 }
 
@@ -168,7 +177,9 @@
   outline: none;
 }
 
-.map-node--dim { opacity: 0.2; }
+.map-node--dim {
+  opacity: 0.2;
+}
 
 .map-node__inner {
   width: var(--node-w, 158px);
@@ -177,8 +188,13 @@
   border: 1px solid var(--border-strong);
   border-top: 3px solid var(--cat-color, #999);
   border-radius: var(--radius);
-  box-shadow: 0 4px 24px rgba(0,0,0,0.6), 0 1px 4px rgba(0,0,0,0.35);
-  transition: background 150ms, border-color 150ms, box-shadow 150ms;
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.6),
+    0 1px 4px rgba(0, 0, 0, 0.35);
+  transition:
+    background 150ms,
+    border-color 150ms,
+    box-shadow 150ms;
   user-select: none;
 }
 
@@ -187,7 +203,10 @@
   background: var(--surface-raise);
   border-color: var(--cat-color, #999);
   border-top-color: var(--cat-color, #999);
-  box-shadow: 0 0 0 1px var(--cat-color, #999), 0 8px 40px rgba(0,0,0,0.65), 0 0 20px rgba(0,0,0,0.2);
+  box-shadow:
+    0 0 0 1px var(--cat-color, #999),
+    0 8px 40px rgba(0, 0, 0, 0.65),
+    0 0 20px rgba(0, 0, 0, 0.2);
 }
 
 .map-node__header {
@@ -227,4 +246,3 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-

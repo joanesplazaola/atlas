@@ -35,17 +35,17 @@
   "key_authors": [
     {
       "id": "marx-karl",
-      "role": "organizacion de clase y critica de la explotacion",
+      "role": "organización de clase y crítica de la explotación",
       "why_relevant": "Sitúa el movimiento obrero en la relación entre explotación capitalista, organización colectiva y horizonte político propio."
     },
     {
       "id": "engels-friedrich",
-      "role": "descripcion de la condicion obrera y del asociacionismo",
+      "role": "descripción de la condición obrera y del asociacionismo",
       "why_relevant": "Ofrece un retrato decisivo de la clase obrera moderna y de las condiciones que hacen necesaria su organización."
     },
     {
       "id": "gramsci-antonio",
-      "role": "relacion entre organizacion, hegemonia y direccion politica",
+      "role": "relación entre organización, hegemonía y dirección política",
       "why_relevant": "Ayuda a pensar cómo sindicatos, partido y cultura se articulan en la formación de una fuerza obrera dirigente."
     },
     {
@@ -55,12 +55,12 @@
     },
     {
       "id": "zetkin-clara",
-      "role": "cuestion de la mujer y el movimiento obrero",
+      "role": "cuestión de la mujer y el movimiento obrero",
       "why_relevant": "Desarrolló el análisis marxista de la opresión de la mujer como cuestión de clase, integrando la lucha de las trabajadoras en el movimiento obrero socialista."
     },
     {
       "id": "kollontai-alexandra",
-      "role": "emancipacion de la mujer y reorganizacion de la vida colectiva",
+      "role": "emancipación de la mujer y reorganización de la vida colectiva",
       "why_relevant": "Teorizó cómo la emancipación femenina requería transformar no solo el trabajo sino la vida doméstica, la familia y la moral desde una perspectiva socialista."
     }
   ],
@@ -240,14 +240,6 @@
     }
   ],
   "related_editorial_articles": [],
-  "source_policy": {
-    "primary_source_name": "Marxists Internet Archive",
-    "link_only": true,
-    "allow_excerpt": true,
-    "excerpt_max_words": 120,
-    "attribution_required": true,
-    "notes": "Esta ficha funciona como orientacion editorial. No debe republicar textos completos ni reemplazar la lectura de las obras enlazadas."
-  },
   "related_themes": [
     "partido",
     "vivienda",

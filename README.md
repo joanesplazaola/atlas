@@ -15,10 +15,16 @@ contra JSON Schema y la búsqueda usa [Pagefind](https://pagefind.app/).
 ## Comandos
 
 ```bash
-npm ci            # instalar dependencias
-npm run validate  # validar fichas y obras (estructura + integridad referencial)
-npm run build     # genera el índice de búsqueda (pagefind/) y el índice ligero
-npm test          # build + suite Playwright
+npm ci                # instalar dependencias
+npm run validate      # validar fichas y obras (estructura + integridad referencial)
+npm run build         # genera el índice de búsqueda (pagefind/) y el índice ligero
+npm test              # build + suite Playwright
+
+# Calidad de código
+npm run lint          # ESLint
+npm run format        # Prettier (escribe)
+npm run format:check  # Prettier (comprueba, para CI)
+npm run typecheck     # TypeScript sobre el JS (tsc --noEmit)
 ```
 
 `npm run build` ejecuta la validación antes de construir (`prebuild`), y `npm test`
@@ -68,6 +74,8 @@ tests/                    Tests end-to-end (Playwright)
   que el nombre del archivo coincida con su `id`/`slug`.
 - **Integridad referencial**: el validador comprueba que cada `work_id`, `author_id` y
   tema relacionado existan, que los ids sean únicos y que ninguna obra quede huérfana.
+- **`source_policy` es global**: se define una sola vez en `content/themes/index.json`.
+  Una ficha puede sobrescribirlo opcionalmente (el esquema ya no lo exige).
 
 ### Archivos generados (no versionados)
 
@@ -89,6 +97,15 @@ antes de publicar.
    de archivo que no coinciden. Corrige y vuelve a ejecutar.
 
 El validador también avisa (sin fallar) de obras no incluidas en ninguna ficha.
+
+## Calidad de código
+
+- **ESLint** (flat config) + **Prettier** + **EditorConfig** fijan el estilo.
+- **TypeScript** comprueba los módulos JS con `checkJs` y JSDoc (`tsconfig.json`).
+- CI ejecuta `lint`, `format:check` y `typecheck` en el job `code-quality`.
+
+Se recomienda activar «format on save» con Prettier en el editor. `content/` queda fuera
+de Prettier: su formato lo gobierna el validador.
 
 ## Tests
 

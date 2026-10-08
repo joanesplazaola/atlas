@@ -5,7 +5,9 @@
   border-bottom: 1px solid var(--border);
   background: var(--topbar-bg);
   backdrop-filter: blur(12px);
-  box-shadow: 0 1px 0 rgba(232,82,74,0.10), 0 4px 16px rgba(0,0,0,0.25);
+  box-shadow:
+    0 1px 0 rgba(232, 82, 74, 0.1),
+    0 4px 16px rgba(0, 0, 0, 0.25);
 }
 
 .topbar__inner {
@@ -58,10 +60,16 @@
   padding: 5px 14px;
   font-size: 0.85rem;
   font-weight: 500;
-  transition: background 120ms, color 120ms, border-color 120ms;
+  transition:
+    background 120ms,
+    color 120ms,
+    border-color 120ms;
 }
 
-.topbar__nav-btn:hover { color: var(--text); background: var(--surface-hover); }
+.topbar__nav-btn:hover {
+  color: var(--text);
+  background: var(--surface-hover);
+}
 
 .topbar__nav-btn--active {
   background: var(--accent-dim);
@@ -75,7 +83,11 @@
   display: none;
 }
 
-@media (min-width: 640px) { .topbar__claim { display: block; } }
+@media (min-width: 640px) {
+  .topbar__claim {
+    display: block;
+  }
+}
 
 /* ─── App shell ───────────────────────────────────────────────── */
 .app {
@@ -89,7 +101,9 @@
   margin: 0 auto;
 }
 
-.app[hidden] { display: none; }
+.app[hidden] {
+  display: none;
+}
 
 /* ─── Sidebar ─────────────────────────────────────────────────── */
 .sidebar {
@@ -132,7 +146,9 @@
   border-color: var(--accent);
 }
 
-#search-input::placeholder { color: var(--text-dim); }
+#search-input::placeholder {
+  color: var(--text-dim);
+}
 
 .sidebar__meta {
   flex-shrink: 0;
@@ -184,7 +200,9 @@
   font-size: 1rem;
 }
 
-.filter-pill button:hover { color: var(--accent); }
+.filter-pill button:hover {
+  color: var(--accent);
+}
 
 /* ─── Theme list ──────────────────────────────────────────────── */
 .theme-list {
@@ -204,11 +222,15 @@
   border-radius: var(--radius);
   padding: 14px 16px;
   color: var(--text);
-  transition: background 120ms, border-color 120ms;
+  transition:
+    background 120ms,
+    border-color 120ms;
   position: relative;
 }
 
-.theme-card + .theme-card { margin-top: 2px; }
+.theme-card + .theme-card {
+  margin-top: 2px;
+}
 
 .theme-card:hover {
   background: var(--surface-hover);
@@ -272,7 +294,10 @@
 }
 
 button.chip {
-  transition: background 100ms, border-color 100ms, color 100ms;
+  transition:
+    background 100ms,
+    border-color 100ms,
+    color 100ms;
 }
 
 button.chip:hover,
@@ -294,4 +319,3 @@ button.chip:focus-visible {
   color: var(--text-dim);
   font-size: 0.88rem;
 }
-
